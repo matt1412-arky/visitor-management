@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="col-xl-6 col-lg-12">
+    <div class="col-xl-6 col-lg-12 mx-auto">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Horizontal Form</h4>
