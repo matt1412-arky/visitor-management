@@ -12,44 +12,62 @@
 </head>
 
 <body>
-    <div class="authincation h-100">
-        <div class="container h-100">
+    <div class="authincation h-100 ">
+        <div class="container h-100 my-auto">
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-6">
                     <div class="authincation-content">
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                    <div class="text-center mb-3">
-                                        <a href="index.html"><img src="images/logo-full.png" alt=""></a>
-                                    </div>
                                     <h4 class="text-center mb-4">Sign in your account</h4>
-                                    <form action="index.html">
+                                    <div class="text-center mb-3">
+                                        <a href="#" class="">
+                                            <img src="{{ asset('support/images/avatar/login-b7.jpg') }}" width="300"
+                                                height="" alt="logo bintang toejoe">
+                                        </a>
+                                    </div>
+
+                                    <form class="form-valide-with-icon needs-validation" novalidate=""
+                                        action="{{ url('dashboard-page') }}">
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" value="hello@example.com">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" value="Password">
-                                        </div>
-                                        <div class="row d-flex justify-content-between mt-4 mb-2">
-                                            <div class="mb-3">
-                                                <div class="form-check custom-checkbox ms-1">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="basic_checkbox_1">
-                                                    <label class="form-check-label" for="basic_checkbox_1">Remember my
-                                                        preference</label>
+                                            <label class="text-label form-label"
+                                                for="validationCustomUsername">Username</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                                <input type="text" class="form-control" id="validationCustomUsername"
+                                                    placeholder="Enter a username.." required="">
+                                                <div class="invalid-feedback">
+                                                    Please Enter a username.
                                                 </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <a href="page-forgot-password.html">Forgot Password?</a>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="text-label form-label" for="dlab-password">Password *</label>
+                                            <div class="input-group transparent-append">
+                                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                                <input type="password" class="form-control" id="dlab-password"
+                                                    placeholder="Choose a safe one.." required="">
+                                                <span class="input-group-text show-pass">
+                                                    <i class="fa fa-eye-slash"></i>
+                                                    <i class="fa fa-eye"></i>
+                                                </span>
+                                                <div class="invalid-feedback">
+                                                    Please Enter a username.
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="text-center">
-                                            <a type="submit" href="{{ route('dashboard-page') }}"
-                                                class="btn btn-info btn-block">Sign Me In</a>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="invalidCheck2" required="">
+                                                <label class="form-check-label" for="invalidCheck2">
+                                                    Check Me out
+                                                </label>
+                                            </div>
                                         </div>
+                                        <button type="submit" class="btn me-2 btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-light">cencel</button>
                                     </form>
                                     <div class="new-account mt-3">
                                         <p>Don't have an account? <a class="text-primary" href="page-register.html">Sign
