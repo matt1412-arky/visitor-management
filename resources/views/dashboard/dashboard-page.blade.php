@@ -1,53 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta name="robots" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template" />
-    <meta property="og:title" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template" />
-    <meta property="og:description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template" />
-    <meta property="og:image" content="https:/fillow.dexignlab.com/xhtml/social-image.png" />
-    <meta name="format-detection" content="telephone=no" />
-
-    <!-- PAGE TITLE HERE -->
-    <title>Admin Dashboard</title>
-
-    <!-- FAVICONS ICON -->
-    <link rel="support/shortcut icon" type="image/png" href="support/images/favicon.png" />
-    <link href="support/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet" />
-    <link href="support/vendor/owl-carousel/owl.carousel.css" rel="stylesheet" />
-    <link rel="stylesheet" href="support/vendor/nouislider/nouislider.min.css" />
-
-    <!-- Style css -->
-    <link href="support/css/style.css" rel="stylesheet" />
-</head>
-
-<body>
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="lds-ripple">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
+@extends('layout.apps')
+@section('title', 'Dashboard Admin')
+@section('content')
+    <!--Main wrapper start-->
     <div id="main-wrapper">
         <!--**********************************
-            Nav header start
-        ***********************************-->
+                                    Nav header start
+                                ***********************************-->
         <div class="nav-header">
             <a href="index.html" class="brand-logo">
                 <svg class="logo-abbr" width="55" height="55" viewbox="0 0 55 55" fill="none"
@@ -69,12 +27,12 @@
             </div>
         </div>
         <!--**********************************
-            Nav header end
-        ***********************************-->
+                                    Nav header end
+                                ***********************************-->
 
         <!--**********************************
-            Chat box start
-        ***********************************-->
+                                    Chat box start
+                                ***********************************-->
         <div class="chatbox">
             <div class="chatbox-close"></div>
             <div class="custom-tab-1">
@@ -97,12 +55,12 @@
                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
                                         viewbox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect fill="#000000" x="4" y="11" width="16"
-                                                height="2" rx="1"></rect>
+                                            <rect fill="#000000" x="4" y="11" width="16" height="2"
+                                                rx="1"></rect>
                                             <rect fill="#000000" opacity="0.3"
                                                 transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) "
-                                                x="4" y="11" width="16" height="2"
-                                                rx="1"></rect>
+                                                x="4" y="11" width="16" height="2" rx="1">
+                                            </rect>
                                         </g>
                                     </svg></a>
                                 <div>
@@ -371,10 +329,9 @@
                                     <p class="mb-0 text-success">Online</p>
                                 </div>
                                 <div class="dropdown">
-                                    <a href="javascript:void(0);" data-bs-toggle="dropdown"
-                                        aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
-                                            viewbox="0 0 24 24" version="1.1">
+                                    <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"><svg
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="18px" height="18px" viewbox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24">
                                                 </rect>
@@ -713,8 +670,7 @@
                                                 <p>10 Aug 2020</p>
                                             </div>
                                             <div class="ms-auto">
-                                                <a href="javascript:void(0);"
-                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
                                                         class="fa fa-trash"></i></a>
@@ -730,8 +686,7 @@
                                                 <p>10 Aug 2020</p>
                                             </div>
                                             <div class="ms-auto">
-                                                <a href="javascript:void(0);"
-                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
                                                         class="fa fa-trash"></i></a>
@@ -746,8 +701,7 @@
                                                 <p>10 Aug 2020</p>
                                             </div>
                                             <div class="ms-auto">
-                                                <a href="javascript:void(0);"
-                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
                                                         class="fa fa-trash"></i></a>
@@ -761,8 +715,7 @@
                                                 <p>10 Aug 2020</p>
                                             </div>
                                             <div class="ms-auto">
-                                                <a href="javascript:void(0);"
-                                                    class="btn btn-primary btn-xs sharp me-1"><i
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i
                                                         class="fa fa-trash"></i></a>
@@ -777,12 +730,12 @@
             </div>
         </div>
         <!--**********************************
-            Chat box End
-        ***********************************-->
+                                    Chat box End
+                                ***********************************-->
 
         <!--**********************************
-            Header start
-        ***********************************-->
+                                    Header start
+                                ***********************************-->
         <div class="header border-bottom">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
@@ -810,8 +763,7 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="javascript:void(0);" role="button"
-                                    data-bs-toggle="dropdown">
+                                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                                     <svg width="28" height="28" viewbox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -830,8 +782,7 @@
                                             <li>
                                                 <div class="timeline-panel">
                                                     <div class="media me-2">
-                                                        <img alt="image" width="50"
-                                                            src="images/avatar/1.jpg" />
+                                                        <img alt="image" width="50" src="images/avatar/1.jpg" />
                                                     </div>
                                                     <div class="media-body">
                                                         <h6 class="mb-1">
@@ -876,8 +827,7 @@
                                             <li>
                                                 <div class="timeline-panel">
                                                     <div class="media me-2">
-                                                        <img alt="image" width="50"
-                                                            src="images/avatar/1.jpg" />
+                                                        <img alt="image" width="50" src="images/avatar/1.jpg" />
                                                     </div>
                                                     <div class="media-body">
                                                         <h6 class="mb-1">
@@ -1040,9 +990,9 @@
                             </li>
 
                             <li class="nav-item dropdown header-profile">
-                                <a class="nav-link" href="javascript:void(0);" role="button"
-                                    data-bs-toggle="dropdown">
-                                    <img src="images/user.jpg" width="56" alt="" />
+                                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                                    <img src="{{ asset('support/images/avatar/logo-b7.jpeg') }}" width="56"
+                                        alt="" />
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a href="app-profile.html" class="dropdown-item ai-icon">
@@ -1087,12 +1037,12 @@
             </div>
         </div>
         <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
+                                    Header end ti-comment-alt
+                                ***********************************-->
 
         <!--**********************************
-            Sidebar start
-        ***********************************-->
+                                    Sidebar start
+                                ***********************************-->
         <div class="dlabnav">
             <div class="dlabnav-scroll">
                 <ul class="metismenu" id="menu">
@@ -1205,12 +1155,8 @@
                                 <a href="chart-chartjs.html">Chartjs</a>
                             </li>
                             <li>
-                                <a href="chart-chartist.html">Chartist</a>
+                                <a href="{{ route('registrasi') }}">Form Registrasi</a>
                             </li>
-                            <li>
-                                <a href="chart-sparkline.html">Sparkline</a>
-                            </li>
-                            <li><a href="chart-peity.html">Peity</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1350,49 +1296,18 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="side-bar-profile">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <div class="side-bar-profile-img">
-                            <img src="images/user.jpg" alt="" />
-                        </div>
-                        <div class="profile-info1">
-                            <h4 class="fs-18 font-w500">Soeng Souy</h4>
-                            <span>example@mail.com</span>
-                        </div>
-                        <div class="profile-button">
-                            <i class="fas fa-caret-down scale5 text-light"></i>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between mb-2 progress-info">
-                        <span class="fs-12"><i class="fas fa-star text-orange me-2"></i>Task Progress</span>
-                        <span class="fs-12">20/45</span>
-                    </div>
-                    <div class="progress default-progress">
-                        <div class="progress-bar bg-gradientf progress-animated" style="width: 45%; height: 10px"
-                            role="progressbar">
-                            <span class="sr-only">45% Complete</span>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="copyright">
-                    <p>
-                        <strong>Fillow Saas Admin</strong> © 2021 All Rights
-                        Reserved
-                    </p>
-                    <p class="fs-12">
-                        Made with <span class="heart"></span> by DexignLabs
-                    </p>
-                </div>
+
+
             </div>
         </div>
         <!--**********************************
-            Sidebar end
-        ***********************************-->
+                                    Sidebar end
+                                ***********************************-->
 
         <!--**********************************
-            Content body start
-        ***********************************-->
+                                    Content body start
+                                ***********************************-->
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
@@ -1437,12 +1352,12 @@
                                                                     href="#monthly" role="tab">Monthly</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" data-bs-toggle="tab"
-                                                                    href="#Weekly" role="tab">Weekly</a>
+                                                                <a class="nav-link" data-bs-toggle="tab" href="#Weekly"
+                                                                    role="tab">Weekly</a>
                                                             </li>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" data-bs-toggle="tab"
-                                                                    href="#Today" role="tab">Today</a>
+                                                                <a class="nav-link" data-bs-toggle="tab" href="#Today"
+                                                                    role="tab">Today</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1450,26 +1365,23 @@
                                                         <div class="btn-link" data-bs-toggle="dropdown">
                                                             <svg width="24" height="24" viewbox="0 0 24 24"
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <circle cx="12.4999" cy="3.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="11.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="19.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="3.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="11.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="19.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item"
-                                                                href="javascript:void(0)">Delete</a>
-                                                            <a class="dropdown-item"
-                                                                href="javascript:void(0)">Edit</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Delete</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Edit</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center flex-wrap">
+                                                <div class="d-flex justify-content-between align-items-center flex-wrap">
                                                     <div class="d-flex">
                                                         <div
                                                             class="d-inline-block position-relative donut-chart-sale mb-3">
@@ -1487,9 +1399,8 @@
                                                     <div class="d-flex">
                                                         <div class="d-flex me-5">
                                                             <div class="mt-2">
-                                                                <svg width="13" height="13"
-                                                                    viewbox="0 0 13 13" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                <svg width="13" height="13" viewbox="0 0 13 13"
+                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <circle cx="6.5" cy="6.5"
                                                                         r="6.5" fill="#FFCF6D"></circle>
                                                                 </svg>
@@ -1504,9 +1415,8 @@
                                                         </div>
                                                         <div class="d-flex">
                                                             <div class="mt-2">
-                                                                <svg width="13" height="13"
-                                                                    viewbox="0 0 13 13" fill="none"
-                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                <svg width="13" height="13" viewbox="0 0 13 13"
+                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <circle cx="6.5" cy="6.5"
                                                                         r="6.5" fill="#FFA7D7"></circle>
                                                                 </svg>
@@ -1515,8 +1425,7 @@
                                                                 <h4 class="fs-24 font-w700">
                                                                     28
                                                                 </h4>
-                                                                <span
-                                                                    class="fs-16 font-w400 d-block">Unfinished</span>
+                                                                <span class="fs-16 font-w400 d-block">Unfinished</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1568,8 +1477,7 @@
                                                         </svg>
                                                     </div>
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item"
-                                                            href="javascript:void(0)">Delete</a>
+                                                        <a class="dropdown-item" href="javascript:void(0)">Delete</a>
                                                         <a class="dropdown-item" href="javascript:void(0)">Edit</a>
                                                     </div>
                                                 </div>
@@ -1634,8 +1542,7 @@
                                                 <div class="d-flex justify-content-between recent-emails">
                                                     <div class="d-flex">
                                                         <div class="profile-k">
-                                                            <img src="images/profile/small/pic6.jpg"
-                                                                alt="" />
+                                                            <img src="images/profile/small/pic6.jpg" alt="" />
                                                         </div>
                                                         <div class="ms-3">
                                                             <h4 class="fs-18 font-w500">
@@ -1711,8 +1618,7 @@
                                                 <div class="d-flex justify-content-between recent-emails">
                                                     <div class="d-flex">
                                                         <div class="profile-k">
-                                                            <img src="images/profile/small/pic8.jpg"
-                                                                alt="" />
+                                                            <img src="images/profile/small/pic8.jpg" alt="" />
                                                         </div>
                                                         <div class="ms-3">
                                                             <h4 class="fs-18 font-w500">
@@ -1791,9 +1697,9 @@
                                                         <div class="progress default-progress">
                                                             <div class="progress-bar bg-gradient1 progress-animated"
                                                                 style="
-                                                                        width: 40%;
-                                                                        height: 10px;
-                                                                    "
+                                                                    width: 40%;
+                                                                    height: 10px;
+                                                                "
                                                                 role="progressbar">
                                                                 <span class="sr-only">45%
                                                                     Complete</span>
@@ -1961,9 +1867,8 @@
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between mb-4">
                                                                 <span class="fs-18 font-w500">
-                                                                    <svg class="me-3" width="20"
-                                                                        height="20" viewbox="0 0 20 20"
-                                                                        fill="none"
+                                                                    <svg class="me-3" width="20" height="20"
+                                                                        viewbox="0 0 20 20" fill="none"
                                                                         xmlns="http://www.w3.org/2000/svg">
                                                                         <rect width="20" height="20"
                                                                             rx="6" fill="#886CC0"></rect>
@@ -1976,9 +1881,8 @@
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between mb-4">
                                                                 <span class="fs-18 font-w500">
-                                                                    <svg class="me-3" width="20"
-                                                                        height="20" viewbox="0 0 20 20"
-                                                                        fill="none"
+                                                                    <svg class="me-3" width="20" height="20"
+                                                                        viewbox="0 0 20 20" fill="none"
                                                                         xmlns="http://www.w3.org/2000/svg">
                                                                         <rect width="20" height="20"
                                                                             rx="6" fill="#26E023"></rect>
@@ -1991,9 +1895,8 @@
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between mb-4">
                                                                 <span class="fs-18 font-w500">
-                                                                    <svg class="me-3" width="20"
-                                                                        height="20" viewbox="0 0 20 20"
-                                                                        fill="none"
+                                                                    <svg class="me-3" width="20" height="20"
+                                                                        viewbox="0 0 20 20" fill="none"
                                                                         xmlns="http://www.w3.org/2000/svg">
                                                                         <rect width="20" height="20"
                                                                             rx="6" fill="#61CFF1"></rect>
@@ -2006,9 +1909,8 @@
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between mb-4">
                                                                 <span class="fs-18 font-w500">
-                                                                    <svg class="me-3" width="20"
-                                                                        height="20" viewbox="0 0 20 20"
-                                                                        fill="none"
+                                                                    <svg class="me-3" width="20" height="20"
+                                                                        viewbox="0 0 20 20" fill="none"
                                                                         xmlns="http://www.w3.org/2000/svg">
                                                                         <rect width="20" height="20"
                                                                             rx="6" fill="#FFDA7C"></rect>
@@ -2021,9 +1923,8 @@
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between mb-4">
                                                                 <span class="fs-18 font-w500">
-                                                                    <svg class="me-3" width="20"
-                                                                        height="20" viewbox="0 0 20 20"
-                                                                        fill="none"
+                                                                    <svg class="me-3" width="20" height="20"
+                                                                        viewbox="0 0 20 20" fill="none"
                                                                         xmlns="http://www.w3.org/2000/svg">
                                                                         <rect width="20" height="20"
                                                                             rx="6" fill="#FF86B1"></rect>
@@ -2061,8 +1962,7 @@
                                                                 class="d-flex align-items-center justify-content-between">
                                                                 <div class="d-flex align-items-center">
                                                                     <span class="big-wind">
-                                                                        <img src="images/big-wind.png"
-                                                                            alt="" />
+                                                                        <img src="images/big-wind.png" alt="" />
                                                                     </span>
                                                                     <div class="ms-3">
                                                                         <h4>
@@ -2114,9 +2014,9 @@
                                                                 <div class="progress default-progress">
                                                                     <div class="progress-bar bg-gradient1 progress-animated"
                                                                         style="
-                                                                                width: 45%;
-                                                                                height: 10px;
-                                                                            "
+                                                                            width: 45%;
+                                                                            height: 10px;
+                                                                        "
                                                                         role="progressbar">
                                                                         <span class="sr-only">45%
                                                                             Complete</span>
@@ -2191,9 +2091,9 @@
                                                                 <div class="progress default-progress">
                                                                     <div class="progress-bar bg-gradient1 progress-animated"
                                                                         style="
-                                                                                width: 45%;
-                                                                                height: 10px;
-                                                                            "
+                                                                            width: 45%;
+                                                                            height: 10px;
+                                                                        "
                                                                         role="progressbar">
                                                                         <span class="sr-only">45%
                                                                             Complete</span>
@@ -2240,8 +2140,7 @@
                                                 <div class="msg-bx d-flex justify-content-between align-items-center">
                                                     <div class="msg d-flex align-items-center w-100">
                                                         <div class="image-box active">
-                                                            <img src="images/profile/small/pic6.jpg"
-                                                                alt="" />
+                                                            <img src="images/profile/small/pic6.jpg" alt="" />
                                                         </div>
                                                         <div class="ms-3 w-100">
                                                             <h4 class="fs-18 font-w600">
@@ -2263,27 +2162,25 @@
                                                         <div class="btn-link" data-bs-toggle="dropdown">
                                                             <svg width="24" height="24" viewbox="0 0 24 24"
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <circle cx="12.4999" cy="3.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="11.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="19.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="3.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="11.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="19.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item"
                                                                 href="javascript:void(0)">Delete</a>
-                                                            <a class="dropdown-item"
-                                                                href="javascript:void(0)">Edit</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Edit</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="msg-bx d-flex justify-content-between align-items-center">
                                                     <div class="msg d-flex align-items-center w-100">
                                                         <div class="image-box">
-                                                            <img src="images/profile/small/pic7.jpg"
-                                                                alt="" />
+                                                            <img src="images/profile/small/pic7.jpg" alt="" />
                                                         </div>
                                                         <div class="ms-3 w-100">
                                                             <h4 class="fs-18 font-w600">
@@ -2307,27 +2204,25 @@
                                                         <div class="btn-link" data-bs-toggle="dropdown">
                                                             <svg width="24" height="24" viewbox="0 0 24 24"
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <circle cx="12.4999" cy="3.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="11.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="19.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="3.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="11.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="19.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item"
                                                                 href="javascript:void(0)">Delete</a>
-                                                            <a class="dropdown-item"
-                                                                href="javascript:void(0)">Edit</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Edit</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="msg-bx d-flex justify-content-between align-items-center">
                                                     <div class="msg d-flex align-items-center w-100">
                                                         <div class="image-box active">
-                                                            <img src="images/profile/small/pic4.jpg"
-                                                                alt="" />
+                                                            <img src="images/profile/small/pic4.jpg" alt="" />
                                                         </div>
                                                         <div class="ms-3 w-100">
                                                             <h4 class="fs-18 font-w600">
@@ -2352,27 +2247,25 @@
                                                         <div class="btn-link" data-bs-toggle="dropdown">
                                                             <svg width="24" height="24" viewbox="0 0 24 24"
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <circle cx="12.4999" cy="3.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="11.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="19.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="3.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="11.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="19.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item"
                                                                 href="javascript:void(0)">Delete</a>
-                                                            <a class="dropdown-item"
-                                                                href="javascript:void(0)">Edit</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Edit</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="msg-bx d-flex justify-content-between align-items-center">
                                                     <div class="msg d-flex align-items-center w-100">
                                                         <div class="image-box active">
-                                                            <img src="images/profile/small/pic3.jpg"
-                                                                alt="" />
+                                                            <img src="images/profile/small/pic3.jpg" alt="" />
                                                         </div>
                                                         <div class="ms-3 w-100">
                                                             <h4 class="fs-18 font-w600">
@@ -2398,27 +2291,25 @@
                                                         <div class="btn-link" data-bs-toggle="dropdown">
                                                             <svg width="24" height="24" viewbox="0 0 24 24"
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <circle cx="12.4999" cy="3.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="11.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="19.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="3.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="11.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="19.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item"
                                                                 href="javascript:void(0)">Delete</a>
-                                                            <a class="dropdown-item"
-                                                                href="javascript:void(0)">Edit</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Edit</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="msg-bx d-flex justify-content-between align-items-center">
                                                     <div class="msg d-flex align-items-center w-100">
                                                         <div class="image-box active">
-                                                            <img src="images/profile/small/pic5.jpg"
-                                                                alt="" />
+                                                            <img src="images/profile/small/pic5.jpg" alt="" />
                                                         </div>
                                                         <div class="ms-3 w-100">
                                                             <h4 class="fs-18 font-w600">
@@ -2443,19 +2334,18 @@
                                                         <div class="btn-link" data-bs-toggle="dropdown">
                                                             <svg width="24" height="24" viewbox="0 0 24 24"
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <circle cx="12.4999" cy="3.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="11.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
-                                                                <circle cx="12.4999" cy="19.5"
-                                                                    r="2.5" fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="3.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="11.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
+                                                                <circle cx="12.4999" cy="19.5" r="2.5"
+                                                                    fill="#A5A5A5"></circle>
                                                             </svg>
                                                         </div>
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item"
                                                                 href="javascript:void(0)">Delete</a>
-                                                            <a class="dropdown-item"
-                                                                href="javascript:void(0)">Edit</a>
+                                                            <a class="dropdown-item" href="javascript:void(0)">Edit</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2470,12 +2360,12 @@
             </div>
         </div>
         <!--**********************************
-            Content body end
-        ***********************************-->
+                                    Content body end
+                                ***********************************-->
 
         <!--**********************************
-            Footer start
-        ***********************************-->
+                                    Footer start
+                                ***********************************-->
         <div class="footer">
             <div class="copyright">
                 <p>
@@ -2486,90 +2376,16 @@
             </div>
         </div>
         <!--**********************************
-            Footer end
-        ***********************************-->
+                                    Footer end
+                                ***********************************-->
 
         <!--**********************************
-           Support ticket button start
-        ***********************************-->
+                                   Support ticket button start
+                                ***********************************-->
 
         <!--**********************************
-           Support ticket button end
-        ***********************************-->
+                                   Support ticket button end
+                                ***********************************-->
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
-    <script src="support/vendor/global/global.min.js"></script>
-    <script src="support/vendor/chart.js/Chart.bundle.min.js"></script>
-    <script src="support/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
-
-    <!-- Apex Chart -->
-    <script src="support/vendor/apexchart/apexchart.js"></script>
-
-    <script src="support/vendor/chart.js/Chart.bundle.min.js"></script>
-
-    <!-- Chart piety plugin files -->
-    <script src="support/vendor/peity/jquery.peity.min.js"></script>
-    <!-- Dashboard 1 -->
-    <script src="support/js/dashboard/dashboard-1.js"></script>
-
-    <script src="support/vendor/owl-carousel/owl.carousel.js"></script>
-
-    <script src="support/js/custom.min.js"></script>
-    <script src="support/js/dlabnav-init.js"></script>
-    <script src="support/js/demo.js"></script>
-    <script src="support/js/styleSwitcher.js"></script>
-    <script>
-        function cardsCenter() {
-            /*  testimonial one function by = owl.carousel.js */
-
-            jQuery(".card-slider").owlCarousel({
-                loop: true,
-                margin: 0,
-                nav: true,
-                //center:true,
-                slideSpeed: 3000,
-                paginationSpeed: 3000,
-                dots: true,
-                navText: [
-                    '<i class="fas fa-arrow-left"></i>',
-                    '<i class="fas fa-arrow-right"></i>',
-                ],
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    576: {
-                        items: 1,
-                    },
-                    800: {
-                        items: 1,
-                    },
-                    991: {
-                        items: 1,
-                    },
-                    1200: {
-                        items: 1,
-                    },
-                    1600: {
-                        items: 1,
-                    },
-                },
-            });
-        }
-
-        jQuery(window).on("load", function() {
-            setTimeout(function() {
-                cardsCenter();
-            }, 1000);
-        });
-    </script>
-</body>
-
-</html>
+    <!--Main wrapper end-->
+@endsection
