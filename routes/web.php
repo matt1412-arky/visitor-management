@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 // test
 Route::middleware(['guest:web'])->group(function () {
     Route::view('/', 'auth/auth-login')->name('login');
