@@ -8,4 +8,5 @@ Route::middleware(['guest:web'])->group(function () {
     Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
     Route::view('registrasi', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi');
     Route::view('scan-qr', 'layout/navigation-sidebar/manage-visitor.scan-qr')->name('scan-qr');
+    Route::view('barcode', 'barcode-security.barcode-security')->name('barcode');
 });
