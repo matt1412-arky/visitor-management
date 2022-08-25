@@ -21,37 +21,37 @@
                     <form>
                         <div class="row ">
                             <div class="mb-3 col-md-6 col-lg-12">
-                                <label class="form-label">Full Name</label>
+                                <label><b class="text-red">*</b> Full Name</label>
                                 <input type="text" class="form-control" placeholder="">
                             </div>
                             
                             <div class="mb-3 col-md-12">
-                                <label class="form-label">Phone number</label>
+                                <label><b class="text-red">*</b>Phone number</label>
                                 <input type="email" class="form-control" placeholder="">
                             </div>
                             
                             <div class="mb-3 col-md-12">
-                                <label class="form-label">Number of Visitors</label>
+                                <label>Number of Visitors<span class="text-muted">(optional)</span></label>
                                 <input type="text" class="form-control">
                             </div>
                             
                             <div class="mb-3 col-md-12">
-                                <label class="form-label">Invitation from</label>
+                                <label class="form-label"><b class="text-red">*</b>Invitation from</label>
                                 <input type="email" class="form-control" placeholder="">
                             </div>
                             
                             <div class="mb-3 col-md-12">
-                                <label class="form-label">Visitation purpose</label>
+                                <label class="form-label"><b class="text-red">*</b>Visitation purpose</label>
                                 <input type="" class="form-control">
                             </div>
 
                             <div class="mb-3 col-md-12">
-                                <label class="form-label">Time check in</label>
+                                <label class="form-label"><b class="text-red">*</b>Time check in</label>
                                 <input type="time" class="form-control">
                             </div>
 
                             <div class="mb-3 col-md-12">
-                                <label class="form-label">Time check out</label>
+                                <label class="form-label">Time check out<span class="text-muted">(optional)</span></label>
                                 <input type="time" class="form-control">
                             </div>
                         </div>
