@@ -7,7 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Visitor Registration Form</h4>
+                    <span class="text-bold text-red"><b>*Please Turn on your GPS for the Duration of Your Visits</b> </span>
                 </div>
+                
                 <div class="card-body">
                     <div class="basic-form">
                         <form>
@@ -38,17 +40,13 @@
                                 </div>
 
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4"><b class="text-red">*</b>Time check in</label>
+                                    <label class="form-label fs-4"><b class="text-red">*</b>Time</label>
                                     <input type="time" class="form-control">
                                 </div>
-
-                                <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4">Time check out<span class="text-muted">(optional)</span></label>
-                                    <input type="time" class="form-control">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Confirm</button>
-                            </form>
-                        </div>
+                            </div>
+                            <button type="submit" class="btn"
+                                style="background-color:#2e3296;color:white;">Confirm</button>
+                        </form>
                     </div>
                 </div>
             </div>

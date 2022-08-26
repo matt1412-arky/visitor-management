@@ -57,22 +57,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="invalidCheck2" required="">
-                                                <label class="form-check-label" for="invalidCheck2">
-                                                    Check Me out
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn me-2 btn-primary">Submit</button>
-                                        <button type="submit" class="btn btn-light">cencel</button>
+
+                                        <button type="submit" class="btn me-2"
+                                            style="background-color:#2e3296;color:white;">Submit</button>
                                     </form>
-                                    <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary" href="page-register.html">Sign
-                                                up</a></p>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

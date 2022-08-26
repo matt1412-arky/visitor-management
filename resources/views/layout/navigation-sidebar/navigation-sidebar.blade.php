@@ -8,10 +8,10 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="index.html">Dashboard Light</a>
+                        <a href="#">Dashboard Light</a>
                     </li>
                     <li>
-                        <a href="index-2.html">Dashboard Dark</a>
+                        <a href="#">Dashboard Dark</a>
                     </li>
 
                 </ul>
