@@ -13,7 +13,7 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        overflow: hidden;
+        {{-- overflow: hidden; --}}
     }
 
     #navmenu {
@@ -27,14 +27,15 @@
     }
 </style>
 
-<body>
-    <div class="container-fluid " style="background:#1E90FF;">
-
-        <div class="row justify-content-center py-2">
-            <div class="col-xl-2">
+<body style="background-color: #fff">
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-xl-2 offset-1">
                 <img class="rounded img-responsive" src="{{ asset('support/images/avatar/login-b7.jpg') }}"
                     width="200" height="100" alt="">
             </div>
+        </div>
+        <div class="row justify-content-center py-2">
             <div class="col-xl-5">
                 <div class="card">
                     <div class="card-header">
@@ -66,22 +67,23 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-10 offset-2">
+            <div class="col-xl-10 offset-1">
                 <div class="card">
                     <div class="card-body ">
                         <ul id="navmenu">
                             <li>
-                                <a href="" class="btn btn-outline-primary btn-lg">
+                                <a href="{{ route('visitor-data') }}" class="btn btn-outline-primary btn-lg">
                                     Visitor Data
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="btn btn-outline-primary btn-lg">
+                                <a data-bs-toggle="modal" href="#" data-bs-target=".bd-example-modal-lg"
+                                    type="button" class="btn btn-outline-primary btn-lg">
                                     Make a temporary account
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="btn btn-outline-primary btn-lg">
+                                <a href="" class="btn btn-primary btn-lg">
                                     Track Visitor
                                 </a>
                             </li>
@@ -90,7 +92,6 @@
                                     Refresh Data
                                 </a>
                             </li>
-
                         </ul>
                     </div>
 
@@ -98,6 +99,59 @@
             </div>
         </div>
     </div>
+    {{-- <div class="modal fade bd-example-modal-lg show " tabindex="-1" style="display: block;" aria-modal="true"
+        role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Username</label>
+                            <div class="col-sm-9">
+                                <p>cotoh usernma</p>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <p>contoh password</p>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Visitation Purpose</label>
+                            <div class="col-sm-9">
+                                <textarea name="" id="" class="form-control" cols="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">what division do you want to meet?</label>
+                            <div class="col-sm-9">
+                                <select name="" id="" class="form-control">
+                                    @for ($i = 0; $i < 4; $i++)
+                                        <option value=""></option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn" style="background:#1b0888; color:#fff;">
+                                    Create Account
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div> --}}
 </body>
 
 </html>

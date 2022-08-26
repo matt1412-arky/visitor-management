@@ -26,6 +26,9 @@
                     <li>
                         <a href="{{ route('registrasi') }}">Form Registrasi</a>
                     </li>
+                    <li>
+                        <a href="{{ route('visitor-data') }}">Visitor Data</a>
+                    </li>
                 </ul>
             </li>
 
