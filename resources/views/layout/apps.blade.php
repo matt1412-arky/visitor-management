@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no" />
     <title>@yield('title')</title>
     <!-- FAVICONS ICON -->
-    <link rel="support/shortcut icon" type="image/png" href="support/images/favicon.png" />
+    <link rel="support/shortcut icon" type="image/png" href="{{ asset('support/images/avatar/logo-b7.jpeg') }}" />
     <link href="support/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet" />
     <link href="support/vendor/owl-carousel/owl.carousel.css" rel="stylesheet" />
     <link rel="stylesheet" href="support/vendor/nouislider/nouislider.min.css" />
