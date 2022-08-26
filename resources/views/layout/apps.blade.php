@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no" />
     <title>@yield('title')</title>
-    <!-- FAVICONS ICON -->~
+    <link rel="stylesheet" href="{{ asset('support/css/style.css') }}">
+
+
+
     <!--Nav header start-->
     <div class="nav-header">
         <a href="#" class="brand-logo">
