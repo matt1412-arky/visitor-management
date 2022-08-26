@@ -34,8 +34,7 @@
         <div class="nav-header">
             <a href="#" class="brand-logo">
                 <div class="brand-title">
-                    <h2 class="">Bintang Toedjoe</h2>
-                    <span class="brand-sub-title"></span>
+                    <h2 class="" style="display: inline;">Bintang Toedjoe</h2>
                 </div>
             </a>
             <div class="nav-control">
