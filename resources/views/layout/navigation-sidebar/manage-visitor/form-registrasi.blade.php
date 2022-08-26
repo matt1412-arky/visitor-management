@@ -7,7 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Visitor Registration Form</h4>
+                    <span class="text-bold text-red"><b>*Please Turn on your GPS for the Duration of Your Visits</b> </span>
                 </div>
+                
                 <div class="card-body">
                     <div class="basic-form">
                         <form>
