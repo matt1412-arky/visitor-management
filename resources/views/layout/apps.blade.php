@@ -34,7 +34,7 @@
         <div class="nav-header">
             <a href="#" class="brand-logo">
                 <div class="brand-title">
-                    <h2 class="">Bintang Toe Joe</h2>
+                    <h2 class="">Bintang Toedjoe</h2>
                     <span class="brand-sub-title"></span>
                 </div>
             </a>

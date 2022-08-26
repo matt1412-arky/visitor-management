@@ -14,10 +14,7 @@
                 </div>
                 <img class="card-img-bottom img-fluid" src="{{ asset('support/icons/barcode/QR_code1.png') }}"
                     alt="Card image cap">
-                <div class="card-footer">
-                    <p class="card-text d-inline">Card footer</p>
-                    <a href="javascript:void(0);" class="card-link float-end">Card link</a>
-                </div>
+
             </div>
         </div>
         <div class="col-xl-6">
@@ -31,20 +28,17 @@
                 </div>
                 <img class="card-img-bottom img-fluid" src="{{ asset('support/icons/barcode/QR_code1.png') }}"
                     alt="Card image cap">
-                <div class="card-footer">
-                    <p class="card-text d-inline">Card footer</p>
-                    <a href="javascript:void(0);" class="card-link float-end">Card link</a>
-                </div>
+
             </div>
         </div>
         <center>
-            <div class="col-xl-6">
+            <div class="col-xl-8">
                 <div class="card">
                     <div class="card-body">
                         <button type="button" class="btn btn-outline-primary ">Visitor Data</button>
                         <button type="button" class="btn btn-outline-primary ">Make a temporary account</button>
                         <button type="button" class="btn btn-outline-primary ">Track Visitor</button>
-
+                        <button type="button" class="btn btn-outline-primary ">Refresh</button>
                     </div>
                 </div>
             </div>

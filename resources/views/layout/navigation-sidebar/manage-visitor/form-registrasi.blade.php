@@ -38,16 +38,12 @@
                                 </div>
 
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4">Time check in</label>
-                                    <input type="time" class="form-control">
-                                </div>
-
-                                <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4">Time check out</label>
+                                    <label class="form-label fs-4">Time</label>
                                     <input type="time" class="form-control">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Confirm</button>
+                            <button type="submit" class="btn"
+                                style="background-color:#2e3296;color:white;">Confirm</button>
                         </form>
                     </div>
                 </div>
