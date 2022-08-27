@@ -8,11 +8,9 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="#">Dashboard Light</a>
+                        <a href="#">Dashboard</a>
                     </li>
-                    <li>
-                        <a href="#">Dashboard Dark</a>
-                    </li>
+
 
                 </ul>
             </li>
