@@ -83,7 +83,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="btn btn-primary btn-lg">
+                                <a href="{{ route('track-visitor') }}" class="btn btn-primary btn-lg">
                                     Track Visitor
                                 </a>
                             </li>
