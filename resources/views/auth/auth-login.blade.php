@@ -58,8 +58,7 @@
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn me-2"
-                                            style="background-color:#2e3296;color:white;">Submit</button>
+                                        <button type="submit" class="btn me-2 btn-google">Submit</button>
                                     </form>
 
                                 </div>
