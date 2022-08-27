@@ -35,10 +35,10 @@
             <div class="col-xl-8">
                 <div class="card">
                     <div class="card-body">
-                        <button type="button" class="btn btn-outline-primary ">Visitor Data</button>
-                        <button type="button" class="btn btn-outline-primary ">Make a temporary account</button>
-                        <button type="button" class="btn btn-outline-primary ">Track Visitor</button>
-                        <button type="button" class="btn btn-outline-primary ">Refresh</button>
+                        <button type="button" class="btn btn-google">Visitor Data</button>
+                        <button type="button" class="btn btn-google ">Make a temporary account</button>
+                        <button type="button" class="btn btn-google ">Track Visitor</button>
+                        <button type="button" class="btn btn-google ">Refresh</button>
                     </div>
                 </div>
             </div>

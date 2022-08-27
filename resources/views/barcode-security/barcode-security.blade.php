@@ -72,23 +72,23 @@
                     <div class="card-body ">
                         <ul id="navmenu">
                             <li>
-                                <a href="{{ route('visitor-data') }}" class="btn btn-outline-primary btn-lg">
+                                <a href="{{ route('visitor-data') }}" class="btn btn-google btn-lg">
                                     Visitor Data
                                 </a>
                             </li>
                             <li>
                                 <a data-bs-toggle="modal" href="#" data-bs-target=".bd-example-modal-lg"
-                                    type="button" class="btn btn-outline-primary btn-lg">
+                                    type="button" class="btn btn-google btn-lg">
                                     Make a temporary account
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('track-visitor') }}" class="btn btn-primary btn-lg">
+                                <a href="{{ route('track-visitor') }}" class="btn btn-google btn-lg">
                                     Track Visitor
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="btn btn-outline-primary btn-lg">
+                                <a href="" class="btn btn-google btn-lg">
                                     Refresh Data
                                 </a>
                             </li>
@@ -139,7 +139,7 @@
                         </div> --}}
     <div class="mb-3 row">
         <div class="col-sm-10">
-            <button type="submit" class="btn" style="background:#1b0888; color:#fff;">
+            <button type="submit" class="btn btn-google" style="color:#fff;">
                 Close
             </button>
         </div>
@@ -150,7 +150,6 @@
 
     </div>
     </div>
-    </div> --}}
 </body>
 
 </html>

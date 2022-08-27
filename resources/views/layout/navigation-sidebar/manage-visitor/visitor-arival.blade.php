@@ -27,8 +27,8 @@
                                     <input type="time" class="form-control" placeholder="arrival time">
                                 </div>
                             </div>
-                            <button type="submit" class="btn"
-                                style="background-color:#2e3296;color:white;">Confirm</button>
+                            <button type="submit" class="btn btn-google"
+                                style="color:white;">Confirm</button>
                         </form>
                     </div>
                 </div>
