@@ -101,10 +101,10 @@
     </div>
     {{-- <div class="modal fade bd-example-modal-lg show " tabindex="-1" style="display: block;" aria-modal="true"
         role="dialog">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Generate Account</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                     </button>
                 </div>
@@ -122,7 +122,7 @@
                                 <p>contoh password</p>
                             </div>
                         </div>
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Visitation Purpose</label>
                             <div class="col-sm-9">
                                 <textarea name="" id="" class="form-control" cols="5"></textarea>
@@ -137,20 +137,20 @@
                                     @endfor
                                 </select>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn" style="background:#1b0888; color:#fff;">
-                                    Create Account
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-
-            </div>
+                        </div> --}}
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn" style="background:#1b0888; color:#fff;">
+                Close
+            </button>
         </div>
+    </div>
+    </form>
+
+    </div>
+
+    </div>
+    </div>
     </div> --}}
 </body>
 

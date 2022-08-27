@@ -9,7 +9,7 @@
                     <h4 class="card-title">Visitor Registration Form</h4>
                     <span class="text-bold text-red"><b>*Please Turn on your GPS for the Duration of Your Visits</b> </span>
                 </div>
-                
+
                 <div class="card-body">
                     <div class="basic-form">
                         <form>
@@ -18,22 +18,23 @@
                                     <label class="form-label fs-4"><b class="text-red">*</b> Full Name</label>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
-                                
+
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Phone number</label>
                                     <input type="email" class="form-control" placeholder="">
                                 </div>
-                                
+
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4">Number of Visitors<span class="text-muted">(optional)</span></label>
+                                    <label class="form-label fs-4">Number of Visitors<span
+                                            class="text-muted">(optional)</span></label>
                                     <input type="text" class="form-control">
                                 </div>
-                                
+
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Invitation from</label>
                                     <input type="email" class="form-control" placeholder="">
                                 </div>
-                                
+
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Visitation purpose</label>
                                     <input type="" class="form-control">
@@ -51,4 +52,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
