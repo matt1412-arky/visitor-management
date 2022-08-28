@@ -13,10 +13,6 @@
                     <div class="basic-form">
                         <form>
                             <div class="row ">
-                                <div class="mb-3 col-md-6 col-lg-12">
-                                    <label class="form-label fs-4"><b class="text-red">*</b>Vendor Name </label>
-                                    <input type="text" class="form-control" placeholder="vendor name ">
-                                </div>
 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Food Menu</label>
@@ -32,10 +28,8 @@
                                     <label class="form-label fs-4"><b class="text-red">*</b>Price</label>
                                     <input type="number" class="form-control" placeholder="price">
                                 </div>
-                                <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4"><b class="text-red">*</b>Date</label>
-                                    <input type="date" class="form-control" placeholder="date">
-                                </div>
+
+
                             </div>
                             <button type="submit" class="btn btn-google">Send to GA</button>
                         </form>

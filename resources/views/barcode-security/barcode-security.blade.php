@@ -78,7 +78,7 @@
                             </li>
                             <li>
                                 <a data-bs-toggle="modal" href="#" data-bs-target=".bd-example-modal-lg"
-                                    type="button" class="btn btn-google btn-lg">
+                                    type="button" class="btn btn-google btn-lg" onclick="openModal()">
                                     Make a temporary account
                                 </a>
                             </li>
@@ -98,13 +98,13 @@
             </div>
         </div>
     </div>
-    {{-- <div class="modal fade bd-example-modal-lg show " tabindex="-1" style="display: block;" aria-modal="true"
+    <div class="modal fade bd-example-modal-lg show" id="generateAccount" tabindex="-1" aria-modal="true"
         role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Generate Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="closeModal()">
                     </button>
                 </div>
                 <div class="modal-body">
@@ -112,7 +112,7 @@
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
-                                <p>cotoh usernma</p>
+                                <p>contoh usernma</p>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -121,35 +121,21 @@
                                 <p>contoh password</p>
                             </div>
                         </div>
-                        {{-- <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Visitation Purpose</label>
-                            <div class="col-sm-9">
-                                <textarea name="" id="" class="form-control" cols="5"></textarea>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">what division do you want to meet?</label>
-                            <div class="col-sm-9">
-                                <select name="" id="" class="form-control">
-                                    @for ($i = 0; $i < 4; $i++)
-                                        <option value=""></option>
-                                    @endfor
-                                </select>
-                            </div>
-                        </div> --}}
-    <div class="mb-3 row">
-        <div class="col-sm-10">
-            <button type="submit" class="btn btn-google" style="color:#fff;">
-                Close
-            </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-    </form>
+        <script>
+            const modalGenerateAccount = document.querySelector('#generateAccount')
 
-    </div>
+            function openModal() {
+                modalGenerateAccount.style.display = 'block';
+            }
 
-    </div>
-    </div>
+            function closeModal() {
+                modalGenerateAccount.style.display = 'none';
+            }
+        </script>
 </body>
 
 </html>

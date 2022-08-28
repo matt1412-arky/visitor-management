@@ -34,8 +34,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-google"
-                                style="color:white;">Confirm</button>
+                            <button type="submit" class="btn btn-google" style="color:white;">Confirm</button>
                         </form>
                     </div>
                 </div>
