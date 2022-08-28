@@ -64,6 +64,12 @@
                     <li>
                         <a href="{{ route('menu-from-vendor') }}">Menu From Vendor (GA)</a>
                     </li>
+                    <li>
+                        <a href="{{ route('form-gizi') }}"> Form Nutrition Verification (GA B7)</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('form-feedback') }}"> Form Feedback (User B7)</a>
+                    </li>
                 </ul>
             </li>
             <li>
