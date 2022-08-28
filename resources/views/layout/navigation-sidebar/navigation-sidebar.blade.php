@@ -47,11 +47,22 @@
                     <li>
                         <a href="#">Food Menu & List (vendor)</a>
                     </li>
+
                     <li>
                         <a href="{{ route('insert-menu') }}">Insert Menu (vendor)</a>
                     </li>
+
+                    <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">View Menu
+                            (Vendor)</a>
+                        <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                            <a href="{{ route('food-menu') }}">Food</a>
+                            <li><a href="{{ route('beverage-menu') }}">Beverage</a></li>
+
+                        </ul>
+                    </li>
+
                     <li>
-                        <a href="#">Vendor</a>
+                        <a href="{{ route('menu-from-vendor') }}">Menu From Vendor (GA)</a>
                     </li>
                 </ul>
             </li>
