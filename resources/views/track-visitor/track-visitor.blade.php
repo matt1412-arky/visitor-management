@@ -32,6 +32,8 @@
                             <div class="col-12 py-0">
                                 <center>
                                     <button type="button" class="btn btn-google py-5 px-5 btn-lg">Back</button>
+                                    <button type="button" class="btn btn-google py-5 px-5  btn-lg">View All
+                                        Visitors</button>
                                     <button type="button" class="btn btn-google py-5 px-5  btn-lg">Refresh</button>
                                 </center>
                             </div>
