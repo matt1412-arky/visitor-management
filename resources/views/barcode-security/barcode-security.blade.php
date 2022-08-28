@@ -128,6 +128,7 @@
         <script>
             const modalGenerateAccount = document.querySelector('#generateAccount')
 
+            // satu function aja
             function openModal() {
                 modalGenerateAccount.style.display = 'block';
             }

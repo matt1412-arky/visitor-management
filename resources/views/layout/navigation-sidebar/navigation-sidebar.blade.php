@@ -44,9 +44,6 @@
                     <span class="nav-text">Food Management</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li>
-                        <a href="#">Food Menu & List (vendor)</a>
-                    </li>
 
                     <li>
                         <a href="{{ route('insert-menu') }}">Insert Menu (vendor)</a>
@@ -65,10 +62,16 @@
                         <a href="{{ route('menu-from-vendor') }}">Menu From Vendor (GA)</a>
                     </li>
                     <li>
-                        <a href="{{ route('form-gizi') }}"> Form Nutrition Verification (GA B7)</a>
+                        <a href="{{ route('form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
                     </li>
                     <li>
                         <a href="{{ route('form-feedback') }}"> Form Feedback (User B7)</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('food-order') }}"> Confirmed Order (vendor)</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('blast-email') }}"> Blast Email (GA)</a>
                     </li>
                 </ul>
             </li>

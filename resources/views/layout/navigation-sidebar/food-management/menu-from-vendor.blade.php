@@ -6,19 +6,29 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Vendor A</h4>
+                    <div class="">
+                        <a href="{{ route('form-gizi') }}"class="btn btn-primary">Confirm Order</a>
+                        <a href="{{ route('form-gizi') }}"class="btn btn-primary">Nutrition Check</a>
+                    </div>
                 </div>
+
                 <div class="card-body">
                     <div class="table-responsive">
                         <div id="example_wrapper" class="dataTables_wrapper">
-                            <div class="dataTables_length" id="example_length"><label>Show <select name="example_length"
-                                        aria-controls="example" class="">
+                            <div class="dataTables_length" id="example_length">
+                                <label>Show
+                                    <select name="example_length" aria-controls="example" class="">
                                         <option value="10">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
                                         <option value="100">100</option>
-                                    </select> entries</label></div>
-                            <div id="example_filter" class="dataTables_filter"><label>Search:<input type="search"
-                                        class="" placeholder="" aria-controls="example"></label></div>
+                                    </select> entries
+                                </label>
+                            </div>
+                            <div id="example_filter" class="dataTables_filter">
+                                <label>Search:<input type="search" class="" placeholder=""
+                                        aria-controls="example"></label>
+                            </div>
                             <table id="example" class="display dataTable" style="min-width: 845px" role="grid"
                                 aria-describedby="example_info">
                                 <thead>
@@ -34,6 +44,9 @@
                                             colspan="1" aria-label="Office: activate to sort column ascending"
                                             style="width: 124.922px;">Price</th>
                                         <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
+                                            colspan="1" aria-label="Office: activate to sort column ascending"
+                                            style="width: 124.922px;">Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
                                             colspan="1" aria-label="Age: activate to sort column ascending"
                                             style="width: 49.6562px;">Sub Total</th>
                                     </tr>
@@ -43,6 +56,7 @@
                                         <td class="sorting_1">Airi Satou</td>
                                         <td>Accountant</td>
                                         <td>Tokyo</td>
+                                        <td><span class="badge badge-primary">Approved</span></td>
                                         <td>33</td>
 
                                     </tr>
@@ -50,6 +64,14 @@
                                         <td class="sorting_1">Angelica Ramos</td>
                                         <td>Chief Executive Officer (CEO)</td>
                                         <td>London</td>
+                                        <td><span class="badge badge-warning text-black">Rejected</span></td>
+                                        <td>47</td>
+                                    </tr>
+                                    <tr class="even" role="row">
+                                        <td class="sorting_1">Angelica Ramos</td>
+                                        <td>Chief Executive Officer (CEO)</td>
+                                        <td>London</td>
+                                        <td><span class="badge badge-light">Pending</span></td>
                                         <td>47</td>
                                     </tr>
 
@@ -118,6 +140,9 @@
                                         <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
                                             colspan="1" aria-label="Office: activate to sort column ascending"
                                             style="width: 124.922px;">Price</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
+                                            colspan="1" aria-label="Office: activate to sort column ascending"
+                                            style="width: 124.922px;">Status</th>
                                         <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
                                             colspan="1" aria-label="Age: activate to sort column ascending"
                                             style="width: 49.6562px;">Sub Total</th>

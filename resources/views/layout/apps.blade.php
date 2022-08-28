@@ -790,6 +790,7 @@
     <script src="support/js/dlabnav-init.js"></script>
     <script src="support/js/demo.js"></script>
     <script src="support/js/styleSwitcher.js"></script>
+    <script src="{{ asset('support/vendor/ckeditor/ckeditor.js') }}"></script>
     <script>
         function cardsCenter() {
             /*  testimonial one function by = owl.carousel.js */
