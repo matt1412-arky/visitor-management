@@ -28,4 +28,11 @@ Route::middleware(['guest:web'])->group(function () {
     Route::view('food-menu', 'layout/navigation-sidebar/food-management.food-menu')->name('food-menu');
     Route::view('beverage-menu', 'layout/navigation-sidebar/food-management.beverage-menu')->name('beverage-menu');
     Route::view('menu-from-vendor', 'layout/navigation-sidebar/food-management.menu-from-vendor')->name('menu-from-vendor');
+    // dihapus
+    Route::view('form-gizi', 'layout/navigation-sidebar/food-management.form-verifikasi-gizi')->name('form-gizi');
+    // dihapus
+
+    Route::view('form-feedback', 'layout/navigation-sidebar/food-management.form-feedback')->name('form-feedback');
+    Route::view('food-order', 'layout/navigation-sidebar/food-management.food-order')->name('food-order');
+    Route::view('blast-email', 'layout/navigation-sidebar/food-management.blast-email')->name('blast-email');
 });

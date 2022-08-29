@@ -775,12 +775,12 @@
     <!--Main wrapper end-->
 
     <!--Scripts/ Required vendors -->
-    <script src="support/vendor/global/global.min.js"></script>
-    <script src="support/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="{{ asset('support/vendor/global/global.min.js') }}"></script>
     <script src="support/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="{{ asset('support/vendor/ckeditor/ckeditor.js') }}"></script>
+    <script src="support/vendor/chart.js/Chart.bundle.min.js"></script>
     <!-- Apex Chart -->
     <script src="support/vendor/apexchart/apexchart.js"></script>
-    <script src="support/vendor/chart.js/Chart.bundle.min.js"></script>
     <!-- Chart piety plugin files -->
     <script src="support/vendor/peity/jquery.peity.min.js"></script>
     <!-- Dashboard 1 -->
