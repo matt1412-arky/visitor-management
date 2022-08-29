@@ -76,6 +76,9 @@
                     <li>
                         <a href="{{ route('food-order') }}"> Food Order (Employee)</a>
                     </li>
+                    <li>
+                        <a href="{{ route('customer-feedback') }}"> Customer Feedback (Vendor)</a>
+                    </li>
                 </ul>
             </li>
             <li>
