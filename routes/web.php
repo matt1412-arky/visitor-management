@@ -33,6 +33,7 @@ Route::middleware(['guest:web'])->group(function () {
     // dihapus
 
     Route::view('form-feedback', 'layout/navigation-sidebar/food-management.form-feedback')->name('form-feedback');
-    Route::view('food-order', 'layout/navigation-sidebar/food-management.food-order')->name('food-order');
+    Route::view('confirmed-order', 'layout/navigation-sidebar/food-management.confirmed-order')->name('confirmed-order');
     Route::view('blast-email', 'layout/navigation-sidebar/food-management.blast-email')->name('blast-email');
+    Route::view('food-order', 'layout/navigation-sidebar/food-management.food-order')->name('food-order');
 });
