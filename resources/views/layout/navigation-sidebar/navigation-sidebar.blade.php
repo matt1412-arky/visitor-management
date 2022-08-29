@@ -68,10 +68,16 @@
                         <a href="{{ route('form-feedback') }}"> Form Feedback (User B7)</a>
                     </li>
                     <li>
-                        <a href="{{ route('food-order') }}"> Confirmed Order (vendor)</a>
+                        <a href="{{ route('confirmed-order') }}"> Confirmed Order (vendor)</a>
                     </li>
                     <li>
                         <a href="{{ route('blast-email') }}"> Blast Email (GA)</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('food-order') }}"> Food Order (Employee)</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('customer-feedback') }}"> Customer Feedback (Vendor)</a>
                     </li>
                 </ul>
             </li>
