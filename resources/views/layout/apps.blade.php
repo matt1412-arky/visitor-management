@@ -835,6 +835,7 @@
             }, 1000);
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>
