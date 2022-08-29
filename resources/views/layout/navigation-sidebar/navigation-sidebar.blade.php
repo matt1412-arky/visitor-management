@@ -68,10 +68,16 @@
                         <a href="{{ route('form-feedback') }}"> Form Feedback (User B7)</a>
                     </li>
                     <li>
-                        <a href="{{ route('food-order') }}"> Confirmed Order (vendor)</a>
+                        <a href="{{ route('confirmed-order') }}"> Confirmed Order (vendor)</a>
                     </li>
                     <li>
                         <a href="{{ route('blast-email') }}"> Blast Email (GA)</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('food-order') }}"> Food Order (Employee)</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('customer-feedback') }}"> Customer Feedback (Vendor)</a>
                     </li>
                 </ul>
             </li>
@@ -85,28 +91,3 @@
         </ul>
     </div>
 </div>
-<div class="modal fade bd-example-modal-md hide" tabindex="-1" style="display: bloc;" aria-modal="true" role="dialog"
-    id="ModalGPS">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Alert GPS</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal">
-                </button>
-            </div>
-            <div class="modal-body">
-                <h5>Please turn on your GPS before filling this form to update your last location before leaving</h5>
-                <button type="button" class="btn btn-google">Update Location</button>
-                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal"
-                    onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function closeModal() {
-        const modalGps = document.getElementById('ModalGPS')
-        modalGps.style.display = 'none';
-    }
-</script>
