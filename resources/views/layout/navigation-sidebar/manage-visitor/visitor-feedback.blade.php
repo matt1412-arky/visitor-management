@@ -29,4 +29,30 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade bd-example-modal-md show" tabindex="-1" style="display: block;" aria-modal="true" role="dialog"
+        id="ModalGPS">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Alert GPS</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Please turn on your GPS before filling this form to update your last location before leaving</h5>
+                    <button type="button" class="btn btn-google">Update Location</button>
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal"
+                        onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeModal() {
+            const modalGps = document.getElementById('ModalGPS')
+            modalGps.style.display = 'none';
+        }
+    </script>
 @endsection

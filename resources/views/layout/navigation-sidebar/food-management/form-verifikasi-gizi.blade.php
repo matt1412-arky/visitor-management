@@ -49,7 +49,7 @@
                                 <th>Kalium</th>
                                 <th>Zinc</th>
                                 <th>Niasin</th>
-                                <th></th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,6 +88,58 @@
                                     <span class="badge bg-success me-1"></span> 56 mg
                                 </td>
                                 <td>45 mg</td>
+                                <td><span class="badge bg-success">Approved</span></td>
+                                <td class="text-end">
+                                    <span class="dropdown">
+                                        <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
+                                            data-bs-toggle="dropdown">Actions</button>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                                Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                                Another action
+                                            </a>
+                                        </div>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-check-input m-0 align-middle" type="checkbox"
+                                        aria-label="Select invoice"></td>
+                                <td><span class="text-muted">1</span></td>
+                                <td><a href="invoice.html" class="text-reset" tabindex="-1">Ayam Bakso</a></td>
+                                <td>
+                                    <span class="flag flag-country-us"></span>
+                                    55.9 ml
+                                </td>
+                                <td>
+                                    298 kal
+                                </td>
+                                <td>
+                                    18,34 gr
+                                </td>
+                                <td>
+                                    38 gr
+                                </td>
+                                <td>
+                                    234 mg
+                                </td>
+                                <td>
+                                    45 mg
+                                </td>
+                                <td>
+                                    35 mg
+                                </td>
+
+                                <td>
+                                    65 mg
+                                </td>
+                                <td>
+                                    <span class="badge bg-success me-1"></span> 56 mg
+                                </td>
+                                <td>45 mg</td>
+                                <td><span class="badge bg-danger">Rejected</span></td>
                                 <td class="text-end">
                                     <span class="dropdown">
                                         <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
@@ -147,8 +199,8 @@
     // modal create check nutrition
 
     <div class="modal modal-blur fade show" id="modal-large" tabindex="-1" role="dialog" aria-modal="true"
-        style="display: none;">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        style="display: block;">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Nutrition Value</h5>
@@ -158,14 +210,72 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floating-input" value="name@example.com"
+                            <input type="text" class="form-control" id="floating-input" value=""
                                 autocomplete="off">
-                            <label for="floating-input">Email address</label>
+                            <label for="floating-input" class="fs-18">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floating-password" value="Password"
+                            <input type="text" class="form-control" id="floating-air" value=""
                                 autocomplete="off">
-                            <label for="floating-password">Password</label>
+                            <label for="floating-password " class="fs-18">Air</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password " class="fs-18">Energi</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Protein</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Lemak</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Kalsium</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Fosfor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Zat besi</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Natrium</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Kalium</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Zinc</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floating-air" value=""
+                                autocomplete="off">
+                            <label for="floating-password" class="fs-18">Niasin</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select name="" id="" class="form-control">
+                                <option value=""><span class="badge bg-success">Approved</span></option>
+                                <option value=""><span class="badge bg-danger">Rejected</span></option>
+                            </select>
+                            <label for="floating-password" class="fs-18">Status</label>
                         </div>
 
                     </div>
