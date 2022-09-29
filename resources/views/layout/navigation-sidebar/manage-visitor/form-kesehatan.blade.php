@@ -30,6 +30,10 @@
                 </div>
                 <br>
                 <button type="submit" class="btn me-2 btn-google">Submit</button>
+                <br>
+                <button type="" class="btn me-2 btn-google">
+                    <a href="{{ route('capture-KTP') }}" style="color:white">Take capture KTP</a>
+                </button>
 
             </div>
         </div>

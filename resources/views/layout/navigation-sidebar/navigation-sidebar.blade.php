@@ -39,6 +39,9 @@
                     <li>
                         <a href="{{ route('form-kesehatan') }}">Form health</a>
                     </li>
+                    <li>
+                        <a href="{{ route('capture-KTP') }}">Take capture KTP</a>
+                    </li>
                 </ul>
             </li>
             <li>
