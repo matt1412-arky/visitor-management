@@ -40,6 +40,7 @@ Route::middleware(['guest:web'])->group(function () {
     Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
 });
 
+
 // authenticate
 Route::group(
     [
