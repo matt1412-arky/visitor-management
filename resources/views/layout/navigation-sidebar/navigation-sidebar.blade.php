@@ -36,6 +36,9 @@
                     <li>
                         <a href="{{ route('visitor-feedback') }}">Visitor Feedback</a>
                     </li>
+                    <li>
+                        <a href="{{ route('form-kesehatan') }}">Form health</a>
+                    </li>
                 </ul>
             </li>
             <li>
