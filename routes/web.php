@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 // test
 Route::middleware(['guest:web'])->group(function () {
-    Route::view('/', 'auth/auth-login')->name('login');
-    Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+    // Route::view('/', 'auth/auth-login')->name('login');
+    // Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
     // barcode-security
     Route::view('barcode', 'barcode-security.barcode-security')->name('barcode');
 
@@ -38,3 +38,26 @@ Route::middleware(['guest:web'])->group(function () {
     Route::view('food-order', 'layout/navigation-sidebar/food-management.food-order')->name('food-order');
     Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
 });
+
+// authenticate
+Route::group(
+    [
+        'middleware' => ['guest:web'],
+        'prefix' => 'h', // h is represent as home, after login
+        'as' => 'home.',
+    ],
+    function () {
+        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+    }
+);
+
+Route::group(
+    [
+        'middleware' => ['guest:web'],
+        'prefix' => 'auth',
+        'as' => 'auth.'
+    ],
+    function () {
+        Route::view('login', 'auth/auth-login')->name('login');
+    }
+);

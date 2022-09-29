@@ -8,7 +8,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li>
-                        <a href="{{ route('dashboard-page') }}#">Dashboard</a>
+                        <a href="{{ route('home.dashboard-page') }}#">Dashboard</a>
                     </li>
 
                 </ul>

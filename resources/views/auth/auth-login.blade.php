@@ -29,7 +29,7 @@
                                     </div>
 
                                     <form class="form-valide-with-icon needs-validation" novalidate=""
-                                        action="{{ url('dashboard-page') }}">
+                                        action="{{ route('home.dashboard-page') }}">
                                         <div class="mb-3">
                                             <label class="text-label form-label"
                                                 for="validationCustomUsername">Username</label>
