@@ -13,7 +13,7 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
 
     #navmenu {
@@ -59,20 +59,14 @@
                                                         <label>Search:<input type="search" class=""
                                                                 placeholder="" aria-controls="example4"></label>
                                                     </div>
-                                                    <table class="table table-responsive-md">
+                                                    <table class="table table-responsive">
                                                         <thead>
                                                             <tr>
-                                                                <th style="width:80px;"><strong></strong></th>
-                                                                <th><strong>VISITOR ID</strong></th>
-                                                                <th><strong>NAME</strong></th>
-                                                                <th><strong>PHONE</strong></th>
-                                                                <th><strong>DATE</strong></th>
-                                                                <th><strong>TIME</strong></th>
-                                                                <th><strong>INVITATION FROM</strong></th>
-                                                                <th><strong>TRANSPOTATION USED</strong></th>
-                                                                <th><strong>STATUS</strong></th>
-                                                                <th><strong>ACTION</strong></th>
                                                                 <th></th>
+                                                                <th class="fs-6"><strong>VISITOR ID</strong></th>
+                                                                <th class="fs-6"><strong>NAME</strong></th>
+                                                                <th class="fs-6"><strong>INVITATION FROM</strong></th>
+                                                                <th class="fs-6"><strong>ACTION</strong></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -80,14 +74,7 @@
                                                                 <td><strong>01</strong></td>
                                                                 <td>Jackson902384</td>
                                                                 <td>Dr. Jackson</td>
-                                                                <td>0826*******</td>
-                                                                <td>Thursday, 23rd,June,2002</td>
-                                                                <td>09:00am</td>
                                                                 <td>names/divisi</td>
-                                                                <td>Car</td>
-                                                                <td><span
-                                                                        class="badge light badge-success">Ongoing</span>
-                                                                </td>
                                                                 <td>
                                                                     <div class="dropdown">
                                                                         <button type="button"
@@ -120,6 +107,8 @@
                                                                                 href="#">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="#">Delete</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="#">Check In</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>
@@ -136,12 +125,13 @@
                                                             aria-controls="example4" data-dt-idx="0" tabindex="0"
                                                             id="example4_previous"><i class="fa fa-angle-double-left"
                                                                 aria-hidden="true"></i></a><span><a
-                                                                class="paginate_button current" aria-controls="example4"
-                                                                data-dt-idx="1" tabindex="0">1</a><a
-                                                                class="paginate_button " aria-controls="example4"
-                                                                data-dt-idx="2" tabindex="0">2</a><a
-                                                                class="paginate_button " aria-controls="example4"
-                                                                data-dt-idx="3" tabindex="0">3</a></span><a
+                                                                class="paginate_button current"
+                                                                aria-controls="example4" data-dt-idx="1"
+                                                                tabindex="0">1</a><a class="paginate_button "
+                                                                aria-controls="example4" data-dt-idx="2"
+                                                                tabindex="0">2</a><a class="paginate_button "
+                                                                aria-controls="example4" data-dt-idx="3"
+                                                                tabindex="0">3</a></span><a
                                                             class="paginate_button next" aria-controls="example4"
                                                             data-dt-idx="4" tabindex="0" id="example4_next"><i
                                                                 class="fa fa-angle-double-right"
@@ -171,77 +161,20 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-10 offset-1">
+        <center>
+            <div class="col-xl-8">
                 <div class="card">
-                    <div class="card-body ">
-                        <ul id="navmenu">
-                            <li>
-                                <a href="{{ route('visitor-data') }}" class="btn btn-google btn-lg">
-                                    Visitor Data
-                                </a>
-                            </li>
-                            {{-- <li>
-                                <a data-bs-toggle="modal" href="#" data-bs-target=".bd-example-modal-lg"
-                                    type="button" class="btn btn-google btn-lg" onclick="openModal()">
-                                    Make a temporary account
-                                </a>
-                            </li> --}}
-                            <li>
-                                <a href="{{ route('track-visitor') }}" class="btn btn-google btn-lg">
-                                    Track Visitor
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="btn btn-google btn-lg">
-                                    Refresh Data
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-google btn-lg">Visitor Data</button>
+                        {{-- <button type="button" class="btn btn-google ">Make a temporary account</button> --}}
+                        <button type="button" class="btn btn-google btn-lg">Track Visitor</button>
+                        <button type="button" class="btn btn-google btn-lg">Refresh</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </center>
     </div>
-    <div class="modal fade bd-example-modal-lg show" id="generateAccount" tabindex="-1" aria-modal="true"
-        role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Generate Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="closeModal()">
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Username</label>
-                            <div class="col-sm-9">
-                                <p>contoh usernma</p>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label class="col-sm-3 col-form-label">Password</label>
-                            <div class="col-sm-9">
-                                <p>contoh password</p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script>
-            const modalGenerateAccount = document.querySelector('#generateAccount')
 
-            // satu function aja
-            function openModal() {
-                modalGenerateAccount.style.display = 'block';
-            }
-
-            function closeModal() {
-                modalGenerateAccount.style.display = 'none';
-            }
-        </script>
 </body>
 
 </html>
