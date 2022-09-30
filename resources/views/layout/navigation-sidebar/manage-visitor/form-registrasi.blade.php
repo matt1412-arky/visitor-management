@@ -25,7 +25,7 @@
                                 </div>
 
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4">Number of Visitors<span
+                                    <label class="form-label fs-4">Transportation used<span
                                             class="text-muted">(optional)</span></label>
                                     <input type="text" class="form-control">
                                 </div>
@@ -45,8 +45,7 @@
                                     <input type="time" class="form-control">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-google"
-                                style="color:white;">Confirm</button>
+                            <button type="submit" class="btn btn-google" style="color:white;">Confirm</button>
                         </form>
                     </div>
                 </div>
