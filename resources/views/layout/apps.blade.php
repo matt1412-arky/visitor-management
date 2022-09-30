@@ -9,13 +9,13 @@
     <meta name="format-detection" content="telephone=no" />
     <title>@yield('title')</title>
     <!-- FAVICONS ICON -->
-    <link rel="support/shortcut icon" type="image/png" href="support/images/avatar/favicon.png" />
-    <link href="support/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet" />
-    <link href="support/vendor/owl-carousel/owl.carousel.css" rel="stylesheet" />
-    <link rel="stylesheet" href="support/vendor/nouislider/nouislider.min.css" />
+    <link rel="support/shortcut icon" type="image/png" href="{{ asset('support/images/avatar/favicon.png') }}" />
+    <link href="{{ asset('support/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet" />
+    <link href="{{ asset('support/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('support/vendor/nouislider/nouislider.min.css') }}" />
 
     <!-- Style css -->
-    <link href="support/css/style.css" rel="stylesheet" />
+    <link href="{{ asset('support/css/style.css') }}" rel="stylesheet" />
 </head>
 
 <body>
@@ -776,20 +776,20 @@
 
     <!--Scripts/ Required vendors -->
     <script src="{{ asset('support/vendor/global/global.min.js') }}"></script>
-    <script src="support/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="{{ asset('support/vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('support/vendor/ckeditor/ckeditor.js') }}"></script>
-    <script src="support/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="{{ asset('support/vendor/chart.js/Chart.bundle.min.js') }}"></script>
     <!-- Apex Chart -->
-    <script src="support/vendor/apexchart/apexchart.js"></script>
+    <script src="{{ asset('support/vendor/apexchart/apexchart.js') }}"></script>
     <!-- Chart piety plugin files -->
-    <script src="support/vendor/peity/jquery.peity.min.js"></script>
+    <script src="{{ asset('support/vendor/peity/jquery.peity.min.js') }}"></script>
     <!-- Dashboard 1 -->
-    <script src="support/js/dashboard/dashboard-1.js"></script>
-    <script src="support/vendor/owl-carousel/owl.carousel.js"></script>
-    <script src="support/js/custom.min.js"></script>
-    <script src="support/js/dlabnav-init.js"></script>
-    <script src="support/js/demo.js"></script>
-    <script src="support/js/styleSwitcher.js"></script>
+    <script src="{{ asset('support/js/dashboard/dashboard-1.js') }}"></script>
+    <script src="{{ asset('support/vendor/owl-carousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('support/js/custom.min.js') }}"></script>
+    <script src="{{ asset('support/js/dlabnav-init.js') }}"></script>
+    <script src="{{ asset('support/js/demo.js') }}"></script>
+    <script src="{{ asset('support/js/styleSwitcher.js') }}"></script>
     <script>
         function cardsCenter() {
             /*  testimonial one function by = owl.carousel.js */

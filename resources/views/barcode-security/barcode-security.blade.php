@@ -27,7 +27,7 @@
     }
 </style>
 
-<body style="background-color: #fff">
+<body style="background-color: #fff;">
     <div class="container-fluid">
         <div class="row mt-2">
             <div class="col-xl-2 offset-1">
@@ -37,16 +37,16 @@
         </div>
         <div class="row justify-content-center py-2">
             <div class="col-xl-5">
-                <div class="card">
+                <div class="card shadow-bottom">
                     <div class="card-header">
                         <h5 class="card-title">Visitor Registration</h5>
                     </div>
                     <div class="card-body py-0">
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
+                        <p class="card-text fs-16">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
                             pariatur.
                         </p>
                         <img class="card-img-bottom" src="{{ asset('support/icons/barcode/QR_code1.png') }}"
-                            alt="QR-visitor" width="200" height="350">
+                            alt="QR-visitor" width="250" height="400">
                     </div>
 
                 </div>
@@ -56,11 +56,10 @@
                     <div class="card-header">
                         <h5 class="card-title">GPS</h5>
                     </div>
-                    <div class="card-body py-2">
-                        <p class="card-text">This is a wider card with supporting text and below as a natural lead-in t
-                        </p>
+                    <div class="card-body py-0">
+                        <p class="card-text fs-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <img class="card-img-bottom" src="{{ asset('support/icons/barcode/QR_code1.png') }}"
-                            width="200" height="350" alt="QR-GPS">
+                            width="250" height="400" alt="QR-GPS">
                     </div>
 
                 </div>
