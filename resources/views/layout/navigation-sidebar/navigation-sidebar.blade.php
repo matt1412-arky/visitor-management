@@ -36,6 +36,12 @@
                     <li>
                         <a href="{{ route('visitor-feedback') }}">Visitor Feedback</a>
                     </li>
+                    <li>
+                        <a href="{{ route('form-kesehatan') }}">Form health</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('capture-KTP') }}">Take capture KTP</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -65,7 +71,7 @@
                         <a href="{{ route('form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
                     </li>
                     <li>
-                        <a href="{{ route('form-feedback') }}"> Form Feedback (User B7)</a>
+                        <a href="{{ route('form-feedback') }}"> Form Feedback (Employee)</a>
                     </li>
                     <li>
                         <a href="{{ route('confirmed-order') }}"> Confirmed Order (vendor)</a>
