@@ -22,7 +22,7 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('barcode') }}">Scan QR</a></li>
                     <li>
-                        <a href="{{ route('registrasi') }}">Form Registrasi</a>
+                        <a href="{{ route('home.registrasi') }}">Form Registrasi</a>
                     </li>
                     <li>
                         <a href="{{ route('visitor-data') }}">Visitor Data</a>
@@ -35,6 +35,9 @@
                     </li>
                     <li>
                         <a href="{{ route('visitor-feedback') }}">Visitor Feedback</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('form-kesehatan') }}">Form health</a>
                     </li>
                 </ul>
             </li>
@@ -65,7 +68,7 @@
                         <a href="{{ route('form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
                     </li>
                     <li>
-                        <a href="{{ route('form-feedback') }}"> Form Feedback (User B7)</a>
+                        <a href="{{ route('form-feedback') }}"> Form Feedback (Employee)</a>
                     </li>
                     <li>
                         <a href="{{ route('confirmed-order') }}"> Confirmed Order (vendor)</a>
