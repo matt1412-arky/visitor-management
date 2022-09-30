@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 // test
 Route::middleware(['guest:web'])->group(function () {
@@ -50,6 +51,12 @@ Route::group(
     function () {
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
         Route::view('registrasi', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi'); //tamu / visitor
+
+        // logout
+        Route::post('logout', function (Request $request) {
+            Auth::logout();
+            return to_route('auth.login');
+        })->name('logout');
     }
 );
 
