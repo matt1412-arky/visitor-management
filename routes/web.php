@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // test
 Route::middleware(['guest:web'])->group(function () {
-    // Route::view('/', 'auth/auth-login')->name('login');
-    // Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+
     // barcode-security
     Route::view('barcode', 'barcode-security.barcode-security')->name('barcode');
 
@@ -42,7 +41,7 @@ Route::middleware(['guest:web'])->group(function () {
 // authenticate
 Route::group(
     [
-        'middleware' => ['guest:web'],
+        'middleware' => ['auth:web'],
         'prefix' => 'h', // h is represent as home, after login
         'as' => 'home.',
     ],
@@ -59,5 +58,8 @@ Route::group(
     ],
     function () {
         Route::view('login', 'auth/auth-login')->name('login');
+        Route::get('/', function () {
+            return to_route('auth.login');
+        });
     }
 );
