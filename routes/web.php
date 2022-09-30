@@ -44,7 +44,7 @@ Route::middleware(['guest:web'])->group(function () {
 // authenticate
 Route::group(
     [
-        'middleware' => ['guest:web'],
+        'middleware' => ['auth:web'],
         'prefix' => 'h', // h is represent as home, after login
         'as' => 'home.',
     ],
