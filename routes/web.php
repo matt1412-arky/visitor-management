@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Auth;
 
 // test
 Route::middleware(['guest:web'])->group(function () {
+    Route::get('/', function () {
+        return to_route('auth.login');
+    });
 
     // barcode-security
     Route::view('barcode', 'barcode-security.barcode-security')->name('barcode');
