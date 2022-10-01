@@ -49,6 +49,8 @@ Route::group(
         // admin ga
         Route::view('dashboard-ga', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('dashboard-ga');
         Route::view('generate', 'layout/navigation-sidebar/manage-visitor.generate-link-visitor')->name('generate');
+        Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed');
+
 
         // logout
         Route::post('logout', function () {

@@ -49,6 +49,7 @@
                         <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                             <a href="{{ route('home.dashboard-ga') }}">Dashboard</a>
                             <li><a href="{{ route('home.generate') }}">Generate</a></li>
+                            <li><a href="{{ route('home.customize-feed') }}">Customize feedback</a></li>
                         </ul>
                     </li>
                 </ul>
