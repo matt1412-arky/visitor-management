@@ -20,30 +20,40 @@
                     <span class="nav-text">Manage Visitors</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('barcode') }}">Scan QR</a></li>
+                    <li><a href="{{ route('home.barcode') }}">Scan QR</a></li>
                     <li>
                         <a href="{{ route('home.registrasi') }}">Form Registrasi</a>
                     </li>
                     <li>
-                        <a href="{{ route('visitor-data') }}">Visitor Data</a>
+                        <a href="{{ route('home.visitor-data') }}">Visitor Data</a>
                     </li>
                     <li>
-                        <a href="{{ route('lost-items') }}">Lost Items</a>
+                        <a href="{{ route('home.lost-items') }}">Lost Items</a>
                     </li>
                     <li>
-                        <a href="{{ route('visitor-arival') }}">Visitor Arival</a>
+                        <a href="{{ route('home.visitor-arival') }}">Visitor Arival</a>
                     </li>
                     <li>
-                        <a href="{{ route('visitor-feedback') }}">Visitor Feedback</a>
+                        <a href="{{ route('home.visitor-feedback') }}">Visitor Feedback</a>
                     </li>
                     <li>
-                        <a href="{{ route('form-kesehatan') }}">Form health</a>
+                        <a href="{{ route('home.form-kesehatan') }}">Form health</a>
                     </li>
                     <li>
-                        <a href="{{ route('capture-KTP') }}">Take capture KTP</a>
+                        <a href="{{ route('home.capture-KTP') }}">Take capture KTP</a>
+                    </li>
+                    <li class="">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            Admin B7(GA)
+                        </a>
+                        <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                            <a href="{{ route('home.dashboard-ga') }}">Dashboard</a>
+                            <li><a href="{{ route('home.generate') }}">Generate</a></li>
+                        </ul>
                     </li>
                 </ul>
             </li>
+
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="	fas fa-bread-slice"></i>
@@ -52,48 +62,48 @@
                 <ul aria-expanded="false">
 
                     <li>
-                        <a href="{{ route('insert-menu') }}">Insert Menu (vendor)</a>
+                        <a href="{{ route('home.insert-menu') }}">Insert Menu (vendor)</a>
                     </li>
 
                     <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">View Menu
                             (Vendor)</a>
                         <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
-                            <a href="{{ route('food-menu') }}">Food</a>
-                            <li><a href="{{ route('beverage-menu') }}">Beverage</a></li>
+                            <a href="{{ route('home.food-menu') }}">Food</a>
+                            <li><a href="{{ route('home.beverage-menu') }}">Beverage</a></li>
 
                         </ul>
                     </li>
 
                     <li>
-                        <a href="{{ route('menu-from-vendor') }}">Menu From Vendor (GA)</a>
+                        <a href="{{ route('home.menu-from-vendor') }}">Menu From Vendor (GA)</a>
                     </li>
                     <li>
-                        <a href="{{ route('form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
+                        <a href="{{ route('home.form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
                     </li>
                     <li>
-                        <a href="{{ route('form-feedback') }}"> Form Feedback (Employee)</a>
+                        <a href="{{ route('home.form-feedback') }}"> Form Feedback (Employee)</a>
                     </li>
                     <li>
-                        <a href="{{ route('confirmed-order') }}"> Confirmed Order (vendor)</a>
+                        <a href="{{ route('home.confirmed-order') }}"> Confirmed Order (vendor)</a>
                     </li>
                     <li>
-                        <a href="{{ route('blast-email') }}"> Blast Email (GA)</a>
+                        <a href="{{ route('home.blast-email') }}"> Blast Email (GA)</a>
                     </li>
                     <li>
-                        <a href="{{ route('food-order') }}"> Food Order (Employee)</a>
+                        <a href="{{ route('home.food-order') }}"> Food Order (Employee)</a>
                     </li>
                     <li>
-                        <a href="{{ route('customer-feedback') }}"> Customer Feedback (Vendor)</a>
+                        <a href="{{ route('home.customer-feedback') }}"> Customer Feedback (Vendor)</a>
                     </li>
                 </ul>
             </li>
+
             <li>
                 <a class="" href="javascript:void()" aria-expanded="false">
                     <i class="fas fa-qrcode"></i>
                     <span class="nav-text">Barcode</span>
                 </a>
             </li>
-
         </ul>
     </div>
 </div>

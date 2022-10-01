@@ -177,7 +177,7 @@
                     <div class="card-body ">
                         <ul id="navmenu">
                             <li>
-                                <a href="{{ route('visitor-data') }}" class="btn btn-google btn-lg">
+                                <a href="{{ route('home.visitor-data') }}" class="btn btn-google btn-lg">
                                     Visitor Data
                                 </a>
                             </li>
@@ -188,7 +188,7 @@
                                 </a>
                             </li> --}}
                             <li>
-                                <a href="{{ route('track-visitor') }}" class="btn btn-google btn-lg">
+                                <a href="{{ route('home.track-visitor') }}" class="btn btn-google btn-lg">
                                     Track Visitor
                                 </a>
                             </li>
