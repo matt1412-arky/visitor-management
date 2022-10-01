@@ -24,20 +24,14 @@
                                                 <div id="example4_filter" class="dataTables_filter"><label>Search:<input
                                                             type="search" class="" placeholder=""
                                                             aria-controls="example4"></label></div>
-                                                <table class="table table-responsive-md">
+                                                <table class="table table-responsive">
                                                     <thead>
                                                         <tr>
-                                                            <th style="width:80px;"><strong></strong></th>
-                                                            <th><strong>VISITOR ID</strong></th>
-                                                            <th><strong>NAME</strong></th>
-                                                            <th><strong>PHONE</strong></th>
-                                                            <th><strong>DATE</strong></th>
-                                                            <th><strong>TIME</strong></th>
-                                                            <th><strong>INVITATION FROM</strong></th>
-                                                            <th><strong>TRANSPOTATION USED</strong></th>
-                                                            <th><strong>STATUS</strong></th>
-                                                            <th><strong>ACTION</strong></th>
                                                             <th></th>
+                                                            <th class="fs-6"><strong>VISITOR ID</strong></th>
+                                                            <th class="fs-6"><strong>NAME</strong></th>
+                                                            <th class="fs-6"><strong>INVITATION FROM</strong></th>
+                                                            <th class="fs-6"><strong>ACTION</strong></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -45,12 +39,7 @@
                                                             <td><strong>01</strong></td>
                                                             <td>Jackson902384</td>
                                                             <td>Dr. Jackson</td>
-                                                            <td>0826*******</td>
-                                                            <td>Thursday, 23rd,June,2002</td>
-                                                            <td>09:00am</td>
                                                             <td>names/divisi</td>
-                                                            <td>Car</td>
-                                                            <td><span class="badge light badge-success">Ongoing</span></td>
                                                             <td>
                                                                 <div class="dropdown">
                                                                     <button type="button"
@@ -78,6 +67,7 @@
                                                                     <div class="dropdown-menu">
                                                                         <a class="dropdown-item" href="#">Edit</a>
                                                                         <a class="dropdown-item" href="#">Delete</a>
+                                                                        <a class="dropdown-item" href="#">Check In</a>
                                                                     </div>
                                                                 </div>
                                                             </td>

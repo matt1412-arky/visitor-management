@@ -25,8 +25,7 @@
                                 </div>
 
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4">Transportation used<span
-                                            class="text-muted">(optional)</span></label>
+                                    <label class="form-label fs-4">Transportation used</label>
                                     <input type="text" class="form-control">
                                 </div>
 
