@@ -52,6 +52,17 @@
                             <li><a href="{{ route('home.customize-feed') }}">Customize feedback</a></li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            Security
+                        </a>
+                        <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                            <li><a href="{{ route('home.generate') }}">QR Scan Code</a></li>
+                            <li><a href="{{ route('home.customize-feed') }}">Lost Item</a></li>
+                            <li><a href="{{ route('home.customize-feed') }}">Visitor approval</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 
