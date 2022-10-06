@@ -85,12 +85,8 @@
 
                         </ul>
                     </li>
-
                     <li>
                         <a href="{{ route('home.menu-from-vendor') }}">Menu From Vendor (GA)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
                     </li>
                     <li>
                         <a href="{{ route('home.form-feedback') }}"> Form Feedback (Employee)</a>
