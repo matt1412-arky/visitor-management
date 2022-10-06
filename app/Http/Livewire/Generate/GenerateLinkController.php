@@ -4,36 +4,76 @@ namespace App\Http\Livewire\Generate;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\LinkVisitor;
 
 class GenerateLinkController extends Component
 {
     public $link_visitor, $email_generate, $password_generate;
-    public $number_of_visitors;
+    public $number_of_visitors = 1;
+    public $user_generate;
     public function render()
     {
-        return view('livewire.generate.generate-link-controller');
+        return view('livewire.generate.generate-link-controller', [
+            'user_generates' => $this->user_generate
+        ]);
     }
     // berapa orang, waktu,
     public function generateLinkVisitor() // hanya satu kali diakses (24jam)
     {
+        $counter = intval($this->number_of_visitors);
+        if ($counter < 1 or null) return;
+        // number of visitor is valid
         $input_name = 'ersalomo';
         $this->email_generate = $input_name . random_int(1, 99) . '@gmail.com';
         $this->password_generate = Str::random(8);
-        // $user_generator = User::create([
-        //     'name' => $input_name,
-        //     'email' => $this->email_generate,
-        //     'role' => 'visitor',
-        //     'password' => Hash::make($this->password_generate, []),
-        // ]);
-        $token = Str::random(64);
+        $this->user_generate = $this->generateNumberOfvisitors($counter) or function () {
+            session()->flash('error', 'ada masalah dengan system kami');
+            return;
+        };
+        $this->dispatchBrowserEvent('generate-link', []);
+    }
 
-        $url_visitor = url('h/registrasi/' . auth('web')->id() . $token);
-        dd([
-            $this->email_generate,
-            $this->password_generate,
-            $url_visitor
-        ]);
+    private function generateNumberOfvisitors(int $count): array | User
+    {
+        $generate_users = [];
+        try {
+            if ($count == 1) {
+                $user_generator =  auth('web')->user()->create([
+                    'name' => 'dummy name',
+                    'email' => $this->email_generate,
+                    'role' => 'visitor',
+                    'password' => Hash::make($this->password_generate, []),
+                ]);
+                $link_visitor = LinkVisitor::create([
+                    'user_id' => $user_generator['id'],
+                    'token' => Str::random(64),
+                    'status' => 'sent',
+                ]);
+                $this->link_visitor = url('h/registrasi/' . auth('web')->id() . '/' . $link_visitor->token);
+                array_push($generate_users, [$user_generator->email, $this->password_generate, $this->link_visitor]);
+            } else {
+                foreach (range(1, $count) as $counter) {
+                    $user_generator =  auth('web')->user()->create([
+                        'name' => 'ersalomo' . $counter,
+                        'email' => 'ersalomo' . $counter . random_int(1, 99) . '@gmail.com',
+                        'role' => 'visitor',
+                        'password' => Hash::make($this->password_generate, []),
+                    ]);
+                    $link_visitor = LinkVisitor::create([
+                        // 'user_id' => auth('web')->id(), // pending
+                        'user_id' => $user_generator['id'], // pending
+                        'token' => Str::random(64),
+                        'status' => 'sent',
+                    ]);
+                    $this->link_visitor = url('h/registrasi/' . auth('web')->id() . '/' . $link_visitor->token);
+                    array_push($generate_users, [$user_generator->email, $this->password_generate, $this->link_visitor]);
+                }
+            }
+        } catch (\Exception $err) {
+            return back();
+        }
+        return $generate_users;
     }
 }

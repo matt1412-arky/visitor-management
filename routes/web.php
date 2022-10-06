@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\LinkVisitor; //test
 
 Route::get('/', function () {
     return to_route('auth.login');
@@ -15,7 +16,23 @@ Route::group(
     ],
     function () {
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
-        Route::view('registrasi', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi'); //tamu / visitor
+
+        // Route::view('registrasi/{token}', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi'); //tamu / visitor
+
+        Route::get('registrasi/{id}/{token}', function ($id, $token) {
+            // Route::get('registrasi', function () {
+            $test  =  LinkVisitor::where('user_id', '=', auth('web')->id())
+                ->where('token', $token)->limit(1)
+                ->exists();
+            if (!$test) return back();
+            return view(
+                'layout/navigation-sidebar/manage-visitor.form-registrasi',
+                [
+                    'nama_karyawan' => $id,
+                    'token' => $token,
+                ]
+            );
+        })->name('registrasi');
 
         // barcode-security
         Route::view('barcode', 'barcode-security.barcode-security')->name('barcode');
@@ -53,6 +70,7 @@ Route::group(
         Route::view('dashboard-ga', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('dashboard-ga');
         Route::view('generate', 'layout/navigation-sidebar/manage-visitor.generate-link-visitor')->name('generate');
         Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed');
+        Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval');
 
 
         // logout

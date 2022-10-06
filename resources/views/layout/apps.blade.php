@@ -790,6 +790,7 @@
     <script src="{{ asset('support/js/dlabnav-init.js') }}"></script>
     <script src="{{ asset('support/js/demo.js') }}"></script>
     <script src="{{ asset('support/js/styleSwitcher.js') }}"></script>
+    @stack('scripts')
     @livewireScripts
     <script>
         function cardsCenter() {
@@ -836,7 +837,6 @@
             }, 1000);
         });
     </script>
-    @stack('scripts')
 </body>
 
 </html>

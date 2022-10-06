@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
                 'name' => $faker->name(),
                 'email' => $faker->email(),
                 'role' => $faker->randomElement(['vendor', 'GA', 'security', 'visitor', 'karyawan', 'cs']),
-                'password' => hash::make('mypassword'),
+                'password' => hash::make('12345678'),
             ]);
         }
     }
