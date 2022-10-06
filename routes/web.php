@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+Route::get('/', function () {
+    return to_route('auth.login');
+});
 // authenticate
 Route::group(
     [
@@ -68,8 +71,5 @@ Route::group(
     ],
     function () {
         Route::view('login', 'auth/auth-login')->name('login');
-        Route::get('/', function () {
-            return to_route('auth.login');
-        });
     }
 );
