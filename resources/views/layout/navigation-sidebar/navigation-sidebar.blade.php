@@ -22,7 +22,7 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('home.barcode') }}">Scan QR</a></li>
                     <li>
-                        <a href="{{ route('home.registrasi') }}">Form Registrasi</a>
+                        {{--  <a href="{{ route('home.registrasi') }}">Form Registrasi</a>  --}}
                     </li>
                     <li>
                         <a href="{{ route('home.visitor-data') }}">Visitor Data</a>
@@ -50,6 +50,17 @@
                             <a href="{{ route('home.dashboard-ga') }}">Dashboard</a>
                             <li><a href="{{ route('home.generate') }}">Generate</a></li>
                             <li><a href="{{ route('home.customize-feed') }}">Customize feedback</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            Security
+                        </a>
+                        <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                            <li><a href="{{ route('home.generate') }}">QR Scan Code</a></li>
+                            <li><a href="{{ route('home.customize-feed') }}">Lost Item</a></li>
+                            <li><a href="{{ route('home.visitor-approval') }}">Visitor approval</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Barcode | Bintang Toe Joe</title>
-    <link href="support/css/style.css" rel="stylesheet" />
+    <link href="{{ asset('support/css/style.css') }}" rel="stylesheet" />
 </head>
 <style>
     * {
@@ -39,7 +39,7 @@
             <div class="card-body">
                 <div class="basic-list-group">
                     <div class="row">
-                        <div class="col-lg-6 col-xl-2">
+                        <div class="col-lg-6 col-xl-6">
                             <h4 class="card-title">List Visitor</h4>
                             <div class="list-group mb-4 " id="list-tab" role="tablist">
                                 <div class="col-12">
@@ -144,7 +144,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-xl-10">
+                        <div class="col-lg-6 col-xl-6">
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="list-home">
                                     <h4 class="mb-4">GPS</h4>
