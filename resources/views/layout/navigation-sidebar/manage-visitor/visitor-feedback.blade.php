@@ -2,7 +2,7 @@
 @section('title', 'Dashboard Admin')
 @section('content')
     {{-- berada pada conainer fluid --}}
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-xl-8 col-lg-12">
             <div class="card">
                 <div class="card-header">
@@ -28,8 +28,46 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Visitor Feedback</h4>
+        </div>
+        <div class="card-body">
+            <div class="basic-form">
+                <form>
+                    <div class="mb-3 mb-0">
+                        <h5>How satisfied are you with the service in our place?</h5>
+                        {{-- <label class="form-label fs-4"><b class="text-red">*</b>Give us rating</label><br> --}}
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 1</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 2</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 3</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 4</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 5</label>
+                    </div>
+                    <div class="mb-3 mb-0">
+                        <h5>Are the instructions from the guide given easy to understand?</h5>
+                        {{-- <label class="form-label fs-4"><b class="text-red">*</b>Give us rating</label><br> --}}
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 1</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 2</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 3</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 4</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 5</label>
+                    </div>
+                    <div class="mb-3 mb-0">
+                        <h5>How satisfied are you with our facilities?</h5>
+                        {{-- <label class="form-label fs-4"><b class="text-red">*</b>Give us rating</label><br> --}}
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 1</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 2</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 3</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 4</label>
+                        <label class="radio-inline me-5"><input type="radio" name="optradio"> 5</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="modal fade bd-example-modal-md show" tabindex="-1" style="display: block;" aria-modal="true" role="dialog"
         id="ModalGPS">
         <div class="modal-dialog modal-md">
