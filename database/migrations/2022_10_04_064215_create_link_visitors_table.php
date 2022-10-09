@@ -17,11 +17,12 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('token', 64);
-            $table->foreign('user_id')->references('id')
+            $table->foreign('user_id')
+                ->references('id')
                 ->on('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->enum('status', ['used', 'visited', 'sent'])->default('sent');
+            $table->enum('status', ['sent', 'visited'])->default('sent');
             $table->timestamps();
         });
     }

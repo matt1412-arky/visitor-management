@@ -10,7 +10,7 @@ class VisitorRegis extends Model
     use HasFactory;
     protected $table = 'visitor_register';
     protected $fillable = [
-        'user_id',
+        'link_visitor_id',
         'fullname',
         'phone',
         'invitation_from',
@@ -20,4 +20,11 @@ class VisitorRegis extends Model
         'picture',
         'time_visit'
     ];
+    protected $with = [
+        'link_visitor'
+    ];
+    public function link_visitor()
+    {
+        return $this->belongsTo(LinkVisitor::class, 'link_visitor_id');
+    }
 }

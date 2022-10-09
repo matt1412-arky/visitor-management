@@ -20,15 +20,15 @@ Route::group(
         // Route::view('registrasi/{token}', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi'); //tamu / visitor
 
         Route::get('registrasi/{id}/{token}', function ($id, $token) {
-            // Route::get('registrasi', function () {
             $test  =  LinkVisitor::where('user_id', '=', auth('web')->id())
                 ->where('token', $token)->limit(1)
                 ->exists();
             if (!$test) return back();
+            $nama_karyawan = \App\Models\User::find($id);
             return view(
                 'layout/navigation-sidebar/manage-visitor.form-registrasi',
                 [
-                    'nama_karyawan' => $id,
+                    'nama_karyawan' => $nama_karyawan->name,
                     'token' => $token,
                 ]
             );
