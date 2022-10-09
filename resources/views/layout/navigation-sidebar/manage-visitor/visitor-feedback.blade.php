@@ -36,14 +36,14 @@
                 <div class="col-md">
                     <h4 class="card-title">Visitor Feedback</h4>
                 </div>
-                <div class="col-md float-right text-end">
+                {{-- <div class="col-md float-right text-end">
                     <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-start text-dark"><i
                                 class="fa fa-plus"></i>
                         </span>Add</button>
                     <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-start text-dark"><i
                                 class="fa fa-trash-alt"></i>
                         </span>Delete</button>
-                </div>
+                </div> --}}
                 <div class="card-body">
                     <div class="basic-form">
                         <form>
@@ -105,4 +105,5 @@
                 modalGps.style.display = 'none';
             }
         </script>
-    @endsection
+    </div>
+@endsection
