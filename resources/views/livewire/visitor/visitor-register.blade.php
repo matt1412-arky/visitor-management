@@ -43,8 +43,9 @@
                             </div>
 
                             <div class="mb-3 col-md-12">
+                                {{--  wire:model='invitation_from'  --}}
                                 <label class="form-label fs-4"><b class="text-red">*</b>Invitation from</label>
-                                <input type="texet" wire:model='invitation_from' class="form-control"
+                                <input type="texet" class="form-control" value="{{ $invitation_from }}"
                                     placeholder="invitation from">
                                 @error('invitation_from')
                                     <span class="text-danger">

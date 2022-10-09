@@ -8,8 +8,9 @@ use App\Models\VisitorRegis;
 class VisitorRegister extends Component
 {
     public $fullname,
-        $phone, $invitation_from,
+        $phone,
         $visitation_purpose,
+        $invitation_from,
         $transportation_used,
         $file_doc = '',
         $picture = '';
@@ -23,16 +24,20 @@ class VisitorRegister extends Component
         'file_doc' => 'nullable',
         'picture' => 'file|nullable',
     ];
+    public function mount()
+    {
+        $this->invitation_from = \App\Models\User::find(request()->id)['name'];;
+    }
 
     public function render()
     {
-        return view('livewire.visitor.visitor-register');
+        return view('livewire.visitor.visitor-register', []);
     }
     public function register()
     {
         $this->validate();
         $visitor =  VisitorRegis::create([
-            'user_id' => auth('web')->id(),
+            'link_visitor_id' => '',
             'fullname' => $this->fullname,
             'phone' => $this->phone,
             'invitation_from' => $this->invitation_from,
@@ -48,4 +53,7 @@ class VisitorRegister extends Component
             session()->flash('error', 'Your data has been saved');
         }
     }
+
 }
+
+// how to createtable users?   

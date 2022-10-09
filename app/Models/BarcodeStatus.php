@@ -10,6 +10,9 @@ class BarcodeStatus extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    protected $with = [
+        'visitor_register'
+    ];
     public function visitor_register()
     {
         $this->belongsTo(VisitorRegis::class, 'id_regis_visitor');

@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('barcode_statuses', function (Blueprint $table) {
+        Schema::create('lost_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_regis_visitor')->constrained('visitor_register');
-            $table->enum('status', ['approve', 'pending'])->default('pending');
+            $table->string('item_name');
+            $table->string('image_item');
+            $table->string('status');
+            $table->string('taken_by')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barcode_statuses');
+        Schema::dropIfExists('lost_items');
     }
 };

@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\LinkVisitor;
+use App\Models\VisitorRegis;
 
 class GenerateLinkController extends Component
 {
@@ -22,6 +23,10 @@ class GenerateLinkController extends Component
     // berapa orang, waktu,
     public function generateLinkVisitor() // hanya satu kali diakses (24jam)
     {
+        // $regis = VisitorRegis::all();
+        // dd($regis[0]->link_visitor->user->name);
+        // $links = LinkVisitor::get();
+        // dd($links[0]->user->name);
         $counter = intval($this->number_of_visitors);
         if ($counter < 1 or null) return;
         // number of visitor is valid
@@ -47,7 +52,7 @@ class GenerateLinkController extends Component
                     'password' => Hash::make($this->password_generate, []),
                 ]);
                 $link_visitor = LinkVisitor::create([
-                    'user_id' => $user_generator['id'],
+                    'user_id' => auth('web')->id(), //id karyawan yang generate
                     'token' => Str::random(64),
                     'status' => 'sent',
                 ]);
