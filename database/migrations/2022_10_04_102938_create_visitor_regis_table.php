@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('visitor_register', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('link_visitor_id')->constrained('link_visitors');
             $table->string('fullname', 100);
             $table->string('phone', 13)->unique();
             $table->string('transportation_used', 110);
