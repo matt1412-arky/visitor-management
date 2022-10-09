@@ -23,7 +23,7 @@ Route::group(
             $test  =  LinkVisitor::where('user_id', '=', auth('web')->id())
                 ->where('token', $token)->limit(1)
                 ->exists();
-            if (!$test) return back();
+            // if (!$test) return back();
             $nama_karyawan = \App\Models\User::find($id);
             return view(
                 'layout/navigation-sidebar/manage-visitor.form-registrasi',

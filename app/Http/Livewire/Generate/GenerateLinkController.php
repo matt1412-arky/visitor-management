@@ -76,9 +76,9 @@ class GenerateLinkController extends Component
                     array_push($generate_users, [$user_generator->email, $this->password_generate, $this->link_visitor]);
                 }
             }
+            return $generate_users;
         } catch (\Exception $err) {
             return back();
         }
-        return $generate_users;
     }
 }

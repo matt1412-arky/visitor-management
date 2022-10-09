@@ -54,6 +54,18 @@
                             </div>
 
                             <div class="mb-3 col-md-12">
+                                <label class="form-label fs-4">Vehicle License Plate Number</label><span
+                                    class="text-muted">(optional)</span>
+                                <input type="text" wire:model='license_plate_number'
+                                    placeholder="vehicle license plate number"class="form-control">
+                                @error('license_plate_number')
+                                    <span class="text-danger">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3 col-md-12">
                                 {{--  wire:model='invitation_from'  --}}
                                 <label class="form-label fs-4"><b class="text-red">*</b>Invitation from</label>
                                 <input type="texet" class="form-control" value="{{ $invitation_from }}"
