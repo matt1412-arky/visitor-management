@@ -74,10 +74,12 @@
                                 <label class="radio-inline me-5"><input type="radio" name="optradio"> 4</label>
                                 <label class="radio-inline me-5"><input type="radio" name="optradio"> 5</label>
                             </div>
+                            <button type="button" class="btn btn-google" style="color:white;">Checkout</button>
                         </form>
                     </div>
                 </div>
             </div>
+
             <div class="modal fade bd-example-modal-md show" tabindex="-1" style="display: block;" aria-modal="true"
                 role="dialog" id="ModalGPS">
                 <div class="modal-dialog modal-md">
@@ -97,6 +99,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <script>

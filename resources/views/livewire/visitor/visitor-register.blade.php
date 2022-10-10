@@ -129,6 +129,18 @@
                                     @enderror
                                 </div>
 
+                                <div class="mb-3 col-md-12">
+                                    <label class="form-label fs-4">Emergency Number</label><span
+                                        class="text-muted">(optional)</span>
+                                    <input type="text" wire:model='emergency_number'
+                                        placeholder="emergency number"class="form-control">
+                                    @error('emergency_number')
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+
                             </div>
                         </div>
                         <button type="submit" class="btn btn-google" style="color:white;">Confirm</button>
