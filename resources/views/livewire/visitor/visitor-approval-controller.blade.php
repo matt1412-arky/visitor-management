@@ -3,6 +3,9 @@
         <h4 class="card-title">List Visitor</h4>
         <div class="list-group mb-4 " id="list-tab" role="tablist">
             <div class="col-12">
+                // looping pake foreach
+                @foreach ($visitor_regis as $visitor)
+                @endforeach
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -33,7 +36,7 @@
                                     <tbody>
                                         <tr>
                                             <td><strong>01</strong></td>
-                                        <td>Jackson902384</td>
+                                            <td>Jackson902384</td>
                                             <td>Dr. Jackson</td>
                                             <td>names/divisi</td>
                                             <td>

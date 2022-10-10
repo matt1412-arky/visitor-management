@@ -19,18 +19,11 @@ Route::group(
 
         // Route::view('registrasi/{token}', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi'); //tamu / visitor
 
-        Route::get('registrasi/{id}/{token}', function ($id, $token) {
-            $test  =  LinkVisitor::where('user_id', '=', auth('web')->id())
-                ->where('token', $token)->limit(1)
-                ->exists();
-            if (!$test) return back();
-            $nama_karyawan = \App\Models\User::find($id);
+        Route::get('registrasi/{link:user_id}/{token}', function (linkVisitor $link, $token) {
+            $isValid = $link->where('token', $token)->first()->exists() ? true : false;
+            if (!$isValid) return back();
             return view(
-                'layout/navigation-sidebar/manage-visitor.form-registrasi',
-                [
-                    'nama_karyawan' => $nama_karyawan->name,
-                    'token' => $token,
-                ]
+                'layout/navigation-sidebar/manage-visitor.form-registrasi'
             );
         })->name('registrasi');
 

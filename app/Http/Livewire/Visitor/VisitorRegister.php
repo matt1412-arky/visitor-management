@@ -13,12 +13,13 @@ class VisitorRegister extends Component
         $invitation_from,
         $transportation_used,
         $file_doc = '',
-        $picture = '';
+        $picture = '',
+        $link_visitor;
 
     protected $rules = [
         'fullname' => 'required|alpha',
         'phone' => 'string|required',
-        'invitation_from' => 'string|required',
+        'invitation_from' => 'required',
         'visitation_purpose' => 'string|required',
         'transportation_used' => 'string|required',
         'file_doc' => 'nullable',
@@ -26,7 +27,8 @@ class VisitorRegister extends Component
     ];
     public function mount()
     {
-        $this->invitation_from = \App\Models\User::find(request()->id)['name'];;
+        $this->link_visitor = (request()->link);
+        $this->invitation_from = $this->link_visitor->user->name;
     }
 
     public function render()
@@ -36,8 +38,10 @@ class VisitorRegister extends Component
     public function register()
     {
         $this->validate();
+        dd($this->validate()['fullname']);
+
         $visitor =  VisitorRegis::create([
-            'link_visitor_id' => '',
+            'link_visitor_id' => $this->link_visitor->id,
             'fullname' => $this->fullname,
             'phone' => $this->phone,
             'invitation_from' => $this->invitation_from,
@@ -53,7 +57,5 @@ class VisitorRegister extends Component
             session()->flash('error', 'Your data has been saved');
         }
     }
-
 }
 
-// how to createtable users?   

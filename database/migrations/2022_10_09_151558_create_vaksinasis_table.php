@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('vaksin_1')->nullable()->unique();
             $table->string('vaksin_2')->nullable()->unique();
             $table->string('vaksin_3')->nullable()->unique();
+            $table->string('vaksin_4')->nullable()->unique();
             $table->timestamps();
         });
     }
