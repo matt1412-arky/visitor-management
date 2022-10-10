@@ -21,7 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id'
     ];
+    // protected $primaryKey = 'uuid';
+    // public $incrementing = false;
+    // // In Laravel 6.0+ make sure to also set $keyType
+    // protected $keyType = 'string';
 
     /**
      * The attributes that should be hidden for serialization.

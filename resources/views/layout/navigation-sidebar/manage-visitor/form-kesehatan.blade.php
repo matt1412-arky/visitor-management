@@ -8,25 +8,32 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-xl-4 col-xxl-6 col-6">
+                <div class="col-xl-4 col-xxl-6 col-4">
                     <div class="form-check custom-checkbox mb-3 checkbox-success">
                         <input type="checkbox" class="form-check-input" id="customCheckBox1" required="">
-                        <label class="form-check-label" for="customCheckBox1">Checkbox 1</label>
+                        <label class="form-check-label" for="customCheckBox1">Vaksin 1</label>
                     </div>
                 </div>
-                <div class="col-xl-4 col-xxl-6 col-6">
+
+                <div class="col-xl-4 col-xxl-6 col-4">
                     <div class="form-check custom-checkbox mb-3 checkbox-success">
                         <input type="checkbox" class="form-check-input" checked="" id="customCheckBox2" required="">
-                        <label class="form-check-label" for="customCheckBox2">Checkbox 2</label>
+                        <label class="form-check-label" for="customCheckBox2">Vaksin 2</label>
                     </div>
                 </div>
-                <div class="col-xl-4 col-xxl-6 col-6">
+
+                <div class="col-xl-4 col-xxl-6 col-4">
                     <div class="form-check custom-checkbox mb-3 checkbox-success">
                         <input type="checkbox" class="form-check-input" checked="" id="customCheckBox3" required="">
-                        <label class="form-check-label" for="customCheckBox3">Checkbox 3</label>
+                        <label class="form-check-label" for="customCheckBox3">Booster</label>
                     </div>
-
                 </div>
+                <br>
+                <button type="submit" class="btn me-2 btn-google">Submit</button>
+                <br>
+                <button type="" class="btn me-2 btn-google">
+                    <a href="{{ route('home.capture-KTP') }}" style="color:white">Take capture KTP</a>
+                </button>
 
             </div>
         </div>

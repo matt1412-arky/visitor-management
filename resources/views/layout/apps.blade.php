@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no" />
-    <title>@yield('title')</title>
+    <title>Bintang 7 | @yield('title')</title>
     <!-- FAVICONS ICON -->
     <link rel="support/shortcut icon" type="image/png" href="{{ asset('support/images/avatar/favicon.png') }}" />
     <link href="{{ asset('support/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet" />
     <link href="{{ asset('support/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('support/vendor/nouislider/nouislider.min.css') }}" />
-
     <!-- Style css -->
     <link href="{{ asset('support/css/style.css') }}" rel="stylesheet" />
+    @livewireStyles
 </head>
 
 <body>
@@ -790,6 +790,8 @@
     <script src="{{ asset('support/js/dlabnav-init.js') }}"></script>
     <script src="{{ asset('support/js/demo.js') }}"></script>
     <script src="{{ asset('support/js/styleSwitcher.js') }}"></script>
+    @stack('scripts')
+    @livewireScripts
     <script>
         function cardsCenter() {
             /*  testimonial one function by = owl.carousel.js */
@@ -835,7 +837,6 @@
             }, 1000);
         });
     </script>
-    @stack('scripts')
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <div>
-    <form class="form-valide-with-icon needs-validation" novalidate="" wire:click.prevent="loginHandler()">
+    <form class="form-valide-with-icon needs-validation" novalidate="" wire:submit.prevent="loginHandler()">
         <div class="mb-3">
             <label class="text-label form-label" for="validationCustomUsername">Username</label>
             <div class="input-group">
