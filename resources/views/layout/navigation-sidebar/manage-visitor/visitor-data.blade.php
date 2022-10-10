@@ -19,7 +19,7 @@
                                     <th><strong>DATE</strong></th>
                                     <th><strong>TIME</strong></th>
                                     <th><strong>INVITATION FROM</strong></th>
-                                    <th><strong>TRANSPOTATION USED</strong></th>
+                                    <th><strong>NUM OF VISITOR</strong></th>
                                     <th><strong>STATUS</strong></th>
                                     <th><strong>ACTION</strong></th>
                                     <th></th>
@@ -34,7 +34,7 @@
                                     <td>Thursday, 23rd,June,2002</td>
                                     <td>09:00am</td>
                                     <td>names/divisi</td>
-                                    <td>Car</td>
+                                    <td>9 visitors</td>
                                     <td><span class="badge light badge-success">Ongoing</span></td>
                                     <td>
                                         <div class="dropdown">

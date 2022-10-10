@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vaksinasis', function (Blueprint $table) {
+        Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('vaksin_1')->nullable()->unique();
-            $table->string('vaksin_2')->nullable()->unique();
-            $table->string('vaksin_3')->nullable()->unique();
-            $table->string('vaksin_4')->nullable()->unique();
+            $table->foreignId('id_generate_link')->constrained('links');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vaksinasis');
+        Schema::dropIfExists('barcodes');
     }
 };
