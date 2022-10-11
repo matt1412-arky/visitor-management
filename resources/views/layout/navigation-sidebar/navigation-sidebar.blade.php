@@ -22,7 +22,7 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('home.barcode') }}">Scan QR</a></li>
                     <li>
-                        <a href="{{ route('home.registrasi') }}">Form Registrasi</a>
+                        {{--  <a href="{{ route('home.registrasi') }}">Form Registrasi</a>  --}}
                     </li>
                     <li>
                         <a href="{{ route('home.visitor-data') }}">Visitor Data</a>
