@@ -21,6 +21,16 @@
                             </div>
 
                             <div class="mb-3 col-md-12">
+                                <label class="form-label fs-4"><b class="text-red">*</b>Age</label>
+                                <input type="text" wire:model='age' class="form-control" placeholder="age">
+                                @error('age')
+                                    <span class="text-danger">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3 col-md-12">
                                 <label class="form-label fs-4"><b class="text-red">*</b>Phone number</label>
                                 <input type="text" wire:model='phone' class="form-control"
                                     placeholder="phone number">
@@ -32,10 +42,23 @@
                             </div>
 
                             <div class="mb-3 col-md-12">
-                                <label class="form-label fs-4">Transportation used</label>
+                                <label class="form-label fs-4">Transportation used</label><span
+                                    class="text-muted">(optional)</span>
                                 <input type="text" wire:model='transportation_used'
                                     placeholder="transportation used"class="form-control">
                                 @error('transportation_used')
+                                    <span class="text-danger">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3 col-md-12">
+                                <label class="form-label fs-4">Vehicle License Plate Number</label><span
+                                    class="text-muted">(optional)</span>
+                                <input type="text" wire:model='license_plate_number'
+                                    placeholder="vehicle license plate number"class="form-control">
+                                @error('license_plate_number')
                                     <span class="text-danger">
                                         {{ $message }}
                                     </span>
@@ -66,7 +89,7 @@
                             </div>
 
                             <div class="mb-3 col-md-12">
-                                <label class="form-label fs-4"><b class="text-red">*</b>waktu_kunjungan</label>
+                                <label class="form-label fs-4"><b class="text-red">*</b>Visiting Time</label>
                                 <input type="time" class="form-control" placeholder="waktu kungjungan">
                                 @error('time')
                                     <span class="text-danger">
@@ -74,8 +97,9 @@
                                     </span>
                                 @enderror
                             </div>
+
                             <div class="mb-3 col-md-12">
-                                <label class="form-label fs-4"><b class="text-red">*</b>Picture(Optional)</label>
+                                <label class="form-label fs-4">Picture</label><span class="text-muted">(optional)</span>
                                 <div class="input-group mb-3">
                                     <div class="form-file">
                                         <input type="file" wire:model='picture' placeholder="picture"
@@ -89,8 +113,9 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="mb-3 col-md-12">
-                                <label class="form-label fs-4"><b class="text-red">*</b>File(Optional)</label>
+                                <label class="form-label fs-4">File</label><span class="text-muted">(optional)</span>
                                 <div class="input-group mb-3">
                                     <div class="form-file">
                                         <input type="file" wire:model='file_doc' class="form-file-input form-control"
@@ -98,6 +123,18 @@
                                     </div>
                                     <span class="input-group-text">Upload</span>
                                     @error('file_doc')
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3 col-md-12">
+                                    <label class="form-label fs-4">Emergency Number</label><span
+                                        class="text-muted">(optional)</span>
+                                    <input type="text" wire:model='emergency_number'
+                                        placeholder="emergency number"class="form-control">
+                                    @error('emergency_number')
                                         <span class="text-danger">
                                             {{ $message }}
                                         </span>

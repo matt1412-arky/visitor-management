@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
-class LinkSeender extends Seeder
+class LinkSeeder extends Seeder
 {
     /**
      * Run the database seeds.

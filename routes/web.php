@@ -15,7 +15,24 @@ Route::group(
     ],
     function () {
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
-        Route::view('registrasi', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi'); //tamu / visitor
+
+        // Route::view('registrasi/{token}', 'layout/navigation-sidebar/manage-visitor.form-registrasi')->name('registrasi'); //tamu / visitor
+
+        Route::get('registrasi/{id}/{token}', function ($id, $token) {
+            $test  =  LinkVisitor::where('user_id', '=', auth('web')->id())
+                ->where('token', $token)->limit(1)
+                ->exists();
+            // if (!$test) return back();
+            $nama_karyawan = \App\Models\User::find($id);
+            return view(
+                'layout/navigation-sidebar/manage-visitor.form-registrasi',
+                [
+                    'nama_karyawan' => $nama_karyawan->name,
+                    'token' => $token,
+                ]
+            );
+        })->name('registrasi');
+
         // barcode-security
         Route::view('barcode', 'barcode-security.barcode-security')->name('barcode');
         // track visitor
