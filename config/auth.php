@@ -17,6 +17,14 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    // 'karyawan_ga' => [
+    //     'driver' => 'eloquent',
+    //     'model' => App\Models\KaryawanGA::class
+    // ],
+    // 'visitor' => [
+    //     'driver' => 'eloquent',
+    //     'model' => App\Models\Visitor::class
+    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -34,11 +42,20 @@ return [
     | Supported: "session"
     |
     */
-
+    // name table
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'karyawan_gaa' => [
+            'driver' => 'session',
+            // 'provider' => 'karyawan_GA',
+            'provider' => 'karyawan_ga', // provider
+        ],
+        'visitor' => [
+            'driver' => 'session',
+            'provider' => 'visitors',
         ],
     ],
 
@@ -58,11 +75,19 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'karyawan_ga' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\KaryawanGA::class,
+        ],
+
+        'visitors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Visitor::class,
         ],
 
         // 'users' => [
