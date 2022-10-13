@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Link;
 
 
-
 Route::get('/', fn () => to_route('auth.login'));
 // authenticate
 Route::group(

@@ -54,6 +54,9 @@
                             <li><a href="{{ route('home.visitor-approval') }}">Visitor Approval</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{ route('capture-KTP') }}">Take capture KTP</a>
+                    </li>
                 </ul>
             </li>
             <li>
