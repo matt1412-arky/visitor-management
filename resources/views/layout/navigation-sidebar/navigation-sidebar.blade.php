@@ -55,7 +55,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ route('capture-KTP') }}">Take capture KTP</a>
+                        {{--  <a href="{{ route('home.capture-KTP') }}">Take capture KTP</a>  --}}
                     </li>
                 </ul>
             </li>

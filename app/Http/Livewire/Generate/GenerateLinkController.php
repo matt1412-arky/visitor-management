@@ -30,7 +30,7 @@ class GenerateLinkController extends Component
         $this->dispatchBrowserEvent('generate-link', []);
     }
 
-    private function generateNumberOfvisitors(int $count): array  | \Exception | none
+    private function generateNumberOfvisitors(int $count): array  | \Exception
     {
         try {
             $input_name = 'ersalomo';
@@ -71,7 +71,7 @@ class GenerateLinkController extends Component
             }
             return $generate_users;
         } catch (\Exception $err) {
-            session()->flash('error', "There was an error when generating data for user $err");
+            session()->flash('error', "There was an error when generating data for user");
         }
     }
 }
