@@ -1,5 +1,5 @@
 <div>
-    <form class="form-valide-with-icon needs-validation" novalidate="" wire:click.prevent="loginHandler()">
+    <form class="form-valide-with-icon needs-validation" novalidate="" wire:submit.prevent="loginHandler()">
         <div class="mb-3">
             <label class="text-label form-label" for="validationCustomUsername">Username</label>
             <div class="input-group">
@@ -26,10 +26,13 @@
                     <i class="fa fa-eye-slash"></i>
                     <i class="fa fa-eye"></i>
                 </span>
-                <div class="invalid-feedback">
-                    Please Enter a username.
-                </div>
+
             </div>
+            @error('password')
+                <span class="text-red">
+                    {{ $message }}
+                </span>
+            @enderror
         </div>
         <button type="submit" class="btn me-2 btn-google">Submit</button>
     </form>

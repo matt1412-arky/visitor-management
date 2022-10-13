@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-xl-6">
             <div class="card text-center">
+                @if (Session::has('error'))
+                    <span class="text-danger">{{ Session::get('error') }}</span>
+                @endif
                 <div class="card-header">
                     <h5 class="card-title">Generate Link Registrasi</h5>
                 </div>
@@ -29,7 +32,7 @@
     <script>
         window.addEventListener('generate-link', (e) => {
             $('#modal-generate').modal('show');
-            
+
         })
     </script>
 @endpush

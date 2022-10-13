@@ -23,8 +23,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                // dd('login');
                 if ($guard === 'karyawan_gaa') {
+                    return redirect(RouteServiceProvider::HOME);
+                }
+                if ($guard === 'visitor') {
+                    // dd('sdsd');
                     return redirect(RouteServiceProvider::HOME);
                 }
                 return to_route('auth.login');

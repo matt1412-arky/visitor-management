@@ -18,19 +18,21 @@ class LoginController extends Component
             'email.required' => 'Email is required',
             'password.required' => 'Password is required'
         ]);
-        $use = [
+        $user = [
             'email' => $this->email,
             'password' => $this->password
         ];
-        // if (Auth::guard('web')->attempt($user, false)) {
-        if (Auth::guard('karyawan_gaa')->attempt($use, false)) {
+        if (Auth::guard('karyawan_gaa')->attempt($user, 1)) {
 
             // $check_user = User::where('email', $this->email)->first();
             // if ($check_user->role == '') {
             //     return;
             // }
-
             return to_route('home.dashboard-page');
+        }
+        if (Auth::guard('visitor')->attempt($user, 0)) {
+            return to_route('home.dashboard-page');
+        } else {
         }
     }
     public function render()

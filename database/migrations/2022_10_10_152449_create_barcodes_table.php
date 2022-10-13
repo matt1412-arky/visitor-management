@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_generate_link')->constrained('links');
-            $table->string('status');
+            $table->enum('status', ['approve', 'pending']);
             $table->timestamps();
         });
     }

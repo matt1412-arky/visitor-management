@@ -39,6 +39,21 @@
                     <li>
                         <a href="{{ route('home.form-kesehatan') }}">Form health</a>
                     </li>
+                    <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">Admin GA</a>
+                        <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                            <li><a href="/#">Dashboard</a></li>
+                            <li><a href="{{ route('home.generate') }}">Generate</a></li>
+                            <li><a href="">Customize Feedback</a></li>
+
+                        </ul>
+                    </li>
+                    <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">Security</a>
+                        <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                            <li><a href="{{ route('home.scan-qr') }}">QR Scan Code</a></li>
+                            <li><a href="{{ route('home.lost-items') }}">Lost Item</a></li>
+                            <li><a href="{{ route('home.visitor-approval') }}">Visitor Approval</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>

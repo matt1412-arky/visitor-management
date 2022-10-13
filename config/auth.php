@@ -51,7 +51,7 @@ return [
         'karyawan_gaa' => [
             'driver' => 'session',
             // 'provider' => 'karyawan_GA',
-            'provider' => 'karyawan_ga', // provider
+            'provider' => 'karyawan_ga', // tb
         ],
         'visitor' => [
             'driver' => 'session',

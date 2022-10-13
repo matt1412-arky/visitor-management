@@ -3,9 +3,6 @@
         <h4 class="card-title">List Visitor</h4>
         <div class="list-group mb-4 " id="list-tab" role="tablist">
             <div class="col-12">
-                // looping pake foreach
-                @foreach ($visitor_regis as $visitor)
-                @endforeach
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -18,8 +15,8 @@
                                             <option value="100">100</option>
                                         </select> entries</label></div>
                                 <div id="example4_filter" class="dataTables_filter">
-                                    <label>Search:<input type="search" class="" placeholder=""
-                                            aria-controls="example4"></label>
+                                    <label>Search:<input type="search" wire:model='search' class=""
+                                            placeholder="" aria-controls="example4"></label>
                                 </div>
                                 <table class="table table-responsive">
                                     <thead>
@@ -31,28 +28,26 @@
                                             <th class="fs-6"><strong>ACTION</strong></th>
                                         </tr>
                                     </thead>
-                                    disni
-                                    <div>{{ $data }}</div>
                                     <tbody>
-                                        <tr>
-                                            <td><strong>01</strong></td>
-                                            <td>Jackson902384</td>
-                                            <td>Dr. Jackson</td>
-                                            <td>names/divisi</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    {{--  <div class="dropdown-menu">  --}}
-                                                    @if (true)
-                                                        <button class="dropdown-item btn btn-primary">
-                                                            Approve Checkin</button>
-                                                    @endif
-                                                    {{--  <button class="dropdown-item btn btn-primary">
-                                                            Approve Checkout</button>  --}}
-                                                    {{--  </div>  --}}
-                                                </div>
-                                            </td>
+                                        @foreach ($data_barcodes as $barcode)
+                                            <tr>
+                                                <td><strong>{{ $loop->iteration }}</strong></td>
+                                                <td>{{ __($barcode['link'][0]->visitor->id) }}</td>
+                                                <td>{{ __($barcode['link'][0]->visitor->name) }}</td>
+                                                <td>{{ __($barcode['link'][0]->karyawan_ga->name) }}</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button
+                                                            class="dropdown-item btn {{ $barcode->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
+                                                            wire:click.lazy="onClickBtnApprove({{ $barcode->id }})">
+                                                            {{ $barcode->status }}</button>
 
-                                        </tr>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+
 
                                     </tbody>
                                 </table>

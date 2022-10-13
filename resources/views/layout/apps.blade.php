@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no" />
-    <title>@yield('title')</title>
+    <title>Bintang Toedjoe | @yield('title')</title>
     <!-- FAVICONS ICON -->
     <link rel="support/shortcut icon" type="image/png" href="{{ asset('support/images/avatar/favicon.png') }}" />
     <link href="{{ asset('support/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet" />
@@ -16,6 +16,8 @@
 
     <!-- Style css -->
     <link href="{{ asset('support/css/style.css') }}" rel="stylesheet" />
+    @livewireStyles
+    @livewireScripts
 </head>
 
 <body>
@@ -788,7 +790,7 @@
     <script src="{{ asset('support/vendor/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('support/js/custom.min.js') }}"></script>
     <script src="{{ asset('support/js/dlabnav-init.js') }}"></script>
-    <script src="{{ asset('support/js/demo.js') }}"></script>
+    {{--  <script src="{{ asset('support/js/demo.js') }}"></script>  --}}
     <script src="{{ asset('support/js/styleSwitcher.js') }}"></script>
     <script>
         function cardsCenter() {

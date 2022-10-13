@@ -3,32 +3,35 @@
 namespace App\Http\Livewire\Visitor;
 
 use Livewire\Component;
-use App\Models\VisitorRegis;
+use App\Models\Visitor;
 
 class VisitorRegister extends Component
 {
-    public $fullname,
-        $phone,
-        $visitation_purpose,
-        $invitation_from,
-        $transportation_used,
-        $file_doc = '',
-        $picture = '',
-        $link_visitor;
-
+    public Visitor $visitor;
     protected $rules = [
-        'fullname' => 'required|alpha',
-        'phone' => 'string|required',
-        'invitation_from' => 'required',
-        'visitation_purpose' => 'string|required',
-        'transportation_used' => 'string|required',
-        'file_doc' => 'nullable',
-        'picture' => 'file|nullable',
+        'visitor.name' => 'required|alpha', // fullname
+        'visitor.phone' => 'string|required',
+        'visitor.age' => 'required|numeric',
+        'visitor.invitation_from' => 'required',
+        'visitor.visitation_purpose' => 'string|required',
+        'visitor.transportasi_visitor' => 'string|required',
+        'visitor.waktu_kunjungan' => 'string|required',
+        'visitor.plat_nomor' => 'nullable|required',
+        'visitor.picture' => 'file|nullable',
+        'visitor.file_surat' => 'nullable',
+        'visitor.no_darurat' => 'required|numeric',
     ];
-    public function mount()
+    protected $messages = [
+        'visitor.*.required' => 'Kolom ini harus diisi',
+        'visitor.age.numeric' => 'Age hanya menerima nilai angka',
+    ];
+
+    // protected $validationAttributes = [ // just need attribute
+    //     'email' => 'email address'
+    // ];
+    public function mount(Visitor $visitor)
     {
-        $this->link_visitor = (request()->link);
-        $this->invitation_from = $this->link_visitor->user->name;
+        $this->visitor = $visitor ?? new Visitor();
     }
 
     public function render()
@@ -38,24 +41,34 @@ class VisitorRegister extends Component
     public function register()
     {
         $this->validate();
-        dd($this->validate()['fullname']);
-
-        $visitor =  VisitorRegis::create([
-            'link_visitor_id' => $this->link_visitor->id,
-            'fullname' => $this->fullname,
-            'phone' => $this->phone,
-            'invitation_from' => $this->invitation_from,
-            'visitation_purpose' => $this->visitation_purpose,
-            'transportation_used' => $this->transportation_used,
-            'file_doc' => $this->file_doc,
-            'picture' => $this->picture,
-        ]);
-        $this->reset();
-        if ($visitor) {
-            session()->flash('success', 'Your data has been saved');
+        $v = Visitor::find(50)->update($this->validate()['visitor']);
+        if ($v) {
+            $this->resetKolom();
+            $this->showToastr("success", "Your data has been saved");
         } else {
-            session()->flash('error', 'Your data has been saved');
+            $this->resetKolom();
+            $this->showToastr("error", "Your data has'nt been saved");
         }
     }
+    public function showToastr(string $type, string $message)
+    {
+        return $this->dispatchBrowserEvent(
+            'showToastr',
+            ['type' => $type, 'msg' => $message]
+        );
+    }
+    private function resetKolom(): void
+    {
+        $this->visitor->name = '';
+        $this->visitor->phone = '';
+        $this->visitor->age = '';
+        $this->visitor->invitation_from = '';
+        $this->visitor->visitation_purpose = '';
+        $this->visitor->transportasi_visitor = '';
+        $this->visitor->waktu_kunjungan = '';
+        $this->visitor->plat_nomor  = '';
+        $this->visitor->picture = '';
+        $this->visitor->file_surat = '';
+        $this->visitor->no_darurat = '';
+    }
 }
-
