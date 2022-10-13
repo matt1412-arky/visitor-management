@@ -18,7 +18,7 @@
                         <input type="number" class="form-control" wire:model="number_of_visitors">
                     </div>
                     <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalCenter" wire:click="generateLinkVisitor()">Generate</button>
+                        data-bs-target="#exampleModalCenter" wire:click.lazy="generateLinkVisitor()">Generate</button>
                 </div>
                 <div class="card-footer">
                     <p class="card-text text-dark">Last updateed 3 min ago</p>

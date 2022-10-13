@@ -15,7 +15,7 @@ class Visitor extends Authenticatable
     protected $table = 'visitors';
     protected $fillable = [
         'name',
-        // 'email',
+        'email',
         'age',
         'phone',
         'invitation_from',
@@ -26,7 +26,8 @@ class Visitor extends Authenticatable
         'picture',
         'file_surat',
         'no_darurat',
-        // 'role_id'
+        'role_id',
+        'password',
     ];
     protected $with = [
         'link'
