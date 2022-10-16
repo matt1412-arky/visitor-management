@@ -36,15 +36,14 @@ Route::group(
             );
         })->name('registrasi');
 
-        // barcode-security
-        Route::view('barcode', 'barcode-security.barcode-security')->name('barcode');
         // track visitor
-        Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor');
+        Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
 
 
         // manage visitors
         Route::group([], function () {
             Route::view('generate', 'layout/navigation-sidebar/manage-visitor.generate-link-visitor')->name('generate'); //admin
+            //hapus
             Route::view('scan-qr', 'layout/navigation-sidebar/manage-visitor.scan-qr')->name('scan-qr'); //admin
             Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); // admin
             Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin

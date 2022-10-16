@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
+        // ada fitur ask status = pending
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_generate_link')->constrained('links');
-            $table->enum('status', ['approve', 'pending']);
+            $table->enum('status', ['approve', 'pending']); // expired
             $table->timestamps();
         });
     }

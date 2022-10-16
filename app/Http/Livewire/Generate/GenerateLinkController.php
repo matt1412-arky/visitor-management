@@ -30,17 +30,17 @@ class GenerateLinkController extends Component
         $this->dispatchBrowserEvent('generate-link', []);
     }
 
-    private function generateNumberOfvisitors(int $count): array  | \Exception | none
+    private function generateNumberOfvisitors(int $count): array  | \Exception
     {
         try {
+            $generate_users = [];
             $input_name = 'ersalomo';
             $this->email_generate = $input_name . random_int(1, 99) . '@gmail.com';
             // $this->password_generate = Str::random(8);
             $this->password_generate = '12345678';
-            $generate_users = [];
             if ($count == 1) {
                 $user_visitor =  Visitor::create([
-                    'name' => 'dummy name',
+                    'name' => fake()->name(),
                     'email' => $this->email_generate,
                     'role_id' => 6,
                     'password' => Hash::make($this->password_generate, []),
@@ -52,6 +52,7 @@ class GenerateLinkController extends Component
                 ]);
                 $this->link_visitor = url('h/registrasi/' . $link->id_karyawan . '/' . $link->token);
                 array_push($generate_users, [$user_visitor->email, $this->password_generate, $this->link_visitor]);
+                return $generate_users;
             } else {
                 foreach (range(1, $count) as $counter) {
                     $user_visitor =  Visitor::create([

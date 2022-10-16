@@ -26,7 +26,8 @@ class Visitor extends Authenticatable
         'picture',
         'file_surat',
         'no_darurat',
-        'role_id'
+        'role_id',
+        'password',
     ];
     protected $with = [
         'link'

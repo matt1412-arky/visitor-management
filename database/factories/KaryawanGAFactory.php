@@ -26,7 +26,7 @@ class KaryawanGAFactory extends Factory
             'password' => Hash::make('12345678'),
             'devisi' => $this->faker->word(),
             'jabatan' => $this->faker->word(),
-            'role_id' => $this->faker->numberBetween(1, 6)
+            'role_id' => $this->faker->numberBetween(1, 3)
         ];
     }
 }

@@ -20,15 +20,14 @@
                     <span class="nav-text">Manage Visitors</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('home.barcode') }}">Scan QR</a></li>
                     <li>
                         {{--  <a href="{{ route('home.registrasi') }}">Form Registrasi</a>  --}}
                     </li>
                     <li>
-                        <a href="{{ route('home.visitor-data') }}">Visitor Data</a>
+                        <a href="{{ route('home.visitor-data') }}">Visitor Data(admin/Security)</a>
                     </li>
                     <li>
-                        <a href="{{ route('home.lost-items') }}">Lost Items</a>
+                        <a href="{{ route('home.lost-items') }}">Lost Items(security)</a>
                     </li>
                     <li>
                         <a href="{{ route('home.visitor-arival') }}">Visitor Arival</a>
