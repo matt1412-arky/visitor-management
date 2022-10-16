@@ -39,14 +39,14 @@
                     <li>
                         <a href="{{ route('home.form-kesehatan') }}">Form health</a>
                     </li>
-                    {{-- <li>
+                    <li>
                         <a href="{{ route('home.capture-KTP') }}">Capture KTP</a>
-                    </li> --}}
+                    </li>
                     <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">Admin GA</a>
                         <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                             <li><a href="/#">Dashboard</a></li>
                             <li><a href="{{ route('home.generate') }}">Generate</a></li>
-                            <li><a href="">Customize Feedback</a></li>
+                            <li><a href="{{ route('home.customize-feed') }}">Customize Feedback</a></li>
 
                         </ul>
                     </li>
@@ -57,15 +57,6 @@
                             <li><a href="{{ route('home.visitor-approval') }}">Visitor Approval</a></li>
                         </ul>
                     </li>
-<<<<<<< HEAD
-                    <li>
-                        <a href="{{ route('home.capture-KTP') }}">Take capture KTP</a>
-                    </li>
-=======
-                    {{-- <li>
-                        <a href="{{ route('capture-KTP') }}">Take capture KTP</a>
-                    </li> --}}
->>>>>>> 9ca3944 (updated)
                 </ul>
             </li>
             <li>
@@ -90,9 +81,6 @@
 
                     <li>
                         <a href="{{ route('home.menu-from-vendor') }}">Menu From Vendor (GA)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
                     </li>
                     <li>
                         <a href="{{ route('home.form-feedback') }}"> Form Feedback (Employee)</a>
