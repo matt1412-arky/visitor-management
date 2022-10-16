@@ -25,7 +25,14 @@
                 <div class="col-xl-4 col-xxl-6 col-4">
                     <div class="form-check custom-checkbox mb-3 checkbox-success">
                         <input type="checkbox" class="form-check-input" checked="" id="customCheckBox3" required="">
-                        <label class="form-check-label" for="customCheckBox3">Booster</label>
+                        <label class="form-check-label" for="customCheckBox3">Booster I</label>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-xxl-6 col-4">
+                    <div class="form-check custom-checkbox mb-3 checkbox-success">
+                        <input type="checkbox" class="form-check-input" checked="" id="customCheckBox3" required="">
+                        <label class="form-check-label" for="customCheckBox3">Booster II</label>
                     </div>
                 </div>
                 <br>
@@ -33,8 +40,12 @@
                 <br>
 
                 <button type="button" class="btn me-2 btn-google">
+<<<<<<< HEAD
                     <a href="{{ route('home.capture-KTP') }}" style="color:white">Take capture KTP</a>
 
+=======
+                    {{-- <a href="{{ route('home.capture-KTP') }}" style="color:white">Take capture KTP</a>  --}}
+>>>>>>> 9ca3944 (updated)
                 </button>
 
             </div>
