@@ -40,12 +40,7 @@
                 <br>
 
                 <button type="button" class="btn me-2 btn-google">
-<<<<<<< HEAD
-                    <a href="{{ route('home.capture-KTP') }}" style="color:white">Take capture KTP</a>
-
-=======
                     {{-- <a href="{{ route('home.capture-KTP') }}" style="color:white">Take capture KTP</a>  --}}
->>>>>>> 9ca3944 (updated)
                 </button>
 
             </div>
