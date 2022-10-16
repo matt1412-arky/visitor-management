@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Role::factory()->count(6)->create();
         // \App\Models\KaryawanGA::factory()->count(20)->create();
         // \App\Models\Visitor::factory(2)->create();
-        // \App\Models\Barcode::factory(10)->create();
+        \App\Models\Barcode::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

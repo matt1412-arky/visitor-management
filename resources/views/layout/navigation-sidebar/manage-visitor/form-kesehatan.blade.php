@@ -32,10 +32,9 @@
                 <button type="submit" class="btn me-2 btn-google">Submit</button>
                 <br>
 
-                <button type="button" class="btn me-2 btn-google">
-                    {{--  <a href="{{ route('home.capture-KTP') }}" style="color:white">Take capture KTP</a>   --}}
+                <a href="{{ route('home.capture-ktp') }}" class="btn me-2 btn-google" style="color:white">Take capture
+                    KTP</a>
 
-                </button>
 
             </div>
         </div>

@@ -41,7 +41,7 @@ class VisitorRegister extends Component
     public function register()
     {
         $this->validate();
-        $v = Visitor::find(50)->update($this->validate()['visitor']);
+        $v = Visitor::find(12)->update($this->validate()['visitor']);
         if ($v) {
             $this->resetKolom();
             $this->showToastr("success", "Your data has been saved");
