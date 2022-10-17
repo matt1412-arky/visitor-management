@@ -1,5 +1,5 @@
 @extends('layout.apps')
-@section('title', 'Dashboard Admin')
+@section('title', ' Dashboard Admin ')
 @section('content')
     <!-- row -->
     <div class="row">

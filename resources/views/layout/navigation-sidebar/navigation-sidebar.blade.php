@@ -30,9 +30,6 @@
                         <a href="{{ route('home.lost-items') }}">Lost Items(security)</a>
                     </li>
                     <li>
-                        <a href="{{ route('home.visitor-arival') }}">Visitor Arival</a>
-                    </li>
-                    <li>
                         <a href="{{ route('home.visitor-feedback') }}">Visitor Feedback</a>
                     </li>
                     <li>
@@ -54,10 +51,11 @@
                         </ul>
                     </li>
                     <li>
-                        {{--  <a href="{{ route('home.capture-KTP') }}">Take capture KTP</a>  --}}
+                        <a href="{{ route('home.capture-ktp') }}">Take capture KTP</a>
                     </li>
                 </ul>
             </li>
+
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="	fas fa-bread-slice"></i>
@@ -77,12 +75,8 @@
 
                         </ul>
                     </li>
-
                     <li>
                         <a href="{{ route('home.menu-from-vendor') }}">Menu From Vendor (GA)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
                     </li>
                     <li>
                         <a href="{{ route('home.form-feedback') }}"> Form Feedback (Employee)</a>

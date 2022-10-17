@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Visitor;
 
 use Livewire\Component;
 use App\Models\Visitor;
+use App\Models\Barcode;
 
 class VisitorRegister extends Component
 {
     public Visitor $visitor;
+    public $id_link;
     protected $rules = [
         'visitor.name' => 'required|alpha', // fullname
         'visitor.phone' => 'string|required',
@@ -31,7 +33,10 @@ class VisitorRegister extends Component
     // ];
     public function mount(Visitor $visitor)
     {
+
         $this->visitor = $visitor ?? new Visitor();
+        $this->visitor->invitation_from = __(request()->link->karyawan_ga->name);
+        $this->id_link = request()->link->id;
     }
 
     public function render()
@@ -41,8 +46,10 @@ class VisitorRegister extends Component
     public function register()
     {
         $this->validate();
-        $v = Visitor::find(12)->update($this->validate()['visitor']);
+        $v = Visitor::find(auth('visitor')->id())
+            ->update($this->validate()['visitor']);
         if ($v) {
+            $this->insertBarcode($this->id_link);
             $this->resetKolom();
             $this->showToastr("success", "Your data has been saved");
         } else {
@@ -57,12 +64,21 @@ class VisitorRegister extends Component
             ['type' => $type, 'msg' => $message]
         );
     }
+    private function insertBarcode(int $fk_link): void
+    {
+        if ($fk_link !== null) return;
+
+        Barcode::create([
+            'id_generate_link' => $fk_link,
+            'status' => 'pending'
+        ]);
+    }
     private function resetKolom(): void
     {
         $this->visitor->name = '';
         $this->visitor->phone = '';
         $this->visitor->age = '';
-        $this->visitor->invitation_from = '';
+        // $this->visitor->invitation_from = '';
         $this->visitor->visitation_purpose = '';
         $this->visitor->transportasi_visitor = '';
         $this->visitor->waktu_kunjungan = '';

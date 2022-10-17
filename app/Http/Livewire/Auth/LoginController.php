@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Livewire\Auth;
-
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Component
 {
     public $email, $password;
-
+    
     public function loginHandler()
     {
         $this->validate([

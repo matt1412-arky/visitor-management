@@ -149,7 +149,7 @@
                     </form>
                     @if (session()->has('success'))
                         <span>{{ session()->get('success') }}</span>
-                        @else
+                    @else
                         <span>{{ session()->get('error') }}</span>
                     @endif
                 </div>
