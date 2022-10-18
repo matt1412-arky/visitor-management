@@ -14,6 +14,7 @@ class VisitorRegister extends Component
     public Visitor $visitor;
     public $id_link;
     public $picture, $file_upload;
+
     protected $rules = [
         'visitor.name' => 'required|string|max:50|min:4|regex:/^[\pL\s\-]+$/u', // fullname
         'visitor.phone' => 'string|required',
@@ -28,7 +29,6 @@ class VisitorRegister extends Component
         'visitor.no_darurat' => 'required|numeric',
     ];
 
-    // protected $messages = [
     protected $messages = [
         'visitor.*.required' => 'This field is required',
         'visitor.name.regex' => 'abjad a-z',
@@ -77,6 +77,7 @@ class VisitorRegister extends Component
             $this->showToastr("There are something went wrong!", "error", "Your data has'nt been saved");
         }
     }
+
     public function showToastr(string $title, string $type, string $message)
     {
         return $this->dispatchBrowserEvent(
@@ -88,6 +89,7 @@ class VisitorRegister extends Component
             ]
         );
     }
+
     private function insertBarcode(int $fk_link): void
     {
         if ($fk_link === null) return;
@@ -96,6 +98,7 @@ class VisitorRegister extends Component
             'status' => 'pending'
         ]);
     }
+
     private function resetKolom(): void
     {
         $this->visitor->name = '';

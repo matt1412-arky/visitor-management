@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WebcamController;
 
 Route::get('/', fn () => to_route('auth.login'));
 
@@ -48,7 +49,13 @@ Route::group(
         Route::view('food-order', 'layout/navigation-sidebar/food-management.food-order')->name('food-order');
         Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
 
-        
+        // webcam
+        Route::controller(WebcamController::class)->group(function () {
+            Route::get('webcam', 'index')->name('webcame');
+            Route::post('webcam', 'takePicture')->name('webcame');
+        });
+
+
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');
     }
 );
