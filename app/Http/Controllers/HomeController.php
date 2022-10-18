@@ -13,9 +13,8 @@ class HomeController extends Controller
         $isValidLink = $link->where('id_visitor', auth('visitor')->id())
             ->where('token', $token)
             ->first();
-
         if (!$isValidLink) return to_route('home.dashboard-page');
-        return view('layout/navigation-sidebar/manage-visitor.form-registrasi');
+        return view('layout/navigation-sidebar/manage-visitor.form-registrasi', []);
     }
 
     public function logout(Request $req)

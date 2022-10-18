@@ -2,5 +2,5 @@
 @section('title', 'Register')
 @section('content')
     {{-- berada pada conainer fluid --}}
-    <livewire:visitor.visitor-register>
-    @endsection
+    <livewire:visitor.visitor-register/>
+@endsection

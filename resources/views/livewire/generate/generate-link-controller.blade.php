@@ -1,5 +1,8 @@
 <div>
     <div class="row">
+        @if (session('fail'))
+            <span class="alert alert-danger">{{ session('fail') }}</span>
+        @endif
         <div class="col-xl-6">
             <div class="card text-center">
                 @if (Session::has('error'))

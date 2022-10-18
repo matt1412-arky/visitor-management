@@ -37,6 +37,7 @@ Route::group(
         // food management
         Route::group(['middleware' => []], function () { // visitor
         });
+
         Route::view('insert-menu', 'layout/navigation-sidebar/food-management.insert-menu')->name('insert-menu');
         Route::view('food-menu', 'layout/navigation-sidebar/food-management.food-menu')->name('food-menu');
         Route::view('beverage-menu', 'layout/navigation-sidebar/food-management.beverage-menu')->name('beverage-menu');
@@ -47,6 +48,7 @@ Route::group(
         Route::view('food-order', 'layout/navigation-sidebar/food-management.food-order')->name('food-order');
         Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
 
+        
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');
     }
 );

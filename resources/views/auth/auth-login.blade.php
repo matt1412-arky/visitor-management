@@ -28,7 +28,7 @@
                                                 height="" alt="logo bintang toejoe">
                                         </a>
                                     </div>
-                                    <livewire:auth.login-controller>
+                                    <livewire:auth.login-controller />
                                 </div>
                             </div>
                         </div>

@@ -23,24 +23,33 @@
                     <li>
                         {{--  <a href="{{ route('home.registrasi') }}">Form Registrasi</a>  --}}
                     </li>
-                    <li>
-                        <a href="{{ route('home.visitor-data') }}">Visitor Data(admin/Security)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.lost-items') }}">Lost Items(security)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.visitor-feedback') }}">Visitor Feedback</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.form-kesehatan') }}">Form health</a>
-                    </li>
+                    @if (in_array(Auth::user()->role_id, [1, 2, 3, 6]))
+                        <li>
+                            <a href="{{ route('home.visitor-data') }}">Visitor Data(admin/Security)</a>
+                        </li>
+                    @endif
+                    @if (in_array(Auth::user()->role_id, [3]))
+                        <li>
+                            <a href="{{ route('home.lost-items') }}">Lost Items(security)</a>
+                        </li>
+                    @endif
+                    @if (in_array(Auth::user()->role_id, [6]))
+                        <li>
+                            <a href="{{ route('home.visitor-feedback') }}">Visitor Feedback</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home.form-kesehatan') }}">Form health</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home.capture-ktp') }}">Take capture KTP</a>
+                        </li>
+                    @endif
+                    @if (in_array(Auth::user()->role_id, [1, 2, 3]))
                     <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">Admin GA</a>
                         <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                             <li><a href="/#">Dashboard</a></li>
                             <li><a href="{{ route('home.generate') }}">Generate</a></li>
                             <li><a href="">Customize Feedback</a></li>
-
                         </ul>
                     </li>
                     <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">Security</a>
@@ -50,11 +59,12 @@
                             <li><a href="{{ route('home.visitor-approval') }}">Visitor Approval</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="{{ route('home.capture-ktp') }}">Take capture KTP</a>
-                    </li>
+                    @endif
+
+
                 </ul>
             </li>
+
 
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
