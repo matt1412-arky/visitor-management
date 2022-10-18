@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=o">
-    <title>Document</title>
-    {{-- style --}}
+    <title>Login</title>
     <link rel="stylesheet" href="{{ asset('support/css/style.css') }}">
-    @livewireStyles
+    <livewire:styles>
+
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                                                 height="" alt="logo bintang toejoe">
                                         </a>
                                     </div>
-                                    @livewire('auth.login-controller')
+                                    <livewire:auth.login-controller />
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    @livewireScripts
+    <livewire:scripts>
 
 </body>
 

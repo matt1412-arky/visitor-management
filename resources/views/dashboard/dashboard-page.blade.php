@@ -1,5 +1,5 @@
 @extends('layout.apps')
-@section('title', 'Dashboard Admin')
+@section('title', ' Dashboard Admin ')
 @section('content')
     <!-- row -->
     <div class="row">
@@ -24,7 +24,7 @@
                                             Free Now</a>
                                     </div>
                                     <div class="col-xl-5 col-sm-6">
-                                        <img src="images/chart.png" alt="" class="sd-shape" />
+                                        <img src="" alt="" class="sd-shape" />
                                     </div>
                                 </div>
                             </div>
@@ -140,5 +140,4 @@
             </div>
         </div>
     </div>
-
 @endsection

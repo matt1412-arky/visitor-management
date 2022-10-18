@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use App\Models\Visitor;
 use App\Models\KaryawanGA;
 
@@ -23,7 +22,7 @@ class VisitorFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => Hash::make('12345678'),
+            'password' => bcrypt('12345678'),
             'age' => fake()->numberBetween(15, 55),
             'phone' => '08' . random_int(1111, 9999),
             'invitation_from' => fake('us_US')->randomElements(KaryawanGA::all())[0],

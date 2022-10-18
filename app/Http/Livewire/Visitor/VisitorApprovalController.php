@@ -17,12 +17,19 @@ class VisitorApprovalController extends Component
             $visitors = Barcode::where(function ($q) {
                 $q->whereHas('link', function ($q) {
                     $q->whereHas('visitor', function ($q) {
-                        $q->where('name','like', '%' . $this->search . '%');
+                        $q->where('name', 'like', '%' . $this->search . '%');
                     })->where('id_karyawan', auth('karyawan_gaa')->id());
                 });
             })->get();
         } else {
-            $visitors = Barcode::get();
+            $visitors = Barcode::where(function ($query) {
+                $query->whereHas(
+                    'link',
+                    function ($query) {
+                        $query->where('id_karyawan', auth('karyawan_gaa')->id());
+                    }
+                );
+            })->get();
         }
         return view('livewire.visitor.visitor-approval-controller', [
             // 'data_barcodes' => Barcode::all(),

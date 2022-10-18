@@ -1,5 +1,5 @@
 /*
-    Table of Contents   
+    Table of Contents
     Table of Sass Contents
 
     1. Abstracts
@@ -9,7 +9,7 @@
         _mixin
         _variable
 
-    2. bootstrap 
+    2. bootstrap
         -Here goes all official bootstrap scss files
 
     3. Global/Base
@@ -46,12 +46,14 @@
         _page-user-lock
 
 */
-@import url("../../css2.css");
+/* @import url("../../css2.css");
 @import url("../../css.css");
 @import url("../../css-1.css");
 @import url("../../css-2.css");
 @import url("../../css-3.css");
-@import url("../../css-4.css");
+@import url("../../css-4.css"); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 @import url("../icons/simple-line-icons/css/simple-line-icons.css");
 @import url("../icons/font-awesome/css/all.min.css");
 @import url("../icons/material-design-iconic-font/css/materialdesignicons.min.css");
@@ -81,8 +83,8 @@
     --rgba-primary-7: rgba(136, 108, 192, 0.7);
     --rgba-primary-8: rgba(136, 108, 192, 0.8);
     --rgba-primary-9: rgba(136, 108, 192, 0.9);
-    --font-family-base: Roboto, sans-serif;
-    --font-family-title: Roboto, sans-serif;
+    --font-family-base: Poppins, sans-serif;
+    --font-family-title: Poppins, sans-serif;
     --title: #000;
     --gradient-one: linear-gradient(180deg, #ffa26d 0%, #ffcf6d 100%);
     --tryal-gradient: linear-gradient(
@@ -318,7 +320,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 body {
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;
@@ -5963,7 +5965,7 @@ fieldset:disabled .btn {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6077,7 +6079,7 @@ fieldset:disabled .btn {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -12875,7 +12877,7 @@ svg.pulse-svg .third-circle {
   		@include respond('laptop') {
   			height:3rem;
   		}
-  		
+
   	}
   	.input-group-text{
   		border-top-right-radius: 2.625rem;
@@ -12883,8 +12885,8 @@ svg.pulse-svg .third-circle {
   		background:#F1F1F1;
   		a{
   			i{
-  				font-size:1.5rem;	
-  			}	
+  				font-size:1.5rem;
+  			}
   		}
   		@include respond('laptop') {
   			height:3rem;
@@ -21562,7 +21564,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_2"][data-theme-version="dark"]
@@ -21954,7 +21956,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_3"][data-theme-version="dark"]
@@ -22346,7 +22348,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_4"][data-theme-version="dark"]
@@ -22738,7 +22740,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_5"][data-theme-version="dark"]
@@ -23130,7 +23132,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_6"][data-theme-version="dark"]
@@ -23522,7 +23524,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_7"][data-theme-version="dark"]
@@ -23914,7 +23916,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_8"][data-theme-version="dark"]
@@ -24306,7 +24308,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_9"][data-theme-version="dark"]
@@ -24698,7 +24700,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_10"][data-theme-version="dark"]
@@ -25094,7 +25096,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_11"][data-theme-version="dark"]
@@ -25490,7 +25492,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_12"][data-theme-version="dark"]
@@ -25886,7 +25888,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_13"][data-theme-version="dark"]
@@ -26282,7 +26284,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_14"][data-theme-version="dark"]
@@ -26678,7 +26680,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   	.dlabnav .metismenu > li.mm-active > a,
   	.dlabnav .metismenu > li:hover > a{
   			background:transparent;
-  	}	
+  	}
   } */
 }
 [data-sibebarbg="color_15"][data-theme-version="dark"]
@@ -28748,8 +28750,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     font-family: "Nunito Sans", sans-serif;
 }
 
-[data-typography="roboto"] {
-    font-family: "Roboto", sans-serif;
+[data-typography="Poppins"] {
+    font-family: "Poppins", sans-serif;
 }
 
 [data-typography="helvetica"] {
@@ -32647,7 +32649,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     background: #fff;
     padding: 0.3125rem;
     border-radius: 0.3125rem;
-    font-family: "Roboto" !important;
+    font-family: "Poppins" !important;
     color: var(--primary);
     border: 0.0625rem solid var(--rgba-primary-3);
 }
