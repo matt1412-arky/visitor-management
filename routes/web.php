@@ -54,6 +54,7 @@ Route::group(
             Route::get('webcam', 'index')->name('webcame');
             Route::post('webcam', 'takePicture')->name('webcame');
         });
+        Route::view('visitor-checking', 'layout/navigation-sidebar/manage-visitor.visitor-checking')->name('visitor-checking');
 
 
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');

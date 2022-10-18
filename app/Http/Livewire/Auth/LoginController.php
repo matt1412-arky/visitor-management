@@ -27,10 +27,10 @@ class LoginController extends Component
             'password' => $this->password
         ];
         try {
-            if (Auth::guard('karyawan_gaa')->attempt($user)) {
+            if (Auth::guard('karyawan_gaa')->attempt($user, 0)) {
                 return to_route('home.dashboard-page');
             }
-            if (Auth::guard('visitor')->attempt($user)) {
+            if (Auth::guard('visitor')->attempt($user, 0)) {
                 if ($this->returnUrl != null) {
                     return redirect()->to($this->returnUrl);
                 } else {
