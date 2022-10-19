@@ -14,6 +14,6 @@ class Barcode extends Model
     protected $with = ['link'];
     public function link(): HasMany
     {
-        return $this->hasMany(Link::class, 'id', 'id_generate_link');
+        return $this->hasMany(Link::class, 'id', '');
     }
 }

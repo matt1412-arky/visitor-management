@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('links', function (Blueprint $table) {
+        Schema::create('registration_visitors', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_karyawan')->unsigned();
             $table->bigInteger('id_visitor')->unsigned();
-            
-            $table->string('token', 64)->unique();
-            $table->timestamp('expires_at');
             $table->foreign('id_karyawan')
                 ->references('NIK')
                 ->on('karyawan_GA')
@@ -30,6 +27,7 @@ return new class extends Migration
                 ->on('visitors')
                 ->cascadeOnUpdate()
                 ->cascadeOnUpdate();
+            $table->enum('status', ['pending', 'approved', 'expired'])->default('pending'); //
             $table->timestamps();
         });
     }
@@ -41,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('links');
+        Schema::dropIfExists('registration_visitors');
     }
 };

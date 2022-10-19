@@ -4,7 +4,8 @@ namespace App\Http\Livewire\Visitor;
 
 use Livewire\Component;
 use App\Models\Visitor;
-use App\Models\Barcode;
+use App\Models\Link;
+use App\Models\RegistrationVisitor as RV;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 
@@ -14,6 +15,7 @@ class VisitorRegister extends Component
     public Visitor $visitor;
     public $id_link;
     public $picture, $file_upload;
+    public $id_karyawan;
 
     protected $rules = [
         'visitor.name' => 'required|string|max:50|min:4|regex:/^[\pL\s\-]+$/u', // fullname
@@ -44,6 +46,7 @@ class VisitorRegister extends Component
         $this->visitor = $visitor ?? new Visitor();
         $this->visitor->invitation_from = __(request()->link->karyawan_ga->name);
         $this->id_link = request()->link->id;
+        $this->id_karyawan = request()->link->id_karyawan;
     }
 
     public function render()
@@ -65,11 +68,12 @@ class VisitorRegister extends Component
             'picture' => $picture_name,
             'file_surat' => $filename
         ];
-        $vitor_data = array_merge($this->validate()['visitor'], $file_data);
-        $v = Visitor::find(auth('visitor')->id())
-            ->update($vitor_data);
-        if ($v) {
-            $this->insertBarcode($this->id_link);
+
+        $visitor_data = array_merge($this->validate()['visitor'], $file_data);
+        $visitor = Visitor::find(auth('visitor')->id())->update($visitor_data);
+
+        $isRegis = $this->insertRegisVisitor($this->id_karyawan, auth('visitor')->id());
+        if ($visitor && $isRegis) {
             $this->resetKolom();
             $this->showToastr("Berhasil register", "success", "Your data has been saved");
         } else {
@@ -90,13 +94,15 @@ class VisitorRegister extends Component
         );
     }
 
-    private function insertBarcode(int $fk_link): void
+    private function insertRegisVisitor(int $id_karyawan, int $id_visitor): bool
     {
-        if ($fk_link === null) return;
-        Barcode::create([
-            'id_generate_link' => $fk_link,
-            'status' => 'pending'
+        $regisVisitor = RV::create([
+            "id_karyawan" => $id_karyawan,
+            "id_visitor" => $id_visitor,
+            "status" => "pending"
         ]);
+        Link::find($this->id_link)->first()->delete();
+        return $regisVisitor->count();
     }
 
     private function resetKolom(): void

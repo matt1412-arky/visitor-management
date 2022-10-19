@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6 col-xl-6">
+    <div class="col-lg-6 col-xl-12">
         <h4 class="card-title">List Visitor</h4>
         <div class="list-group mb-4 " id="list-tab" role="tablist">
             <div class="col-12">
@@ -25,7 +25,7 @@
                                             <th class="fs-6"><strong>VISITOR ID</strong></th>
                                             <th class="fs-6"><strong>NAME</strong></th>
                                             <th class="fs-6"><strong>INVITATION FROM</strong></th>
-                                            <th class="fs-6"><strong>ACTION</strong></th>
+                                            <th class="fs-6"><strong>ACTION (checkin/out)</strong></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,7 +40,8 @@
                                                         <button
                                                             class="dropdown-item btn {{ $barcode->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
                                                             wire:click.lazy="onClickBtnApprove({{ $barcode->id }})">
-                                                            {{ $barcode->status }}</button>
+                                                            {{ $barcode->status }}
+                                                        </button>
 
                                                     </div>
                                                 </td>
@@ -72,16 +73,5 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6 col-xl-6">
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="list-home">
-                <h4 class="mb-4">GPS</h4>
-                <p>This is a wider card with supporting text and below as a natural lead-in to the
-                    additional content. This content is a little</p>
-                <img class="card-img-bottom img-fluid" src="{{ asset('support/icons/barcode/QR_code1.png') }}"
-                    alt="Card image cap">
 
-            </div>
-        </div>
-    </div>
 </div>

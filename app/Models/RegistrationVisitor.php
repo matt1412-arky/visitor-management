@@ -5,12 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Link extends Model
+class RegistrationVisitor extends Model
 {
     use HasFactory;
-    protected $table = 'links';
-    protected $guarded = ['id'];
-
+    protected $table = 'registration_visitors';
+    protected $fillable = [
+        'id_karyawan',
+        'id_visitor',
+        'status'
+    ];
+    protected $with = [
+        'visitor',
+        'karyawan_ga'
+    ];
 
     public function visitor()
     {

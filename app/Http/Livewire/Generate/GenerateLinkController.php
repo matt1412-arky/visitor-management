@@ -36,7 +36,6 @@ class GenerateLinkController extends Component
             $generate_users = [];
             $input_name = 'ersalomo';
             $this->email_generate = $input_name . random_int(1, 99) . '@gmail.com';
-            // $this->password_generate = Str::random(8);
             $this->password_generate = '12345678';
             if ($count == 1) {
                 $user_visitor =  Visitor::create([
@@ -46,9 +45,10 @@ class GenerateLinkController extends Component
                     'password' => bcrypt($this->password_generate, []),
                 ]);
                 $link = Link::create([
-                    'id_karyawan' => auth('karyawan_gaa')->id(), //id karyawan yang generate
+                    'id_karyawan' => auth('karyawan_gaa')->id(),
                     'id_visitor' => $user_visitor->id,
                     'token' => Str::random(64),
+                    'expires_at' => now()->addDay(),
                 ]);
                 $this->link_visitor = url('h/registrasi/' . $user_visitor->id . '/' . $link->token);
                 array_push($generate_users, [$user_visitor->email, $this->password_generate, $this->link_visitor]);
@@ -65,6 +65,7 @@ class GenerateLinkController extends Component
                         'id_karyawan' => auth('karyawan_gaa')->id(), //id karyawan yang generate
                         'id_visitor' => $user_visitor->id,
                         'token' => Str::random(64),
+                        'expires_at' => now()->addDay(),
                     ]);
                     $this->link_visitor = url('h/registrasi/' . $user_visitor->id . '/' . $link->token);
                     array_push($generate_users, [$user_visitor->email, $this->password_generate, $this->link_visitor]);

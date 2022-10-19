@@ -17,7 +17,7 @@ class KaryawanGAAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (in_array(Auth::user()->role_id, [1, 2, 4, 5])) {
+        if (in_array(Auth::user()->role_id, [1, 2, 3])) {
             return $next($request);
         } else {
             return to_route('home.dashboard-page');

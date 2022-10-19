@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id_nik_nip');
             $table->foreignId('id_visitor')
                 ->constrained('visitors');
+            $table->string('picture');
             $table->timestamps();
         });
     }

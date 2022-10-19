@@ -24,20 +24,20 @@ Route::group(
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
             Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
             Route::get('registrasi/{link:id_visitor}/{token}', [HomeController::class, 'registrasi'])->name('registrasi');
+            Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitor
         });
 
         Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security/visitor
         // Karyawan GA
         Route::group(['middleware' => ['KaryawanGaAuth']], function () {
             Route::view('generate', 'layout/navigation-sidebar/manage-visitor.generate-link-visitor')->name('generate'); //admin
-            Route::view('scan-qr', 'layout/navigation-sidebar/manage-visitor.scan-qr')->name('scan-qr'); //admin
+            Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
             Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); // admin
             Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin
             Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival'); //admin
-            Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitor
+
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
             Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //tamu/visitor
-            Route::view('capture-KTP', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-KTP'); //tamu/visitor
             Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
 
             Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security

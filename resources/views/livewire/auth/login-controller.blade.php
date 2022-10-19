@@ -9,16 +9,13 @@
             {{ Session::get('error') }}
         </div>
     @endif
-    <form class="form-valide-with-icon needs-validation" novalidate="" wire:submit.prevent.lazy="loginHandler()">
+    <form class="form-valide-with-icon needs-validation" novalidate="" wire:submit.prevent="loginHandler()">
         <div class="mb-3">
             <label class="text-label form-label" for="validationCustomUsername">Username</label>
             <div class="input-group">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 <input type="text" class="form-control" wire:model="email" id="validationCustomUsername"
                     placeholder="Enter a username.." required="">
-                <div class="invalid-feedback">
-                    Please Enter a username.
-                </div>
             </div>
             @error('email')
                 <span class="text-red">

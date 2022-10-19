@@ -4,19 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 
 class WebcamController extends Controller
 {
     public function index()
     {
-        return view('webcam.webcam-index');
+        return view('layout/navigation-sidebar/manage-visitor.capture-KTP');
     }
     public function takePicture(Request $request)
     {
+        $request->validate([
+            'nik' => ['required'],
+            'image' => ['required']
+        ], [
+            'nik.required' => "This file is required"
+        ]);
         if ($request->image == null) {
-            return redirect()->to(URL::current());
+            session()->flash('error', 'Anda harus mengambil gamabr');
         };
+
         $img = $request->image;
         $folderPath = "uploads/";
         $image_parts = explode(";base64,", $img);

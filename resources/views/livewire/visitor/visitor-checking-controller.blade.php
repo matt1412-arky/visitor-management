@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12 col-xl-12">
+    <div class="col-lg-6 col-xl-6">
         <h4 class="card-title">List Visitor</h4>
         <div class="list-group mb-4 " id="list-tab" role="tablist">
             <div class="col-12">
@@ -22,7 +22,6 @@
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th class="fs-6"><strong>VISITOR ID</strong></th>
                                             <th class="fs-6"><strong>NAME</strong></th>
                                             <th class="fs-6"><strong>INVITATION FROM</strong></th>
                                             <th class="fs-6"><strong>STATUS</strong></th>
@@ -30,13 +29,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($visitors as $visitor)
+                                        @forelse($visitors as $visitor)
                                             <tr>
                                                 <td><strong>{{ $loop->iteration }}</strong></td>
-                                                <td>{{ __($visitor['link'][0]->visitor->id) }}</td>
-                                                <td>{{ __($visitor['link'][0]->visitor->name) }}</td>
-                                                <td>{{ __($visitor['link'][0]->karyawan_ga->name) }}</td>
-                                                <td class="">
+                                                <td>{{ __($visitor->visitor->name ?? '') }}</td>
+                                                <td>{{ __($visitor->karyawan_ga->name ?? '') }}</td>
+                                                <td class="" {{ $visitor->count() ?? hidden }}">
                                                     <span
                                                         class="badge light badge-{{ $visitor->status == 'pending' ? 'danger' : 'success' }}">
                                                         <i
@@ -54,9 +52,8 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                        @endforeach
-
-
+                                        @empty
+                                        @endforelse
                                     </tbody>
                                 </table>
                                 <div class="dataTables_info" id="example4_info" role="status" aria-live="polite">
@@ -80,6 +77,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xl-6">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home">
+                <h4 class="mb-4">GPS</h4>
+                <p>This is a wider card with supporting text and below as a natural lead-in to the
+                    additional content. This content is a little</p>
+                <img class="card-img-bottom img-fluid" src="{{ asset('support/icons/barcode/QR_code1.png') }}"
+                    alt="Card image cap">
+
             </div>
         </div>
     </div>
