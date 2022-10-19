@@ -32,7 +32,7 @@ Route::group(
         Route::group(['middleware' => ['KaryawanGaAuth']], function () {
             Route::view('generate', 'layout/navigation-sidebar/manage-visitor.generate-link-visitor')->name('generate'); //admin
             Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
-            Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); // admin
+            Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin
             Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin
             Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival'); //admin
 
@@ -41,6 +41,10 @@ Route::group(
             Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
 
             Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
+
+            Route::view('employee-account', 'layout/navigation-sidebar/manage-visitor.employee-account')->name('employee-account'); //admin
+            Route::view('vendor-account', 'layout/navigation-sidebar/manage-visitor.vendor-account')->name('vendor-account'); //admin
+
         });
         // food management
         Route::group(['middleware' => []], function () { // visitor
