@@ -71,8 +71,8 @@
                             <div class="mb-3 col-md-12">
                                 {{--    --}}
                                 <label class="form-label fs-4"><b class="text-red">*</b>Invitation from</label>
-                                <input type="texet" wire:model.defer='visitor.invitation_from' class="form-control"
-                                    value="" placeholder="invitation from">
+                                <input type="texet" readonly wire:model.defer='visitor.invitation_from' class="form-control"
+                                     placeholder="invitation from">
                                 @error('visitor.invitation_from')
                                     <span class="text-danger">
                                         {{ $message }}
@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="mb-3 col-md-12">
-                                <label class="form-label fs-4"><b class="text-red">*</b>Visiting Time</label>
+                                <label class="form-label fs-4"><b class="text-red">*</b>Arrival Time</label>
                                 <input type="time" wire:model.defer='visitor.waktu_kunjungan' class="form-control"
                                     placeholder="waktu kungjungan">
                                 @error('visitor.waktu_kunjungan')

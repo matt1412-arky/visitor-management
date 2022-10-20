@@ -1,7 +1,6 @@
 @extends('layout.apps')
 @section('title', 'Visitor Feedback')
 @section('content')
-    {{-- berada pada conainer fluid --}}
     <style>
         .rating {
             display: flex;
@@ -102,7 +101,8 @@
                                 <input type="radio" name="rating" value="1" id="1"><label
                                     for="1">☆</label>
                             </div>
-                            <button type="button" class="btn btn-google" style="color:white;">Checkout</button>
+                            <button type="button" class="btn btn-google" id="btnCheckOut"
+                                style="color:white;">Checkout</button>
                         </form>
                     </div>
                 </div>
@@ -137,5 +137,20 @@
             modalGps.style.display = 'none';
         }
     </script>
-
 @endsection
+@push('scripts')
+    <script>
+        const btnCheckOut = document.querySelector('#btnCheckOut')
+        btnCheckOut.addEventListener('click', (e) => {
+            Swal.fire({
+                title: 'Checkout Success!',
+                text: 'You may leave the area',
+                type: 'success',
+                timer: 5000,
+                confirmButtonText: 'Save',
+                timerProgressBar: true,
+                onClose: () => window.location.href = '/h/dashboard-page'
+            })
+        })
+    </script>
+@endpush

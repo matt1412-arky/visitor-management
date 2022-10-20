@@ -6,42 +6,34 @@ use Livewire\Component;
 use App\Models\Barcode;
 use App\Models\Visitor;
 use Illuminate\Support\Facades\Auth;
+use App\Models\RegistrationVisitor;
+use Livewire\Livewire;
 
 class VisitorApprovalController extends Component
 {
     public $search;
     public function render()
     {
-        $visitors = null;
-        if ($this->search) {
-            $visitors = Barcode::where(function ($q) {
-                $q->whereHas('link', function ($q) {
-                    $q->whereHas('visitor', function ($q) {
-                        $q->where('name', 'like', '%' . $this->search . '%');
-                    })->where('id_karyawan', auth('karyawan_gaa')->id());
-                });
-            })->get();
-        } else {
-            $visitors = Barcode::where(function ($query) {
-                $query->whereHas(
-                    'link',
-                    function ($query) {
-                        $query->where('id_karyawan', auth('karyawan_gaa')->id());
-                    }
-                );
-            })->get();
-        }
+        // $visitors = null;
         return view('livewire.visitor.visitor-approval-controller', [
-            // 'data_barcodes' => Barcode::all(),
-            'data_barcodes' => $visitors,
+            'visitors' => RegistrationVisitor::all(),
         ]);
     }
 
-    // if(){} // karyawan ga
-    public function onClickBtnApprove(Barcode $barcode): void
+    public function onClickBtnApprove(): void
     {
-        $barcode->update([
-            'status' => $barcode->status == 'pending' ? 'approve' : 'pending'
+        $this->showAlertDialog(
+            'Apakah anda yakin',
+            'info',
+            'Dengan approve this visitor'
+        );
+    }
+    public function showAlertDialog(string $title, string $type, string $message): \Livewire\Event
+    {
+        return $this->emit('showAlertDialog', [
+            'title' => $title,
+            'type' => $type,
+            'msg' => $message
         ]);
     }
 }
