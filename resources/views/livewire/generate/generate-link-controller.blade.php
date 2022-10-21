@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Time Duration</span>
+                        <span class="input-group-text">Arrival Time</span>
                         <input type="time" class="form-control">
                     </div>
                     <div class="input-group mb-3">
@@ -35,7 +35,6 @@
     <script>
         window.addEventListener('generate-link', (e) => {
             $('#modal-generate').modal('show');
-
         })
     </script>
 @endpush

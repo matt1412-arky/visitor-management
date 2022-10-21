@@ -44,11 +44,8 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('home.form-kesehatan') }}" type="button"
-                                                        class="btn btn-success btn-xs">
-                                                        Success
-                                                        <span class="btn-icon-end">
-                                                            <i class="fa fa-check"></i>
-                                                        </span>
+                                                        class="btn btn-success btn-xs btn-block">
+                                                        Checkin now
                                                     </a>
                                                 </td>
                                             </tr>
@@ -56,20 +53,6 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-                                <div class="dataTables_info" id="example4_info" role="status" aria-live="polite">
-                                    Showing 1 to 10 of 30 entries</div>
-                                <div class="dataTables_paginate paging_simple_numbers" id="example4_paginate">
-                                    <a class="paginate_button previous disabled" aria-controls="example4"
-                                        data-dt-idx="0" tabindex="0" id="example4_previous">
-                                        <i class="fa fa-angle-double-left" aria-hidden="true"></i></a><span><a
-                                            class="paginate_button current" aria-controls="example4" data-dt-idx="1"
-                                            tabindex="0">1</a><a class="paginate_button " aria-controls="example4"
-                                            data-dt-idx="2" tabindex="0">2</a><a class="paginate_button "
-                                            aria-controls="example4" data-dt-idx="3" tabindex="0">3</a></span><a
-                                        class="paginate_button next" aria-controls="example4" data-dt-idx="4"
-                                        tabindex="0" id="example4_next"><i class="fa fa-angle-double-right"
-                                            aria-hidden="true"></i></a>
-                                </div>
                                 <div class="mt-2 fs-3 ">
                                     {{ $visitors->links() }}
                                 </div>

@@ -29,25 +29,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data_barcodes as $barcode)
+                                        @forelse ($visitors as $visitor)
                                             <tr>
                                                 <td><strong>{{ $loop->iteration }}</strong></td>
-                                                <td>{{ __($barcode['link'][0]->visitor->id) }}</td>
-                                                <td>{{ __($barcode['link'][0]->visitor->name) }}</td>
-                                                <td>{{ __($barcode['link'][0]->karyawan_ga->name) }}</td>
+                                                <td>{{ __('absasdnakod') }}</td>
+                                                <td>{{ __($visitor->visitor->name) }}</td>
+                                                <td>{{ __($visitor->karyawan_ga->name) }}</td>
                                                 <td>
                                                     <div class="dropdown">
                                                         <button
-                                                            class="dropdown-item btn {{ $barcode->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
-                                                            wire:click.lazy="onClickBtnApprove({{ $barcode->id }})">
-                                                            {{ $barcode->status }}
+                                                            class="dropdown-item btn {{ $visitor->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
+                                                            wire:click.lazy="onClickBtnApprove({{ $visitor->id }})">
+                                                            {{ $visitor->status }}
                                                         </button>
 
                                                     </div>
                                                 </td>
 
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                        @endforelse
 
 
                                     </tbody>
@@ -73,5 +74,16 @@
             </div>
         </div>
     </div>
-
 </div>
+@push('scripts')
+    <script>
+        Livewire.on('showAlertDialog', (e) => {
+            Swal.fire({
+                title: e.title,
+                text: e.msg,
+                type: e.type,
+                confirmButtonText: 'Yep!',
+            })
+        })
+    </script>
+@endpush

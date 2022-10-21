@@ -7,6 +7,10 @@
                 </div>
                 <ul class="navbar-nav header-right">
                     <li class="nav-item dropdown header-profile">
+                        <span class="me-2">
+                            {{ __(auth()->user()->name) }}
+                            {{ __(auth()->user()->role_id) }}
+                        </span>
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                             <img src="{{ asset('support/images/avatar/logo-b7.jpeg') }}" width="56"
                                 alt="logo-bintang toejoe" />
