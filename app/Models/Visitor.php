@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Visitor extends Authenticatable
@@ -29,9 +29,6 @@ class Visitor extends Authenticatable
         'role_id',
         'password',
     ];
-    protected $with = [
-        'link'
-    ];
     protected $hidden = [
         'password',
         'role_id'
@@ -43,8 +40,12 @@ class Visitor extends Authenticatable
     {
         $this->attributes['role_id'] = 6;
     }
-    public function link(): BelongsTo
+
+    public function picture(): Attribute
     {
-        return $this->belongsTo(Link::class, 'link_visitor_id');
+        return new Attribute(
+            get: fn ($value) => $value != '' ? asset('storage/app/pictures/' . $value, 1) : '',
+            set: fn ($value) => $value != '' ? explode('/', $value)[1] : '',
+        );
     }
 }

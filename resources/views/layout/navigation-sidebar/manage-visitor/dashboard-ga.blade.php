@@ -58,5 +58,8 @@
                 </div>
             </div>
         </div>
+
+        <livewire:dashboard-g-a.dashboard-controller />
     </div>
+
 @endsection

@@ -10,21 +10,26 @@ class VisitorCheckingController extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $search, $paginator = 5;
-
+    public $search, $paginator;
     public function render()
     {
         $visitors = null;
         if ($this->search) {
-            $visitors = RegistrationVisitor::query()->with(['visitor' => function ($query) {
-                $query->where("name", "LIKE", "%" . $this->search . "%");
-            }, 'karyawan_ga' => function ($query) {
-                $query->where("name", "LIKE", "%" . $this->search . "%");
-            }])->paginate();
+            $visitors = RegistrationVisitor
+                ::whereHas(
+                    'visitor',
+                    function ($query) {
+                        $query->where('name', 'LIKE', "%" . $this->search . "%");
+                    }
+                )->orWhereHas(
+                    'karyawan_ga',
+                    function ($query) {
+                        $query->where('name', 'LIKE', "%" . $this->search . "%");
+                    }
+                )->paginate($this->paginator);
         } else {
-            $visitors = RegistrationVisitor::paginate();
+            $visitors =  RegistrationVisitor::with(['visitor', 'karyawan_ga'])->paginate($this->paginator);
         }
-
         return view('livewire.visitor.visitor-checking-controller', [
             'visitors' => $visitors
         ]);

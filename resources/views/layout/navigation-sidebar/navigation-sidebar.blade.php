@@ -56,14 +56,6 @@
                                 <li><a href="{{ route('home.generate') }}">Generate</a></li>
                                 <li><a href="{{ route('home.customize-feed') }}">Customize Feedback</a></li>
                                 <li><a href="{{ route('home.visitor-approval') }}">Visitor Approval</a></li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Manage
-                                        Account</a>
-                                    <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
-                                        <li><a href="{{ route('home.employee-account') }}">Employee Account</a></li>
-                                        <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
-                                    </ul>
-                                </li>
-
                             </ul>
                         </li>
                     @endif
@@ -122,12 +114,16 @@
             @endif
 
             <li>
-                <a class="" href="javascript:void()" aria-expanded="false">
-                    <i class="fas fa-qrcode"></i>
-                    <span class="nav-text">Barcode</span>
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <i class="fa fa-user-check"></i>
+                    <span class="nav-text">Manage Account</span>
                 </a>
-            </li>
+                <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                    <li><a href="{{ route('home.employee-account') }}">Employee Account</a></li>
+                    <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
+                </ul>
 
+            </li>
         </ul>
     </div>
 </div>

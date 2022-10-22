@@ -8,7 +8,9 @@
                         <div class="table-responsive">
                             <div id="example4_wrapper" class="dataTables_wrapper no-footer">
                                 <div class="dataTables_length" id="example4_length"><label>Show
-                                        <select name="example4_length" aria-controls="example4" class="">
+                                        <select name="example4_length" wire:model="paginator" aria-controls="example4"
+                                            class="">
+                                            <option value="5">5</option>
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
@@ -29,12 +31,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{--  {{ dd($visitors) }}  --}}
                                         @forelse($visitors as $visitor)
                                             <tr>
                                                 <td><strong>{{ $loop->iteration }}</strong></td>
-                                                <td>{{ __($visitor->visitor->name ?? '') }}</td>
-                                                <td>{{ __($visitor->karyawan_ga->name ?? '') }}</td>
-                                                <td class="" {{ $visitor->count() ?? hidden }}">
+                                                <td>{{ __($visitor->visitor->name) }}</td>
+                                                <td>{{ __($visitor->karyawan_ga->name) }}</td>
+                                                <td class="">
                                                     <span
                                                         class="badge light badge-{{ $visitor->status == 'pending' ? 'danger' : 'success' }}">
                                                         <i
