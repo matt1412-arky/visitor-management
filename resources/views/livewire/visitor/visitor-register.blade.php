@@ -22,6 +22,17 @@
                                 @enderror
                             </div>
 
+                            <div class="mb-3 col-md-6 col-lg-12">
+                                <label class="form-label fs-4"><b class="text-red">*</b> Email Visitor</label>
+                                <input type="text" wire:model.defer='visitor.email' class="form-control"
+                                    placeholder="email visitor">
+                                @error('visitor.email')
+                                    <span class="text-danger">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+
                             <div class="mb-3 col-md-12">
                                 <label class="form-label fs-4"><b class="text-red">*</b>Age</label>
                                 <input type="number" wire:model.defer='visitor.age' class="form-control"
@@ -71,8 +82,8 @@
                             <div class="mb-3 col-md-12">
                                 {{--    --}}
                                 <label class="form-label fs-4"><b class="text-red">*</b>Invitation from</label>
-                                <input type="texet" readonly wire:model.defer='visitor.invitation_from' class="form-control"
-                                     placeholder="invitation from">
+                                <input type="texet" readonly wire:model.defer='visitor.invitation_from'
+                                    class="form-control" placeholder="invitation from">
                                 @error('visitor.invitation_from')
                                     <span class="text-danger">
                                         {{ $message }}
