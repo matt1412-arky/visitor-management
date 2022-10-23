@@ -7,8 +7,8 @@
                 <div class="card-header">
                     <h4 class="card-title">Vendor A</h4>
                     <div class="">
-                        <a href="{{ route('form-gizi') }}"class="btn btn-primary">Confirm Order</a>
-                        <a href="{{ route('form-gizi') }}"class="btn btn-primary">Nutrition Check</a>
+                        <a href=""class="btn btn-primary">Confirm Order</a>
+                        <a href=""class="btn btn-primary">Nutrition Check</a>
                     </div>
                 </div>
 

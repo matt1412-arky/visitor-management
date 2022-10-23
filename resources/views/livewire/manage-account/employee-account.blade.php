@@ -6,19 +6,22 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                    <div class="dataTables_length" id="example3_length"><label>Show
-                            <select name="example3_length" aria-controls="example3" class="">
+                    <div class="dataTables_length" id="example3_length">
+                        <label>Show
+                            <select wire:model.debounce='paginator' aria-controls="example3" class="">
                                 <option value="10">10</option>
                                 <option value="25">25</option>
                                 <option value="50">50</option>
                                 <option value="100">100</option>
-                            </select> entries</label></div>
+                            </select> entries</label>
+                    </div>
 
-                    <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search"
-                                class="" placeholder="" aria-controls="example3"></label></div>
+                    <div id="example3_filter" class="dataTables_filter"><label>Search:
+                            <input type="search" wire:model.debounce='search' class="" placeholder=""
+                                aria-controls="example3"></label></div>
 
                     <div class="col-md float-right text-end">
-                        <button type="button" wire:click="openModalDialog()" class="btn btn-rounded btn-success">
+                        <button type="button" wire:click.lazy="openModalDialog()" class="btn btn-rounded btn-success">
                             <span class="btn-icon-start text-dark"><i class="fa fa-plus"></i>
                             </span>Add</button>
                     </div>
@@ -79,19 +82,9 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="dataTables_info" id="example3_info" role="status" aria-live="polite">Showing 1 to
-                        10 of
-                        30 entries</div>
-                    <div class="dataTables_paginate paging_simple_numbers" id="example3_paginate"><a
-                            class="paginate_button previous disabled" aria-controls="example3" data-dt-idx="0"
-                            tabindex="0" id="example3_previous"><i class="fa fa-angle-double-left"
-                                aria-hidden="true"></i></a><span><a class="paginate_button current"
-                                aria-controls="example3" data-dt-idx="1" tabindex="0">1</a><a
-                                class="paginate_button " aria-controls="example3" data-dt-idx="2"
-                                tabindex="0">2</a><a class="paginate_button " aria-controls="example3"
-                                data-dt-idx="3" tabindex="0">3</a></span><a class="paginate_button next"
-                            aria-controls="example3" data-dt-idx="4" tabindex="0" id="example3_next"><i
-                                class="fa fa-angle-double-right" aria-hidden="true"></i></a></div>
+                    <div>
+                        {{ $employees->links() }}
+                    </div>
                 </div>
             </div>
         </div>

@@ -36,10 +36,6 @@ class Visitor extends Authenticatable
     protected $appends = [
         'role_id'
     ];
-    protected function setAttributeRoleId()
-    {
-        $this->attributes['role_id'] = 6;
-    }
 
     public function picture(): Attribute
     {
