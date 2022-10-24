@@ -38,7 +38,6 @@ Route::group(
             Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //tamu/visitor
             Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
             Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
-
             Route::view('employee-account', 'layout/navigation-sidebar/manage-visitor.employee-account')->name('employee-account'); //admin
             Route::view('vendor-account', 'layout/navigation-sidebar/manage-visitor.vendor-account')->name('vendor-account'); //admin
 
