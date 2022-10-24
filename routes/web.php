@@ -18,8 +18,7 @@ Route::group(
     function () {
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
 
-
-        Route::group(['middleware' => ['VisitorAuth']], function () {
+        Route::group(['middleware' => ['CheckRole:visitor']], function () {
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
             Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
@@ -29,7 +28,7 @@ Route::group(
 
         Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security/visitor
         // Karyawan GA
-        Route::group(['middleware' => ['KaryawanGaAuth']], function () {
+        Route::group(['middleware' => ['CheckRole:employee']], function () {
             Route::view('generate', 'layout/navigation-sidebar/manage-visitor.generate-link-visitor')->name('generate'); //admin
             Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
             Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin
@@ -39,7 +38,7 @@ Route::group(
             Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //tamu/visitor
             Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
             Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
-            
+
             Route::view('employee-account', 'layout/navigation-sidebar/manage-visitor.employee-account')->name('employee-account'); //admin
             Route::view('vendor-account', 'layout/navigation-sidebar/manage-visitor.vendor-account')->name('vendor-account'); //admin
 

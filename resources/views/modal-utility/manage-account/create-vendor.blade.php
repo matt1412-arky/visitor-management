@@ -7,12 +7,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
-            <form wire:submit.prevent='createNewVendor'>
+            <form wire:submit.prevent='createNewVendor()'>
                 <div class="modal-body">
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label col-form-label-lg">Fullname</label>
                         <div class="col-sm-10">
-                            <input wire:model.lazy='vendor.name' type="text" class="form-control form-control-lg"
+                            <input wire:model.defer='vendor.name' type="text" class="form-control form-control-lg"
                                 placeholder="fullname...">
                             @error('vendor.name')
                                 <span class="text-danger">
@@ -24,7 +24,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label col-form-label-lg">Email</label>
                         <div class="col-sm-10">
-                            <input wire:model.lazy='vendor.email' type="email" class="form-control form-control-lg"
+                            <input wire:model.defer='vendor.email' type="email" class="form-control form-control-lg"
                                 placeholder="email...">
                             @error('vendor.email')
                                 <span class="text-danger">
@@ -37,7 +37,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label col-form-label-lg">Password</label>
                         <div class="col-sm-10">
-                            <input wire:model.lazy='vendor.password' type="password"
+                            <input wire:model.defer='vendor.password' type="text"
                                 class="form-control form-control-lg" placeholder="password...">
                             @error('vendor.password')
                                 <span class="text-danger">

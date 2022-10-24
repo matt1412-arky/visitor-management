@@ -16,16 +16,13 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            // return route('auth.login');
             if ($request->routeIs('home.*')) {
                 session()->flash('fail', 'You must login first');
                 return route('auth.login', [
                     'fail' => true,
-                    'returnUrl' => URL::current()
+                    'returnUrl' => URL::full(),
                 ]);
             }
-
-            // return route('home.dashboard-page');
         }
     }
 }

@@ -6,6 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Link;
 
 class RedirectIfAuthenticated
 {
@@ -27,7 +28,6 @@ class RedirectIfAuthenticated
                     return redirect(RouteServiceProvider::HOME);
                 }
                 if ($guard === 'visitor') {
-                    // dd('sdsd');
                     return redirect(RouteServiceProvider::HOME);
                 }
                 return to_route('auth.login');

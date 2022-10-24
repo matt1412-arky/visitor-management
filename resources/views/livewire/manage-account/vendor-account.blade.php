@@ -47,8 +47,8 @@
                     </thead>
                     <tbody>
                         <tr role="row" class="odd">
-                            <td class="sorting_1"><img class="rounded-circle" width="35"
-                                    src="images/profile/small/pic1.jpg" alt=""></td>
+                            <td class="sorting_1"><img class="rounded-circle" width="35" src=""
+                                    alt=""></td>
                             <td>1</td>
                             <td>Solaria</td>
                             <td>solaria@gmail.com</td>

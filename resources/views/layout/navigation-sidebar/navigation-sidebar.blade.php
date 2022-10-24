@@ -24,16 +24,7 @@
                         <li>
                             <a href="{{ route('home.visitor-data') }}">Visitor Data</a>
                         </li>
-                        <li>
-                            <a href="{{ route('home.visitor-checking') }}">Visitor Checking</a>
-                        </li>
                     @endif
-                    {{--  @if (in_array(Auth::user()->role_id, [3]))
-                        <li>
-                            <a href="{{ route('home.lost-items') }}">Lost Items(security)</a>
-                        </li>
-                    @endif  --}}
-
                     @if (in_array(Auth::user()->role_id, [6]))
                         <li>
                             <a href="{{ route('home.visitor-feedback') }}">Visitor Feedback</a>
@@ -115,7 +106,7 @@
 
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                    <i class="fa fa-user-check"></i>
+                    <i class="fa  fa-address-book"></i>
                     <span class="nav-text">Manage Account</span>
                 </a>
                 <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
@@ -123,6 +114,12 @@
                     <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
                 </ul>
 
+            </li>
+            <li>
+                <a class="" href="{{ route('home.visitor-checking') }}" aria-expanded="false">
+                    <i class="fa fa-user-check"></i>
+                    <span class="nav-text">Visitor Chacking</span>
+                </a>
             </li>
         </ul>
     </div>

@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use App\Models\Link;
 use App\Models\Visitor;
-    // berapa orang, waktu,
+use Illuminate\Support\Facades\URL;
 
 class GenerateLinkController extends Component
 {
@@ -50,8 +50,11 @@ class GenerateLinkController extends Component
                     'token' => Str::random(64),
                     'expires_at' => now()->addDay(),
                 ]);
-                $this->link_visitor = url('h/registrasi/' . $user_visitor->id . '/' . $link->token);
-                array_push($generate_users, [$user_visitor->email, $this->password_generate, $this->link_visitor]);
+                // $url_tempo = URL::temporarySignedRoute('home.registrasi', $link->expires_at, [$link->id_visitor, $link->token]);
+                $url_tempo = URL::signedRoute('home.registrasi',  [$link->id_visitor, $link->token], $link->expires_at);
+                // $this->link_visitor = url('h/registrasi/' . $user_visitor->id . '/' . $link->token);
+                // array_push($generate_users, [$user_visitor->email, $this->password_generate, $this->link_visitor]);
+                array_push($generate_users, [$user_visitor->email, $this->password_generate, $url_tempo]);
                 return $generate_users;
             } else {
                 foreach (range(1, $count) as $counter) {
@@ -67,8 +70,9 @@ class GenerateLinkController extends Component
                         'token' => Str::random(64),
                         'expires_at' => now()->addDay(),
                     ]);
-                    $this->link_visitor = url('h/registrasi/' . $user_visitor->id . '/' . $link->token);
-                    array_push($generate_users, [$user_visitor->email, $this->password_generate, $this->link_visitor]);
+                    // $this->link_visitor = url('h/registrasi/' . $user_visitor->id . '/' . $link->token);
+                    $url_tempo = URL::temporarySignedRoute('home.registrasi', $link->expires_at, [$link->id_visitor, $link->token]);
+                    array_push($generate_users, [$user_visitor->email, $this->password_generate, $url_tempo]);
                 }
             }
             return $generate_users;
