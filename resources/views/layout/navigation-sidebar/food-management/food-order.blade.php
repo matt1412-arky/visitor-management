@@ -14,18 +14,12 @@
                             <div class="row ">
 
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4"><b class="text-red">*</b>Food Menu</label>
-                                    <input type="text" class="form-control" placeholder="food menu">
-                                </div>
-
-                                <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4"><b class="text-red">*</b>Beverages</label>
-                                    <input type="text" class="form-control" placeholder="beverages">
-                                </div>
-
-                                <div class="mb-3 col-md-12">
-                                    <label class="form-label fs-4"><b class="text-red">*</b>Seats Position</label>
-                                    <input type="number" class="form-control" placeholder="seats position">
+                                    <label class="form-label fs-4"><b class="text-red">*</b>Choose Menu</label>
+                                    <select class="default-select form-control wide mb-3" style="display: none;">
+                                        <option>Packet A (.....;.........;.......)</option>
+                                        <option>Packet B (.....;.........;.......)</option>
+                                        <option>Packet C (.....;.........;.......)</option>
+                                    </select>
                                 </div>
 
                             </div>
