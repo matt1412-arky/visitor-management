@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\KaryawanGA;
 use App\Models\Role;
+use Illuminate\Http\Request;
 
 
 class EmployeeAccount extends Component

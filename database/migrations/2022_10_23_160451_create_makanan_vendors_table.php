@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_vendor');
             $table->unsignedBigInteger('id_paket_menu');
+            
             $table->foreign('id_vendor')
                 ->references('id')
                 ->on('visitors')

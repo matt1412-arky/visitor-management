@@ -15,10 +15,15 @@ return new class extends Migration
     {
         Schema::create('paket_menus', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_paket_mene');
-            $table->string('nama_makanan');
-            $table->string('nama_minuman');
-            $table->double('harga');
+            $table->string('nama_paket_menu')->unique();
+            $table->string('makanan', 100);
+            $table->string('minuman', 100);
+            // $table->unsignedBigInteger('id_menu');
+            // $table->foreign('id_menu')->references('id')
+            //     ->on('menus')
+            //     ->cascadeOnUpdate()
+            //     ->cascadeOnDelete();
+            $table->integer('jumlah');
             $table->timestamps();
         });
     }
