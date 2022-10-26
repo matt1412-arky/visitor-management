@@ -29,23 +29,19 @@
                                             style="width: 61.1719px;">No</th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label="Student Name: activate to sort column ascending"
-                                            style="width: 136.594px;">Food Menu</th>
+                                            style="width: 136.594px;">Package Menu Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label="Invoice number: activate to sort column ascending"
                                             style="width: 129.359px;">Quantity</th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label="Fees Type : activate to sort column ascending"
-                                            style="width: 83.9688px;">Fees Type </th>
-                                        <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
-                                            colspan="1" aria-label="Payment Type : activate to sort column ascending"
-                                            style="width: 116.703px;">Price </th>
+                                            style="width: 83.9688px;">Status </th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label="Date: activate to sort column ascending"
                                             style="width: 86.3281px;">Date</th>
                                         <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
                                             colspan="1" aria-label="Status : activate to sort column ascending"
-                                            style="width: 68.0938px;">Sub Total</th>
-
+                                            style="width: 68.0938px;">Cost</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,28 +49,25 @@
                                         <td class="sorting_1">01</td>
                                         <td>Tiger Nixon</td>
                                         <td>#54605</td>
-                                        <td>Library</td>
-                                        <td>Cash</td>
-                                        <td><span class="badge light badge-success">Paid</span></td>
+                                        <td><span class="badge light badge-success">Approved</span></td>
                                         <td>2011/04/25</td>
+                                        <td>Rp.....</td>
                                     </tr>
                                     <tr role="row" class="even">
                                         <td class="sorting_1">02</td>
                                         <td>Garrett Winters</td>
                                         <td>#54687</td>
-                                        <td>Library</td>
-                                        <td>Credit Card</td>
-                                        <td><span class="badge light badge-warning">Panding</span></td>
-                                        <td>2011/07/25</td>
+                                        <td><span class="badge light badge-primary">Pending</span></td>
+                                        <td>2011/04/25</td>
+                                        <td>Rp.....</td>
                                     </tr>
                                     <tr role="row" class="odd">
                                         <td class="sorting_1">03</td>
                                         <td>Ashton Cox</td>
                                         <td>#35672</td>
-                                        <td>Tuition</td>
-                                        <td>Cash</td>
-                                        <td><span class="badge light badge-success">Paid</span></td>
-                                        <td>2009/01/12</td>
+                                        <td><span class="badge light badge-success">Approved</span></td>
+                                        <td>2011/04/25</td>
+                                        <td>Rp.....</td>
                                     </tr>
 
                                 </tbody>
