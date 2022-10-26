@@ -1,4 +1,9 @@
 <div class="row">
+    @if (Session::has('msg'))
+        <span class="alert alert-info">
+            {{ Session::get('msg') }}
+        </span>
+    @endif
     <div class="col-xl-6 col-lg-12 mx-auto">
         <div class="card">
             <div class="card-header">

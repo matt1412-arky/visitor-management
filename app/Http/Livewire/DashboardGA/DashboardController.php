@@ -9,10 +9,38 @@ use Livewire\WithPagination;
 class DashboardController extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    // $checkedVisitors = $this->visitors->pluck('id')->toArray();
+
+    public $checkedVisitors = [],
+        $perPage = 10,
+        $sortBy = 'id',
+        $orderBy = true;
+
+    private $visitors;
+
     public function render()
     {
+        $this->visitors = Visitor::orderBy($this->sortBy, $this->orderBy ? 'asc' : 'desc')
+            ->paginate($this->perPage);
         return view('livewire.dashboard-g-a.dashboard-controller', [
-            'visitors' => Visitor::paginate(20),
+            'visitors' => $this->visitors,
         ]);
+    }
+
+    public function doSelected()
+    {
+        Visitor::whereIn('id', $this->checkedVisitors)->get()->dd();
+
+        Visitor::destroy($this->checkedVisitors);
+        $this->checkedVisitors = [];
+    }
+
+    public function selectAllVisitors()
+    {
+    }
+    public function isCheckId($id)
+    {
+        return in_array($id, $this->checkedVisitors) ? 'bg-info' : '';
     }
 }

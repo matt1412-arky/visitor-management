@@ -13,12 +13,14 @@ class GenerateLinkController extends Component
     public $link_visitor, $email_generate, $password_generate;
     public $number_of_visitors = 0;
     public $user_generate;
+
     public function render()
     {
         return view('livewire.generate.generate-link-controller', [
             'user_generates' => $this->user_generate
         ]);
     }
+
     public function generateLinkVisitor() // hanya satu kali diakses (24jam)
     {
         $counter = intval($this->number_of_visitors);

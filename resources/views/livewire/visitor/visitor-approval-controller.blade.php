@@ -7,13 +7,16 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div id="example4_wrapper" class="dataTables_wrapper no-footer">
-                                <div class="dataTables_length" id="example4_length"><label>Show
+                                <div class="dataTables_length" id="example4_length">
+                                    <label>Show
                                         <select name="example4_length" aria-controls="example4" class="">
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
                                             <option value="100">100</option>
-                                        </select> entries</label></div>
+                                        </select> entries
+                                    </label>
+                                </div>
                                 <div id="example4_filter" class="dataTables_filter">
                                     <label>Search:<input type="search" wire:model='search' class=""
                                             placeholder="" aria-controls="example4"></label>
