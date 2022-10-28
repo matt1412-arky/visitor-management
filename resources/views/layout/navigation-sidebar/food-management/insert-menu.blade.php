@@ -39,6 +39,22 @@
                                     <input type="number" class="form-control" placeholder="cost">
                                 </div>
 
+                                <div class="mb-3 col-md-12">
+                                    <label class="form-label fs-4">Picture</label><span class="text-muted">(optional)</span>
+                                    <div class="input-group mb-2">
+                                        <div class="form-file">
+                                            <input type="file" wire:model.defer='picture' placeholder="picture"
+                                                class="form-file-input form-control">
+                                        </div>
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                    @error('picture')
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+
                             </div>
                             <button type="submit" class="btn btn-google">Send to GA</button>
                         </form>
