@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Visitor;
+use App\Models\Link;
+
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -23,7 +28,20 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // $user = Visitor::find(26);
         $this->registerPolicies();
+
+        Gate::before(function () {
+            $link = Link::where('id_visitor', Auth::user()->id)->first();
+            if ($link || 1) return false;
+            return true;
+        });
+        // Gate::forUser($user)->allows('registered-only', function () {
+        //     dd('dd');
+        // });
+        // Gate::define('registered', function () {
+        //     dd('');
+        // });
 
         //
     }

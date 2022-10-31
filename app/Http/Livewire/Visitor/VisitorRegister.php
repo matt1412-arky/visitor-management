@@ -2,11 +2,8 @@
 
 namespace App\Http\Livewire\Visitor;
 
-use Livewire\Component;
-use App\Models\Visitor;
-use App\Models\Link;
-use App\Models\RegistrationVisitor as RV;
-use Livewire\WithFileUploads;
+use Livewire\{Component,WithFileUploads};
+use App\Models\{Visitor, Link, RegistrationVisitor as RV};
 use Illuminate\Support\Str;
 
 class VisitorRegister extends Component

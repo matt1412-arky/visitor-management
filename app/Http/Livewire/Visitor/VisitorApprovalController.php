@@ -3,8 +3,7 @@
 namespace App\Http\Livewire\Visitor;
 
 use Livewire\Component;
-use App\Models\Barcode;
-use App\Models\Visitor;
+use App\Models\{Barcode, Visitor};
 use Illuminate\Support\Facades\Auth;
 use App\Models\RegistrationVisitor;
 use Livewire\Livewire;

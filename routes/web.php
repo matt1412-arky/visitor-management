@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WebcamController;
+use App\Http\Livewire\Visitor\VisitorCheckingController;
 
 Route::get('/', fn () => to_route('auth.login'));
 
@@ -61,6 +62,7 @@ Route::group(
             Route::get('webcam', 'index')->name('webcame');
             Route::post('webcam', 'takePicture')->name('webcame');
         });
+        // Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
         Route::view('visitor-checking', 'layout/navigation-sidebar/manage-visitor.visitor-checking')->name('visitor-checking');
 
 

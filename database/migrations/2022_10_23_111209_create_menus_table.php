@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->unique();
-            $table->text('description');
-            $table->text('gambar');
             $table->double('harga');
             $table->enum('type', ['food', 'beverage'])->nullable();
+            $table->text('description');
+            $table->text('gambar');
             $table->timestamps();
         });
     }

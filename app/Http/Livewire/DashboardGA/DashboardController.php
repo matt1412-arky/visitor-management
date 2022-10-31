@@ -5,6 +5,8 @@ namespace App\Http\Livewire\DashboardGA;
 use Livewire\Component;
 use App\Models\Visitor;
 use Livewire\WithPagination;
+use App\Models\Link;
+
 
 class DashboardController extends Component
 {
@@ -30,8 +32,8 @@ class DashboardController extends Component
 
     public function doSelected()
     {
-        Visitor::whereIn('id', $this->checkedVisitors)->get()->dd();
-
+        $visitorsSelected = Visitor::whereIn('id', $this->checkedVisitors)->get(['id', 'email']);
+        dd($visitorsSelected);
         Visitor::destroy($this->checkedVisitors);
         $this->checkedVisitors = [];
     }
