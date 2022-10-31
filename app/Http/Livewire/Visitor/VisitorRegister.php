@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Visitor;
 
-use Livewire\{Component,WithFileUploads};
+use Livewire\{Component, WithFileUploads};
 use App\Models\{Visitor, Link, RegistrationVisitor as RV};
 use Illuminate\Support\Str;
 
@@ -38,17 +38,17 @@ class VisitorRegister extends Component
         'file_upload.max' => 'File tidak boleh lebih dari 2MB',
     ];
 
-    public function mount(Visitor $visitor)
+    public function mount(Link $link)
     {
-        $this->visitor = $visitor ?? new Visitor();
-        $this->visitor->invitation_from = __(request()->link->karyawan_ga->name);
-        $this->id_link = request()->link->id;
-        $this->id_karyawan = request()->link->id_karyawan;
+        $isValidLink = $link->where('id_visitor', auth('visitor')->id())
+            // ->where('token', $token)
+            ->first();
+        if (!$isValidLink) to_route('home.dashboard-page');
     }
 
     public function render()
     {
-        return view('livewire.visitor.visitor-register');
+        return view('livewire.visitor.visitor-register')->extends('layout.apps');
     }
     public function register()
     {

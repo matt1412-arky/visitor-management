@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\ManageAccount;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Vendor;
@@ -45,7 +45,7 @@ class VendorAccount extends Component
 
     public function render()
     {
-        return view('livewire.manage-account.vendor-account');
+        return view('livewire.vendor-account')->extends('layout.apps');
     }
 
     private function resetColomn(): void

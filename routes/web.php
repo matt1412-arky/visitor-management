@@ -1,9 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\WebcamController;
-use App\Http\Livewire\Visitor\VisitorCheckingController;
+use App\Http\Controllers\{HomeController, WebcamController};
+use App\Http\Livewire\{
+    VisitorCheckingController,
+    VisitorApprovalController,
+    EmployeeAccount,
+    VendorAccount,
+    GenerateLinkController,
+    MenuController
+};
+use App\Http\Livewire\Visitor\VisitorRegister;
 
 Route::get('/', fn () => to_route('auth.login'));
 
@@ -17,30 +24,31 @@ Route::group(
         'as' => 'home.',
     ],
     function () {
-        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
 
+        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
         Route::group(['middleware' => ['CheckRole:visitor']], function () {
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
             Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
-            Route::get('registrasi/{link:id_visitor}/{token}', [HomeController::class, 'registrasi'])->name('registrasi');
+            Route::get('registrasi/{link:id_visitor}/{token?}', VisitorRegister::class, 'registrasi')->name('registrasi');
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitor
         });
 
         Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security/visitor
         // Karyawan GA
         Route::group(['middleware' => ['CheckRole:employee']], function () {
-            Route::view('generate', 'layout/navigation-sidebar/manage-visitor.generate-link-visitor')->name('generate'); //admin
             Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
             Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin
             Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin
             Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival'); //admin
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
-            Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //tamu/visitor
             Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
             Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
-            Route::view('employee-account', 'layout/navigation-sidebar/manage-visitor.employee-account')->name('employee-account'); //admin
-            Route::view('vendor-account', 'layout/navigation-sidebar/manage-visitor.vendor-account')->name('vendor-account'); //admin
+            Route::get('visitor-approval', VisitorApprovalController::class)->name('visitor-approval'); //tamu/visitor
+            Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
+            Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
+            Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
 
         });
         // food management
@@ -48,7 +56,8 @@ Route::group(
         });
 
         Route::view('insert-menu', 'layout/navigation-sidebar/food-management.insert-menu')->name('insert-menu');
-        Route::view('food-menu', 'layout/navigation-sidebar/food-management.food-menu')->name('food-menu');
+        Route::get('food-menu', MenuController::class)->name('food-menu');
+
         Route::view('beverage-menu', 'layout/navigation-sidebar/food-management.beverage-menu')->name('beverage-menu');
         Route::view('menu-from-vendor', 'layout/navigation-sidebar/food-management.menu-from-vendor')->name('menu-from-vendor');
         Route::view('form-feedback', 'layout/navigation-sidebar/food-management.form-feedback')->name('form-feedback');
@@ -62,9 +71,6 @@ Route::group(
             Route::get('webcam', 'index')->name('webcame');
             Route::post('webcam', 'takePicture')->name('webcame');
         });
-        // Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
-        Route::view('visitor-checking', 'layout/navigation-sidebar/manage-visitor.visitor-checking')->name('visitor-checking');
-
 
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');
     }

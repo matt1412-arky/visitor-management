@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Visitor;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\RegistrationVisitor;
@@ -30,8 +30,8 @@ class VisitorCheckingController extends Component
         } else {
             $visitors =  RegistrationVisitor::with(['visitor', 'karyawan_ga'])->paginate($this->paginator);
         }
-        return view('livewire.visitor.visitor-checking-controller', [
+        return view('livewire.visitor-checking-controller', [
             'visitors' => $visitors
-        ]);
+        ])->extends('layout.apps');
     }
 }

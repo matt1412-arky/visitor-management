@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Generate;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -16,9 +16,9 @@ class GenerateLinkController extends Component
 
     public function render()
     {
-        return view('livewire.generate.generate-link-controller', [
+        return view('livewire.generate-link-controller', [
             'user_generates' => $this->user_generate
-        ]);
+        ])->extends('layout.apps');
     }
 
     public function generateLinkVisitor() // hanya satu kali diakses (24jam)

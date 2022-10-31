@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Visitor;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\{Barcode, Visitor};
@@ -14,9 +14,9 @@ class VisitorApprovalController extends Component
     public function render()
     {
         // $visitors = null;
-        return view('livewire.visitor.visitor-approval-controller', [
+        return view('livewire.visitor-approval-controller', [
             'visitors' => RegistrationVisitor::all(),
-        ]);
+        ])->extends('layout.apps');
     }
 
     public function onClickBtnApprove(): void

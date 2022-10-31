@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Menu;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Menu;
@@ -21,7 +21,7 @@ class MenuController extends Component
 
     public function render()
     {
-        return view('livewire.menu.menu-controller');
+        return view('livewire.menu-controller')->extends('layout.apps');
     }
     public function saveMenu()
     {

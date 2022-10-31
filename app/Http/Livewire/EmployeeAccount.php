@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\ManageAccount;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -69,13 +69,14 @@ class EmployeeAccount extends Component
                 ->orWhere('email', 'LIKE', '%' . $this->search . '%')
                 ->latest()->paginate($this->paginator);
         }
-        return view('livewire.manage-account.employee-account', [
+        return view('livewire.employee-account', [
             'employees' => $employees,
-            'roles' => Role::whereIn('id', [1, 2, 3, 4])->get()
-        ]);
+            'roles' => Role::whereNotIn('id', [6, 5])->get()
+        ])->extends('layout.apps');
     }
     private function clearField(): void
     {
+
         $this->karyawan_ga->NIK = '';
         $this->karyawan_ga->name = '';
         $this->karyawan_ga->email = '';
