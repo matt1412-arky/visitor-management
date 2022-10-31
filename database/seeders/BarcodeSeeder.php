@@ -20,7 +20,7 @@ class BarcodeSeeder extends Seeder
     )
     {
         $faker = Faker::create();
-        $visitors = VisitorRegis::all(['id']);
+        $visitors = Visitor::all(['id']);
         foreach (range(1, count($visitors)) as $num) {
             BarcodeStatus::insert([
                 'id_regis_visitor' => $faker->randomElement($visitors)['id'],

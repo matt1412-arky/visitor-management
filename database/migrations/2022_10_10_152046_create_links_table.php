@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_karyawan')->unsigned();
             $table->bigInteger('id_visitor')->unsigned();
+            
             $table->string('token', 64)->unique();
+            $table->timestamp('expires_at');
             $table->foreign('id_karyawan')
                 ->references('NIK')
                 ->on('karyawan_GA')

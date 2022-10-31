@@ -51,11 +51,15 @@ return [
         'karyawan_gaa' => [
             'driver' => 'session',
             // 'provider' => 'karyawan_GA',
-            'provider' => 'karyawan_ga', // provider
+            'provider' => 'karyawan_ga', // tb
         ],
         'visitor' => [
             'driver' => 'session',
             'provider' => 'visitors',
+        ],
+        'vendor' => [
+            'driver' => 'session',
+            'provider' => 'vendors',
         ],
     ],
 
@@ -88,6 +92,10 @@ return [
         'visitors' => [
             'driver' => 'eloquent',
             'model' => App\Models\Visitor::class,
+        ],
+        'vendors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Vendor::class,
         ],
 
         // 'users' => [

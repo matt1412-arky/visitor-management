@@ -3,16 +3,36 @@
 namespace App\Http\Livewire\Visitor;
 
 use Livewire\Component;
-use App\Models\BarcodeStatus;
-use App\Models\VisitorRegis;
+use App\Models\{Barcode, Visitor};
+use Illuminate\Support\Facades\Auth;
+use App\Models\RegistrationVisitor;
+use Livewire\Livewire;
 
 class VisitorApprovalController extends Component
 {
+    public $search;
     public function render()
     {
+        // $visitors = null;
         return view('livewire.visitor.visitor-approval-controller', [
-            'data' => BarcodeStatus::all(), // abaikan
-            'visitor_regis' => VisitorRegis::all(),
+            'visitors' => RegistrationVisitor::all(),
+        ]);
+    }
+
+    public function onClickBtnApprove(): void
+    {
+        $this->showAlertDialog(
+            'Apakah anda yakin',
+            'info',
+            'Dengan approve this visitor'
+        );
+    }
+    public function showAlertDialog(string $title, string $type, string $message): \Livewire\Event
+    {
+        return $this->emit('showAlertDialog', [
+            'title' => $title,
+            'type' => $type,
+            'msg' => $message
         ]);
     }
 }

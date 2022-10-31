@@ -68,40 +68,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">TIME DETAIL</h4>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-responsive-md">
-                            <thead>
-                                <tr>
-                                    <th style="width:80px;"><strong></strong></th>
-                                    <th><strong>NAME</strong></th>
-                                    <th><strong>DATE</strong></th>
-                                    <th><strong>Scheduled Time</strong></th>
-                                    <th><strong>Arrival Time</strong></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>01</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Senin,12/24/2002</td>
-                                    <td>08.00am</td>
-                                    <td>09.00am</td>
 
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">

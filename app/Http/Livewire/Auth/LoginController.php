@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Component
 {
     public $email, $password;
-
+    public $returnUrl;
+    public function mount()
+    {
+        $this->returnUrl = request()->returnUrl;
+    }
     public function loginHandler()
     {
         $this->validate([
@@ -18,19 +22,23 @@ class LoginController extends Component
             'email.required' => 'Email is required',
             'password.required' => 'Password is required'
         ]);
-        $use = [
+        $user = [
             'email' => $this->email,
             'password' => $this->password
         ];
-        // if (Auth::guard('web')->attempt($user, false)) {
-        if (Auth::guard('karyawan_gaa')->attempt($use, false)) {
-
-            // $check_user = User::where('email', $this->email)->first();
-            // if ($check_user->role == '') {
-            //     return;
-            // }
-
-            return to_route('home.dashboard-page');
+        try {
+            if (Auth::guard('karyawan_gaa')->attempt($user, 0)) {
+                return to_route('home.dashboard-page');
+            }
+            if (Auth::guard('visitor')->attempt($user, 0)) {
+                if ($this->returnUrl != null) {
+                    return redirect()->to($this->returnUrl);
+                } else {
+                    return to_route('home.dashboard-page');
+                }
+            }
+        } catch (\Exception $e) {
+            session()->flash('error', 'There was an error while logging in. Please try again');
         }
     }
     public function render()

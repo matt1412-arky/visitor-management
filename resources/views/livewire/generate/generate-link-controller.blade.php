@@ -1,13 +1,19 @@
 <div>
     <div class="row">
+        @if (session('fail'))
+            <span class="alert alert-danger">{{ session('fail') }}</span>
+        @endif
         <div class="col-xl-6">
             <div class="card text-center">
+                @if (Session::has('error'))
+                    <span class="text-danger">{{ Session::get('error') }}</span>
+                @endif
                 <div class="card-header">
                     <h5 class="card-title">Generate Link Registrasi</h5>
                 </div>
                 <div class="card-body">
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Time Duration</span>
+                        <span class="input-group-text">Arrival Time</span>
                         <input type="time" class="form-control">
                     </div>
                     <div class="input-group mb-3">
@@ -15,7 +21,7 @@
                         <input type="number" class="form-control" wire:model="number_of_visitors">
                     </div>
                     <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalCenter" wire:click="generateLinkVisitor()">Generate</button>
+                        data-bs-target="#exampleModalCenter" wire:click.lazy="generateLinkVisitor()">Generate</button>
                 </div>
                 <div class="card-footer">
                     <p class="card-text text-dark">Last updateed 3 min ago</p>
@@ -29,7 +35,6 @@
     <script>
         window.addEventListener('generate-link', (e) => {
             $('#modal-generate').modal('show');
-            
         })
     </script>
 @endpush

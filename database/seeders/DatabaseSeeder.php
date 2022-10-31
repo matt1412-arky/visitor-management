@@ -14,9 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        \App\Models\KaryawanGA::factory()->count(20)->create();
+        $this->call(
+            [RoleSeeder::class]
+        );
+        \App\Models\KaryawanGA::factory()->count(10)->create();
+        \App\Models\Visitor::factory(5)->create();
+        // \App\Models\Barcode::factory(10)->create();
 
+        // \App\Models\Role::factory()->count(6)->create();
+        // \App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

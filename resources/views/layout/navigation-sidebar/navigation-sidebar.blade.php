@@ -13,84 +13,30 @@
 
                 </ul>
             </li>
+            <livewire:route-manage-visitor.manage-visitor-route-controller />
+
+            @if (auth()->user()->role_id !== 6)
+                <livewire:food-management-route.food-management-food-route-controller />
+            @endif
 
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                    <i class="fas fa-search-location"></i>
-                    <span class="nav-text">Manage Visitors</span>
+                    <i class="fa  fa-address-book"></i>
+                    <span class="nav-text">Manage Account</span>
                 </a>
-                <ul aria-expanded="false">
-                    <li><a href="{{ route('home.barcode') }}">Scan QR</a></li>
-                    <li>
-                        {{--  <a href="{{ route('home.registrasi') }}">Form Registrasi</a>  --}}
-                    </li>
-                    <li>
-                        <a href="{{ route('home.visitor-data') }}">Visitor Data</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.lost-items') }}">Lost Items</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.visitor-arival') }}">Visitor Arival</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.visitor-feedback') }}">Visitor Feedback</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.form-kesehatan') }}">Form health</a>
-                    </li>
+                <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                    <li><a href="{{ route('home.employee-account') }}">Employee Account</a></li>
+                    <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
                 </ul>
+
             </li>
+
             <li>
-                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                    <i class="	fas fa-bread-slice"></i>
-                    <span class="nav-text">Food Management</span>
-                </a>
-                <ul aria-expanded="false">
-
-                    <li>
-                        <a href="{{ route('home.insert-menu') }}">Insert Menu (vendor)</a>
-                    </li>
-
-                    <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">View Menu
-                            (Vendor)</a>
-                        <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
-                            <a href="{{ route('home.food-menu') }}">Food</a>
-                            <li><a href="{{ route('home.beverage-menu') }}">Beverage</a></li>
-
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('home.menu-from-vendor') }}">Menu From Vendor (GA)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.form-gizi') }}">Nutrition Verification (Gizi Verificator)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.form-feedback') }}"> Form Feedback (Employee)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.confirmed-order') }}"> Confirmed Order (vendor)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.blast-email') }}"> Blast Email (GA)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.food-order') }}"> Food Order (Employee)</a>
-                    </li>
-                    <li>
-                        <a href=" {{ route('home.customer-feedback') }}"> Customer Feedback (Vendor)</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="" href="javascript:void()" aria-expanded="false">
-                    <i class="fas fa-qrcode"></i>
-                    <span class="nav-text">Barcode</span>
+                <a class="" href="{{ route('home.visitor-checking') }}" aria-expanded="false">
+                    <i class="fa fa-user-check"></i>
+                    <span class="nav-text">Visitor Chacking</span>
                 </a>
             </li>
-
         </ul>
     </div>
 </div>

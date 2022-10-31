@@ -2,60 +2,118 @@
 
 namespace App\Http\Livewire\Visitor;
 
-use Livewire\Component;
-use App\Models\VisitorRegis;
+use Livewire\{Component,WithFileUploads};
+use App\Models\{Visitor, Link, RegistrationVisitor as RV};
+use Illuminate\Support\Str;
 
 class VisitorRegister extends Component
 {
-    public $fullname,
-        $phone,
-        $visitation_purpose,
-        $invitation_from,
-        $transportation_used,
-        $file_doc = '',
-        $picture = '',
-        $link_visitor;
+    use WithFileUploads;
+    public Visitor $visitor;
+    public $id_link;
+    public $picture, $file_upload;
+    public $id_karyawan;
 
     protected $rules = [
-        'fullname' => 'required|alpha',
-        'phone' => 'string|required',
-        'invitation_from' => 'required',
-        'visitation_purpose' => 'string|required',
-        'transportation_used' => 'string|required',
-        'file_doc' => 'nullable',
-        'picture' => 'file|nullable',
+        'visitor.name' => 'required|string|max:50|min:4|regex:/^[\pL\s\-]+$/u', // fullname
+        'visitor.phone' => 'string|required',
+        'visitor.age' => 'required|numeric',
+        'visitor.invitation_from' => 'required',
+        'visitor.visitation_purpose' => 'string|required',
+        'visitor.transportasi_visitor' => 'string|required',
+        'visitor.waktu_kunjungan' => 'string|required',
+        'visitor.plat_nomor' => 'nullable|required',
+        'picture' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+        'file_upload' => 'nullable|mimes:pdf|max:2048',
+        'visitor.no_darurat' => 'required|numeric',
     ];
-    public function mount()
+
+    protected $messages = [
+        'visitor.*.required' => 'This field is required',
+        'visitor.name.regex' => 'abjad a-z',
+        'visitor.age.numeric' => 'Age hanya menerima nilai angka',
+        'picture.mimes' => 'Picture hanya berupa png,jpg,jpeg',
+        'picture.max' => 'Picture tidak boleh lebih dari 2MB',
+        'file_upload.mimes' => 'File hanya berupa pdf',
+        'file_upload.max' => 'File tidak boleh lebih dari 2MB',
+    ];
+
+    public function mount(Visitor $visitor)
     {
-        $this->link_visitor = (request()->link);
-        $this->invitation_from = $this->link_visitor->user->name;
+        $this->visitor = $visitor ?? new Visitor();
+        $this->visitor->invitation_from = __(request()->link->karyawan_ga->name);
+        $this->id_link = request()->link->id;
+        $this->id_karyawan = request()->link->id_karyawan;
     }
 
     public function render()
     {
-        return view('livewire.visitor.visitor-register', []);
+        return view('livewire.visitor.visitor-register');
     }
     public function register()
     {
         $this->validate();
-        dd($this->validate()['fullname']);
+        $filename = '';
+        $picture_name = '';
+        if ($this->picture != null && in_array($this->picture->extension(), ['jpg', 'png', 'jpeg'])) {
+            $picture_name = $this->picture->storeAs('pictures', "picture-"  . time() . Str::random(10) . "." . $this->picture->extension());
+        }
+        if ($this->file_upload != null && ($this->file_upload->extension() == 'pdf')) {
+            $filename = $this->file_upload->storeAs('documents', "attacment-"  . time() . Str::random(10) . "." . $this->file_upload->extension());
+        }
+        $file_data = [
+            'picture' => $picture_name,
+            'file_surat' => $filename
+        ];
 
-        $visitor =  VisitorRegis::create([
-            'link_visitor_id' => $this->link_visitor->id,
-            'fullname' => $this->fullname,
-            'phone' => $this->phone,
-            'invitation_from' => $this->invitation_from,
-            'visitation_purpose' => $this->visitation_purpose,
-            'transportation_used' => $this->transportation_used,
-            'file_doc' => $this->file_doc,
-            'picture' => $this->picture,
-        ]);
-        $this->reset();
-        if ($visitor) {
-            session()->flash('success', 'Your data has been saved');
+        $visitor_data = array_merge($this->validate()['visitor'], $file_data);
+        $visitor = Visitor::find(auth('visitor')->id())->update($visitor_data);
+
+        $isRegis = $this->insertRegisVisitor($this->id_karyawan, auth('visitor')->id());
+        if ($visitor && $isRegis) {
+            $this->resetKolom();
+            $this->showToastr("Berhasil register", "success", "Your data has been saved");
         } else {
-            session()->flash('error', 'Your data has been saved');
+            $this->resetKolom();
+            $this->showToastr("There are something went wrong!", "error", "Your data has'nt been saved");
         }
     }
-}
 
+    public function showToastr(string $title, string $type, string $message)
+    {
+        return $this->dispatchBrowserEvent(
+            'showToastr',
+            [
+                'title' => $title,
+                'type' => $type,
+                'msg' => $message
+            ]
+        );
+    }
+
+    private function insertRegisVisitor(int $id_karyawan, int $id_visitor): bool
+    {
+        $regisVisitor = RV::create([
+            "id_karyawan" => $id_karyawan,
+            "id_visitor" => $id_visitor,
+            "status" => "pending"
+        ]);
+        Link::find($this->id_link)->first()->delete();
+        return $regisVisitor->count();
+    }
+
+    private function resetKolom(): void
+    {
+        $this->visitor->name = '';
+        $this->visitor->phone = '';
+        $this->visitor->age = '';
+        $this->visitor->invitation_from = '';
+        $this->visitor->visitation_purpose = '';
+        $this->visitor->transportasi_visitor = '';
+        $this->visitor->waktu_kunjungan = '';
+        $this->visitor->plat_nomor  = '';
+        $this->picture = '';
+        $this->file_upload = '';
+        $this->visitor->no_darurat = '';
+    }
+}
