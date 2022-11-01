@@ -49,6 +49,7 @@ Route::group(
             Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
             Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
             Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
+            Route::view('cs', 'layout/navigation-sidebar/CS.cs')->name('cs'); //tamu/visitor
 
         });
         // food management
@@ -65,6 +66,7 @@ Route::group(
         Route::view('blast-email', 'layout/navigation-sidebar/food-management.blast-email')->name('blast-email');
         Route::view('food-order', 'layout/navigation-sidebar/food-management.food-order')->name('food-order');
         Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
+        Route::view('order-information', 'layout/navigation-sidebar/food-management.order-information')->name('order-information');
 
         // webcam
         Route::controller(WebcamController::class)->group(function () {

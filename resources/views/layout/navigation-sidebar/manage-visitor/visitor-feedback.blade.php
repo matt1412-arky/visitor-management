@@ -46,20 +46,12 @@
                 <div class="col-md">
                     <h4 class="card-title">Visitor Feedback</h4>
                 </div>
-                {{-- <div class="col-md float-right text-end">
-                    <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-start text-dark"><i
-                                class="fa fa-plus"></i>
-                        </span>Add</button>
-                    <button type="button" class="btn btn-rounded btn-success"><span class="btn-icon-start text-dark"><i
-                                class="fa fa-trash-alt"></i>
-                        </span>Delete</button>
-                </div> --}}
                 <div class="card-body">
                     <div class="basic-form">
                         <form>
                             <h5>How satisfied are you with the service in our place?</h5>
                             <div class="mb-3 mb-0 rating">
-                                {{-- <label class="form-label fs-4"><b class="text-red">*</b>Give us rating</label><br> --}}
+
                                 <input type="radio" name="rating" value="5" id="5"><label
                                     for="5">☆</label>
                                 <input type="radio" name="rating" value="4" id="4"><label
@@ -74,7 +66,7 @@
 
                             <h5>Are the instructions from the guide given easy to understand?</h5>
                             <div class="mb-3 mb-0 rating">
-                                {{-- <label class="form-label fs-4"><b class="text-red">*</b>Give us rating</label><br> --}}
+
                                 <input type="radio" name="rating" value="5" id="5"><label
                                     for="5">☆</label>
                                 <input type="radio" name="rating" value="4" id="4"><label
@@ -89,7 +81,7 @@
 
                             <h5>How satisfied are you with our facilities?</h5>
                             <div class="mb-3 mb-0 rating">
-                                {{-- <label class="form-label fs-4"><b class="text-red">*</b>Give us rating</label><br> --}}
+
                                 <input type="radio" name="rating" value="5" id="5"><label
                                     for="5">☆</label>
                                 <input type="radio" name="rating" value="4" id="4"><label

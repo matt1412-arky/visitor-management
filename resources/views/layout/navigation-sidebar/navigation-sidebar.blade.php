@@ -34,7 +34,14 @@
             <li>
                 <a class="" href="{{ route('home.visitor-checking') }}" aria-expanded="false">
                     <i class="fa fa-user-check"></i>
-                    <span class="nav-text">Visitor Chacking</span>
+                    <span class="nav-text">Visitor Checking</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="" href="{{ route('home.cs') }}" aria-expanded="false">
+                    <i class="fa fa-user-check"></i>
+                    <span class="nav-text">Cleaning Service</span>
                 </a>
             </li>
         </ul>

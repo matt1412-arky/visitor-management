@@ -17,23 +17,33 @@
 
             </ul>
         </li>
+
         <li>
             <a href="{{ route('home.menu-from-vendor') }}">Menu From Vendor (GA)</a>
         </li>
+
         <li>
             <a href="{{ route('home.form-feedback') }}"> Form Feedback (Employee)</a>
         </li>
+
         <li>
             <a href="{{ route('home.confirmed-order') }}"> Confirmed Order (vendor)</a>
         </li>
+
         <li>
             <a href="{{ route('home.blast-email') }}"> Blast Email (GA)</a>
         </li>
+
         <li>
             <a href="{{ route('home.food-order') }}"> Food Order (Employee)</a>
         </li>
+
         <li>
             <a href=" {{ route('home.customer-feedback') }}"> Customer Feedback (Vendor)</a>
+        </li>
+
+        <li>
+            <a href=" {{ route('home.order-information') }}"> Order Information (Employee)</a>
         </li>
     </ul>
 </li>
