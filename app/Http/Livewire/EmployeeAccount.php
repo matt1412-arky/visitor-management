@@ -43,7 +43,7 @@ class EmployeeAccount extends Component
         $this->clearField();
         return $this->dispatchBrowserEvent('openAddEmployee', []);
     }
-    public function mount(KaryawanGA $karyawan_ga)
+    public function mount()
     {
         $this->karyawan_ga = $karyawan_ga ?? new KaryawanGA();
     }
@@ -60,6 +60,16 @@ class EmployeeAccount extends Component
             'message' => 'Successfully created an account'
         ]);
     }
+    public function delete($id)
+    {
+        $employee = KaryawanGA::destroy($id);
+        $this->dispatchBrowserEvent('swal:delete', [
+            'title' => 'Are you sure you want to delete this data',
+            'type' => 'warning',
+            'message' => 'Successfully delete an account'
+        ]);
+    }
+
     public function render()
     {
         $employees = KaryawanGA::latest()->paginate($this->paginator);

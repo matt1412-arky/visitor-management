@@ -13,7 +13,7 @@ class VendorAccount extends Component
 
     protected $rules = [
         'vendor.name' => ['required', 'string', 'max:50', 'min:3'],
-        'vendor.email' => ['required', 'max:100'],
+        'vendor.email' => ['required', 'max:100', 'unique:vendors,email'],
         'vendor.password' => ['required', 'min:3', 'max:16'],
         'vendor.role_id' => ['integer', 'nullable']
     ];
@@ -45,7 +45,9 @@ class VendorAccount extends Component
 
     public function render()
     {
-        return view('livewire.vendor-account')->extends('layout.apps');
+        return view('livewire.vendor-account', [
+            'vendors' => Vendor::all(),
+        ])->extends('layout.apps');
     }
 
     private function resetColomn(): void

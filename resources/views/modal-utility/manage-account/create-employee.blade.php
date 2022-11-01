@@ -1,5 +1,6 @@
 <div id="modalAddEmployee" wire:ignore.self class="modal fade bd-example-modal-lg" tabindex="-1"
-    style="display: none; padding-right: 17px;" aria-modal="true" role="dialog" data-backdrop="static" aria-labelledby="">
+    style="display: none; padding-right: 17px;" aria-modal="true" role="dialog" data-bs-backdrop="static"
+    aria-labelledby="">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">

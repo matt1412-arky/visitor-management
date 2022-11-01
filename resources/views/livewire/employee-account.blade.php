@@ -72,10 +72,11 @@
                                     <td><a href="javascript:void(0);"><strong>assumenda</strong></a></td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                                    class="fas fa-pencil-alt"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
-                                                    class="fa fa-trash"></i></a>
+                                            <button href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
+                                                    class="fas fa-pencil-alt"></i></button>
+                                            <button wire:click.debounce='delete({{ $employee->NIK }})'
+                                                class="btn btn-danger shadow btn-xs sharp">
+                                                <i class="fa fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -104,6 +105,14 @@
         })
         window.addEventListener('openAddEmployee', (e) => {
             $('#modalAddEmployee').modal('show');
+        })
+        window.addEventListener('swal:delete', (e) => {
+            Swal.fire({
+                title: e.detail.title,
+                msg: e.detail.msg,
+                type: e.detail.type,
+                confirmButtonText: 'Yep!',
+            })
         })
     </script>
 @endpush

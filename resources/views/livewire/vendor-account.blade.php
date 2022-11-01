@@ -6,16 +6,18 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length"
-                            aria-controls="example3" class="">
+                <div class="" id=""><label class="d-flex col-2 mb-2">Show
+                        <select name="" class="form-control" id="" aria-controls="example3">
                             <option value="10">10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
+
                             <option value="100">100</option>
                         </select> entries</label></div>
 
                 <div id="example3_filter" class="dataTables_filter">
-                    <label>Search:<input type="search" class="" placeholder="" aria-controls="example3">
+                    <label class="d-flex col-4">Search:<input class="form-control" ttype="search" class=""
+                            placeholder="" aria-controls="example3">
                     </label>
                 </div>
 
@@ -46,21 +48,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr role="row" class="odd">
-                            <td class="sorting_1"><img class="rounded-circle" width="35" src=""
-                                    alt=""></td>
-                            <td>1</td>
-                            <td>Solaria</td>
-                            <td>solaria@gmail.com</td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                            class="fas fa-pencil-alt"></i></a>
-                                    <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
-                                            class="fa fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @forelse($vendors as $vendor)
+                            <tr role="row" class="odd">
+                                <td class="sorting_1"><img class="rounded-circle" src="" alt=""></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $vendor->name }}</td>
+                                <td>{{ $vendor->email }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
+                                                class="fa fa-trash"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>
