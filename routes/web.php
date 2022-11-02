@@ -32,6 +32,7 @@ Route::group(
         Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
 
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+
         Route::group(['middleware' => ['CheckRole:visitor']], function () {
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
