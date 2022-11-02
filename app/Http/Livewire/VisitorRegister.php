@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Visitor;
+namespace App\Http\Livewire;
 
 use Livewire\{Component, WithFileUploads};
 use App\Models\{Visitor, Link, RegistrationVisitor as RV};
@@ -48,7 +48,7 @@ class VisitorRegister extends Component
 
     public function render()
     {
-        return view('livewire.visitor.visitor-register')->extends('layout.apps');
+        return view('livewire.visitor-register')->extends('layout.apps');
     }
     public function register()
     {

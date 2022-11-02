@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{HomeController, WebcamController};
 use App\Http\Livewire\{
+    VisitorRegister,
     VisitorCheckingController,
     VisitorApprovalController,
     EmployeeAccount,
@@ -10,7 +11,6 @@ use App\Http\Livewire\{
     GenerateLinkController,
     MenuController
 };
-use App\Http\Livewire\Visitor\VisitorRegister;
 
 Route::get('/', fn () => to_route('auth.login'));
 
