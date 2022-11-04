@@ -14,9 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(
-            [RoleSeeder::class]
-        );
+        // $this->call(
+        //     [RoleSeeder::class]
+        // );
         \App\Models\KaryawanGA::factory()->count(10)->create();
         \App\Models\Visitor::factory(5)->create();
         // \App\Models\Barcode::factory(10)->create();

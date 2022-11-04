@@ -17,14 +17,14 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-    // 'karyawan_ga' => [
-    //     'driver' => 'eloquent',
-    //     'model' => App\Models\KaryawanGA::class
-    // ],
-    // 'visitor' => [
-    //     'driver' => 'eloquent',
-    //     'model' => App\Models\Visitor::class
-    // ],
+    'karyawan_ga' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\KaryawanGA::class
+    ],
+    'visitor' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Visitor::class
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -50,8 +50,7 @@ return [
         ],
         'karyawan_gaa' => [
             'driver' => 'session',
-            // 'provider' => 'karyawan_GA',
-            'provider' => 'karyawan_ga', // tb
+            'provider' => 'karyawan_ga',
         ],
         'visitor' => [
             'driver' => 'session',

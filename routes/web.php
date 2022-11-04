@@ -17,7 +17,7 @@ use App\Http\Livewire\{
     MenuController
 };
 
-Route::get('/', fn () => to_route('auth.login'));
+Route::get('/', fn () => to_route('home.dashboard-page'));
 
 // authenticate
 Route::group(
@@ -30,14 +30,14 @@ Route::group(
     ],
     function () {
         Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
-
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
 
         Route::group(['middleware' => ['CheckRole:visitor']], function () {
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
             Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
-            Route::get('registrasi/{link:id_visitor}/{token?}', VisitorRegister::class, 'registrasi')->name('registrasi');
+            Route::get('registrasi', VisitorRegister::class, 'registrasi')->name('registrasi');
+            // Route::get('registrasi/{link:id_visitor}/{token?}', VisitorRegister::class, 'registrasi')->name('registrasi');
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitor
         });
 

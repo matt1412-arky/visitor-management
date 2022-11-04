@@ -27,7 +27,9 @@ class CheckRole
         ];
         $rolesIds = $roles[$role] ?? [];
         if (in_array(auth()->user()->role_id, $rolesIds)) {
-            return $next($request);
+            $response = $next($request);
+
+            return $response;
         }
         abort(403);
     }
