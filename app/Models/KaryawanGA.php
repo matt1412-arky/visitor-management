@@ -15,6 +15,8 @@ class KaryawanGA extends Authenticatable
     protected $table = 'karyawan_ga';
     protected $primaryKey = 'NIK';
 
+    protected $guard = 'karyawan_gaa';
+
     protected $fillable = [
         'NIK',
         'name',
@@ -25,9 +27,9 @@ class KaryawanGA extends Authenticatable
         'role_id'
     ];
 
-     protected $hidden = [
-         'password',
-     ];
+    protected $hidden = [
+        'password',
+    ];
 
     protected function password(): Attribute
     {

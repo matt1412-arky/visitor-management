@@ -43,7 +43,7 @@ class VisitorRegister extends Component
         $isValidLink = $link->where('id_visitor', auth('visitor')->id())
             // ->where('token', $token)
             ->first();
-        if (!$isValidLink) to_route('home.dashboard-page');
+        // if (!$isValidLink) to_route('home.dashboard-page');
     }
 
     public function render()

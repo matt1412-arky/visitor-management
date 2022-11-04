@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{HomeController, WebcamController};
+use App\Http\Controllers\{
+    HomeController,
+    WebcamController,
+    CSReportController,
+    VendorController
+};
 use App\Http\Livewire\{
     VisitorRegister,
     VisitorCheckingController,
@@ -12,7 +17,7 @@ use App\Http\Livewire\{
     MenuController
 };
 
-Route::get('/', fn () => to_route('auth.login'));
+Route::get('/', fn () => to_route('home.dashboard-page'));
 
 // authenticate
 Route::group(
@@ -25,13 +30,14 @@ Route::group(
     ],
     function () {
         Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
-
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+
         Route::group(['middleware' => ['CheckRole:visitor']], function () {
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
             Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
             Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
-            Route::get('registrasi/{link:id_visitor}/{token?}', VisitorRegister::class, 'registrasi')->name('registrasi');
+            Route::get('registrasi', VisitorRegister::class, 'registrasi')->name('registrasi');
+            // Route::get('registrasi/{link:id_visitor}/{token?}', VisitorRegister::class, 'registrasi')->name('registrasi');
             Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitor
         });
 
@@ -49,16 +55,17 @@ Route::group(
             Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
             Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
             Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
-            Route::view('cs', 'layout/navigation-sidebar/CS.cs')->name('cs'); //tamu/visitor
+            Route::get('cs', [CSReportController::class, 'index'])->name('cs'); //tamu/visitor
+            Route::post('report', [CSReportController::class, 'create'])->name('report'); //tamu/visitor
 
         });
         // food management
         Route::group(['middleware' => []], function () { // visitor
         });
 
-        Route::view('insert-menu', 'layout/navigation-sidebar/food-management.insert-menu')->name('insert-menu');
+        Route::get('insert-menu', [VendorController::class, 'index'])->name('insert-menu');
+        Route::post('store', [VendorController::class, 'store'])->name('store-menu');
         Route::get('food-menu', MenuController::class)->name('food-menu');
-
         Route::view('beverage-menu', 'layout/navigation-sidebar/food-management.beverage-menu')->name('beverage-menu');
         Route::view('menu-from-vendor', 'layout/navigation-sidebar/food-management.menu-from-vendor')->name('menu-from-vendor');
         Route::view('form-feedback', 'layout/navigation-sidebar/food-management.form-feedback')->name('form-feedback');

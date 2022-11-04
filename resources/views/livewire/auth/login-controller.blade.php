@@ -33,13 +33,18 @@
                     <i class="fa fa-eye-slash"></i>
                     <i class="fa fa-eye"></i>
                 </span>
-
             </div>
             @error('password')
                 <span class="text-red">
                     {{ $message }}
                 </span>
             @enderror
+        </div>
+        <div class="mb-3">
+
+            <label>remeber me</label>
+            <input wire:model='remember' type="checkbox">
+
         </div>
         <button type="submit" class="btn me-2 btn-google">Submit</button>
     </form>

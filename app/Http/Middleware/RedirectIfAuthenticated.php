@@ -30,7 +30,7 @@ class RedirectIfAuthenticated
                 if ($guard === 'visitor') {
                     return redirect(RouteServiceProvider::HOME);
                 }
-                return to_route('auth.login');
+                // return to_route('auth.login');
             }
         }
 

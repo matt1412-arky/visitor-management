@@ -3,7 +3,6 @@
 <script src="{{ asset('support/vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('support/vendor/apexchart/apexchart.js') }}"></script>
 <script src="{{ asset('support/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-
 <script src="{{ asset('support/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 <script src="{{ asset('support/vendor/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('support/vendor/peity/jquery.peity.min.js') }}"></script>

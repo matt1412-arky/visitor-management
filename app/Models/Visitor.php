@@ -13,6 +13,7 @@ class Visitor extends Authenticatable
 {
     use HasFactory, HasApiTokens, Notifiable;
     protected $table = 'visitors';
+    protected $guard = 'visitor';
 
     protected $fillable = [
         'name',

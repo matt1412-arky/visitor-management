@@ -24,6 +24,8 @@ return new class extends Migration
             //     ->cascadeOnUpdate()
             //     ->cascadeOnDelete();
             $table->integer('jumlah');
+            $table->double('cost');
+            $table->text('picture');
             $table->timestamps();
         });
     }
