@@ -27,19 +27,6 @@ class CheckRole
         ];
         $rolesIds = $roles[$role] ?? [];
         if (in_array(auth()->user()->role_id, $rolesIds)) {
-            // if (auth()->user()->NIK || auth()->user()->id) {
-            //     return to_route('home.visitor-feedback');
-            // }
-            // if ($rolesIds[0] === 6) {
-            //     $link = Link::where('id_visitor', auth('visitor')->id())->first();
-            //     if ($link || $request->routeIs('home.registrasi')) {
-            //         // $urlRegis =  url('h/registrasi/' . $link->id_visitor . '/' . $link->token);
-            //         // back to url register jika pknya masih ada di table link
-            //         // return redirect()->route('home.registrasi', [$link->id_visitor, $link->token]);
-            //         session()->first('msg', 'you must register before continuing');
-            //     }
-            //     return $next($request);
-            // }
             return $next($request);
         }
         abort(403);
