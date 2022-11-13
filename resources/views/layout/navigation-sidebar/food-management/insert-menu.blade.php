@@ -17,54 +17,39 @@
                                     <label class="form-label fs-4"><b class="text-red">*</b>Package Menu Name</label>
                                     <input name="nama_paket_menu" required type="text" class="form-control"
                                         placeholder="package menu name">
-                                    @error('nama_paket_menu')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
+                                    <span class="text-danger error-text nama_paket_menu_error"></span>
+
                                 </div>
 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Food</label>
                                     <input name="makanan" type="text" required="required" class="form-control"
                                         placeholder="food">
-                                    @error('makanan')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
+                                    <span class="text-danger error-text makanan_error"></span>
+
                                 </div>
 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Beverage</label>
                                     <input name="minuman" required="masukkan" type="text" class="form-control"
                                         placeholder="beverage">
-                                    @error('minuman')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
+                                    <span class="text-danger error-text minuman_error"></span>
+
                                 </div>
 
 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Quantity</label>
                                     <input name="jumlah" type="number" class="form-control" placeholder="quantity">
-                                    @error('jumlah')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
+                                    <span class="text-danger error-text jumlah_error"></span>
+
                                 </div>
 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Cost</label>
                                     <input name="cost" type="number" class="form-control" placeholder="cost">
-                                    @error('cost')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
+                                    <span class="text-danger error-text cost_error"></span>
+
                                 </div>
 
                                 <div class="mb-3 col-md-12">
@@ -76,11 +61,7 @@
                                         </div>
                                         <span class="input-group-text">Upload</span>
                                     </div>
-                                    @error('picture')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
+                                    <span class="text-danger error-text picture_error"></span>
                                 </div>
 
                             </div>
@@ -93,13 +74,5 @@
     </div>
 @endsection
 @push('scripts')
-    <script type="text/javascript">
-        const insertMenuForm = document.getElementById('insert-menu');
-        /**insertMenuForm.addEventListener('submit', (e) => {
-            console.log('adada')
-            e.preventDefault();
-            e.stopPropagation();
-        })
-        */
-    </script>
+    <script type="text/javascript" src="{{ asset('main.js') }}"></script>
 @endpush

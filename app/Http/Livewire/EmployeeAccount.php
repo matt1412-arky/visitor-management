@@ -4,8 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\KaryawanGA;
-use App\Models\Role;
+use App\Models\{KaryawanGA, Role};
 use Illuminate\Http\Request;
 
 
@@ -86,7 +85,6 @@ class EmployeeAccount extends Component
     }
     private function clearField(): void
     {
-
         $this->karyawan_ga->NIK = '';
         $this->karyawan_ga->name = '';
         $this->karyawan_ga->email = '';

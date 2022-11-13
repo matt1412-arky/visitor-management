@@ -32,9 +32,11 @@ class LoginController extends Component
             } elseif (Auth::guard('visitor')->attempt($user, $this->remember)) {
                 if ($this->returnUrl != null) {
                     return redirect()->to($this->returnUrl);
-                } else {
-                    return to_route('home.dashboard-page');
                 }
+                if (auth('visitor')->user()->isRegistered()) {
+                    return to_route('home.registrasi');
+                }
+                return to_route('home.dashboard-page');
             }
             session()->flash('fail', "This credential does'nt match to our records");
         } catch (\Exception $e) {

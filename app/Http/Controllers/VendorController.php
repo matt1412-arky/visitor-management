@@ -27,13 +27,36 @@ class VendorController extends Controller
             ]
         );
         if ($validator->fails()) {
-            session()->flash('error', 'there are some errors');
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()->toArray(),
+            ]);
         } else {
-            $paket_menu = PaketMenu::create($req->all());
+            $data = $validator->getData();
+            $filename = '';
+            if ($req->hasFile('picture')) {
+                $filename = $req->file('picture')
+                    ->move(
+                        'vendors/vendor-menu',
+                        $req->file('picture')->getClientOriginalName()
+                    );
+            }
+            $data['picture'] = $filename;
+            $paket_menu = PaketMenu::create($data);
             if ($paket_menu) {
-                session()->flash('success', 'Data Successfully created!');
+                return response()->json([
+                    'status' => true,
+                    'title' => 'Created successfully',
+                    'type' => 'success',
+                    'msg' => 'New data was created successfully' . $paket_menu['picture']
+                ]);
             } else {
-                session()->flash('fail', 'There something went wrong while creating the menu');
+                return response()->json([
+                    'status' => true,
+                    'title' => 'There something went wrong',
+                    'type' => 'warning',
+                    'msg' => 'Error inserting data into database'
+                ]);
             }
         }
     }

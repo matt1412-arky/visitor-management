@@ -28,14 +28,20 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $user = Visitor::find(26);
         $this->registerPolicies();
 
-        Gate::before(function () {
-            $link = Link::where('id_visitor', Auth::user()->id)->first();
-            if ($link || 1) return false;
+        Gate::define('visit', function ($user) {
+            if (auth('visitor')->check() && $user->isRegistered()) {
+                return false;
+            }
             return true;
         });
+
+        // Gate::before(function () {
+        //     $link = Link::where('id_visitor', Auth::user()->id)->first();
+        //     if ($link || 1) return false;
+        //     return true;
+        // });
         // Gate::forUser($user)->allows('registered-only', function () {
         //     dd('dd');
         // });

@@ -46,4 +46,13 @@ class Visitor extends Authenticatable
             set: fn ($value) => $value != '' ? explode('/', $value)[1] : '',
         );
     }
+
+    public function isRegistered(): bool // check dari belongsTo aja
+    {
+        $id_visitors = Link::get(['id_visitor'])->toArray();
+        if (in_array(auth('visitor')->id(), $id_visitors)) {
+            return false;
+        }
+        return true;
+    }
 }
