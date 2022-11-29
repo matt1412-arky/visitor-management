@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('visit', function ($user) {
             if (auth('visitor')->check() && $user->isRegistered()) {
-                return false;
+                return false || null;
             }
             return true;
         });
