@@ -29,8 +29,8 @@ Route::group(
         'as' => 'home.',
     ],
     function () {
-        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
-        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking')->middleware('can:visit');
+        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page')->middleware('can:visit');
 
         Route::group([
             'middleware' => ['CheckRole:visitor']
@@ -42,7 +42,6 @@ Route::group(
                 Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
                 Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
                 Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
-                Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitor
             });
         });
 
@@ -82,8 +81,8 @@ Route::group(
 
         // webcam
         Route::controller(WebcamController::class)->group(function () {
-            Route::get('webcam', 'index')->name('webcame');
-            Route::post('webcam', 'takePicture')->name('webcame');
+            // Route::get('webcam', 'index')->name('webcame');
+            // Route::post('webcam', 'takePicture')->name('webcame');
         });
 
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');
