@@ -28,10 +28,9 @@ class CheckRole
         ];
         $rolesIds = $roles[$role] ?? [];
         if (in_array(auth()->user()->role_id, $rolesIds)) {
-            $response = $next($request);
-
-            return $response;
+            return $next($request);
         }
         abort(403);
+        // return to_route('home.dashboard-page');
     }
 }

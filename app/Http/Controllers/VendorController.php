@@ -23,7 +23,7 @@ class VendorController extends Controller
                 'makanan' => ['required', 'string'],
                 'jumlah' => ['required', 'numeric'],
                 'cost' => ['required', 'numeric'],
-                'picture' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:2048']
+                'picture' => ['image', 'mimes:png,jpg,jpeg', 'max:2048']
             ]
         );
         if ($validator->fails()) {

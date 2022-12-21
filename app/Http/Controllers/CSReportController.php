@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\CS_Report;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class CSReportController extends Controller
 {
@@ -37,18 +38,18 @@ class CSReportController extends Controller
                 'location' => $req->location,
             ];
             if ($req->hasFile('picture')) {
+                $name_file = $req->file('picture')->getClientOriginalName();
                 $req->file('picture')
-                    ->move('pictures/', Str::random(10) . $req->file('picture')
-                        ->getClientOriginalName());
-                $data['picture'] = $req->file('picture')->getClientOriginalName();
+                    ->move('pictures/', Str::random(10) . $name_file);
+                $data['picture'] = $name_file;
             }
             $cs_report =  CS_Report::create($data);
             if ($cs_report) {
                 return response()->json([
                     'status' => true,
-                    'title' => 'Data has been submitted successfully!',
-                    'msg' => 'The data that your report has been reported to admin',
-                    'type' => 'success',
+                    'title'  => 'Data has been submitted successfully!',
+                    'msg'    => 'The data that your report has been reported to admin',
+                    'type'   => 'success',
                 ]);
             }
         }

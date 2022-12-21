@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Throwable;
 use Illuminate\Support\Arr;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 
@@ -38,6 +39,13 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+    public function render($req, $exception)
+    {
+        if ($exception instanceof AuthorizationException) {
+            return to_route('home.registrasi');
+        }
+        return parent::render($req, $exception);
+    }
 
     /**
      * Register the exception handling callbacks for the application.
