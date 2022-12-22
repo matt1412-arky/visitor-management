@@ -17,4 +17,8 @@ class PaketMenu extends Model
         'cost',
         'picture'
     ];
+
+    public function prop()
+    {
+    }
 }
