@@ -119,7 +119,7 @@
                 dataType: 'json',
                 beforeSend: (res) => console.log(res),
                 success: (res) => console.log(res),
-                error: (res) => console.log(res),
+                error: (res) => console.log(res.responseJSON.message),
             })
         })
     </script>

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('feedback_menus', function (Blueprint $table) {
             $table->id();
             $table->foreignId('NIK_Karyawan')
-                ->nullable()->constrained('karyawan_ga', 'NIK');
+                ->constrained('karyawan_ga', 'NIK');
             $table->unsignedBigInteger('id_paket_menu')
                 ->nullable();
             $table->float('rating')->nullable();

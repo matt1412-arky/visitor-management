@@ -72,6 +72,7 @@ Route::group(
 
         Route::get('insert-menu', [VendorController::class, 'index'])->name('insert-menu');
         Route::post('store', [VendorController::class, 'store'])->name('store-menu');
+        Route::get('get-menus', [VendorController::class, 'getMenus'])->name('get-menus');
         Route::get('food-menu', MenuController::class)->name('food-menu');
         Route::get('confirmed-order', [ConfirmedOrder::class, 'index'])->name('confirmed-order');
 

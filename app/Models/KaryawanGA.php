@@ -49,6 +49,6 @@ class KaryawanGA extends Authenticatable
 
     public function feedbackMenu(): BelongsTo
     {
-        return $this->belongsTo(FeedbackMenu::class);
+        return $this->belongsTo(FeedbackMenu::class, 'NIK_Karyawan');
     }
 }
