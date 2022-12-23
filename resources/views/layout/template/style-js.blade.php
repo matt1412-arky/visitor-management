@@ -1,5 +1,4 @@
 <script src="{{ asset('support/vendor/global/global.min.js') }}"></script>
-<script src="{{ asset('support/js/dashboard/dashboard-1.js') }}"></script>
 <script src="{{ asset('support/vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('support/vendor/apexchart/apexchart.js') }}"></script>
 <script src="{{ asset('support/vendor/chart.js/Chart.bundle.min.js') }}"></script>

@@ -46,18 +46,47 @@
         <div class="page-body">
             <div class="container-xl">
                 <div class="row row-cards">
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card card-sm">
-                            <a href="#" class="d-block"><img src="/support/images/cam.png" class="card-img-top"></a>
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-facebook">Cofirm Order</button>
+                    @forelse ($paketMenus as $menu)
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="card card-sm">
+                                <a href="#" class="d-block"><img src="/support/images/cam.png"
+                                        class="card-img-top"></a>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <button type="button" class="btn btn-facebook" onclick="orderFood(this)"
+                                            data-id="{{ __($menu->id) }}">Order Food</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @empty
+                    @endforelse
                 </div>
             </div>
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        function orderFood(button) {
+            const id = $(button).attr('data-id');
+            $.ajax({
+                url: `{{ url('h/food-order/${id}') }}`,
+                method: 'POST',
+                data: {
+                    id: id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
+                },
+                contentType: false,
+                dataType: 'json',
+                processData: false,
+                beforeSend: (res) => console.log(res),
+                success: (res) => console.log(res),
+                error: (res) => console.log(res)
+            })
+
+        }
+    </script>
+@endpush
