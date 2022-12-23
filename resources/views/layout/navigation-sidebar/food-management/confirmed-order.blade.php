@@ -23,17 +23,21 @@
                                 aria-describedby="example4_info">
                                 <thead>
                                     <tr>
+                                        <th>ID-Order</th>
+                                        <th>Nama Karyawan</th>
+                                        <th>Nama Paket Menu</th>
                                         <th></th>
+                                        <th>Ordered At</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($confirmed_orders as $order)
                                         <tr role="row" class="odd">
-                                            <td class="sorting_1">01</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>#54605</td>
-                                            <td><span class="badge light badge-success">Approved</span></td>
-                                            <td>2011/04/25</td>
+                                            <td class="">#order0{{ $loop->iteration }}</td>
+                                            <td>{{ $order->karyawan->name }}</td>
+                                            <td>{{ $order->paket_menu->nama_paket_menu }}</td>
+                                            <td><span class="badge light badge-success">Ordered</span></td>
+                                            <td>{{ $order->created_at }}</td>
                                             <td>Rp.....</td>
                                         </tr>
                                     @empty
