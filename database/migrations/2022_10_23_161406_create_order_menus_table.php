@@ -15,19 +15,8 @@ return new class extends Migration
     {
         Schema::create('order_menus', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('nik_karyawan');
-            $table->unsignedBigInteger('id_makan_vendor');
-            $table->foreign('nik_karyawan')
-                ->references('NIK')
-                ->on('karyawan_ga')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
-
-            $table->foreign('id_makan_vendor')
-                ->references('id')
-                ->on('makanan_vendors')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->unsignedBigInteger('NIK_Karyawan');
+            $table->unsignedBigInteger('id_paket_menu');
             $table->timestamps();
         });
     }

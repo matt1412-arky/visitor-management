@@ -19,7 +19,7 @@ return new class extends Migration
             $table->double('harga');
             $table->enum('type', ['food', 'beverage'])->nullable();
             $table->text('description');
-            $table->text('gambar');
+            $table->text('gambar')->nullable();
             $table->timestamps();
         });
     }
