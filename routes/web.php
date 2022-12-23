@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     VendorController,
     ConfirmOrderController as ConfirmedOrder,
     FoodOrderControler as FoodOrder,
+    FeedbackMenuController as FeedBack,
 };
 use App\Http\Livewire\{
     VisitorRegister,
@@ -82,6 +83,8 @@ Route::group(
         Route::post('food-order/{id}', [FoodOrder::class, 'orderFood'])->name('order-food');
         Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
         Route::view('order-information', 'layout/navigation-sidebar/food-management.order-information')->name('order-information');
+
+        Route::post('send-feedback', [FeedBack::class, 'store'])->name('feedback');
 
         // webcam
         Route::controller(WebcamController::class)->group(function () {

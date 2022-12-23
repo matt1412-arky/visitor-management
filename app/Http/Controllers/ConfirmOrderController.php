@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ConfirmOrder;
 use Illuminate\Http\Request;
+use App\Models\OrderMenu;
 
 class ConfirmOrderController extends Controller
 {
@@ -12,7 +12,7 @@ class ConfirmOrderController extends Controller
         return view(
             'layout/navigation-sidebar/food-management.confirmed-order',
             [
-                'confirmed_orders' => ConfirmOrder::all(),
+                'confirmed_orders' => OrderMenu::get(),
             ]
         );
     }

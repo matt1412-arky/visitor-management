@@ -48,7 +48,7 @@
                 </div>
                 <div class="card-body">
                     <div class="basic-form">
-                        <form>
+                        <form method="POST" action="{{ route('home.feedback') }}" id="form-feedback">
                             <div class="row ">
                                 <div class="mb-3 col-md-6 col-lg-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Package Menu Name</label>
@@ -101,3 +101,26 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
+            },
+        })
+        $('#form-feedback').on('submit', (e) => {
+            e.preventDefault();
+            $.ajax({
+                url: e.target['action'],
+                method: e.target['method'],
+                data: new FormData(e.target),
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                beforeSend: (res) => console.log(res),
+                success: (res) => console.log(res),
+                error: (res) => console.log(res),
+            })
+        })
+    </script>
+@endpush

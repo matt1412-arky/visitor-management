@@ -10,14 +10,16 @@ class OrderMenu extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    public function karyawan(): HasOne
+    protected $table = 'order_menus';
+
+    public function karyawan()
     {
-        return $this->hasOne(KaryawanGA::class);
+        return $this->belongsTo(KaryawanGA::class, 'NIK_Karyawan', '');
     }
 
     public function paket_menu(): HasOne
     {
         // return $this->belongsTo(PaketMenu::class);
-        return $this->hasOne(PaketMenu::class);
+        return $this->hasOne(PaketMenu::class, 'id', 'id_paket_menu');
     }
 }

@@ -46,4 +46,9 @@ class KaryawanGA extends Authenticatable
     {
         $this->hasOne(PaketMenu::class);
     }
+
+    public function feedbackMenu(): BelongsTo
+    {
+        return $this->belongsTo(FeedbackMenu::class);
+    }
 }
