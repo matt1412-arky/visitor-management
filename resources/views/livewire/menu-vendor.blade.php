@@ -4,6 +4,7 @@
             <div class="card-header">
                 <h4 class="card-title">Vendor A</h4>
                 <div class="">
+                    <a href=""class="btn btn-primary">Repeat Order</a>
                     <a href=""class="btn btn-primary">Confirm Order</a>
                     <button type="button" wire:click.lazy="openModalDialog()" class="btn btn-rounded btn-primary">
                         <span class="btn-icon-start text-dark"><i class="fa fa-plus"></i>

@@ -121,6 +121,7 @@
                 <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                     <li><a href="{{ route('home.employee-account') }}">Employee Account</a></li>
                     <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
+                    <li><a href="{{ route('home.visitor-account') }}">Visitor Account</a></li>
                 </ul>
 
             </li>
@@ -137,6 +138,10 @@
                     <i class="fa fa-user-check"></i>
                     <span class="nav-text">Cleaning Service</span>
                 </a>
+                <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                    <li><a href="">Cleaning Service Form</a></li>
+                    <li><a href="{{ route('home.info-cs') }}">Cleaning Service Information</a></li>
+                </ul>
             </li>
         </ul>
     </div>
