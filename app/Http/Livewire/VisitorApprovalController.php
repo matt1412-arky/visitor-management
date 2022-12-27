@@ -2,21 +2,34 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use App\Models\{Barcode, Visitor};
+use Livewire\{Component, WithPagination, Livewire};
+use App\Models\{Barcode, Visitor, RegistrationVisitor};
 use Illuminate\Support\Facades\Auth;
-use App\Models\RegistrationVisitor;
-use Livewire\Livewire;
+
 
 class VisitorApprovalController extends Component
 {
-    public $search;
+    use WithPagination;
+
+    public $search = '';
+    public $perPage = 10;
+    public $status = '';
+    public $groupBy = '';
+    public $date;
+
     public function render()
     {
         // $visitors = null;
         return view('livewire.visitor-approval-controller', [
-            'visitors' => RegistrationVisitor::all(),
+            'visitors' => RegistrationVisitor::paginate($this->perPage),
         ])->extends('layout.apps');
+    }
+
+    public function approvedCheckin(RegistrationVisitor $regVis)
+    {
+        $regVis->updateOrFail([
+            'status' => ''
+        ]);
     }
 
     public function onClickBtnApprove(): void

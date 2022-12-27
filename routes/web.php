@@ -89,8 +89,8 @@ Route::group(
 
         // webcam
         Route::controller(WebcamController::class)->group(function () {
-            // Route::get('webcam', 'index')->name('webcame');
-            // Route::post('webcam', 'takePicture')->name('webcame');
+            Route::get('webcam', 'index')->name('webcame');
+            Route::post('webcam', 'takePicture')->name('take-picture');
         });
 
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');

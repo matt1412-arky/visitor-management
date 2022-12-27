@@ -6,70 +6,84 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <div id="example4_wrapper" class="dataTables_wrapper no-footer">
-                                <div class="dataTables_length" id="example4_length">
-                                    <label>Show
-                                        <select name="example4_length" aria-controls="example4" class="">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select> entries
-                                    </label>
-                                </div>
-                                <div id="example4_filter" class="dataTables_filter">
-                                    <label>Search:<input type="search" wire:model='search' class=""
-                                            placeholder="" aria-controls="example4"></label>
-                                </div>
-                                <table class="table table-responsive">
-                                    <thead>
+                            <div id="" class="">
+                                <label>Show
+                                    <select name="" aria-controls="example4" class="form-control">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </label>
+                                <label>Search:<input type="search" wire:model='search' class="form-control"
+                                        placeholder="" aria-controls=""></label>
+                                <label for="">Status
+                                    <select name="" class="form-control" id="">
+                                        <option value="">Pending</option>
+                                        <option value="">Approved</option>
+                                    </select>
+                                </label>
+                                <label for="">Group By
+                                    <select name="" class="form-control" id="">
+                                        <option value="">Checkin</option>
+                                        <option value="">Checkout</option>
+                                    </select>
+                                </label>
+                                <label for="">Date
+                                    <select name="" class="form-control" id="">
+                                        <option value="">Today</option>
+                                        <option value="">All</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <table class="table table-responsive table-hover table-condensed table-bordered">
+                                <thead class="table-header table-dark">
+                                    <tr>
+                                        <th></th>
+                                        <th class="fs-6"><strong>VISITOR ID</strong></th>
+                                        <th class="fs-6"><strong>NAME</strong></th>
+                                        <th class="fs-6"><strong>INVITATION FROM</strong></th>
+                                        <th class="fs-6"><strong>CHECKIN</strong></th>
+                                        <th class="fs-6"><strong>CHECKOUT</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($visitors as $visitor)
                                         <tr>
-                                            <th></th>
-                                            <th class="fs-6"><strong>VISITOR ID</strong></th>
-                                            <th class="fs-6"><strong>NAME</strong></th>
-                                            <th class="fs-6"><strong>INVITATION FROM</strong></th>
-                                            <th class="fs-6"><strong>ACTION (checkin/out)</strong></th>
+                                            <td><strong>{{ $loop->iteration }}</strong></td>
+                                            <td>{{ __('absasdnakod') }}</td>
+                                            <td>{{ __($visitor->visitor->name) }}</td>
+                                            <td>{{ __($visitor->karyawan_ga->name) }}</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="dropdown-item btn {{ $visitor->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
+                                                        wire:click.lazy="onClickBtnApprove({{ $visitor->id }})">
+                                                        {{ $visitor->status }}
+                                                    </button>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="dropdown-item btn {{ $visitor->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
+                                                        wire:click.lazy="onClickBtnApprove({{ $visitor->id }})">
+                                                        {{ $visitor->status }}
+                                                    </button>
+
+                                                </div>
+                                            </td>
+
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse ($visitors as $visitor)
-                                            <tr>
-                                                <td><strong>{{ $loop->iteration }}</strong></td>
-                                                <td>{{ __('absasdnakod') }}</td>
-                                                <td>{{ __($visitor->visitor->name) }}</td>
-                                                <td>{{ __($visitor->karyawan_ga->name) }}</td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button
-                                                            class="dropdown-item btn {{ $visitor->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
-                                                            wire:click.lazy="onClickBtnApprove({{ $visitor->id }})">
-                                                            {{ $visitor->status }}
-                                                        </button>
+                                    @empty
+                                        <p>No Data Found</p>
+                                    @endforelse
 
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                        @empty
-                                        @endforelse
-
-
-                                    </tbody>
-                                </table>
-                                <div class="dataTables_info" id="example4_info" role="status" aria-live="polite">
-                                    Showing 1 to 10 of 30 entries</div>
-                                <div class="dataTables_paginate paging_simple_numbers" id="example4_paginate"><a
-                                        class="paginate_button previous disabled" aria-controls="example4"
-                                        data-dt-idx="0" tabindex="0" id="example4_previous"><i
-                                            class="fa fa-angle-double-left" aria-hidden="true"></i></a><span><a
-                                            class="paginate_button current" aria-controls="example4" data-dt-idx="1"
-                                            tabindex="0">1</a><a class="paginate_button " aria-controls="example4"
-                                            data-dt-idx="2" tabindex="0">2</a><a class="paginate_button "
-                                            aria-controls="example4" data-dt-idx="3" tabindex="0">3</a></span><a
-                                        class="paginate_button next" aria-controls="example4" data-dt-idx="4"
-                                        tabindex="0" id="example4_next"><i class="fa fa-angle-double-right"
-                                            aria-hidden="true"></i></a>
-                                </div>
+                                </tbody>
+                            </table>
+                            <div>
+                                {{ $visitors->links() }}
                             </div>
                         </div>
                     </div>

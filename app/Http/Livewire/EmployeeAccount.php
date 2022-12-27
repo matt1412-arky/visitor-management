@@ -10,10 +10,9 @@ use Illuminate\Http\Request;
 
 class EmployeeAccount extends Component
 {
+    use WithPagination;
     public KaryawanGA $karyawan_ga;
     public $search = '', $paginator = 10;
-
-    use WithPagination;
     protected $paginationTheme = 'bootstrap';
     protected $rules = [
         'karyawan_ga.NIK' => ['required', 'unique:karyawan_ga', 'numeric'],
@@ -80,7 +79,7 @@ class EmployeeAccount extends Component
         }
         return view('livewire.employee-account', [
             'employees' => $employees,
-            'roles' => Role::whereNotIn('id', [6, 5])->get()
+            'roles' => Role::whereNotIn('id', [6, 5])->get(),
         ])->extends('layout.apps');
     }
     private function clearField(): void

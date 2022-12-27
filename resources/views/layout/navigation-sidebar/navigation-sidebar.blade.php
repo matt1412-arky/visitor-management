@@ -131,12 +131,15 @@
                     <span class="nav-text">Visitor Checking</span>
                 </a>
             </li>
-
             <li>
-                <a class="" href="{{ route('home.cs') }}" aria-expanded="false">
-                    <i class="fa fa-user-check"></i>
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <i class="fa fa-user-astronaut"></i>
                     <span class="nav-text">Cleaning Service</span>
                 </a>
+                <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
+                    <li><a href="{{ route('home.cs') }}">Cleaning Service Form</a></li>
+                    <li><a href="#">Information</a></li>
+                </ul>
             </li>
         </ul>
     </div>

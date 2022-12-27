@@ -17,6 +17,8 @@ class KaryawanGA extends Authenticatable
 
     protected $guard = 'karyawan_gaa';
 
+    protected $with = ['role'];
+
     protected $fillable = [
         'NIK',
         'name',

@@ -1,3 +1,4 @@
+@push('page-title', 'Employee Account')
 <div class="col">
     <div class="card">
         <div class="card-header">
@@ -5,8 +6,8 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                    <div class="dataTables_length" id="example3_length">
+                <div id="" class=" no-footer">
+                    <div class="" id="example3_length">
                         <label>Show
                             <select wire:model.debounce='paginator' aria-controls="example3" class="">
                                 <option value="10">10</option>
@@ -16,7 +17,7 @@
                             </select> entries</label>
                     </div>
 
-                    <div id="example3_filter" class="dataTables_filter"><label>Search:
+                    <div id="" class=""><label>Search:
                             <input type="search" wire:model.debounce='search' class="" placeholder=""
                                 aria-controls="example3"></label></div>
 
@@ -26,37 +27,18 @@
                             </span>Add</button>
                     </div>
 
-                    <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid"
+                    <table id="example3" class="display table  no-footer" style="min-width: 845px" role="grid"
                         aria-describedby="example3_info">
                         <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-sort="ascending"
-                                    aria-label=": activate to sort column descending" style="width: 35px;"></th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Name: activate to sort column ascending"
-                                    style="width: 75px;">NIK</th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Gender: activate to sort column ascending"
-                                    style="width: 56px;">Name</th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Education: activate to sort column ascending"
-                                    style="width: 78px;">Email
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Mobile: activate to sort column ascending"
-                                    style="width: 50px;">Role</th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Email: activate to sort column ascending"
-                                    style="width: 139px;">Division
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Joining Date: activate to sort column ascending"
-                                    style="width: 96px;">
-                                    Office</th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Action: activate to sort column ascending"
-                                    style="width: 49px;">Action</th>
+                                <th></th>
+                                <th>NIK</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Division</th>
+                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

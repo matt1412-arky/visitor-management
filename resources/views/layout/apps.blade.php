@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no" />
-    <title>Bintang Toedjoe | @yield('title')</title>
+    <title>Bintang Toedjoe | @yield('title') @stack('page-title')</title>
     @include('layout.template.style-css')
     <livewire:styles />
 
