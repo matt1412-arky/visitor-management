@@ -12,9 +12,14 @@ class CSReportController extends Controller
 {
     public function index(Request $req)
     {
-        return view('layout/navigation-sidebar/CS.cs', []);
+        return view('layout/navigation-sidebar/CS.cs-inform');
     }
+
     public function create(Request $req)
+    {
+        return view('layout/navigation-sidebar/CS.cs');
+    }
+    public function store(Request $req)
     {
         $validator = Validator::make($req->all(), [
             'nik_cs' => ['required'],

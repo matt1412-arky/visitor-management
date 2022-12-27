@@ -138,7 +138,7 @@
                 </a>
                 <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                     <li><a href="{{ route('home.cs') }}">Cleaning Service Form</a></li>
-                    <li><a href="#">Information</a></li>
+                    <li><a href="{{ route('home.cs.information') }}">Information</a></li>
                 </ul>
             </li>
         </ul>

@@ -62,9 +62,10 @@ Route::group(
             Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
             Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
             Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
-            Route::get('cs', [CSReportController::class, 'index'])->name('cs'); //tamu/visitor
-            Route::post('report', [CSReportController::class, 'create'])->name('report'); //tamu/visitor
 
+            Route::get('cs', [CSReportController::class, 'create'])->name('cs');
+            Route::post('report', [CSReportController::class, 'store'])->name('report');
+            Route::get('cs-information', [CSReportController::class, 'index'])->name('cs.information');
         });
         // food management
         Route::group(['middleware' => []], function () { // visitor
