@@ -7,12 +7,13 @@ use App\Models\CS_Report;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\DataTables\CSReportDataTable;
 
 class CSReportController extends Controller
 {
-    public function index(Request $req)
+    public function index(CSReportDataTable $csDataTable)
     {
-        return view('layout/navigation-sidebar/CS.cs-inform');
+        return $csDataTable->render('layout/navigation-sidebar/CS.cs-inform',);
     }
 
     public function create(Request $req)

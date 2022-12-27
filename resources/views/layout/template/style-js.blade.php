@@ -2,7 +2,9 @@
 <script src='/support/vendor/jquery-nice-select/js/jquery.nice-select.min.js'></script>
 <script src="/support/vendor/select2/js/select2.full.min.js"></script>
 <script src='/support/vendor/apexchart/apexchart.js'></script>
+<script src='/support/vendor/datatables/js/jquery.dataTables.min.js'></script>
 <script src='/support/vendor/chart.js/Chart.bundle.min.js'></script>
+<script src='/support/vendor/toastr/js/toastr.min.js'></script>
 <script src='/support/vendor/sweetalert2/dist/sweetalert2.min.js'></script>
 <script src='/support/vendor/ckeditor/ckeditor.js'></script>
 <script src='/support/vendor/peity/jquery.peity.min.js'></script>
