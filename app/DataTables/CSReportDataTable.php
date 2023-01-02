@@ -33,7 +33,7 @@ class CSReportDataTable extends DataTable
      * @param \App\Models\CSReport $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(CSReport $model): QueryBuilder
+    public function query(CS_Report $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -49,7 +49,7 @@ class CSReportDataTable extends DataTable
             ->setTableId('csreport-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -76,7 +76,8 @@ class CSReportDataTable extends DataTable
                 ->width(60)
                 ->addClass('text-center'),
             Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('nik_cs'),
+            Column::make('picture'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];

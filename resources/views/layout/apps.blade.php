@@ -749,7 +749,23 @@
         })
     </script>
     @stack('scripts')
-
+    <script>
+        // window.addEventListener("showToastr", function(event) {
+        Livewire.on("showToastr", function(event) {
+            toastr.remove();
+            if (event.type === 'info') {
+                toastr.info(event.message)
+            } else if (event.type === 'success') {
+                toastr.success(event.message)
+            } else if (event.type === 'error') {
+                toastr.error(event.message)
+            } else if (event.type === 'warning') {
+                toastr.warning(event.message)
+            } else {
+                return false
+            }
+        })
+    </script>
 </body>
 
 </html>

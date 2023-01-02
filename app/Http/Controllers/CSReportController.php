@@ -11,6 +11,7 @@ use App\DataTables\CSReportDataTable;
 
 class CSReportController extends Controller
 {
+    // protected $paginationTheme = 'bootstrap';
     public function index(CSReportDataTable $csDataTable)
     {
         return $csDataTable->render('layout/navigation-sidebar/CS.cs-inform',);
@@ -44,9 +45,9 @@ class CSReportController extends Controller
                 'location' => $req->location,
             ];
             if ($req->hasFile('picture')) {
-                $name_file = $req->file('picture')->getClientOriginalName();
+                $name_file = Str::random(10) . $req->file('picture')->getClientOriginalName();
                 $req->file('picture')
-                    ->move('pictures/', Str::random(10) . $name_file);
+                    ->move('pictures/',  $name_file);
                 $data['picture'] = $name_file;
             }
             $cs_report =  CS_Report::create($data);

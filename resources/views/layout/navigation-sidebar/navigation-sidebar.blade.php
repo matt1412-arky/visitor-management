@@ -121,6 +121,7 @@
                 <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                     <li><a href="{{ route('home.employee-account') }}">Employee Account</a></li>
                     <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
+                    <li><a href="#">Visitor Schedule</a></li>
                 </ul>
 
             </li>

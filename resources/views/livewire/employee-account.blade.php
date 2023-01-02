@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div id="" class=" no-footer">
-                    <div class="" id="example3_length">
+                    <div class="" id="">
                         <label>Show
                             <select wire:model.debounce='paginator' aria-controls="example3" class="">
                                 <option value="10">10</option>
@@ -18,8 +18,8 @@
                     </div>
 
                     <div id="" class=""><label>Search:
-                            <input type="search" wire:model.debounce='search' class="" placeholder=""
-                                aria-controls="example3"></label></div>
+                            <input type="search" wire:model.debounce='search' class="form-control" placeholder=""
+                                aria-controls=""></label></div>
 
                     <div class="col-md float-right text-end">
                         <button type="button" wire:click.lazy="openModalDialog()" class="btn btn-rounded btn-success">
@@ -27,8 +27,7 @@
                             </span>Add</button>
                     </div>
 
-                    <table id="example3" class="display table  no-footer" style="min-width: 845px" role="grid"
-                        aria-describedby="example3_info">
+                    <table id="" class="table table-active table-hover" aria-describedby="">
                         <thead>
                             <tr role="row">
                                 <th></th>
