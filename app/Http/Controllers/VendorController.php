@@ -13,6 +13,11 @@ class VendorController extends Controller
     {
         return view('layout/navigation-sidebar/food-management.insert-menu', []);
     }
+
+    public function vendorSchedule()
+    {
+    }
+
     public function store(Request $req)
     {
         $validator = Validator::make(

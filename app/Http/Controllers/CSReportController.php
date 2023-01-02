@@ -7,12 +7,14 @@ use App\Models\CS_Report;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\DataTables\CSReportDataTable;
 
 class CSReportController extends Controller
 {
-    public function index(Request $req)
+    // protected $paginationTheme = 'bootstrap';
+    public function index(CSReportDataTable $csDataTable)
     {
-        return view('layout/navigation-sidebar/CS.cs-inform');
+        return $csDataTable->render('layout/navigation-sidebar/CS.cs-inform',);
     }
 
     public function create(Request $req)
@@ -43,9 +45,9 @@ class CSReportController extends Controller
                 'location' => $req->location,
             ];
             if ($req->hasFile('picture')) {
-                $name_file = $req->file('picture')->getClientOriginalName();
+                $name_file = Str::random(10) . $req->file('picture')->getClientOriginalName();
                 $req->file('picture')
-                    ->move('pictures/', Str::random(10) . $name_file);
+                    ->move('pictures/',  $name_file);
                 $data['picture'] = $name_file;
             }
             $cs_report =  CS_Report::create($data);

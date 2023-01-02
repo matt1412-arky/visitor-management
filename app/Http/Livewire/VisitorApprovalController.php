@@ -16,6 +16,12 @@ class VisitorApprovalController extends Component
     public $status = '';
     public $groupBy = '';
     public $date;
+    public bool $modeCheckIn = true;
+
+    protected $listeners = [
+        'approvedCheckin',
+        'approvedCheckout'
+    ];
 
     public function render()
     {
@@ -25,27 +31,72 @@ class VisitorApprovalController extends Component
         ])->extends('layout.apps');
     }
 
-    public function approvedCheckin(RegistrationVisitor $regVis)
+    public function approvedCheckout(RegistrationVisitor $regVis)
     {
-        $regVis->updateOrFail([
-            'status' => ''
+        $save = $regVis->updateOrFail([
+            'checkout' => 'approved',
         ]);
-    }
-
-    public function onClickBtnApprove(): void
-    {
-        $this->showAlertDialog(
-            'Apakah anda yakin',
-            'info',
-            'Dengan approve this visitor'
+        if ($save) {
+            return $this->showAlertDialog(
+                'showToastr',
+                (object)[
+                    'event_name' => '',
+                    'type' => 'success',
+                    'message' => 'This visitor has been approved'
+                ]
+            );
+        }
+        return $this->showAlertDialog(
+            'showToastr',
+            (object)[
+                'event_name' => 'showToastr',
+                'type' => 'error',
+                'message' => 'There are something went wrong!'
+            ]
         );
     }
-    public function showAlertDialog(string $title, string $type, string $message): \Livewire\Event
+    public function approvedCheckin(RegistrationVisitor $regVis)
     {
-        return $this->emit('showAlertDialog', [
-            'title' => $title,
-            'type' => $type,
-            'msg' => $message
+        $save = $regVis->updateOrFail([
+            'status' => $regVis->status == 'approved' ? 'pending' : 'approved',
         ]);
+        if ($save) {
+            return $this->showAlertDialog(
+                'showToastr',
+                (object)[
+                    'event_name' => '',
+                    'type' => 'success',
+                    'message' => 'This visitor has been approved'
+                ]
+            );
+        }
+        return $this->showAlertDialog(
+            'showToastr',
+            (object)[
+                'event_name' => 'showToastr',
+                'type' => 'error',
+                'message' => 'There are something went wrong!'
+            ]
+        );
+    }
+
+    public function onClickBtnApprove($id, $val): void
+    {
+        $this->showAlertDialog(
+            'showAlertDialog',
+            (object) array(
+                'event_name' => '',
+                'title' => 'Apakah anda yakin',
+                'type' => 'info',
+                'msg' => 'Dengan approve this visitor',
+                'id' => $id,
+                'mode' => $val
+            ),
+        );
+    }
+
+    public function showAlertDialog(string $event, ?object $options,): \Livewire\Event
+    {
+        return $this->emit($event, (array) $options);
     }
 }

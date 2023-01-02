@@ -1,3 +1,4 @@
+@push('page-title', 'Visitor Approval')
 <div class="row">
     <div class="col-lg-6 col-xl-12">
         <h4 class="card-title">List Visitor</h4>
@@ -8,7 +9,8 @@
                         <div class="table-responsive">
                             <div id="" class="">
                                 <label>Show
-                                    <select name="" aria-controls="example4" class="form-control">
+                                    <select wire:model='perPage' aria-controls="" class="form-control">
+                                        <option value="5">5</option>
                                         <option value="10">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
@@ -58,18 +60,17 @@
                                                 <div class="dropdown">
                                                     <button
                                                         class="dropdown-item btn {{ $visitor->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
-                                                        wire:click.lazy="onClickBtnApprove({{ $visitor->id }})">
+                                                        wire:click.lazy="onClickBtnApprove({{ $visitor->id }},true)">
                                                         {{ $visitor->status }}
                                                     </button>
-
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button
-                                                        class="dropdown-item btn {{ $visitor->status == 'pending' ? 'btn-linkedin' : 'btn-whatsapp' }}"
-                                                        wire:click.lazy="onClickBtnApprove({{ $visitor->id }})">
-                                                        {{ $visitor->status }}
+                                                        class="dropdown-item btn text-black {{ $visitor->checkout == '' ? 'btn-linkedin' : 'btn-whatsapp' }}"
+                                                        wire:click.lazy="onClickBtnApprove({{ $visitor->id }}, false)">
+                                                        {{ $visitor->checkout ? 'approved' : "approve's pending" }}
                                                     </button>
 
                                                 </div>
@@ -100,6 +101,14 @@
                 text: e.msg,
                 type: e.type,
                 confirmButtonText: 'Yep!',
+                showCancelButton: true
+            }).then((res) => {
+                if (res.value) {
+                    if (e.mode) {
+                        Livewire.emit('approvedCheckin', e.id)
+                    }
+                    Livewire.emit('approvedCheckout', e.id)
+                }
             })
         })
     </script>
