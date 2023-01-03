@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        // ada fitur ask status = pending
-        Schema::create('barcodes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('registration_id')->constrained('registration_visitors');
-            $table->enum('status', ['checkin', 'checkout']); // expired
-            $table->timestamps();
-        });
+        // ada fitur ask status = pending //
+        // Schema::create('barcodes', function (Blueprint $table) { // masih penting?
+        //     $table->id();
+        //     $table->foreignId('registration_id')->constrained('registration_visitors');
+        //     $table->enum('status', ['checkin', 'checkout']); // expired
+        //     $table->timestamps();
+        // });
     }
 
     /**

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="format-detection" content="telephone=no" />
-    <title>Bintang Toedjoe | @yield('title')</title>
+    <title>Bintang Toedjoe | @yield('title') @stack('page-title')</title>
     @include('layout.template.style-css')
     <livewire:styles />
 
@@ -741,9 +741,31 @@
     <!--Main wrapper end-->
     <livewire:scripts />
     @include('layout.template.style-js')
-
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
+            },
+        })
+    </script>
     @stack('scripts')
-
+    <script>
+        // window.addEventListener("showToastr", function(event) {
+        Livewire.on("showToastr", function(event) {
+            toastr.remove();
+            if (event.type === 'info') {
+                toastr.info(event.message)
+            } else if (event.type === 'success') {
+                toastr.success(event.message)
+            } else if (event.type === 'error') {
+                toastr.error(event.message)
+            } else if (event.type === 'warning') {
+                toastr.warning(event.message)
+            } else {
+                return false
+            }
+        })
+    </script>
 </body>
 
 </html>

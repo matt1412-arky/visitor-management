@@ -17,6 +17,8 @@ class KaryawanGA extends Authenticatable
 
     protected $guard = 'karyawan_gaa';
 
+    protected $with = ['role'];
+
     protected $fillable = [
         'NIK',
         'name',
@@ -49,6 +51,6 @@ class KaryawanGA extends Authenticatable
 
     public function feedbackMenu(): BelongsTo
     {
-        return $this->belongsTo(FeedbackMenu::class);
+        return $this->belongsTo(FeedbackMenu::class, 'NIK_Karyawan');
     }
 }

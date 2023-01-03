@@ -28,23 +28,15 @@
                     </button>
                 </div>
 
-                <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid"
-                    aria-describedby="example3_info">
+                <table id="example3" class=" table table-hover" style="" role="" aria-describedby="">
                     <thead>
                         <tr role="row">
-                            <th class="sorting_asc" tabindex="0" aria-controls="example3" rowspan="1"
-                                colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending"
-                                style="width: 35px;"></th>
-                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1"
-                                aria-label="Name: activate to sort column ascending" style="width: 75px;">ID Vendor</th>
-                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1"
-                                aria-label="Gender: activate to sort column ascending" style="width: 56px;">Name Vendor
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1"
-                                aria-label="Education: activate to sort column ascending" style="width: 78px;">Email
-                            </th>
-                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1"
-                                aria-label="Action: activate to sort column ascending" style="width: 49px;">Action</th>
+                            <th></th>
+                            <th>ID Vendor</th>
+                            <th>Name Vendor</th>
+                            <th>Email</th>
+                            <th>Jam Shift</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +46,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $vendor->name }}</td>
                                 <td>{{ $vendor->email }}</td>
+                                <td>{{ __('No Shift entered') }}</td>
                                 <td>
                                     <div class="d-flex">
                                         <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i

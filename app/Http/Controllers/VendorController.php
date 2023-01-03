@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PaketMenu;
+use App\Models\{PaketMenu, Menu};
 use Illuminate\Support\Facades\Validator;
 
 
@@ -13,6 +13,11 @@ class VendorController extends Controller
     {
         return view('layout/navigation-sidebar/food-management.insert-menu', []);
     }
+
+    public function vendorSchedule()
+    {
+    }
+
     public function store(Request $req)
     {
         $validator = Validator::make(
@@ -59,5 +64,17 @@ class VendorController extends Controller
                 ]);
             }
         }
+    }
+
+    public function getMenus(Request $req)
+    {
+        if ($req->has('q')) {
+            $menus = Menu::orderBy('name', 'asc')->where('name', 'like', "%$req->q%")
+                ->limit(5)->get();
+        } else {
+            $menus = Menu::orderBy('name', 'asc')
+                ->limit(5)->get();
+        }
+        return response()->json($menus);
     }
 }

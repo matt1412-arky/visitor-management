@@ -67,6 +67,9 @@ Route::group(
             Route::view('info-cs', 'layout/navigation-sidebar/CS/info-cs')->name('info-cs'); //CS
             Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account'); //admin
 
+            Route::get('cs', [CSReportController::class, 'create'])->name('cs');
+            Route::post('report', [CSReportController::class, 'store'])->name('report');
+            Route::get('cs-information', [CSReportController::class, 'index'])->name('cs.information');
         });
         // food management
         Route::group(['middleware' => []], function () { // visitor
@@ -74,6 +77,7 @@ Route::group(
 
         Route::get('insert-menu', [VendorController::class, 'index'])->name('insert-menu');
         Route::post('store', [VendorController::class, 'store'])->name('store-menu');
+        Route::get('get-menus', [VendorController::class, 'getMenus'])->name('get-menus');
         Route::get('food-menu', MenuController::class)->name('food-menu');
         Route::get('confirmed-order', [ConfirmedOrder::class, 'index'])->name('confirmed-order');
 
@@ -90,8 +94,8 @@ Route::group(
 
         // webcam
         Route::controller(WebcamController::class)->group(function () {
-            // Route::get('webcam', 'index')->name('webcame');
-            // Route::post('webcam', 'takePicture')->name('webcame');
+            Route::get('webcam', 'index')->name('webcame');
+            Route::post('webcam', 'takePicture')->name('take-picture');
         });
 
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');

@@ -61,29 +61,31 @@
                     beforeSend: () => {
                         $(e.target).find("span.error-text").text("");
                     },
-                    /**
-                                error: (data) => {
-                                console.log('err')
-                                console.log(data);
-                                $.each(data.responseJSON.errors, (prefix, val) => {
-                                    $("span." + prefix + "_error").text(val[0]);
-                                });
-                            },
-                    */
                     success: (data) => {
-                        console.log('err', data)
                         if (!data.status) {
                             $.each(data.error, (prefix, val) => {
                                 $("span." + prefix + "_error").text(val[0]);
                             });
                         } else {
-                            Swal.fire({
-                                title: data.title,
-                                type: data.type,
-                                text: data.msg,
-                                confirmButtonText: 'Yep!',
-                            });
                             $("#form-report-cs")[0].reset();
+                            toastr.success(data.msg, data.title, {
+                                positionClass: "toast-top-center",
+                                timeOut: 5e3,
+                                closeButton: !0,
+                                debug: !1,
+                                newestOnTop: !0,
+                                progressBar: !0,
+                                preventDuplicates: !0,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "1000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "fadeIn",
+                                hideMethod: "fadeOut",
+                                tapToDismiss: !1
+                            })
                         }
                     },
                 })

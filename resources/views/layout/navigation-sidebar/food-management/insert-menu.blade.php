@@ -18,23 +18,20 @@
                                     <input name="nama_paket_menu" required type="text" class="form-control"
                                         placeholder="package menu name">
                                     <span class="text-danger error-text nama_paket_menu_error"></span>
-
                                 </div>
 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Food</label>
-                                    <input name="makanan" type="text" required="required" class="form-control"
-                                        placeholder="food">
+                                    <select id='sel_makanan' name="" class="form-control" multiple="multiple">
+                                        <option value="0">--select makanan--</option>
+                                    </select>
                                     <span class="text-danger error-text makanan_error"></span>
-
                                 </div>
-
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Beverage</label>
-                                    <input name="minuman" required="masukkan" type="text" class="form-control"
-                                        placeholder="beverage">
-                                    <span class="text-danger error-text minuman_error"></span>
-
+                                    <select id='sel_minuman' name="minuman" class="form-control" multiple="multiple">
+                                        <option value="0">--select minuman--</option>
+                                    </select>
                                 </div>
 
 
@@ -49,7 +46,6 @@
                                     <label class="form-label fs-4"><b class="text-red">*</b>Cost</label>
                                     <input name="cost" type="number" class="form-control" placeholder="cost">
                                     <span class="text-danger error-text cost_error"></span>
-
                                 </div>
 
                                 <div class="mb-3 col-md-12">
@@ -65,7 +61,7 @@
                                 </div>
 
                             </div>
-                            <button type="submit" class="btn btn-google">Send to GA</button>
+                            <button type="submit" class="btn btn-google">Send to GA
                         </form>
                     </div>
                 </div>

@@ -76,9 +76,6 @@
                 data: {
                     id: id
                 },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
-                },
                 contentType: false,
                 dataType: 'json',
                 processData: false,
