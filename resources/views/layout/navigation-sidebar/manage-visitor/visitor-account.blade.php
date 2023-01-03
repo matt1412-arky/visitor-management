@@ -16,7 +16,12 @@
                                 <option value="100">100</option>
                             </select> entries</label></div>
                     <div id="example4_filter" class="dataTables_filter"><label>Search:<input type="search" class=""
-                                placeholder="" aria-controls="example4"></label></div>
+                                placeholder="" aria-controls="example4"></label>
+                        <button type="button" wire:click.lazy="openModalDialog()" class="btn btn-rounded btn-success">
+                            <span class="btn-icon-start text-dark"><i class="fa fa-plus"></i>
+                            </span>Add</button>
+                    </div>
+
                     <table id="example4" class="display dataTable no-footer" style="min-width: 845px" role="grid"
                         aria-describedby="example4_info">
                         <thead>
@@ -123,4 +128,12 @@
             </div>
         </div>
     </div>
+    @include('modal-utility.manage-account.create-visitor')
+    @push('scripts')
+        <script>
+            window.addEventListener('create-visitor', (e) => {
+                $('#modal-create').modal('show');
+            })
+        </script>
+    @endpush
 @endsection

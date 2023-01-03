@@ -89,7 +89,7 @@ Route::group(
         Route::post('food-order/{id}', [FoodOrder::class, 'orderFood'])->name('order-food');
         Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
         Route::view('order-information', 'layout/navigation-sidebar/food-management.order-information')->name('order-information');
-
+        Route::view('order-history', 'layout/navigation-sidebar/food-management.order-history')->name('order-history');
         Route::post('send-feedback', [FeedBack::class, 'store'])->name('feedback');
 
         // webcam

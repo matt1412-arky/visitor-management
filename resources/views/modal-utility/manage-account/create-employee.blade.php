@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label col-form-label-lg">Devisi</label>
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Divisi</label>
                         <div class="col-sm-10">
                             <input wire:model='karyawan_ga.devisi' type="text" class="form-control form-control-lg"
                                 placeholder="devisi">
