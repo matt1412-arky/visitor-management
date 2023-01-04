@@ -27,7 +27,8 @@ return new class extends Migration
                 ->on('visitors')
                 ->cascadeOnUpdate()
                 ->cascadeOnUpdate();
-            $table->enum('status', ['pending', 'approved', 'expired'])->default('pending'); //
+            $table->string('checkin', 25)->nullable()->default('pending');
+            $table->string('checkout', 25)->nullable()->default('pending');
             $table->timestamps();
         });
     }

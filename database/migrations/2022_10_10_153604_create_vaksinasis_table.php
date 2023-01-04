@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_visitor')
                 ->constrained('visitors');
-            $table->string('vaksin_pertama');
-            $table->string('vaksin_kedua');
-            $table->string('vaksin_ketiga');
-            $table->string('vaksin_keempat');
+            $table->enum('vaksin_pertama', [0, 1])->nullable()->default(0);
+            $table->enum('vaksin_kedua', [0, 1])->nullable()->default(0);
+            $table->enum('vaksin_ketiga', [0, 1])->nullable()->default(0);
+            $table->enum('vaksin_keempat', [0, 1])->nullable()->default(0);
             $table->timestamps();
         });
     }

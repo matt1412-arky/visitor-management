@@ -46,8 +46,8 @@
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('home.form-kesehatan') }}" type="button"
-                                                        class="btn btn-success btn-xs btn-block">
+                                                    <a href="{{ route('home.form-kesehatan', ['id' => $visitor->id]) }}"
+                                                        type="button" class="btn btn-success btn-xs btn-block">
                                                         Checkin now
                                                     </a>
                                                 </td>

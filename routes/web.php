@@ -32,7 +32,7 @@ Route::group(
         'as' => 'home.',
     ],
     function () {
-        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking')->middleware('can:visit');
+        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking'); //->middleware('can:visit');
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page')->middleware('can:visit');
 
         Route::group([
@@ -40,10 +40,20 @@ Route::group(
         ], function () {
             Route::get('registrasi', VisitorRegister::class, 'registrasi')->name('registrasi');
             Route::group([
-                'middleware' => ['can:visit']
+                // 'middleware' => ['can:visit']
             ], function () {
                 Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
                 Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
+                Route::post('form-kesehatan', function () {
+                    $save =    \App\Models\Vaksinasi::create([
+                        'id_visitor' => 2,
+                        'vaksin_pertama' => request()->input('v1', 0),
+                        'vaksin_kedua' => request()->input('v2', 0),
+                        'vaksin_ketiga' => request()->input('v3', 0),
+                        'vaksin_keempat' => request()->input('v4', 0),
+                    ]);
+                    $save ? dd('saved') : dd('not');
+                })->name('send-form-kesehatan'); //tamu/visitoe
                 Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
             });
         });
@@ -55,7 +65,6 @@ Route::group(
             Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin
             Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin
             Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival'); //admin
-            Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
             Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
             Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
             Route::get('visitor-approval', VisitorApprovalController::class)->name('visitor-approval'); //tamu/visitor

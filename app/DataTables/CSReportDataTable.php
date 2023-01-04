@@ -59,6 +59,9 @@ class CSReportDataTable extends DataTable
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload')
+            ])
+            ->parameters([
+                'buttons' => ['export']
             ]);
     }
 
@@ -71,8 +74,8 @@ class CSReportDataTable extends DataTable
     {
         return [
             Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
+                ->exportable(true)
+                ->printable(true)
                 ->width(60)
                 ->addClass('text-center'),
             Column::make('id'),

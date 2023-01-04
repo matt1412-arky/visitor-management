@@ -55,7 +55,6 @@ trait GenerateLinkTrait
         $regisVisitor = RV::create([
             "id_karyawan" => $id_karyawan,
             "id_visitor" => $id_visitor,
-            "status" => "pending"
         ]);
         // Link::find($this->id_link)->first()->delete();
         return $regisVisitor->count();
