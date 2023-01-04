@@ -1,6 +1,6 @@
 @push('page-title', 'Visitor Approval')
 <div class="row">
-    <div class="col-lg-6 col-xl-12">
+    <div class="col-lg-12 col-xl-12">
         <h4 class="card-title">List Visitor</h4>
         <div class="list-group mb-4 " id="list-tab" role="tablist">
             <div class="col-12">

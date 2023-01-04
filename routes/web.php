@@ -68,9 +68,13 @@ Route::group(
             Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
             Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
             Route::get('visitor-approval', VisitorApprovalController::class)->name('visitor-approval'); //tamu/visitor
-            Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
+            Route::get('employee-account', EmployeeAccount::class)->name('employee-account'); //admin
             Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
             Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
+            Route::get('cs', [CSReportController::class, 'index'])->name('cs'); //tamu/visitor
+            Route::post('report', [CSReportController::class, 'create'])->name('report'); //tamu/visitor
+            Route::view('info-cs', 'layout/navigation-sidebar/CS/info-cs')->name('info-cs'); //CS
+            Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account'); //admin
 
             Route::get('cs', [CSReportController::class, 'create'])->name('cs');
             Route::post('report', [CSReportController::class, 'store'])->name('report');
@@ -94,7 +98,7 @@ Route::group(
         Route::post('food-order/{id}', [FoodOrder::class, 'orderFood'])->name('order-food');
         Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
         Route::view('order-information', 'layout/navigation-sidebar/food-management.order-information')->name('order-information');
-
+        Route::view('order-history', 'layout/navigation-sidebar/food-management.order-history')->name('order-history');
         Route::post('send-feedback', [FeedBack::class, 'store'])->name('feedback');
 
         // webcam
