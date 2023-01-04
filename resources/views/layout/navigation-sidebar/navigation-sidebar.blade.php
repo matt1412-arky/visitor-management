@@ -87,7 +87,7 @@
                         </li>
 
                         <li>
-                            {{-- <a href="{{ route('home.order-history') }}">Order History (GA)</a> --}}
+                            <a href="{{ route('home.order-history') }}">Order History (GA)</a>
                         </li>
 
                         <li>
@@ -125,7 +125,7 @@
                 <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                     <li><a href="{{ route('home.employee-account') }}">Employee Account</a></li>
                     <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
-                    {{-- <li><a href="{{ route('home.visitor-account') }}">Visitor Account</a></li> --}}
+                    <li><a href="{{ route('home.visitor-account') }}">Visitor Account</a></li>
                     <li><a href="">Visitor Schedule</a></li>
                 </ul>
 
@@ -144,7 +144,7 @@
                 </a>
                 <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                     <li><a href="{{ route('home.cs') }}">Cleaning Service Form</a></li>
-                    {{-- <li><a href="{{ route('home.cs-information') }}">Cleaning Service Information</a></li> --}}
+                    <li><a href="{{ route('home.cs.information') }}">Cleaning Service Information</a></li>
                 </ul>
             </li>
     </div>
