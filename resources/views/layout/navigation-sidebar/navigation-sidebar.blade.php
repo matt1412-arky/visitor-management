@@ -32,9 +32,9 @@
                             <li>
                                 <a href="{{ route('home.form-kesehatan') }}">Form health</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('home.capture-ktp') }}">Take capture KTP</a>
-                            </li>
+                            </li> --}}
                         @endif
 
                     @endif
@@ -43,7 +43,7 @@
                                 GA</a>
                             <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                                 <li><a href="{{ route('home.my-dashboard') }}">Dashboard GA</a></li>
-                                <li><a href="{{ route('home.generate') }}">Generate</a></li>
+                                {{-- <li><a href="{{ route('home.generate') }}">Generate</a></li> --}}
                                 <li><a href="{{ route('home.customize-feed') }}">Customize Feedback</a></li>
                                 <li><a href="{{ route('home.visitor-approval') }}">Visitor Approval</a></li>
                             </ul>
@@ -53,7 +53,7 @@
                         <li class=""><a class="has-arrow" href="javascript:void()"
                                 aria-expanded="false">Security</a>
                             <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
-                                <li><a href="{{ route('home.track-visitor') }}/#">Track Visitor</a></li>
+                                {{-- <li><a href="{{ route('home.track-visitor') }}/#">Track Visitor</a></li> --}}
                                 <li><a href="{{ route('home.lost-items') }}">Lost Item</a></li>
                             </ul>
                         </li>
@@ -61,7 +61,7 @@
                 </ul>
             </li>
 
-            @if (auth()->user()->role_id !== 6)
+            {{-- @if (auth()->user()->role_id !== 6)
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="	fas fa-bread-slice"></i>
@@ -115,7 +115,7 @@
                         </li>
                     </ul>
                 </li>
-            @endif
+            @endif --}}
 
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -124,7 +124,7 @@
                 </a>
                 <ul aria-expanded="false" class="left mm-collapse" style="height: 14px;">
                     <li><a href="{{ route('home.employee-account') }}">Employee Account</a></li>
-                    <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li>
+                    {{-- <li><a href="{{ route('home.vendor-account') }}">Vendor Account</a></li> --}}
                     <li><a href="{{ route('home.visitor-account') }}">Visitor Account</a></li>
                     <li><a href="">Visitor Schedule</a></li>
                 </ul>
@@ -137,7 +137,7 @@
                     <span class="nav-text">Visitor Checking</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="fa fa-user-astronaut"></i>
                     <span class="nav-text">Cleaning Service</span>
@@ -146,6 +146,6 @@
                     <li><a href="{{ route('home.cs') }}">Cleaning Service Form</a></li>
                     <li><a href="{{ route('home.cs.information') }}">Cleaning Service Information</a></li>
                 </ul>
-            </li>
+            </li> --}}
     </div>
 </div>

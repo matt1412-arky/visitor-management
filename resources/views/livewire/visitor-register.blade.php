@@ -1,3 +1,4 @@
+@section('title', ' Visitor Registration ')
 <div class="row">
     @if (Session::has('msg'))
         <span class="alert alert-info">
