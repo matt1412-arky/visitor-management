@@ -3,8 +3,8 @@
 @section('content')
     <div class="row my-2">
         <div class="col-xl-2">
-            <img class="rounded img-responsive" src="{{ asset('support/images/avatar/login-b7.jpg') }}" width="200"
-                height="100" alt="">
+            {{-- <img class="rounded img-responsive" src="{{ asset('support/images/avatar/login-b7.jpg') }}" width="200"
+                height="100" alt=""> --}}
         </div>
     </div>
     <div class="row justify-content-center">

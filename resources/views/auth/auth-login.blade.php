@@ -24,8 +24,8 @@
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <div class="text-center mb-3">
                                         <a href="#" class="">
-                                            <img src="{{ asset('support/images/avatar/login-b7.jpg') }}" width="300"
-                                                height="" alt="logo bintang toejoe">
+                                            {{-- <img src="{{ asset('support/images/avatar/login-b7.jpg') }}" width="300"
+                                                height="" alt="logo bintang toejoe"> --}}
                                         </a>
                                     </div>
                                     <livewire:auth.login-controller />
