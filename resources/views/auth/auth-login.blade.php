@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=o">
+    <link href='/support/images/avatar/favicon.png' rel="support/shortcut icon" type="image/png" />
     <title>Login</title>
     <link rel="stylesheet" href="{{ asset('support/css/style.css') }}">
     <livewire:styles>

@@ -33,9 +33,6 @@ class LoginController extends Component
                 if ($this->returnUrl != null) {
                     return redirect()->to($this->returnUrl);
                 }
-                if (auth('visitor')->user()->isRegistered()) {
-                    return to_route('home.registrasi');
-                }
                 return to_route('home.dashboard-page');
             }
             session()->flash('fail', "This credential does'nt match to our records");

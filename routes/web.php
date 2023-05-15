@@ -2,22 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    HomeController,
-    WebcamController,
-    CSReportController,
-    VendorController,
-    ConfirmOrderController as ConfirmedOrder,
-    FoodOrderControler as FoodOrder,
-    FeedbackMenuController as FeedBack,
+    HomeController
 };
 use App\Http\Livewire\{
-    VisitorRegister,
     VisitorCheckingController,
     VisitorApprovalController,
-    EmployeeAccount,
-    VendorAccount,
-    GenerateLinkController,
-    MenuController
+    EmployeeAccount
 };
 
 Route::get('/', fn () => to_route('home.dashboard-page'));
@@ -33,12 +23,12 @@ Route::group(
     ],
     function () {
         Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking'); //->middleware('can:visit');
-        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page')->middleware('can:visit');
+        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+        // ->middleware('can:visit');
 
         Route::group([
-            'middleware' => ['CheckRole:visitor']
+            // 'middleware' => ['CheckRole:visitor']
         ], function () {
-            Route::get('registrasi', VisitorRegister::class, 'registrasi')->name('registrasi');
             Route::group([
                 // 'middleware' => ['can:visit']
             ], function () {
@@ -60,26 +50,30 @@ Route::group(
 
         Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security/visitor
         // Karyawan GA
-        Route::group(['middleware' => ['CheckRole:employee']], function () {
-            Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
-            Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin
-            Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin
-            Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival'); //admin
-            Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
-            // Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
-            Route::get('visitor-approval', VisitorApprovalController::class)->name('visitor-approval'); //tamu/visitor
-            Route::get('employee-account', EmployeeAccount::class)->name('employee-account'); //admin
-            // Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
-            // Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
-            // Route::get('cs', [CSReportController::class, 'index'])->name('cs'); //tamu/visitor
-            // Route::post('report', [CSReportController::class, 'create'])->name('report'); //tamu/visitor
-            // Route::view('info-cs', 'layout/navigation-sidebar/CS/info-cs')->name('info-cs'); //CS
-            Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account'); //admin
+        Route::group(
+            [],
+            // ['middleware' => ['CheckRole:employee']], 
+            function () {
+                Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
+                Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin
+                Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin
+                Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival'); //admin
+                Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
+                // Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
+                Route::get('visitor-approval', VisitorApprovalController::class)->name('visitor-approval'); //tamu/visitor
+                Route::get('employee-account', EmployeeAccount::class)->name('employee-account'); //admin
+                // Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
+                // Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
+                // Route::get('cs', [CSReportController::class, 'index'])->name('cs'); //tamu/visitor
+                // Route::post('report', [CSReportController::class, 'create'])->name('report'); //tamu/visitor
+                // Route::view('info-cs', 'layout/navigation-sidebar/CS/info-cs')->name('info-cs'); //CS
+                Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account'); //admin
 
-            // Route::get('cs', [CSReportController::class, 'create'])->name('cs');
-            // Route::post('report', [CSReportController::class, 'store'])->name('report');
-            // Route::get('cs-information', [CSReportController::class, 'index'])->name('cs.information');
-        });
+                // Route::get('cs', [CSReportController::class, 'create'])->name('cs');
+                // Route::post('report', [CSReportController::class, 'store'])->name('report');
+                // Route::get('cs-information', [CSReportController::class, 'index'])->name('cs.information');
+            }
+        );
         // food management
         // Route::group(['middleware' => []], function () { // visitor
         // });
