@@ -28,7 +28,7 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->foreign('id_karyawan')
-                ->references('NIK')
+                ->references('id')
                 ->on('karyawan_GA')
                 ->nullable()
                 ->cascadeOnUpdate()

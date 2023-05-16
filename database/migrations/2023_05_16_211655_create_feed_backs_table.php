@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('karyawan_GA', function (Blueprint $table) {
+        Schema::create('feed_backs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('devisi', 111);
-            $table->string('jabatan', 111);
-            $table->foreignId('role_id')->constrained('roles');
-            $table->rememberToken();
+            $table->foreignId('id_visit')->constrained('visits');
+            $table->text('text_feed');
+            $table->integer('skala_feed');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('karyawan_GA');
+        Schema::dropIfExists('feed_backs');
     }
 };

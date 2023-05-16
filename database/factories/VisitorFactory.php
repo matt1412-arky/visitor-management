@@ -23,17 +23,11 @@ class VisitorFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'password' => bcrypt('12345678'),
-            'age' => fake()->numberBetween(15, 55),
-            'phone' => '08' . random_int(1111, 9999),
+            'phone' => '08' . fake()->phoneNumber(),
             'invitation_from' => fake('us_US')->randomElements(KaryawanGA::all())[0],
             'visitation_purpose' => fake()->word(),
-            'waktu_kunjungan' => '',
-            'transportasi_visitor' => '',
-            'plat_nomor' => '',
-            'picture' => '',
-            'file_surat' => '',
-            'no_darurat' => '',
-            'role_id' => 6
+            'waktu_kunjungan' => fake()->dateTime(),
+            'role_id' => 4
         ];
     }
 }

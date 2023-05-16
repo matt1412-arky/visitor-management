@@ -113,5 +113,6 @@ Route::group(
     ],
     function () {
         Route::view('login', 'auth/auth-login')->name('login');
+        Route::view('register', 'auth/register')->name('register');
     }
 );

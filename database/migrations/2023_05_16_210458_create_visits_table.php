@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('karyawan_GA', function (Blueprint $table) {
+        Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('devisi', 111);
-            $table->string('jabatan', 111);
-            $table->foreignId('role_id')->constrained('roles');
-            $table->rememberToken();
+            $table->foreignId('id_karywan')->constrained('karyawan_ga');
+            $table->foreignId('id_visitor')->constrained('visitors');
+            $table->enum('checkin', ['checkin', 'pending'])->default('pending');
+            $table->enum('checkout', ['checkout', 'pending'])->default('pending');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('karyawan_GA');
+        Schema::dropIfExists('visits');
     }
 };

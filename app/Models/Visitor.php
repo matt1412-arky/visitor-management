@@ -18,18 +18,12 @@ class Visitor extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'age',
+        'password',
         'phone',
         'invitation_from',
         'visitation_purpose',
         'waktu_kunjungan',
-        'transportasi_visitor',
-        'plat_nomor',
-        'picture',
-        'file_surat',
-        'no_darurat',
         'role_id',
-        'password',
     ];
     protected $hidden = [
         'password',
@@ -38,12 +32,4 @@ class Visitor extends Authenticatable
     protected $appends = [
         'role_id'
     ];
-
-    public function picture(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value) => $value != '' ? asset('storage/app/pictures/' . $value, 1) : '',
-            set: fn ($value) => $value != '' ? explode('/', $value)[1] : '',
-        );
-    }
 }
