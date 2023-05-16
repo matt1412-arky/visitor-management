@@ -57,7 +57,7 @@
         <div class="mb-3">
             <label class="mb-1"><strong><span class="text-danger">*</span>Phone</strong></label>
             <div class="input-group">
-                <span class="input-group-text"><i class='fas fa-phone fa-9x' style='color:#000000'></i></span>
+                <span class="input-group-text"><i class='fas fa-phone'></i></span>
                 <input type="phone" class="form-control" wire:model="phone" id="validationCustomUsername"
                     placeholder="Input your phone number" required="">
             </div>
