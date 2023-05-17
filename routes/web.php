@@ -27,10 +27,10 @@ Route::group(
         // ->middleware('can:visit');
 
         Route::group([
-            // 'middleware' => ['CheckRole:visitor']
+            'middleware' => ['CheckRole:visitor']
         ], function () {
             Route::group([
-                // 'middleware' => ['can:visit']
+                'middleware' => ['can:visit']
             ], function () {
                 Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
                 // Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
@@ -51,8 +51,7 @@ Route::group(
         Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security/visitor
         // Karyawan GA
         Route::group(
-            [],
-            // ['middleware' => ['CheckRole:employee']], 
+            ['middleware' => ['CheckRole:employee']],
             function () {
                 Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
                 Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin

@@ -19,13 +19,12 @@ class KaryawanGAFactory extends Factory
     public function definition()
     {
         return [
-            'NIK' => time() . random_int(1111, 9999),
             'name' => $this->faker->name(),
             'email' => $this->faker->email(),
             'password' => bcrypt('12345678'),
             'devisi' => $this->faker->word(),
             'jabatan' => $this->faker->word(),
-            'role_id' => $this->faker->numberBetween(1, 4)
+            'role_id' => $this->faker->numberBetween(1, 2)
         ];
     }
 }

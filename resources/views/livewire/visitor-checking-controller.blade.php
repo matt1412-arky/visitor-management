@@ -66,16 +66,3 @@
         </div>
     </div>
 </div>
-{{-- <div class="col-lg-6 col-xl-6">
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="list-home">
-                <h4 class="mb-4">GPS</h4>
-                <p>This is a wider card with supporting text and below as a natural lead-in to the
-                    additional content. This content is a little</p>
-                <img class="card-img-bottom img-fluid" src="{{ asset('support/icons/barcode/QR_code1.png') }}"
-                    alt="Card image cap">
-
-            </div>
-        </div>
-    </div> --}}
-</div>

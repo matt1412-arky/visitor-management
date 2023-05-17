@@ -20,12 +20,11 @@ class KaryawanGA extends Authenticatable
     protected $with = ['role'];
 
     protected $fillable = [
-        'NIK',
         'name',
         'email',
+        'password',
         'devisi',
         'jabatan',
-        'password',
         'role_id'
     ];
 
@@ -44,13 +43,13 @@ class KaryawanGA extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id');
     }
 
-    public function order_menu()
-    {
-        $this->hasOne(PaketMenu::class);
-    }
+    // public function order_menu()
+    // {
+    //     $this->hasOne(PaketMenu::class);
+    // }
 
-    public function feedbackMenu(): BelongsTo
-    {
-        return $this->belongsTo(FeedbackMenu::class, 'NIK_Karyawan');
-    }
+    // public function feedbackMenu(): BelongsTo
+    // {
+    //     return $this->belongsTo(FeedbackMenu::class, 'NIK_Karyawan');
+    // }
 }
