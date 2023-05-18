@@ -32,23 +32,11 @@ Route::group(
             Route::group([
                 'middleware' => ['can:visit']
             ], function () {
-                Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
-                // Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
-                // Route::post('form-kesehatan', function () {
-                //     $save =    \App\Models\Vaksinasi::create([
-                //         'id_visitor' => 2,
-                //         'vaksin_pertama' => request()->input('v1', 0),
-                //         'vaksin_kedua' => request()->input('v2', 0),
-                //         'vaksin_ketiga' => request()->input('v3', 0),
-                //         'vaksin_keempat' => request()->input('v4', 0),
-                //     ]);
-                //     $save ? dd('saved') : dd('not');
-                // })->name('send-form-kesehatan'); //tamu/visitoe
-                // Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
+                Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe                
             });
         });
 
-        Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security/visitor
+        Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security
         // Karyawan GA
         Route::group(
             ['middleware' => ['CheckRole:employee']],

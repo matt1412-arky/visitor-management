@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="modal fade bd-example-modal-md show" tabindex="-1" style="display: block;" aria-modal="true"
+            {{-- <div class="modal fade bd-example-modal-md show" tabindex="-1" style="display: block;" aria-modal="true"
                 role="dialog" id="ModalGPS">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
@@ -145,4 +145,4 @@
             })
         })
     </script>
-@endpush
+@endpush --}}

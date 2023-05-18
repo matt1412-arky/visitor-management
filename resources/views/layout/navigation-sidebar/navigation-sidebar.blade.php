@@ -24,20 +24,19 @@
                             <a href="{{ route('home.visitor-data') }}">Visitor Data</a>
                         </li>
                     @endif
-                    @if (in_array(Auth::user()->role_id, [6]))
+                    @if (in_array(Auth::user()->role_id, [4]))
                         <li>
                             <a href="{{ route('home.visitor-feedback') }}">Visitor Feedback</a>
                         </li>
-                        @if (auth()->user()->role_id !== 6)
+                        {{-- @if (auth()->user()->role_id !== 6)
                             <li>
                                 <a href="{{ route('home.form-kesehatan') }}">Form health</a>
-                            </li>
-                            {{-- <li>
+                            </li> --}}
+                        {{-- <li>
                                 <a href="{{ route('home.capture-ktp') }}">Take capture KTP</a>
                             </li> --}}
-                        @endif
-
                     @endif
+
                     @if (in_array(Auth::user()->role_id, [1, 2]))
                         <li class=""><a class="has-arrow" href="javascript:void()" aria-expanded="false">Admin
                                 GA</a>

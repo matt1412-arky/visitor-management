@@ -24,7 +24,7 @@ class KaryawanGAFactory extends Factory
             'password' => bcrypt('12345678'),
             'devisi' => $this->faker->word(),
             'jabatan' => $this->faker->word(),
-            'role_id' => $this->faker->numberBetween(1, 2)
+            'role_id' => $this->faker->numberBetween(1, 3)
         ];
     }
 }
