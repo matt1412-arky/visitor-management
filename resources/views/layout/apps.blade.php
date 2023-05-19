@@ -735,7 +735,7 @@
         <!--Content body end-->
 
         <!--Footer start-->
-        @include('layout/footer/footer')
+        {{-- @include('layout/footer/footer') --}}
         <!--Footer end-->
     </div>
     <!--Main wrapper end-->

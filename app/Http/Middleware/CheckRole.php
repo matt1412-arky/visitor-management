@@ -29,6 +29,5 @@ class CheckRole
             return $next($request);
         }
         abort(403);
-        // return to_route('home.dashboard-page');
     }
 }

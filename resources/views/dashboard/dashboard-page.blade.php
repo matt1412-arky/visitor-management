@@ -28,7 +28,7 @@
                                                 <th class="fs-6"><strong>NAME</strong></th>
                                                 <th class="fs-6"><strong>INVITATION FROM</strong></th>
                                                 <th class="fs-6"><strong>STATUS</strong></th>
-                                                <th class="fs-6"><strong>Check In</strong></th>
+                                                {{-- <th class="fs-6"><strong>Check In</strong></th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-6 col-lg-12">
+        {{-- <div class="col-xl-6 col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Advanced Smil Animation</h4>
@@ -827,6 +827,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
