@@ -9,6 +9,7 @@ use App\Http\Livewire\{
     VisitorApprovalController,
     EmployeeAccount
 };
+use App\Http\Middleware\CheckRole;
 
 Route::get('/', fn () => to_route('home.dashboard-page'));
 
@@ -22,25 +23,14 @@ Route::group(
         'as' => 'home.',
     ],
     function () {
-        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking'); //->middleware('can:visit');
+        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
-        // ->middleware('can:visit');
+        Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback')->middleware('CheckRole:visitor'); //tamu/visitoe          
 
-        Route::group([
-            // 'middleware' => ['CheckRole:visitor']
-        ], function () {
-            Route::group([
-                // 'middleware' => ['can:visit']
-            ], function () {
-                Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe                
-            });
-        });
-
-        Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security
         // Karyawan GA
         Route::group(
             [
-                // 'middleware' => ['CheckRole:employee']
+                'middleware' => ['CheckRole:employee']
             ],
             function () {
                 Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
@@ -54,6 +44,8 @@ Route::group(
                 Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account'); //admin               
             }
         );
+        //Security
+        Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items')->middleware('CheckRole:security');
 
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');
     }
