@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_karywan')->constrained('karyawan_ga');
+            $table->foreignId('id_karyawan')->constrained('karyawan_ga');
             $table->foreignId('id_visitor')->constrained('visitors');
             $table->enum('checkin', ['checkin', 'pending'])->default('pending');
             $table->enum('checkout', ['checkout', 'pending'])->default('pending');
