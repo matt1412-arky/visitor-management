@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_visit')->constrained('visits');
             $table->text('text_feed');
-            $table->integer('skala_feed');
+            $table->unsignedTinyInteger('skala_feed'); // Menggunakan tipe data unsignedTinyInteger
             $table->timestamps();
         });
     }

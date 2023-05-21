@@ -22,7 +22,8 @@ class Visitor extends Authenticatable
         'phone',
         'invitation_from',
         'visitation_purpose',
-        'waktu_kunjungan',
+        'visit_date',
+        'arrival_time',
         'role_id',
     ];
     protected $hidden = [

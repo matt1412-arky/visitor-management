@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('phone', 15)->nullable();
             $table->string('invitation_from')->nullable();
             $table->string('visitation_purpose')->nullable();
-            $table->string('waktu_kunjungan')->nullable();
+            $table->date('visit_date')->nullable();
+            $table->time('arrival_time')->nullable();
             $table->foreignId('role_id')->constrained('roles');
             $table->timestamps();
         });
