@@ -10,7 +10,7 @@ class VisitorData extends Component
     public function render()
     {
         return view('livewire.visitor-data', [
-            'visitors' => RegistrationVisitor::get(),
+            // 'visitors' => RegistrationVisitor::get(),
         ]);
     }
 }

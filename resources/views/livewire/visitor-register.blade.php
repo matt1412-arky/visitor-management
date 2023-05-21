@@ -97,18 +97,33 @@
         </div>
 
         <div class="mb-3">
-            <label class="mb-1"><strong><span class="text-danger">*</span>Waktu Kunjungan</strong></label>
+            <label class="mb-1"><strong><span class="text-danger">*</span>Visit Date</strong></label>
             <div class="input-group">
-                <span class="input-group-text"><i class="fas fa-clock"></i></span>
-                <input type="date" class="form-control" wire:model="waktu_kunjungan" id="validationCustomUsername"
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                <input type="date" class="form-control" wire:model="visit_date" id="validationCustomUsername"
                     placeholder="" required="">
             </div>
-            @error('waktu_kunjungan')
+            @error('visit_date')
                 <span class="text-red">
                     {{ $message }}
                 </span>
             @enderror
         </div>
+
+        <div class="mb-3">
+            <label class="mb-1"><strong><span class="text-danger">*</span>Arrival Time</strong></label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                <input type="time" class="form-control" wire:model="arrival_time" id="validationCustomUsername"
+                    placeholder="" required="">
+            </div>
+            @error('arrival_time')
+                <span class="text-red">
+                    {{ $message }}
+                </span>
+            @enderror
+        </div>
+
 
         <div class="text-center">
             <button type="submit" class="btn btn-primary btn-block">Sign Up</button>

@@ -52,7 +52,8 @@
             @if (in_array(Auth::user()->role_id, [1, 2, 3]))
                 <li class="{{ Request::route()->getName() == 'home.visitor-data' ? 'active' : '' }}">
                     <a href="{{ route('home.visitor-data') }}">
-                        Visitor Data
+                        <i class="fas fa-address-card"></i>
+                        <span class="nav-text">Visitor Data</span>
                     </a>
                 </li>
             @endif

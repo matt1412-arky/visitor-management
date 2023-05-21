@@ -17,12 +17,14 @@ class VisitorRegister extends Component
     public $phone;
     public $invitation_from;
     public $visitation_purpose;
-    public $waktu_kunjungan;
+    public $visit_date;
+    public $arrival_time;
 
     public function render()
     {
         return view('livewire.visitor-register');
     }
+
     public function register()
     {
         $visitor = $this->validate([
@@ -32,13 +34,18 @@ class VisitorRegister extends Component
             'phone' => 'required|unique:visitors,phone',
             'invitation_from' => 'required|string',
             'visitation_purpose' => 'required|string',
-            'waktu_kunjungan' => 'required',
+            'visit_date' => 'required|date',
+            'arrival_time' => 'required',
         ]);
+
         $visitor['role_id'] = 4;
         $visitor['password'] = bcrypt($visitor['password']);
+
         Visitor::create($visitor);
+
         $this->reset();
         $this->showToastr('success', 'success', 'Data berhasil ditambahkan');
-        return to_route('auth.login');
+
+        return redirect()->route('auth.login');
     }
 }

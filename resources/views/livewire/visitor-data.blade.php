@@ -21,52 +21,52 @@
                              </tr>
                          </thead>
                          <tbody>
-                             @forelse($visitors as $visitor)
-                                 <tr>
-                                     <td><strong>{{ __($loop->iteration) }}</strong></td>
+                             {{-- @forelse($visitors as $visitor) --}}
+                             <tr>
+                                 {{-- <td><strong>{{ __($loop->iteration) }}</strong></td>
                                      <td>{{ __($visitor->visitor->name) }}</td>
                                      <td>{{ __($visitor->visitor->phone) }}</td>
                                      <td>{{ $visitor->created_at }}</td>
                                      <td>{{ __($visitor->visitor->waktu_kunjungan) }}</td>
-                                     <td>{{ __($visitor->karyawan_ga->name) }}</td>
-                                     <td><span
-                                             class="badge light badge-{{ __($visitor->status == 'pending') ? 'info' : 'success' }}">{{ __($visitor->status) }}</span>
-                                     </td>
-                                     <td><span
-                                             class="badge light badge-{{ __($visitor->checkout == 'pending') ? 'info' : 'success' }}">{{ __($visitor->checkout) }}</span>
-                                     </td>
-                                     <td>
-                                         <div class="dropdown">
-                                             <button type="button" class="btn btn-success light sharp"
-                                                 data-bs-toggle="dropdown">
-                                                 <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
-                                                     <g stroke="none" stroke-width="1" fill="none"
-                                                         fill-rule="evenodd">
-                                                         <rect x="0" y="0" width="24"
-                                                             height="24">
-                                                         </rect>
-                                                         <circle fill="#000000" cx="5" cy="12"
-                                                             r="2">
-                                                         </circle>
-                                                         <circle fill="#000000" cx="12" cy="12"
-                                                             r="2">
-                                                         </circle>
-                                                         <circle fill="#000000" cx="19" cy="12"
-                                                             r="2">
-                                                         </circle>
-                                                     </g>
-                                                 </svg>
-                                             </button>
-                                             <div class="dropdown-menu">
-                                                 <a class="dropdown-item" href="#">Edit</a>
-                                                 <a class="dropdown-item" href="#">Delete</a>
-                                             </div>
+                                     <td>{{ __($visitor->karyawan_ga->name) }}</td> --}}
+                                 <td><span>
+                                         {{-- class="badge light badge-{{ __($visitor->status == 'pending') ? 'info' : 'success' }}">{{ __($visitor->status) }} --}}
+                                     </span>
+                                 </td>
+                                 <td><span>
+                                         {{-- class="badge light badge-{{ __($visitor->checkout == 'pending') ? 'info' : 'success' }}">{{ __($visitor->checkout) }} --}}
+                                     </span>
+                                 </td>
+                                 <td>
+                                     <div class="dropdown">
+                                         <button type="button" class="btn btn-success light sharp"
+                                             data-bs-toggle="dropdown">
+                                             <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
+                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                     <rect x="0" y="0" width="24" height="24">
+                                                     </rect>
+                                                     <circle fill="#000000" cx="5" cy="12"
+                                                         r="2">
+                                                     </circle>
+                                                     <circle fill="#000000" cx="12" cy="12"
+                                                         r="2">
+                                                     </circle>
+                                                     <circle fill="#000000" cx="19" cy="12"
+                                                         r="2">
+                                                     </circle>
+                                                 </g>
+                                             </svg>
+                                         </button>
+                                         <div class="dropdown-menu">
+                                             <a class="dropdown-item" href="#">Edit</a>
+                                             <a class="dropdown-item" href="#">Delete</a>
                                          </div>
-                                     </td>
+                                     </div>
+                                 </td>
 
-                                 </tr>
-                             @empty
-                             @endforelse
+                             </tr>
+                             {{-- @empty --}}
+                             {{-- @endforelse --}}
 
 
                          </tbody>
