@@ -2,18 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\KaryawanGA;
+use App\Models\Role;
 use Livewire\Component;
-use Livewire\WithPagination;
-use App\Models\{KaryawanGA, Role};
-use Illuminate\Http\Request;
-
 
 class EmployeeAccount extends Component
 {
-    use WithPagination;
     public KaryawanGA $karyawan_ga;
-    public $search = '', $paginator = 10;
+    public $search = '';
+    public $paginator = 10;
     protected $paginationTheme = 'bootstrap';
+
     protected $rules = [
         'karyawan_ga.name' => ['required', 'string', 'max:100', 'min:3', 'regex:/^[\pL\s\-]+$/u'],
         'karyawan_ga.email' => ['required', 'email', 'unique:karyawan_ga'],
@@ -25,37 +24,67 @@ class EmployeeAccount extends Component
 
     protected $messages = [
         'karyawan_ga.*.required' => 'Fill this field with the required data',
-        'karyawan_ga.name.string' => 'Fill this filed',
-        'karyawan_ga.email.email' => 'Fill this field with the email',
-        'karyawan_ga.devisi.*' => 'Fill this filed',
-        'karyawan_ga.jabatan.*' => 'Fill this filed',
-        'karyawan_ga.password.*' => 'Fill this filed',
-        'karyawan_ga.role_id.*' => 'Fill this filed'
-
+        'karyawan_ga.name.string' => 'Fill this field',
+        'karyawan_ga.email.email' => 'Fill this field with a valid email',
+        'karyawan_ga.devisi.*' => 'Fill this field',
+        'karyawan_ga.jabatan.*' => 'Fill this field',
+        'karyawan_ga.password.*' => 'Fill this field',
+        'karyawan_ga.role_id.*' => 'Fill this field'
     ];
 
     public function openModalDialog()
     {
         $this->clearField();
-        return $this->dispatchBrowserEvent('openAddEmployee', []);
+        $this->dispatchBrowserEvent('openAddEmployee', []);
     }
-    public function mount()
+
+    public function mount(KaryawanGA $karyawan_ga)
     {
-        $this->karyawan_ga = $karyawan_ga ?? new KaryawanGA();
+        $this->karyawan_ga = $karyawan_ga;
     }
+
     public function createNewEmployee()
     {
-        $data = $this->validate();
-        $data['karyawan_ga']['password'] = '12345678';
-        $this->karyawan_ga->create($data['karyawan_ga']);
-        KaryawanGA::destroy($this->karyawan_ga->name);
+        $this->validate();
+
+        $this->karyawan_ga->password = '12345678';
+        $this->karyawan_ga->save();
+
         $this->clearField();
-        return $this->dispatchBrowserEvent('createNewEmployee', [
+
+        $this->dispatchBrowserEvent('createNewEmployee', [
             'title' => 'Create User Account Successfully',
             'type' => 'success',
             'message' => 'Successfully created an account'
         ]);
     }
+
+    public function openModal($karyawanId)
+    {
+        $this->karyawan_ga = KaryawanGA::findOrFail($karyawanId);
+
+        $roles = Role::whereIn('role_name', ['employee', 'security', 'superadmin'])->get();
+
+        $this->dispatchBrowserEvent('openEditEmployee', [
+            'karyawan' => $this->karyawan_ga,
+            'roles' => $roles,
+        ]);
+    }
+
+    public function editEmployee()
+    {
+        $this->validate();
+
+        $this->karyawan_ga->save();
+
+        $this->dispatchBrowserEvent('closeEditEmployee');
+    }
+
+    public function closeModal()
+    {
+        $this->dispatchBrowserEvent('closeEditEmployee');
+    }
+
     public function delete($id)
     {
         KaryawanGA::destroy($id);
@@ -78,13 +107,15 @@ class EmployeeAccount extends Component
                 ->paginate($this->paginator);
         }
 
+        $roles = Role::whereIn('role_name', ['employee', 'security', 'superadmin'])->get();
+
         return view('livewire.employee-account', [
             'employees' => $employees,
-            'roles' => Role::whereIn('role_name', ['employee', 'security', 'superadmin'])->get(),
+            'roles' => $roles,
         ])->extends('layout.apps');
     }
 
-    private function clearField(): void
+    private function clearField()
     {
         $this->karyawan_ga->name = '';
         $this->karyawan_ga->email = '';

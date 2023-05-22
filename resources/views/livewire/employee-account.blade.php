@@ -58,8 +58,13 @@
                                     <td><a href="javascript:void(0);"><strong>{{ $employee->jabatan }}</strong></a></td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            <button href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                                    class="fas fa-pencil-alt"></i></button>
+                                            <!-- Tombol untuk membuka modal edit employee -->
+                                            <button wire:click="openModal({{ $employee->id }})"
+                                                class="btn btn-primary shadow btn-xs sharp me-1">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </button>
+
+
                                             <button wire:click.debounce='delete({{ $employee->id }})'
                                                 class="btn btn-danger shadow btn-xs sharp">
                                                 <i class="fa fa-trash"></i>
@@ -80,6 +85,7 @@
         </div>
     </div>
     @include('modal-utility.manage-account.create-employee')
+    @include('modal-utility.manage-account.edit-employee-modal', ['employeeId' => $employee->id])
 </div>
 @push('scripts')
     <script>
@@ -102,6 +108,21 @@
                 type: e.detail.type,
                 confirmButtonText: 'Yes',
             });
+        });
+        window.addEventListener('editEmployee', (e) => {
+            $('#modalEditEmployee').modal('hide');
+            Swal.fire({
+                title: e.detail.title,
+                msg: e.detail.msg,
+                type: e.detail.type,
+                confirmButtonText: 'Yes',
+            });
+        });
+        window.addEventListener('openEditEmployee', (e) => {
+            $('#modalEditEmployee').modal('show');
+        });
+        window.addEventListener('closeEditEmployee', (e) => {
+            $('#modalEditEmployee').modal('hide');
         });
     </script>
 @endpush
