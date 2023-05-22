@@ -15,7 +15,6 @@ class EmployeeAccount extends Component
     public $search = '', $paginator = 10;
     protected $paginationTheme = 'bootstrap';
     protected $rules = [
-        'karyawan_ga.NIK' => ['required', 'unique:karyawan_ga', 'numeric'],
         'karyawan_ga.name' => ['required', 'string', 'max:100', 'min:3', 'regex:/^[\pL\s\-]+$/u'],
         'karyawan_ga.email' => ['required', 'email', 'unique:karyawan_ga'],
         'karyawan_ga.devisi' => ['required', 'string'],
@@ -25,7 +24,6 @@ class EmployeeAccount extends Component
     ];
 
     protected $messages = [
-        'karyawan_ga.NIK.unique' => 'The value :attribute must be unique number',
         'karyawan_ga.*.required' => 'Fill this field with the required data',
         'karyawan_ga.name.string' => 'Fill this filed',
         'karyawan_ga.email.email' => 'Fill this field with the email',
@@ -50,7 +48,7 @@ class EmployeeAccount extends Component
         $data = $this->validate();
         $data['karyawan_ga']['password'] = '12345678';
         $this->karyawan_ga->create($data['karyawan_ga']);
-        KaryawanGA::destroy($this->karyawan_ga->NIK);
+        KaryawanGA::destroy($this->karyawan_ga->name);
         $this->clearField();
         return $this->dispatchBrowserEvent('createNewEmployee', [
             'title' => 'Create User Account Successfully',
@@ -60,31 +58,34 @@ class EmployeeAccount extends Component
     }
     public function delete($id)
     {
-        $employee = KaryawanGA::destroy($id);
+        KaryawanGA::destroy($id);
+
         $this->dispatchBrowserEvent('swal:delete', [
-            'title' => 'Are you sure you want to delete this data',
+            'title' => 'Are you sure you want to delete this data?',
             'type' => 'warning',
-            'message' => 'Successfully delete an account'
+            'msg' => 'Successfully deleted an account',
         ]);
     }
 
     public function render()
     {
-        $employees = KaryawanGA::latest()->paginate($this->paginator);
+        $employees = KaryawanGA::orderBy('id')->paginate($this->paginator);
+
         if ($this->search) {
-            $employees =  KaryawanGA::where('NIK', 'LIKE', '%' . $this->search . '%')
-                ->orWhere('name', 'LIKE', '%' . $this->search . '%')
+            $employees = KaryawanGA::where('name', 'LIKE', '%' . $this->search . '%')
                 ->orWhere('email', 'LIKE', '%' . $this->search . '%')
-                ->latest()->paginate($this->paginator);
+                ->orderBy('id')
+                ->paginate($this->paginator);
         }
+
         return view('livewire.employee-account', [
             'employees' => $employees,
-            'roles' => Role::whereNotIn('id', [6, 5])->get(),
+            'roles' => Role::whereIn('role_name', ['employee', 'security', 'superadmin'])->get(),
         ])->extends('layout.apps');
     }
+
     private function clearField(): void
     {
-        $this->karyawan_ga->NIK = '';
         $this->karyawan_ga->name = '';
         $this->karyawan_ga->email = '';
         $this->karyawan_ga->devisi = '';
