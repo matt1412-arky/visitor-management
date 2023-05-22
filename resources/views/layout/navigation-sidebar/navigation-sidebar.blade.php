@@ -53,7 +53,7 @@
                 <li class="{{ Request::route()->getName() == 'home.visitor-data' ? 'active' : '' }}">
                     <a href="{{ route('home.visitor-data') }}">
                         <i class="fas fa-address-card"></i>
-                        <span class="nav-text">Visitor Data</span>
+                        <span class="nav-text">Visitation Data</span>
                     </a>
                 </li>
             @endif

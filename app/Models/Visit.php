@@ -15,9 +15,13 @@ class Visit extends Model
         'checkin',
         'checkout',
     ];
+    protected $with = [
+        'karyawan',
+        'visitor'
+    ];
 
     // Definisikan relasi dengan model KaryawanGa
-    public function karyawanGa()
+    public function karyawan()
     {
         return $this->belongsTo(KaryawanGa::class, 'id_karyawan');
     }
