@@ -6,8 +6,6 @@ use App\Http\Controllers\{
     QuestionController
 };
 use App\Http\Livewire\{
-    VisitorCheckingController,
-    VisitorApprovalController,
     EmployeeAccount
 };
 use App\Http\Middleware\CheckRole;
@@ -24,7 +22,6 @@ Route::group(
         'as' => 'home.',
     ],
     function () {
-        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking');
         Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
         Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback')->middleware('CheckRole:visitor');
 
@@ -40,7 +37,6 @@ Route::group(
                 Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival');
                 Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed');
 
-                Route::get('visitor-approval', VisitorApprovalController::class)->name('visitor-approval');
                 Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
 
                 Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account');
