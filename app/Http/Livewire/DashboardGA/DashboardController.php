@@ -11,8 +11,14 @@ use Livewire\WithPagination;
 class DashboardController extends Component
 {
     use WithPagination;
+    public $visitor;
+    public $search = '';
+    public $paginator = 10;
     protected $paginationTheme = 'bootstrap';
-    // $checkedVisitors = $this->visitors->pluck('id')->toArray();
+    public $name;
+    public $email;
+    public $phone;
+
 
     public $checkedVisitors = [],
         $perPage = 10,

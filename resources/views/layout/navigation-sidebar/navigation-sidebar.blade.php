@@ -10,22 +10,10 @@
                     <li class="{{ Request::route()->getName() == 'home.dashboard-page' ? 'active' : '' }}">
                         <a href="{{ route('home.dashboard-page') }}">Dashboard</a>
                     </li>
+                    <li class="{{ Request::route()->getName() == 'home.my-dashboard' ? 'active' : '' }}"><a
+                            href="{{ route('home.my-dashboard') }}">Dashboard GA</a></li>
                 </ul>
             </li>
-
-            @if (in_array(Auth::user()->role_id, [1, 2]))
-                <li
-                    class="{{ Request::route()->getName() == 'home.my-dashboard' || Request::route()->getName() == 'home.customize-feed' || Request::route()->getName() == 'home.visitor-approval' || Request::route()->getName() == 'home.visitor-checking' ? 'active' : '' }}">
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fas fa-search-location"></i>
-                        <span class="nav-text">Manage Visitors</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li class="{{ Request::route()->getName() == 'home.my-dashboard' ? 'active' : '' }}"><a
-                                href="{{ route('home.my-dashboard') }}">Dashboard GA</a></li>
-                    </ul>
-                </li>
-            @endif
 
             @if (in_array(Auth::user()->role_id, [1, 3]))
                 <li class="{{ Request::route()->getName() == 'home.lost-items' ? 'active' : '' }}">

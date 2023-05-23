@@ -68,3 +68,5 @@ Route::group(
 
 // Additional Route
 Route::match(['get', 'post'], '/employee-account', EmployeeAccount::class);
+Route::post('/lost-items', 'LostItemController@store');
+Route::get('/lost-items', 'LostItemController@index');
