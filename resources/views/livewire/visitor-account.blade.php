@@ -1,27 +1,25 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h4 class="card-title">Visitor Account</h4>
+        <div class="d-flex align-items-center">
+            <div class="form-inline mr-3">
+                <label class="mr-2">Show</label>
+                <select wire:model.debounce='paginator' aria-controls="example3" class="form-control">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="form-inline mr-3">
+                <label class="mr-2">Search:</label>
+                <input type="search" wire:model.debounce='search' class="form-control" placeholder="" aria-controls="">
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <div id="example4_wrapper" class="dataTables_wrapper no-footer">
-                <div class="dataTables_length" id="example4_length">
-                    <label>Show
-                        <select name="example4_length" aria-controls="example4" class="">
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                        </select>
-                        entries
-                    </label>
-                </div>
-                <div id="example4_filter" class="dataTables_filter">
-                    <label>Search:
-                        <input type="search" wire:model="search" class="" placeholder=""
-                            aria-controls="example4">
-                    </label>
-                </div>
                 <table id="example4" class="display dataTable no-footer" style="min-width: 845px" role="grid"
                     aria-describedby="example4_info">
                     <thead>
@@ -47,7 +45,8 @@
                                 aria-label="Gender: activate to sort column ascending" style="width: 56px;">Visit Date
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1"
-                                aria-label="Gender: activate to sort column ascending" style="width: 56px;">Arrival Time
+                                aria-label="Gender: activate to sort column ascending" style="width: 56px;">Arrival
+                                Time
                             </th>
 
                             <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1"
@@ -56,8 +55,8 @@
                     </thead>
                     <tbody>
                         @foreach ($visitors as $visitor)
-                            <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }}">
-                                <td class="sorting_1">{{ $visitor->id }}</td>
+                            <tr role="row" class="odd">
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $visitor->name }}</td>
                                 <td>{{ $visitor->email }}</td>
                                 <td>{{ $visitor->phone }}</td>
@@ -107,7 +106,7 @@
             </div>
         </div>
     </div>
-    @include('modal-utility.manage-account.edit-visitor-modal', ['visitorId' => $visitor->id])
+    @include('modal-utility.manage-account.edit-visitor-modal')
 </div>
 @push('scripts')
     <script>

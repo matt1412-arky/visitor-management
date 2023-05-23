@@ -1,7 +1,7 @@
 @extends('layout.apps')
 @section('title', 'Dashboard-GA')
 @section('content')
-    <div class="container-fluid" style="width: 916px; height: 280.56px;">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xl-3 col-xxl-3 col-sm-6">
                 <div class="card">

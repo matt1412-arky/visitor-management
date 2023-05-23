@@ -1,4 +1,4 @@
-<div class="container-fluid" style="width: 916px; height: 280.56px;">
+<div class="container-fluid" style="width: 900px;">
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -74,9 +74,9 @@
 
                                     </tr>
                                 @empty
-                                    <p>
-                                        data kosong
-                                    </p>
+                                    <tr>
+                                        <td colspan="9" class="text-center">No matching records found.</td>
+                                    </tr>
                                 @endforelse
 
 
@@ -86,38 +86,42 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Checkout</h4>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-responsive-md">
-                            <thead>
-                                <tr>
-                                    <th style="width:80px;"><strong></strong></th>
-                                    <th><strong>NAME</strong></th>
-                                    <th><strong>DATE</strong></th>
-                                    <th><strong>Checkout</strong></th>
-                                    <th><strong>Feedback</strong></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>01</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Senin,12/24/2002</td>
-                                    <td>08.00am</td>
-                                    <td>*****</td>
-                                </tr>
 
-                            </tbody>
-                        </table>
-                    </div>
+
+
+    {{-- <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Checkout</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th style="width:80px;"><strong></strong></th>
+                                <th><strong>NAME</strong></th>
+                                <th><strong>DATE</strong></th>
+                                <th><strong>Checkout</strong></th>
+                                <th><strong>Feedback</strong></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>01</strong></td>
+                                <td>Mr. Bobby</td>
+                                <td>Senin,12/24/2002</td>
+                                <td>08.00am</td>
+                                <td>*****</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+</div>

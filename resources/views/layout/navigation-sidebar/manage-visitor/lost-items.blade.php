@@ -1,7 +1,7 @@
 @extends('layout.apps')
 @section('title', 'Dashboard Admin')
 @section('content')
-    <div class="container-fluid" style="width: 916px; height: 280.56px;">
+    <div class="container-fluid" style="width: 916px;">
         <div class="row">
             <div class="col-xl-9 col-lg-12">
                 <div class="card">

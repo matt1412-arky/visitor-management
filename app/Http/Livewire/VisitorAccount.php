@@ -9,8 +9,8 @@ use App\Models\Visitor;
 
 class VisitorAccount extends Component
 {
-    public Visitors $visitor;
-    public $search;
+    public $visitor;
+    public $search = '';
     public $paginator = 10;
     protected $paginationTheme = 'bootstrap';
     public $editVisitorId;

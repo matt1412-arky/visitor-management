@@ -23,13 +23,6 @@
                     <ul aria-expanded="false">
                         <li class="{{ Request::route()->getName() == 'home.my-dashboard' ? 'active' : '' }}"><a
                                 href="{{ route('home.my-dashboard') }}">Dashboard GA</a></li>
-                        <li class="{{ Request::route()->getName() == 'home.visitor-approval' ? 'active' : '' }}"><a
-                                href="{{ route('home.visitor-approval') }}">Visitor Approval</a></li>
-                        <li class="{{ Request::route()->getName() == 'home.visitor-checking' ? 'active' : '' }}">
-                            <a href="{{ route('home.visitor-checking') }}">
-                                <span class="nav-text">Visitor Checking</span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
             @endif
