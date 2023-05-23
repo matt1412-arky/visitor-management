@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{
+    HomeController,
+    QuestionController
+};
 use App\Http\Livewire\{
     VisitorCheckingController,
     VisitorApprovalController,
@@ -48,6 +51,10 @@ Route::group(
         Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items')->middleware('CheckRole:security');
 
         Route::post('logout', [HomeController::class, 'logout'])->name('logout');
+
+        Route::controller(QuestionController::class)->group(function () {
+            Route::get('question', 'getQuestion')->name('question');
+        });
     }
 );
 

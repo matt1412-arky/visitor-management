@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Edit Karyawan</h5>
-                <button type="button" class="btn-close" wire:click="closeEditEmployee"></button>
+                <button type="button" class="btn-close" wire:click="closeModal"></button>
             </div>
             <form wire:submit.prevent="editEmployee">
                 <div class="modal-body">
