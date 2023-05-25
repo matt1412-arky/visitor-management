@@ -27,12 +27,9 @@
                         </li>
                     </ul>
                 </li>
-            @endif
 
-
-            @if (in_array(Auth::user()->role_id, [1, 2, 3]))
-                <li class="{{ Request::route()->getName() == 'home.visitor-data' ? 'active' : '' }}">
-                    <a href="{{ route('home.visitor-data') }}">
+                <li class="{{ Request::route()->getName() == 'home.security-visitor-data' ? 'active' : '' }}">
+                    <a href="{{ route('home.security-visitor-data') }}">
                         <i class="fas fa-address-card"></i>
                         <span class="nav-text">Visitation Data</span>
                     </a>

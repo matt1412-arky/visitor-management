@@ -2,14 +2,13 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\{Component, WithFileUploads};
+use Livewire\{Component};
 use App\Models\{Visitor};
 use Illuminate\Support\Str;
 use App\Trait\{AlertTrait};
 
 class VisitorRegister extends Component
 {
-    use WithFileUploads;
     use AlertTrait;
     public $name;
     public $email;
