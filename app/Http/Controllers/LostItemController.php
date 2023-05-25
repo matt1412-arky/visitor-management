@@ -3,34 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Models\LostItem;
+use App\Models\Visitor;
+use App\Models\KaryawanGA;
 use Illuminate\Http\Request;
 
 class LostItemController extends Controller
 {
+    public function index()
+    {
+        $lostItems = LostItem::with('visitor', 'karyawan')->get();
+        return view('lost-items.index', compact('lostItems'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'item_name' => 'required',
             'item_image' => 'required|image',
             'status' => 'required',
+            'visitor_id' => 'required',
+            'karyawan_id' => 'required',
         ]);
 
-        // Upload gambar ke direktori tertentu (misalnya: public/storage/lost-items)
-        $imagePath = $request->file('item_image')->store('lost-items', 'public');
+        if ($request->hasFile('item_image')) {
+            $imagePath = $request->file('item_image')->store('images', 'public');
+        }
 
-        // Simpan data ke database
-        LostItem::create([
-            'item_name' => $validatedData['item_name'],
+        $lostItem = LostItem::create([
+            'item_name' => $request->item_name,
             'item_image' => $imagePath,
-            'status' => $validatedData['status'],
+            'status' => $request->status,
+            'visitor_id' => $request->visitor_id,
+            'karyawan_id' => $request->karyawan_id,
         ]);
 
-        return response()->json(['message' => 'Data successfully stored'], 201);
-    }
-
-    public function index()
-    {
-        $lostItems = LostItem::all();
-        return view('layout/navigation-sidebar/manage-visitor.lost-items', compact('lostItems'));
+        return redirect()->route('lost-items.index');
     }
 }

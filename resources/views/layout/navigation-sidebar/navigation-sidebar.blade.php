@@ -22,14 +22,23 @@
                         <span class="nav-text">Security</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li class="{{ Request::route()->getName() == 'home.lost-items' ? 'active' : '' }}">
-                            <a href="{{ route('home.lost-items') }}">Lost Item</a>
+                        <li class="{{ request()->route()->getName() === 'home.lost-item.index'? 'active': '' }}">
+                            <a href="{{ route('home.lost-item.index') }}">Lost Item</a>
+                        </li>
+
+                        <li class="{{ Request::route()->getName() == 'home.security-visitor-data' ? 'active' : '' }}">
+                            <a href="{{ route('home.security-visitor-data') }}">
+                                <span class="nav-text">Security Visitation Data</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
+            @endif
 
-                <li class="{{ Request::route()->getName() == 'home.security-visitor-data' ? 'active' : '' }}">
-                    <a href="{{ route('home.security-visitor-data') }}">
+
+            @if (in_array(Auth::user()->role_id, [1, 2]))
+                <li class="{{ Request::route()->getName() == 'home.visitor-data' ? 'active' : '' }}">
+                    <a href="{{ route('home.visitor-data') }}">
                         <i class="fas fa-address-card"></i>
                         <span class="nav-text">Visitation Data</span>
                     </a>

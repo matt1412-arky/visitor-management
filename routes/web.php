@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Livewire\EmployeeAccount;
 use App\Http\Middleware\CheckRole;
+use App\Http\Controllers\LostItemController;
 
 Route::get('/', fn () => redirect()->route('home.dashboard-page'));
 
@@ -18,6 +19,8 @@ Route::group([
 ], function () {
     Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
     Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback')->middleware('CheckRole:visitor');
+    Route::get('lost-item', [LostItemController::class, 'index'])->name('lost-item.index');
+    Route::post('lost-item', [LostItemController::class, 'store'])->name('lost-item.store');
 
     // Karyawan GA
     Route::group([
@@ -52,5 +55,3 @@ Route::group([
 
 // Additional Route
 Route::match(['get', 'post'], '/employee-account', EmployeeAccount::class);
-// Route::post('/lost-items', 'LostItemController@store');
-// Route::get('/lost-items', 'LostItemController@index');
