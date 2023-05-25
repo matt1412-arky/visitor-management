@@ -65,6 +65,13 @@
                                 </td>
                             </tr>
                         @endforeach
+
+                        @if ($employees->isEmpty())
+                            <tr>
+                                <td colspan="9" class="text-center">No matching records found.</td>
+                            </tr>
+                        @endif
+
                     </tbody>
                 </table>
                 <div>
@@ -74,7 +81,7 @@
         </div>
     </div>
     @include('modal-utility.manage-account.create-employee')
-    @include('modal-utility.manage-account.edit-employee-modal', ['employeeId' => $employee->id])
+    @include('modal-utility.manage-account.edit-employee-modal')
 </div>
 
 @push('scripts')

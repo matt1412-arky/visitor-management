@@ -45,7 +45,7 @@
             </div>
         </div>
         {{-- //data barang hilang --}}
-        <div class="row">
+        {{-- <div class="row">
             @foreach ($lostItems as $item)
                 <div class="col-xl-4">
                     <div class="card">
@@ -60,5 +60,5 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
     @endsection
