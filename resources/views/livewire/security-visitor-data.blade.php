@@ -1,4 +1,4 @@
-<div class="container-fluid" style="width: 900px; height:660px;">
+<div class="container-fluid" style="position: relative;">
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

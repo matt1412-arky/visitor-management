@@ -10,8 +10,8 @@
                     <li class="{{ Request::route()->getName() == 'home.dashboard-page' ? 'active' : '' }}">
                         <a href="{{ route('home.dashboard-page') }}">Dashboard</a>
                     </li>
-                    <li class="{{ Request::route()->getName() == 'home.my-dashboard' ? 'active' : '' }}"><a
-                            href="{{ route('home.my-dashboard') }}">Dashboard GA</a></li>
+                    {{-- <li class="{{ Request::route()->getName() == 'home.my-dashboard' ? 'active' : '' }}"><a
+                            href="{{ route('home.my-dashboard') }}">Dashboard GA</a></li> --}}
                 </ul>
             </li>
 

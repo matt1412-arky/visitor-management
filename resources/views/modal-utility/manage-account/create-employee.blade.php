@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add New Karyawan</h5>
+                <h5 class="modal-title">Add New Employee</h5>
             </div>
             <form wire:submit.prevent='createNewEmployee'>
                 <div class="modal-body">

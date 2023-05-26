@@ -1,85 +1,76 @@
-<div class="col-lg-12">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Data Visitors</h4>
-        </div>
-        <div class="card mt-3">
-            <div class="dataTables_length  justify-content-between" id="example4_length">
-                <label class="me-3">Search :
-                    <input type="text" class="form-control" placeholder="search" />
-                </label>
-                <label class="me-3">Show
-                    <select class="form-control">
-                        <option value="delete">Delete</option>
-                        <option value="sentEmail">Sent email</option>
-                        <option value="test"> others method</option>
-                    </select>
-                </label>
-                <label class="me-3">Sort by
-                    <select class="form-control" wire:model='sortBy'>
-                        <option value="id">id</option>
-                        <option value="name">name</option>
-                        <option value="email">email</option>
-                    </select>
-                </label>
-                <label class="me-3">order by
-                    <select class="form-control" wire:model='orderBy'>
-                        <option value="1">ascending</option>
-                        <option value="0">descending</option>
-                    </select>
-                </label>
-                <button type="button" wire:click.lazy='doSelected()' class="btn btn-primary">do somethign</button>
+<div class="container-fluid" style="position: relative;">
+    <div class="row">
+        <div class="col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List Visitor</h4>
+                    <div class="table-responsive">
+                        <div>
+                            <label for="showEntries">Show:</label>
+                            <select name="showEntries" id="showEntries" class="form-select"
+                                wire:model.debounce="paginator">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="my-2">
+                            <label for="search">Search:</label>
+                            <input type="search" id="search" class="form-control" wire:model="search"
+                                placeholder="">
+                        </div>
+                    </div>
+                    <div class="table-responsive mt-3">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>PHONE</th>
+                                    <th>INVITATION FROM</th>
+                                    <th>VISITATION PURPOSE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- Konten tabel --}}
+                                @foreach ($visitors as $visitor)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $visitor->name }}</td>
+                                        <td>{{ $visitor->email }}</td>
+                                        <td>{{ $visitor->phone }}</td>
+                                        <td>{{ $visitor->invitation_from }}</td>
+                                        <td>{{ $visitor->visitation_purpose }}</td>
+                                    </tr>
+                                @endforeach
+                                @if ($visitors->isEmpty())
+                                    <tr>
+                                        <td colspan="6" class="text-center">No matching records found.</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-2 fs-3">
+                        {{ $visitors->links() }}
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-responsive-md">
-                    <thead>
-                        <tr>
-                            <th style="width:20px;">
-                                <div class="form-check custom-checkbox checkbox-success check-lg me-1">
-                                    <input type="checkbox" class="form-check-input"
-                                        wire:click.defer='selectAllVisitors()' id="checkAll" required="">
-                                    <label class="form-check-label" for="checkAll"></label>
-                                </div>
-                            </th>
-                            <th><strong>NO.</strong></th>
-                            <th><strong>NAME</strong></th>
-                            <th><strong>Email</strong></th>
-                            <th><strong>Phone</strong></th>
-                            <th><strong>Picture</strong></th>
-                            <th><strong></strong></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($visitors as $visitor)
-                            <tr class="{{ $this->isCheckId($visitor->id) }}">
-                                <td>
-                                    <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                        <input type="checkbox" value={{ $visitor->id }} class="form-check-input"
-                                            wire:model='checkedVisitors' id="customCheckBox2" required="">
-                                        <label class="form-check-label" for="customCheckBox2"></label>
-                                    </div>
-                                </td>
-                                <td><strong>{{ $loop->iteration }}</strong></td>
-                                <td>{{ $visitor->name }}</td>
-                                <td>{{ $visitor->email }} </td>
-                                <td>{{ __($visitor->phone) }}</td>
-                                <td>{{ $visitor->picture }}</td>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                                class="fas fa-pencil-alt"></i></a>
-                                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
-                                                class="fa fa-trash"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @empty
-                        @endforelse
-                    </tbody>
-                </table>
-                {{ $visitors->links() }}
+        <div class="col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <i class="la la-users fs-1 text-primary"></i>
+                        <h4 class="my-2">Visitors {{ $totalVisitors }}</h4>
+                        <button type="button" class="btn btn-rounded btn-success">
+                            <i class="fa fa-download color-warning"></i>
+                            Export
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

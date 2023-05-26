@@ -73,12 +73,28 @@ class EmployeeAccount extends Component
 
     public function editEmployee()
     {
-        $this->validate();
+        $this->validate([
+            'karyawan_ga.name' => ['required', 'string', 'max:100', 'min:3', 'regex:/^[\pL\s\-]+$/u'],
+            'karyawan_ga.email' => ['required', 'email'],
+            'karyawan_ga.devisi' => ['required', 'string'],
+            'karyawan_ga.jabatan' => ['required', 'string'],
+        ]);
+
+        // Periksa apakah ada karyawan lain dengan alamat email yang sama
+        $existingKaryawan = KaryawanGA::where('email', $this->karyawan_ga->email)
+            ->where('id', '<>', $this->karyawan_ga->id)
+            ->exists();
+
+        if ($existingKaryawan) {
+            $this->addError('karyawan_ga.email', 'Email address is already taken.');
+            return;
+        }
 
         $this->karyawan_ga->save();
 
         $this->dispatchBrowserEvent('closeEditEmployee');
     }
+
 
     public function closeModal()
     {

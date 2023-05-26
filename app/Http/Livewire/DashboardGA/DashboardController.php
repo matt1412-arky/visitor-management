@@ -6,49 +6,27 @@ use Livewire\Component;
 use App\Models\Visitor;
 use Livewire\WithPagination;
 
-
-
 class DashboardController extends Component
 {
     use WithPagination;
-    public $visitor;
+
     public $search = '';
     public $paginator = 10;
+
     protected $paginationTheme = 'bootstrap';
-    public $name;
-    public $email;
-    public $phone;
-
-
-    public $checkedVisitors = [],
-        $perPage = 10,
-        $sortBy = 'id',
-        $orderBy = true;
-
-    private $visitors;
 
     public function render()
     {
-        $this->visitors = Visitor::orderBy($this->sortBy, $this->orderBy ? 'asc' : 'desc')
-            ->paginate($this->perPage);
+        $visitors = Visitor::query()
+            ->where('name', 'like', '%' . $this->search . '%')
+            ->orderBy('id', 'desc')
+            ->paginate($this->paginator);
+
+        $totalVisitors = Visitor::count();
+
         return view('livewire.dashboard-g-a.dashboard-controller', [
-            'visitors' => $this->visitors,
+            'visitors' => $visitors,
+            'totalVisitors' => $totalVisitors,
         ]);
-    }
-
-    public function doSelected()
-    {
-        $visitorsSelected = Visitor::whereIn('id', $this->checkedVisitors)->get(['id', 'email']);
-        dd($visitorsSelected);
-        Visitor::destroy($this->checkedVisitors);
-        $this->checkedVisitors = [];
-    }
-
-    public function selectAllVisitors()
-    {
-    }
-    public function isCheckId($id)
-    {
-        return in_array($id, $this->checkedVisitors) ? 'bg-info' : '';
     }
 }

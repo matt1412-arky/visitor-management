@@ -17,16 +17,15 @@ Route::group([
     'prefix' => 'h',
     'as' => 'home.',
 ], function () {
-    Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page');
+    Route::view('dashboard-page', 'dashboard.dashboard-page')->name('dashboard-page');
     Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback')->middleware('CheckRole:visitor');
-    Route::get('lost-item', [LostItemController::class, 'index'])->name('lost-item.index');
-    Route::post('lost-item', [LostItemController::class, 'store'])->name('lost-item.store');
+
 
     // Karyawan GA
     Route::group([
         'middleware' => ['CheckRole:employee']
     ], function () {
-        Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard');
+        // Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard');
         Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data');
         Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items');
         Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
@@ -36,11 +35,22 @@ Route::group([
     // Security
     Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items')->middleware('CheckRole:security');
     Route::view('security-visitor-data', 'layout\security\security-visitor-data')->name('security-visitor-data')->middleware('CheckRole:security');
+    Route::get('lost-item', [LostItemController::class, 'index'])->name('lost-item.index')->middleware('CheckRole:security');
+    Route::post('lost-item', [LostItemController::class, 'store'])->name('lost-item.store')->middleware('CheckRole:security');
 
     Route::post('logout', [HomeController::class, 'logout'])->name('logout');
 
     Route::controller(QuestionController::class)->group(function () {
         Route::get('question', 'getQuestion')->name('question');
+    });
+
+    // Superadmin route group
+    Route::group([
+        'middleware' => ['CheckRole:superadmin']
+    ], function () {
+        Route::view('superadmin-dashboard', 'layout/superadmin/dashboard')->name('superadmin-dashboard');
+        Route::view('manage-users', 'layout/superadmin/manage-users')->name('manage-users');
+        // ... tambahkan route lainnya sesuai kebutuhan
     });
 });
 

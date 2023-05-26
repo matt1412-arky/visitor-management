@@ -29,10 +29,21 @@ class EditEmployeeModal extends Component
             'karyawan_ga.jabatan' => ['required', 'string'],
         ]);
 
+        // Periksa apakah ada karyawan lain dengan alamat email yang sama
+        $existingKaryawan = KaryawanGA::where('email', $this->karyawan_ga->email)
+            ->where('id', '<>', $this->karyawan_ga->id)
+            ->exists();
+
+        if ($existingKaryawan) {
+            $this->addError('karyawan_ga.email', 'Email address is already taken.');
+            return;
+        }
+
         $this->karyawan_ga->save();
 
         $this->dispatchBrowserEvent('closeEditEmployee');
     }
+
 
     public function render()
     {

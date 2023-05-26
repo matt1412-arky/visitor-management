@@ -23,19 +23,7 @@
                 </span>
             @enderror
         </div>
-        {{-- <div class="mb-3">
-            <label class="text-label form-label" for="validationCustomUsername">Username</label>
-            <div class="input-group">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                <input type="text" class="form-control" wire:model="email" id="validationCustomUsername"
-                    placeholder="Enter a username.." required="">
-            </div>
-            @error('email')
-                <span class="text-red">
-                    {{ $message }}
-                </span>
-            @enderror
-        </div> --}}
+
         <div class="mb-3">
             <label class="mb-1"><strong>Password</strong></label>
             <div class="input-group transparent-append">
@@ -52,23 +40,7 @@
                 </span>
             @enderror
         </div>
-        {{-- <div class="mb-3">
-            <label class="text-label form-label" for="dlab-password">Password *</label>
-            <div class="input-group transparent-append">
-                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                <input type="password" class="form-control" wire:model="password" id="dlab-password"
-                    placeholder="Choose a safe one.." required="">
-                <span class="input-group-text show-pass">
-                    <i class="fa fa-eye-slash"></i>
-                    <i class="fa fa-eye"></i>
-                </span>
-            </div>
-            @error('password')
-                <span class="text-red">
-                    {{ $message }}
-                </span>
-            @enderror
-        </div> --}}
+
         <div class="row d-flex justify-content-between mt-4 mb-2">
             <div class="mb-3">
                 <div class="form-check custom-checkbox ms-1">
