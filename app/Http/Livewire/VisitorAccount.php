@@ -67,14 +67,44 @@ class VisitorAccount extends Component
             'visitors' => $visitors
         ]);
     }
-    public function delete($id)
-    {
-        Visitor::destroy($id);
+    // public function delete($id)
+    // {
+    //     Visitor::destroy($id);
 
-        $this->dispatchBrowserEvent('swal:delete', [
-            'title' => 'Are you sure you want to delete this data?',
-            'type' => 'warning',
-            'msg' => 'Successfully deleted an account',
-        ]);
+    //     $this->dispatchBrowserEvent('swal:delete', [
+    //         'title' => 'Are you sure you want to delete this data?',
+    //         'type' => 'warning',
+    //         'msg' => 'Successfully deleted an account',
+    //     ]);
+    // }
+
+    public function activate($visitorId)
+    {
+        $visitor = Visitor::find($visitorId);
+        if ($visitor) {
+            $visitor->is_active = 1;
+            $visitor->save();
+
+            $this->dispatchBrowserEvent('swal:alert', [
+                'type' => 'success',
+                'title' => 'Success',
+                'msg' => 'Visitor has been activated.',
+            ]);
+        }
+    }
+
+    public function deactivate($visitorId)
+    {
+        $visitor = Visitor::find($visitorId);
+        if ($visitor) {
+            $visitor->is_active = 0;
+            $visitor->save();
+
+            $this->dispatchBrowserEvent('swal:alert', [
+                'type' => 'success',
+                'title' => 'Success',
+                'msg' => 'Visitor has been deactivated.',
+            ]);
+        }
     }
 }

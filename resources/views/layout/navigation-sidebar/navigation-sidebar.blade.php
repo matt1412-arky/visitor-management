@@ -28,7 +28,7 @@
 
                         <li class="{{ Request::route()->getName() == 'home.security-visitor-data' ? 'active' : '' }}">
                             <a href="{{ route('home.security-visitor-data') }}">
-                                <span class="nav-text">Security Visitation Data</span>
+                                Security Visitation Data
                             </a>
                         </li>
                     </ul>

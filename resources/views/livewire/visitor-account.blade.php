@@ -80,15 +80,24 @@
                                                 data-placement="top" title="Edit Visitor">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button wire:click.debounce='delete({{ $visitor->id }})'
-                                                class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip"
-                                                data-placement="top" title="Delete Visitor">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
+                                            @if ($visitor->is_active)
+                                                <button wire:click='deactivate({{ $visitor->id }})'
+                                                    class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip"
+                                                    data-placement="top" title="Deactivate Visitor">
+                                                    <i class="fa fa-ban"></i>
+                                                </button>
+                                            @else
+                                                <button wire:click='activate({{ $visitor->id }})'
+                                                    class="btn btn-success shadow btn-xs sharp" data-toggle="tooltip"
+                                                    data-placement="top" title="Activate Visitor">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
+
 
                             @if ($visitors->isEmpty())
                                 <tr>
@@ -98,27 +107,81 @@
 
                         </tbody>
                     </table>
-                    <div class="dataTables_info" id="example4_info" role="status" aria-live="polite">
-                        Showing 1 to {{ $visitors->count() }} of {{ $visitors->count() }} entries
-                    </div>
-                    <div class="dataTables_paginate paging_simple_numbers" id="example4_paginate">
-                        <a class="paginate_button previous disabled" aria-controls="example4" data-dt-idx="0"
-                            tabindex="0" id="example4_previous">
-                            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                        </a>
-                        <span>
-                            {{-- {{ $visitors->links() }} --}}
-                        </span>
-                        <a class="paginate_button next" aria-controls="example4" data-dt-idx="4" tabindex="0"
-                            id="example4_next">
-                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                        </a>
+
+                    <div class="mt-3">
+                        {{ $visitors->links() }}
                     </div>
                 </div>
             </div>
         </div>
         @include('modal-utility.manage-account.edit-visitor-modal')
     </div>
+
+    @push('styles')
+        <style>
+            /* Additional CSS styles for table */
+            .card-title {
+                margin-bottom: 0;
+            }
+
+            .form-inline label {
+                margin-right: 0.5rem;
+            }
+
+            .form-inline .form-control {
+                margin-right: 0.5rem;
+            }
+
+            table.dataTable thead th {
+                vertical-align: middle;
+            }
+
+            table.dataTable td {
+                vertical-align: middle;
+            }
+
+            .table-responsive {
+                overflow-x: auto;
+            }
+
+            .table-responsive::-webkit-scrollbar {
+                height: 8px;
+                background-color: #f5f5f5;
+            }
+
+            .table-responsive::-webkit-scrollbar-thumb {
+                background-color: #000000;
+                border-radius: 4px;
+            }
+
+            .table-responsive::-webkit-scrollbar-track {
+                background-color: #f5f5f5;
+            }
+
+            .table-responsive::-webkit-scrollbar-corner {
+                background-color: #f5f5f5;
+            }
+
+            .btn-xs {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .btn-xs i {
+                font-size: 1rem;
+            }
+
+            .card-body {
+                padding: 1.25rem;
+            }
+
+            .mt-3 {
+                margin-top: 1rem;
+            }
+
+            /* Additional CSS styles for table */
+        </style>
+    @endpush
 
     @push('scripts')
         <script>
@@ -130,6 +193,7 @@
                     confirmButtonText: 'Yes',
                 });
             });
+
             window.addEventListener('editVisitor', (e) => {
                 $('#modalEditVisitor').modal('hide');
                 Swal.fire({
@@ -146,6 +210,30 @@
 
             window.addEventListener('closeEditVisitor', (e) => {
                 $('#modalEditVisitor').modal('hide');
+            });
+
+            window.addEventListener('swal:deactivate', (e) => {
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.msg,
+                    icon: e.detail.type,
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Livewire.emit('deactivateVisitor', e.detail.visitorId);
+                    }
+                });
+            });
+
+            window.addEventListener('swal:alert', (e) => {
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.msg,
+                    icon: e.detail.type,
+                    confirmButtonText: 'OK',
+                });
             });
         </script>
     @endpush
