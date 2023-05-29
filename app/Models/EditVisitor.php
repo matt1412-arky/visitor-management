@@ -12,6 +12,10 @@ class EditVisitor extends Model
         'name',
         'email',
         'phone',
+        'invitation_from',
+        'visitation_purpose',
+        'visit_date',
+        'arrival_time',
         // Tambahkan kolom lain yang ingin Anda edit
     ];
 }
