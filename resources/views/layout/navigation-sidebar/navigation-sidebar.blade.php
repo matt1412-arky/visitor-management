@@ -15,7 +15,15 @@
                 </ul>
             </li>
 
-            @if (in_array(Auth::user()->role_id, [1, 3]))
+            @if (in_array(Auth::user()->role_id, [1]))
+                <li class="{{ request()->route()->getName() === 'home.lost-item.index'? 'active': '' }}">
+                    <a href="{{ route('home.lost-item.index') }}">
+                        <i class="fas fa-briefcase"></i>
+                        <span class="nav-text">Lost Item</span>
+                    </a>
+                </li>
+            @endif
+            @if (in_array(Auth::user()->role_id, [3]))
                 <li class="{{ Request::route()->getName() == 'home.lost-items' ? 'active' : '' }}">
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa  fa-address-book"></i>
