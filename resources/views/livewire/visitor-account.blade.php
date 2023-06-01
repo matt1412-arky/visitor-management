@@ -65,7 +65,7 @@
                         <tbody>
                             @foreach ($visitors as $visitor)
                                 <tr role="row" class="odd">
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $visitor->id }}</td>
                                     <td>{{ $visitor->name }}</td>
                                     <td>{{ $visitor->email }}</td>
                                     <td>{{ $visitor->phone }}</td>
@@ -107,7 +107,9 @@
 
                         </tbody>
                     </table>
-
+                    @if ($visitors->isEmpty())
+                        <p class="small text-muted">Showing 0 to 0 of 0 results</p>
+                    @endif
                     <div class="mt-3">
                         {{ $visitors->links() }}
                     </div>

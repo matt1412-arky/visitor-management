@@ -4,6 +4,8 @@ namespace App\Http\Livewire\DashboardGA;
 
 use Livewire\Component;
 use App\Models\Visitor;
+use App\Models\Visit;
+use App\Models\KaryawanGA;
 use Livewire\WithPagination;
 
 class DashboardController extends Component
@@ -23,10 +25,14 @@ class DashboardController extends Component
             ->paginate($this->paginator);
 
         $totalVisitors = Visitor::count();
+        $totalVisits = Visit::count();
+        $totalKaryawan = KaryawanGA::count();
 
         return view('livewire.dashboard-g-a.dashboard-controller', [
             'visitors' => $visitors,
             'totalVisitors' => $totalVisitors,
+            'totalVisits' => $totalVisits,
+            'totalKaryawan' => $totalKaryawan,
         ]);
     }
 }

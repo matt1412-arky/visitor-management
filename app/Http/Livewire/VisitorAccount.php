@@ -77,7 +77,7 @@ class VisitorAccount extends Component
                 ->where('name', 'LIKE', "%{$this->search}%")
                 ->orWhere('phone', 'LIKE', "%{$this->search}%")
                 ->orWhere('email', 'LIKE', "%{$this->search}%")
-                ->get();
+                ->paginate($this->paginator);
         } else {
             $visitors = Visitor::orderBy('id')->paginate($this->paginator);
         }

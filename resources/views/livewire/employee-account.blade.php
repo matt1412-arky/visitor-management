@@ -75,6 +75,9 @@
 
                         </tbody>
                     </table>
+                    @if ($employees->isEmpty())
+                        <p class="small text-muted">Showing 0 to 0 of 0 results</p>
+                    @endif
                     <div class="mt-3">
                         {{ $employees->links() }}
                     </div>

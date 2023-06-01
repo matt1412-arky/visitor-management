@@ -43,7 +43,7 @@ class LoginController extends Component
                         return redirect()->to($this->returnUrl);
                     }
 
-                    return redirect()->to(route('home.dashboard-page'));
+                    return redirect()->to(route('home.dashboard-visitor'));
                 } else {
                     Session::flash('fail', 'Your account is inactive. Please contact the administrator to reactivate your account.');
                     Auth::guard('visitor')->logout();

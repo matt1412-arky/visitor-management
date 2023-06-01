@@ -7,7 +7,7 @@ use App\Http\Livewire\EmployeeAccount;
 use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\LostItemController;
 
-Route::get('/', fn () => redirect()->route('home.dashboard-page'));
+Route::redirect('/', '/auth/login');
 
 // Authenticate
 Route::group([
@@ -19,13 +19,12 @@ Route::group([
 ], function () {
     Route::view('dashboard-page', 'dashboard.dashboard-page')->name('dashboard-page');
     Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback')->middleware('CheckRole:visitor');
-
+    Route::view('dashboard-visitor', 'dashboard.dashboard-visitor')->name('dashboard-visitor');
 
     // Karyawan GA
     Route::group([
         'middleware' => ['CheckRole:employee']
     ], function () {
-        // Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard');
         Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data');
         Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items');
         Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
@@ -42,15 +41,6 @@ Route::group([
 
     Route::controller(QuestionController::class)->group(function () {
         Route::get('question', 'getQuestion')->name('question');
-    });
-
-    // Superadmin route group
-    Route::group([
-        'middleware' => ['CheckRole:superadmin']
-    ], function () {
-        Route::view('superadmin-dashboard', 'layout/superadmin/dashboard')->name('superadmin-dashboard');
-        Route::view('manage-users', 'layout/superadmin/manage-users')->name('manage-users');
-        // ... tambahkan route lainnya sesuai kebutuhan
     });
 });
 
