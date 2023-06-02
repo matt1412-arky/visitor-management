@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('feed_backs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_visit')->constrained('visits');
-            $table->text('text_feed');
+            $table->foreignId('id_question')->constrained('questions');
+            // $table->text('text_feed');
             $table->unsignedTinyInteger('skala_feed'); // Menggunakan tipe data unsignedTinyInteger
             $table->timestamps();
         });

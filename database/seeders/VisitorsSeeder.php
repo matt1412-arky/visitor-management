@@ -17,6 +17,7 @@ class VisitorsSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
+        DB::statement('ALTER TABLE visitors AUTO_INCREMENT = 1');
 
         $visitors = [];
 
@@ -25,6 +26,7 @@ class VisitorsSeeder extends Seeder
             $email = str_replace(' ', '', strtolower($name)) . '@example.com';
 
             $visitor = [
+                'id' => $i,
                 'name' => $name,
                 'email' => $email,
                 'password' => bcrypt('12345678'),

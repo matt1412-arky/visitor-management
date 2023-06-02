@@ -4,6 +4,22 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Visitation Data</h4>
+                    <div class="d-flex align-items-center">
+                        <div class="form-inline mr-3">
+                            <label class="mr-2">Show</label>
+                            <select wire:model.debounce.500ms="paginator" aria-controls="example3" class="form-control">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="form-inline">
+                            <label class="mr-2">Search:</label>
+                            <input type="search" wire:model.debounce.500ms="search" class="form-control" placeholder=""
+                                aria-controls="">
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -33,12 +49,10 @@
                                         <td>{{ __($visitor->karyawan->name) }}</td>
                                         <td>{{ __($visitor->visitor->visitation_purpose) }}</td>
                                         <td><span
-                                                class="badge light badge-{{ __($visitor->checkin == 'pending') ? 'info' : 'success' }}">{{ __($visitor->checkin) }}
-                                            </span>
+                                                class="badge light badge-{{ __($visitor->checkin == 'pending') ? 'info' : 'success' }}">{{ __($visitor->checkin) }}</span>
                                         </td>
                                         <td><span
-                                                class="badge light badge-{{ __($visitor->checkout == 'pending') ? 'info' : 'success' }}">{{ __($visitor->checkout) }}
-                                            </span>
+                                                class="badge light badge-{{ __($visitor->checkout == 'pending') ? 'info' : 'success' }}">{{ __($visitor->checkout) }}</span>
                                         </td>
                                         <td>
                                             <div class="dropdown">
@@ -49,17 +63,13 @@
                                                         <g stroke="none" stroke-width="1" fill="none"
                                                             fill-rule="evenodd">
                                                             <rect x="0" y="0" width="24"
-                                                                height="24">
-                                                            </rect>
+                                                                height="24"></rect>
                                                             <circle fill="#000000" cx="5" cy="12"
-                                                                r="2">
-                                                            </circle>
+                                                                r="2"></circle>
                                                             <circle fill="#000000" cx="12" cy="12"
-                                                                r="2">
-                                                            </circle>
+                                                                r="2"></circle>
                                                             <circle fill="#000000" cx="19" cy="12"
-                                                                r="2">
-                                                            </circle>
+                                                                r="2"></circle>
                                                         </g>
                                                     </svg>
                                                 </button>
@@ -71,57 +81,23 @@
                                                 </div>
                                             </div>
                                         </td>
-
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="9" class="text-center">No matching records found.</td>
+                                        <td colspan="10" class="text-center">No matching records found.</td>
                                     </tr>
                                 @endforelse
-
-
                             </tbody>
                         </table>
+                    </div>
+                    @if ($visitors->isEmpty())
+                        <p class="small text-muted">Showing 0 to 0 of 0 results</p>
+                    @endif
+                    <div class="mt-3">
+                        {{ $visitors->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-    {{-- <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Checkout</h4>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-responsive-md">
-                        <thead>
-                            <tr>
-                                <th style="width:80px;"><strong></strong></th>
-                                <th><strong>NAME</strong></th>
-                                <th><strong>DATE</strong></th>
-                                <th><strong>Checkout</strong></th>
-                                <th><strong>Feedback</strong></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>01</strong></td>
-                                <td>Mr. Bobby</td>
-                                <td>Senin,12/24/2002</td>
-                                <td>08.00am</td>
-                                <td>*****</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 </div>

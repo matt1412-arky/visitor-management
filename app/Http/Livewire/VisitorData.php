@@ -4,12 +4,15 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\{
-    RegistrationVisitor,
+    Visitor,
     Visit
 };
 
 class VisitorData extends Component
 {
+    public $search = '';
+    public $paginator = 10;
+    protected $paginationTheme = 'bootstrap';
 
     public function checkin(Visit $visit)
     {
@@ -43,9 +46,13 @@ class VisitorData extends Component
     }
     public function render()
     {
-        return view('livewire.visitor-data', [
-            'visitors' => Visit::get(),
-        ]);
+        $visitors = Visit::whereHas('visitor', function ($query) {
+            $query->where('name', 'like', '%' . $this->search . '%')
+                ->orWhere('email', 'like', '%' . $this->search . '%')
+                ->orWhere('phone', 'like', '%' . $this->search . '%');
+        })->paginate($this->paginator);
+
+        return view('livewire.visitor-data', compact('visitors'));
     }
 
     public function showToastr(
