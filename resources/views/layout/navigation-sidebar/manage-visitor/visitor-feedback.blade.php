@@ -13,8 +13,8 @@
                             <form action="" method="post" id="submit-feedback">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="visitation_purpose">Visitation Purpose:</label>
-                                    <select class="form-control" id="visitation_purpose" name="visitation_purpose">
+                                    <label for="category">Visitation Purpose:</label>
+                                    <select class="form-control" id="category" name="category">
                                         <option value="meeting">Meeting</option>
                                         <option value="company_visit">Company Visit</option>
                                     </select>
