@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
@@ -41,6 +42,12 @@ Route::group([
 
     Route::controller(QuestionController::class)->group(function () {
         Route::get('question', 'getQuestion')->name('question');
+    });
+
+    Route::controller(FeedbackController::class)->group(function () {
+        Route::get('feedback-visit/{visit}', 'createFeedback')->name('create-feedback');
+        Route::post('feedback', 'postFeedback')->name('post-feedback');
+        Route::get('feedback-to-answer', 'getVisitorFeedback')->name('visitor-feedback-to-answer');
     });
 });
 

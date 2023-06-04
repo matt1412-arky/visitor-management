@@ -33,4 +33,9 @@ class Visitor extends Authenticatable
     protected $appends = [
         'role_id'
     ];
+
+    public function visit()
+    {
+        return $this->hasMany(Visit::class, 'id_visitor');
+    }
 }

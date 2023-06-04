@@ -78,6 +78,9 @@
                                                         href="#">CheckIn</a>
                                                     <a class="dropdown-item" wire:click="checkout({{ $visitor->id }})"
                                                         href="#">CheckOut</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('home.create-feedback', $visitor->id) }}">create
+                                                        feedback</a>
                                                 </div>
                                             </div>
                                         </td>
