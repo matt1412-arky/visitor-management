@@ -27,7 +27,6 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            // var url = "{{ route('home.question') }}";
             var url = "{{ route('home.visitor-feedback-to-answer') }}";
 
             function loadQuestions() {
@@ -39,10 +38,7 @@
                         question
                     } = data;
                     const questions = JSON.parse(question.trim());
-                    // Hapus pertanyaan sebelumnya
-                    $('#list-question').empty();
 
-                    console.log(questions)
                     $.each(questions, function(index, val) {
                         var container = $('#list-question').addClass('');
                         const {
@@ -73,11 +69,6 @@
 
             // Muat pertanyaan pertama kali dengan kategori pertama
             loadQuestions();
-
-            // $('#visitation_purpose').on('change', function() {
-            //     var selectedPurpose = $(this).val();
-            //     loadQuestions();
-            // });
 
             $('#submit-feedback').on('submit', function(e) {
                 e.preventDefault();
