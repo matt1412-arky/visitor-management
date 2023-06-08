@@ -9,7 +9,13 @@ class LostItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['item_name', 'item_image', 'status', 'visitor_id', 'karyawan_id'];
+    protected $fillable = [
+        'id_visitor',
+        'id_karyawan',
+        'item_name',
+        'item_image',
+        'status',
+    ];
 
     public function visitor()
     {

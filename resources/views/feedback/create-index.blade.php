@@ -25,7 +25,7 @@
 
                 <div class="card-body">
                     <div class="basic-form">
-                        <form action="{{ route('home.post-feedback') }}" enctype="multipart/form-data" method="post">
+                        <form action="{{ route('home.post-feedback') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="mb-3 col-md-6 col-lg-12">

@@ -41,7 +41,7 @@
                             <tbody>
                                 @forelse($visitors as $visitor)
                                     <tr>
-                                        <td><strong>{{ __($loop->iteration) }}</strong></td>
+                                        <td><strong>{{ __($visitor->id) }}</strong></td>
                                         <td>{{ __($visitor->visitor->name) }}</td>
                                         <td>{{ __($visitor->visitor->phone) }}</td>
                                         <td>{{ $visitor->visitor->visit_date }}</td>
@@ -79,8 +79,8 @@
                                                     <a class="dropdown-item" wire:click="checkout({{ $visitor->id }})"
                                                         href="#">CheckOut</a>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('home.create-feedback', $visitor->id) }}">create
-                                                        feedback</a>
+                                                        href="{{ route('home.create-feedback', $visitor->id) }}">Create
+                                                        Feedback</a>
                                                 </div>
                                             </div>
                                         </td>

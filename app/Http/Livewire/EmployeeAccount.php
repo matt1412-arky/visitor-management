@@ -57,6 +57,8 @@ class EmployeeAccount extends Component
             'type' => 'success',
             'message' => 'Successfully created an account'
         ]);
+
+        $this->search = '';
     }
 
     public function openModal($karyawanId)
@@ -93,8 +95,13 @@ class EmployeeAccount extends Component
         $this->karyawan_ga->save();
 
         $this->dispatchBrowserEvent('closeEditEmployee');
-    }
 
+        $this->dispatchBrowserEvent('swal:edit', [
+            'title' => 'Update Success',
+            'type' => 'success',
+            'text' => 'Data has been successfully updated.'
+        ]);
+    }
 
     public function closeModal()
     {
@@ -106,8 +113,8 @@ class EmployeeAccount extends Component
         KaryawanGA::destroy($id);
 
         $this->dispatchBrowserEvent('swal:delete', [
-            'title' => 'Are you sure you want to delete this data?',
-            'type' => 'warning',
+            'title' => 'Delete Success',
+            'type' => 'success',
             'msg' => 'Successfully deleted an account',
         ]);
     }

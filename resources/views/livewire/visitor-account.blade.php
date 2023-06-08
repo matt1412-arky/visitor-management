@@ -228,7 +228,15 @@
                     }
                 });
             });
-
+            window.addEventListener('swal:update', (e) => {
+                Swal.fire({
+                    title: e.detail.title,
+                    msg: e.detail.msg,
+                    type: e.detail.type,
+                    text: e.detail.text,
+                    confirmButtonText: 'Yes',
+                });
+            });
             window.addEventListener('swal:alert', (e) => {
                 Swal.fire({
                     title: e.detail.title,

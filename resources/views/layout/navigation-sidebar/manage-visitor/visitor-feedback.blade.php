@@ -1,29 +1,31 @@
 @extends('layout.apps')
 @section('title', 'Visitor Feedback')
 @section('content')
-    <div class="container-fluid" style="width: 916px;">
-        <div class="row">
-            <div class="card" style="width: 95%; height: 30%;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h4 class="card-title">Visitor Feedback</h4>
-                        </div>
-                        <div class="basic-form my-3">
-                            <form action="" method="post" id="submit-feedback">
-                                @csrf
+    <div class="row">
+        <div class="card" style="width: 95%; height: 30%;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h4 class="card-title">Visitor Feedback</h4>
+                    </div>
+                    <div class="basic-form my-3">
+                        <form action="{{ route('home.feedback-update') }}" method="post" id="submit-feedback">
+                            @csrf
 
-                                <div class="list-question" id="list-question"></div>
-                                <button type="submit" class="btn btn-google" id="btnCheckOut"
-                                    style="color:white;">Submit</button>
-                            </form>
-                        </div>
+                            <div class="list-question" id="list-question"></div>
+                            {{-- <input type="hidden" name="id" value="{{ $feedback->id }}"> --}}
+                            <button type="submit" class="btn btn-google" id="btnCheckOut"
+                                style="color:white;">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 @endsection
+
+
 @push('scripts')
     <script>
         $(document).ready(function() {

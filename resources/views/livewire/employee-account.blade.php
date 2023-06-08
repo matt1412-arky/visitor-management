@@ -36,7 +36,7 @@
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Division</th>
-                                <th>Jabatan</th>
+                                <th>Office</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -105,8 +105,17 @@
             window.addEventListener('swal:delete', (e) => {
                 Swal.fire({
                     title: e.detail.title,
+                    text: e.detail.msg,
+                    type: e.detail.type,
+                    confirmButtonText: 'Yes',
+                });
+            });
+            window.addEventListener('swal:edit', (e) => {
+                Swal.fire({
+                    title: e.detail.title,
                     msg: e.detail.msg,
                     type: e.detail.type,
+                    text: e.detail.text,
                     confirmButtonText: 'Yes',
                 });
             });

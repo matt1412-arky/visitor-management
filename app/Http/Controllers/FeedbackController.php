@@ -43,4 +43,27 @@ class FeedbackController extends Controller
         ]);
         return back()->with('success', 'Data was made');
     }
+
+    public function updateFeedback(Request $request)
+    {
+        $data = $request->validate([
+            'id' => 'required',
+        ]);
+
+        $feedback = FeedBack::findOrFail($request->id);
+
+        // Menghitung skala_feed berdasarkan pilihan yang dipilih
+        $totalScale = 0;
+        $totalQuestions = count($request->except(['_token', 'feedback_id']));
+        foreach ($request->except(['_token', 'feedback_id']) as $value) {
+            $totalScale += (int)$value;
+        }
+        $skalaFeed = $totalScale / $totalQuestions;
+
+        // Memperbarui nilai skala_feed
+        $feedback->skala_feed = $skalaFeed;
+        $feedback->save();
+
+        return back()->with('success', 'Feedback updated successfully');
+    }
 }

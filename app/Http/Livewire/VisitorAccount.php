@@ -62,6 +62,12 @@ class VisitorAccount extends Component
         $visitor->arrival_time = $this->arrival_time;
         $visitor->save();
 
+        $this->dispatchBrowserEvent('swal:update', [
+            'title' => 'Update Success',
+            'type' => 'success',
+            'text' => 'Data has been successfully updated.'
+        ]);
+
         $this->dispatchBrowserEvent('closeEditVisitor');
     }
 

@@ -17,7 +17,12 @@ class EditEmployeeModal extends Component
     {
         $this->karyawan_ga = KaryawanGA::findOrFail($karyawanId);
 
-        $this->dispatchBrowserEvent('openEditEmployee', []);
+        $roles = Role::whereIn('role_name', ['employee', 'security', 'superadmin'])->get();
+
+        $this->dispatchBrowserEvent('openEditEmployee', [
+            'karyawan' => $this->karyawan_ga,
+            'roles' => $roles,
+        ]);
     }
 
     public function editEmployee()
@@ -42,8 +47,12 @@ class EditEmployeeModal extends Component
         $this->karyawan_ga->save();
 
         $this->dispatchBrowserEvent('closeEditEmployee');
+        $this->dispatchBrowserEvent('swal:alert', [
+            'title' => 'Update Success',
+            'type' => 'success',
+            'text' => 'Data has been successfully updated.'
+        ]);
     }
-
 
     public function render()
     {

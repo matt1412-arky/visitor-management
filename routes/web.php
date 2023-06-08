@@ -27,16 +27,17 @@ Route::group([
         'middleware' => ['CheckRole:employee']
     ], function () {
         Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data');
-        Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items');
+        // Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items');
         Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
         Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account');
     });
 
     // Security
-    Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items')->middleware('CheckRole:security');
+    // Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items')->middleware('CheckRole:security');
     Route::view('security-visitor-data', 'layout\security\security-visitor-data')->name('security-visitor-data')->middleware('CheckRole:security');
     Route::get('lost-item', [LostItemController::class, 'index'])->name('lost-item.index')->middleware('CheckRole:security');
     Route::post('lost-item', [LostItemController::class, 'store'])->name('lost-item.store')->middleware('CheckRole:security');
+    Route::patch('lost-item/{id}', [LostItemController::class, 'updateLostItemStatus'])->name('lost-item.update')->middleware('CheckRole:security');
 
     Route::post('logout', [HomeController::class, 'logout'])->name('logout');
 
@@ -48,6 +49,7 @@ Route::group([
         Route::get('feedback-visit/{visit}', 'createFeedback')->name('create-feedback');
         Route::post('feedback', 'postFeedback')->name('post-feedback');
         Route::get('feedback-to-answer', 'getVisitorFeedback')->name('visitor-feedback-to-answer');
+        Route::post('feedback-update', 'updateFeedback')->name('feedback-update');
     });
 });
 
