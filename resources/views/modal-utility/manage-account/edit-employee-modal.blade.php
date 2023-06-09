@@ -25,14 +25,14 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="devisi">Divisi</label>
+                        <label for="devisi">Division</label>
                         <input type="text" class="form-control" wire:model.defer="karyawan_ga.devisi">
                         @error('karyawan_ga.devisi')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="jabatan">Jabatan</label>
+                        <label for="jabatan">Office</label>
                         <input type="text" class="form-control" wire:model.defer="karyawan_ga.jabatan">
                         @error('karyawan_ga.jabatan')
                             <span class="text-danger">{{ $message }}</span>

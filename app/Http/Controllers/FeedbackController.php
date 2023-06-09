@@ -21,7 +21,8 @@ class FeedbackController extends Controller
     public function createFeedback(Visit $visit)
     {
         $questions = Question::all(['id', 'category']);
-        return view('feedback.create-index', compact('questions', 'visit'));
+        $feedback = FeedBack::where('id_visit', $visit->id)->latest()->first();
+        return view('feedback.create-index', compact('questions', 'visit', 'feed_backs'));
     }
 
     public function postFeedback(Request $request)
@@ -43,27 +44,32 @@ class FeedbackController extends Controller
         ]);
         return back()->with('success', 'Data was made');
     }
+    public function visitorFeedback()
+    {
+
+        return view('layout.navigation-sidebar.manage-visitor.visitor-feedback', [
+            'feedback' => FeedBack::find(1),
+        ]);
+    }
 
     public function updateFeedback(Request $request)
     {
-        $data = $request->validate([
-            'id' => 'required',
-        ]);
+        try {
+            $feedback = FeedBack::findOrFail(1);
+            // $feedback = FeedBack::findOrFail($request->id_feedback);
 
-        $feedback = FeedBack::findOrFail($request->id);
-
-        // Menghitung skala_feed berdasarkan pilihan yang dipilih
-        $totalScale = 0;
-        $totalQuestions = count($request->except(['_token', 'feedback_id']));
-        foreach ($request->except(['_token', 'feedback_id']) as $value) {
-            $totalScale += (int)$value;
+            $feedback->update([
+                'skala_feed' => $request->skala_feed
+            ]);
+            return response()->json([
+                'status' => 'OK',
+                'msg' => 'success'
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'fail',
+                'msg' => $e->getMessage()
+            ], 400);
         }
-        $skalaFeed = $totalScale / $totalQuestions;
-
-        // Memperbarui nilai skala_feed
-        $feedback->skala_feed = $skalaFeed;
-        $feedback->save();
-
-        return back()->with('success', 'Feedback updated successfully');
     }
 }

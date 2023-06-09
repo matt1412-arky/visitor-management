@@ -7,7 +7,7 @@
                 <div class="d-flex align-items-center">
                     <div class="form-inline mr-3">
                         <label class="mr-2">Show:</label>
-                        <select wire:model.debounce='paginator' aria-controls="example3" class="form-control">
+                        <select wire:model='paginator' aria-controls="example3" class="form-control">
                             <option value="10">10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
@@ -16,11 +16,10 @@
                     </div>
                     <div class="form-inline">
                         <label class="mr-2">Search:</label>
-                        <input type="search" wire:model.debounce='search' class="form-control" placeholder=""
-                            aria-controls="">
+                        <input type="search" wire:model='search' class="form-control" placeholder="" aria-controls="">
                     </div>
                 </div>
-                <button type="button" wire:click.lazy="openModalDialog()" class="btn btn-rounded btn-success">
+                <button type="button" wire:click="openModalDialog()" class="btn btn-rounded btn-success">
                     <i class="fa fa-plus"></i> Add
                 </button>
             </div>
@@ -58,7 +57,7 @@
                                                 class="btn btn-primary shadow btn-xs sharp me-1">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button wire:click.debounce='delete({{ $employee->id }})'
+                                            <button wire:click='deleteConfirmation({{ $employee->id }})'
                                                 class="btn btn-danger shadow btn-xs sharp">
                                                 <i class="fa fa-trash"></i>
                                             </button>
@@ -79,7 +78,7 @@
                         <p class="small text-muted">Showing 0 to 0 of 0 results</p>
                     @endif
                     <div class="mt-3">
-                        {{ $employees->links() }}
+                        {{ $employees->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
             </div>
@@ -107,7 +106,25 @@
                     title: e.detail.title,
                     text: e.detail.msg,
                     type: e.detail.type,
+                    // confirmButtonText: 'Yes',
+                });
+            });
+            window.addEventListener('swal:deleteConfirmation', (e) => {
+                // alert(e.detail.id)
+                Swal.fire({
+                    title: e.detail.title,
+                    text: e.detail.text,
+                    type: e.detail.icon,
+                    showCancelButton: true,
                     confirmButtonText: 'Yes',
+                    cancelButtonText: 'No',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                }).then((result) => {
+
+                    if (result.value) {
+                        Livewire.emit('delete', e.detail.id);
+                    }
                 });
             });
             window.addEventListener('swal:edit', (e) => {

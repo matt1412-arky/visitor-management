@@ -5,13 +5,18 @@ namespace App\Http\Livewire;
 use App\Models\KaryawanGA;
 use App\Models\Role;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class EmployeeAccount extends Component
 {
+    use WithPagination;
     public KaryawanGA $karyawan_ga;
     public $search = '';
     public $paginator = 10;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = [
+        'delete'
+    ];
 
     protected $rules = [
         'karyawan_ga.name' => ['required', 'string', 'max:100', 'min:3', 'regex:/^[\pL\s\-]+$/u'],
@@ -118,10 +123,20 @@ class EmployeeAccount extends Component
             'msg' => 'Successfully deleted an account',
         ]);
     }
+    public function deleteConfirmation($id)
+    {
+        $this->dispatchBrowserEvent('swal:deleteConfirmation', [
+            'id' => $id,
+            'title' => 'Are you sure you want to delete this data?',
+            'icon' => 'warning',
+            'method' => 'delete',
+            'text' => 'You will not be able to recover this data!',
+        ]);
+    }
 
     public function render()
     {
-        $employees = KaryawanGA::orderBy('id')->paginate($this->paginator);
+        $employees = KaryawanGA::orderBy('id')->where('id', '!=', auth()->id())->paginate($this->paginator);
 
         if ($this->search) {
             $employees = KaryawanGA::where('name', 'LIKE', '%' . $this->search . '%')

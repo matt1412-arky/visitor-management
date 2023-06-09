@@ -11,12 +11,13 @@
                     <div class="basic-form my-3">
                         <form action="{{ route('home.feedback-update') }}" method="post" id="submit-feedback">
                             @csrf
-
                             <div class="list-question" id="list-question"></div>
-                            {{-- <input type="hidden" name="id" value="{{ $feedback->id }}"> --}}
+                            <input type="hidden" name="id_feedback" value="{{ $feedback->id_question }}">
+                            <input type="hidden" name="skala_feed" value="8">
                             <button type="submit" class="btn btn-google" id="btnCheckOut"
                                 style="color:white;">Submit</button>
                         </form>
+                        <button onclick="getValueFeedback()">cli</button>
                     </div>
                 </div>
             </div>
@@ -29,9 +30,9 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            var url = "{{ route('home.visitor-feedback-to-answer') }}";
 
             function loadQuestions() {
+                var url = "{{ route('home.visitor-feedback-to-answer') }}";
                 $.get(url, function({
                     data
                 }) {
@@ -47,23 +48,26 @@
                             question,
                             options
                         } = val;
-                        var opt = (label) => `<div class="radio">
+                        var opt = ({
+                            label,
+                            value
+                        }) => `<div class="radio">
                                 <label>
-                                    <input type="radio" name="optradio_${index}" value="${label}">
+                                    <input type="radio" name="optradio_${index}" value="${value+1}" required>
                                     ${label}
                                 </label>
                               </div>`;
                         var listAnswer = '';
                         $.each(options, function(index, option) {
-                            listAnswer += opt(option.label);
+                            listAnswer += opt(option);
                         });
                         const item = `
-          <h5>${question}</h5>
-          <div class="mb-3 mb-0 rating">
-            <div class="mb-3 mb-0" data-id="${index}">
-              ${listAnswer}
-            </div>
-          </div>`;
+                            <h5>${question}</h5>
+                            <div class="mb-3 mb-0 rating">
+                                <div class="mb-3 mb-0" data-id="${index}">
+                                ${listAnswer}
+                                </div>
+                            </div>`;
                         container.append(item);
                     });
                 });
@@ -72,8 +76,30 @@
             // Muat pertanyaan pertama kali dengan kategori pertama
             loadQuestions();
 
+
+            function getValueFeedback() {
+                // Menghitung total value yang sudah dipilih
+                let totalValue = 0;
+                let totalQuestions = 0;
+                $('#submit-feedback').each(function(index, element) {
+                    9
+                    let selectedValue = $(element).find('input[type=radio]:checked').val();
+                    $(element).find('input[type=radio]:checked').each(function(_, el) {
+                        totalValue += parseInt(el['value']);
+                        totalQuestions++;
+                    })
+                });
+                // Menghitung nilai rata-rata
+                const averageValue = totalValue / totalQuestions / 0.05;
+                // alert(averageValue)
+                $('input[name=skala_feed]').attr('value', averageValue)
+                console.log(averageValue)
+                return averageValue
+            }
+
             $('#submit-feedback').on('submit', function(e) {
                 e.preventDefault();
+                getValueFeedback()
                 // e.stopPropagation();
                 var url = e.target['action'];
                 var method = e.target['method'];
@@ -85,11 +111,20 @@
                     contentType: false,
                     dataType: 'json',
                     success: function(res) {
-                        console.log(res);
+                        Swal.fire({
+                            title: 'success create',
+                            text: res.msg,
+                            type: 'success',
+                        });
                     },
                     error: function(res) {
                         console.log(res);
-                        window.dispath('showToastr', (e) => {});
+                        Swal.fire({
+                            title: 'fail',
+                            text: res.msg,
+                            type: 'error',
+                        });
+                        // window.dispath('showToastr', (e) => {});
                     },
                 });
             });

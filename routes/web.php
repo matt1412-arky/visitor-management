@@ -19,7 +19,7 @@ Route::group([
     'as' => 'home.',
 ], function () {
     Route::view('dashboard-page', 'dashboard.dashboard-page')->name('dashboard-page');
-    Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback')->middleware('CheckRole:visitor');
+    Route::get('visitor-feedback', [FeedbackController::class, 'visitorFeedback'])->name('visitor-feedback')->middleware('CheckRole:visitor');
     Route::view('dashboard-visitor', 'dashboard.dashboard-visitor')->name('dashboard-visitor');
 
     // Karyawan GA
