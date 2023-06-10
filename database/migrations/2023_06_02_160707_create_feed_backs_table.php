@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_visit')->constrained('visits');
             $table->foreignId('id_question')->constrained('questions');
-            $table->unsignedTinyInteger('skala_feed'); // Menggunakan tipe data unsignedTinyInteger
+            $table->float('skala_feed'); // Menggunakan tipe data unsignedTinyInteger
             $table->timestamps();
         });
     }

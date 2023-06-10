@@ -22,7 +22,7 @@ class FeedbackController extends Controller
     {
         $questions = Question::all(['id', 'category']);
         $feedback = FeedBack::where('id_visit', $visit->id)->latest()->first();
-        return view('feedback.create-index', compact('questions', 'visit', 'feed_backs'));
+        return view('feedback.create-index', compact('questions', 'visit'));
     }
 
     public function postFeedback(Request $request)
@@ -46,24 +46,39 @@ class FeedbackController extends Controller
     }
     public function visitorFeedback()
     {
+        $visit_ids = auth()->user()->visit()->get(['id'])->pluck('id');
+        $feedbacks = FeedBack::whereIn('id_visit', $visit_ids)->get();
 
         return view('layout.navigation-sidebar.manage-visitor.visitor-feedback', [
-            'feedback' => FeedBack::find(1),
+            'feedbacks' => $feedbacks,
         ]);
     }
+
 
     public function updateFeedback(Request $request)
     {
         try {
-            $feedback = FeedBack::findOrFail(1);
-            // $feedback = FeedBack::findOrFail($request->id_feedback);
+            $id_question = $request->input('id_question');
+            $id_visit = $request->input('id_visit');
+
+            $feedback = FeedBack::where('id_question', $id_question)
+                ->where('id_visit', $id_visit)
+                ->first();
+
+            if (!$feedback) {
+                return response()->json([
+                    'status' => 'fail',
+                    'msg' => 'Feedback not found'
+                ], 404);
+            }
 
             $feedback->update([
-                'skala_feed' => $request->skala_feed
+                'skala_feed' => $request->input('skala_feed')
             ]);
+
             return response()->json([
                 'status' => 'OK',
-                'msg' => 'success'
+                'msg' => 'Success'
             ], 200);
         } catch (\Exception $e) {
             return response()->json([

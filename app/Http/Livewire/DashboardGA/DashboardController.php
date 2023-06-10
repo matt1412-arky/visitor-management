@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Visitor;
 use App\Models\Visit;
 use App\Models\KaryawanGA;
+use App\Models\LostItem;
+use App\Models\FeedBack;
 use Livewire\WithPagination;
 
 class DashboardController extends Component
@@ -27,12 +29,16 @@ class DashboardController extends Component
         $totalVisitors = Visitor::count();
         $totalVisits = Visit::count();
         $totalKaryawan = KaryawanGA::count();
+        $totalFeedback = FeedBack::count();
+        $totalLostItem = LostItem::count();
 
         return view('livewire.dashboard-g-a.dashboard-controller', [
             'visitors' => $visitors,
             'totalVisitors' => $totalVisitors,
             'totalVisits' => $totalVisits,
             'totalKaryawan' => $totalKaryawan,
+            'totalFeedback' => $totalFeedback,
+            'totalLostItem' => $totalLostItem,
         ]);
     }
 }

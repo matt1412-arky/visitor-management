@@ -12,12 +12,15 @@
                         <form action="{{ route('home.feedback-update') }}" method="post" id="submit-feedback">
                             @csrf
                             <div class="list-question" id="list-question"></div>
-                            <input type="hidden" name="id_feedback" value="{{ $feedback->id_question }}">
-                            <input type="hidden" name="skala_feed" value="8">
+                            @foreach ($feedbacks as $feedback)
+                                <input type="hidden" name="id_visit" value="{{ $feedback->id_visit }}">
+                                <input type="hidden" name="id_question" value="{{ $feedback->id_question }}">
+                                <input type="hidden" name="skala_feed" value="{{ $feedback->skala_feed }}">
+                            @endforeach
+
                             <button type="submit" class="btn btn-google" id="btnCheckOut"
                                 style="color:white;">Submit</button>
                         </form>
-                        <button onclick="getValueFeedback()">cli</button>
                     </div>
                 </div>
             </div>
@@ -91,7 +94,6 @@
                 });
                 // Menghitung nilai rata-rata
                 const averageValue = totalValue / totalQuestions / 0.05;
-                // alert(averageValue)
                 $('input[name=skala_feed]').attr('value', averageValue)
                 console.log(averageValue)
                 return averageValue
@@ -112,19 +114,18 @@
                     dataType: 'json',
                     success: function(res) {
                         Swal.fire({
-                            title: 'success create',
-                            text: res.msg,
+                            title: 'Success',
+                            text: 'Successfully created Feedback',
                             type: 'success',
                         });
                     },
                     error: function(res) {
                         console.log(res);
                         Swal.fire({
-                            title: 'fail',
-                            text: res.msg,
+                            title: 'Fail',
+                            text: 'Failed created Feedback',
                             type: 'error',
                         });
-                        // window.dispath('showToastr', (e) => {});
                     },
                 });
             });

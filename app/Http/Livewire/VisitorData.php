@@ -26,7 +26,7 @@ class VisitorData extends Component
             ]);
         $this->showToastr(
             'success',
-            'Data has been successfully updated'
+            'Data has been successfully updated.'
         );
     }
     public function checkout(Visit $visit)
@@ -41,7 +41,7 @@ class VisitorData extends Component
             ]);
         $this->showToastr(
             'success',
-            'Data has been successfully updated'
+            'Data has been successfully updated.'
         );
     }
     public function render()

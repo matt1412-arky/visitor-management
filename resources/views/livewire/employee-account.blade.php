@@ -106,11 +106,9 @@
                     title: e.detail.title,
                     text: e.detail.msg,
                     type: e.detail.type,
-                    // confirmButtonText: 'Yes',
                 });
             });
             window.addEventListener('swal:deleteConfirmation', (e) => {
-                // alert(e.detail.id)
                 Swal.fire({
                     title: e.detail.title,
                     text: e.detail.text,
