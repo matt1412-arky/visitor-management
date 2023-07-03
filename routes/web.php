@@ -1,123 +1,66 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{
-    HomeController,
-    WebcamController,
-    CSReportController,
-    VendorController,
-    ConfirmOrderController as ConfirmedOrder,
-    FoodOrderControler as FoodOrder,
-    FeedbackMenuController as FeedBack,
-};
-use App\Http\Livewire\{
-    VisitorRegister,
-    VisitorCheckingController,
-    VisitorApprovalController,
-    EmployeeAccount,
-    VendorAccount,
-    GenerateLinkController,
-    MenuController
-};
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Livewire\EmployeeAccount;
+use App\Http\Middleware\CheckRole;
+use App\Http\Controllers\LostItemController;
 
-Route::get('/', fn () => to_route('home.dashboard-page'));
+Route::redirect('/', '/auth/login');
 
-// authenticate
-Route::group(
-    [
-        'middleware' => [
-            'auth:karyawan_gaa,visitor'
-        ],
-        'prefix' => 'h',
-        'as' => 'home.',
+// Authenticate
+Route::group([
+    'middleware' => [
+        'auth:karyawan_gaa,visitor'
     ],
-    function () {
-        Route::get('visitor-checking', VisitorCheckingController::class)->name('visitor-checking'); //->middleware('can:visit');
-        Route::view('dashboard-page', 'dashboard/dashboard-page')->name('dashboard-page')->middleware('can:visit');
+    'prefix' => 'h',
+    'as' => 'home.',
+], function () {
+    Route::view('dashboard-page', 'dashboard.dashboard-page')->name('dashboard-page');
+    Route::get('visitor-feedback', [FeedbackController::class, 'visitorFeedback'])->name('visitor-feedback')->middleware('CheckRole:visitor');
+    Route::view('dashboard-visitor', 'dashboard.dashboard-visitor')->name('dashboard-visitor');
 
-        Route::group([
-            'middleware' => ['CheckRole:visitor']
-        ], function () {
-            Route::get('registrasi', VisitorRegister::class, 'registrasi')->name('registrasi');
-            Route::group([
-                // 'middleware' => ['can:visit']
-            ], function () {
-                Route::view('visitor-feedback', 'layout/navigation-sidebar/manage-visitor.visitor-feedback')->name('visitor-feedback'); //tamu/visitoe
-                // Route::view('form-kesehatan', 'layout/navigation-sidebar/manage-visitor.form-kesehatan')->name('form-kesehatan'); //tamu/visitoe
-                // Route::post('form-kesehatan', function () {
-                //     $save =    \App\Models\Vaksinasi::create([
-                //         'id_visitor' => 2,
-                //         'vaksin_pertama' => request()->input('v1', 0),
-                //         'vaksin_kedua' => request()->input('v2', 0),
-                //         'vaksin_ketiga' => request()->input('v3', 0),
-                //         'vaksin_keempat' => request()->input('v4', 0),
-                //     ]);
-                //     $save ? dd('saved') : dd('not');
-                // })->name('send-form-kesehatan'); //tamu/visitoe
-                // Route::view('capture-ktp', 'layout/navigation-sidebar/manage-visitor.capture-KTP')->name('capture-ktp'); //tamu/visitor
-            });
-        });
+    // Karyawan GA
+    Route::group([
+        'middleware' => ['CheckRole:employee']
+    ], function () {
+        Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data');
+        // Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items');
+        Route::get('employee-account', EmployeeAccount::class)->name('employee-account');
+        Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account');
+    });
 
-        Route::view('visitor-approval', 'layout/navigation-sidebar/manage-visitor.visitor-approval')->name('visitor-approval'); //admin/security/visitor
-        // Karyawan GA
-        Route::group(['middleware' => ['CheckRole:employee']], function () {
-            Route::view('my-dashboard', 'layout/navigation-sidebar/manage-visitor.dashboard-ga')->name('my-dashboard'); //admin
-            Route::view('visitor-data', 'layout/navigation-sidebar/manage-visitor.visitor-data')->name('visitor-data'); //admin
-            Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items'); //admin
-            Route::view('visitor-arival', 'layout/navigation-sidebar/manage-visitor.visitor-arival')->name('visitor-arival'); //admin
-            Route::view('customize-feed', 'layout/navigation-sidebar/manage-visitor.customize-feed')->name('customize-feed'); //tamu/visitor
-            // Route::view('track-visitor', 'track-visitor.track-visitor')->name('track-visitor'); //security
-            Route::get('visitor-approval', VisitorApprovalController::class)->name('visitor-approval'); //tamu/visitor
-            Route::get('employee-account', EmployeeAccount::class)->name('employee-account'); //admin
-            // Route::get('vendor-account', VendorAccount::class)->name('vendor-account'); //admin
-            // Route::get('generate', GenerateLinkController::class)->name('generate'); //admin
-            // Route::get('cs', [CSReportController::class, 'index'])->name('cs'); //tamu/visitor
-            // Route::post('report', [CSReportController::class, 'create'])->name('report'); //tamu/visitor
-            // Route::view('info-cs', 'layout/navigation-sidebar/CS/info-cs')->name('info-cs'); //CS
-            Route::view('visitor-account', 'layout/navigation-sidebar/manage-visitor/visitor-account')->name('visitor-account'); //admin
+    // Security
+    // Route::view('lost-items', 'layout/navigation-sidebar/manage-visitor.lost-items')->name('lost-items')->middleware('CheckRole:security');
+    Route::view('security-visitor-data', 'layout\security\security-visitor-data')->name('security-visitor-data')->middleware('CheckRole:security');
+    Route::get('lost-item', [LostItemController::class, 'index'])->name('lost-item.index')->middleware('CheckRole:security');
+    Route::post('lost-item', [LostItemController::class, 'store'])->name('lost-item.store')->middleware('CheckRole:security');
+    Route::patch('lost-item/{id}', [LostItemController::class, 'updateLostItemStatus'])->name('lost-item.update')->middleware('CheckRole:security');
 
-            // Route::get('cs', [CSReportController::class, 'create'])->name('cs');
-            // Route::post('report', [CSReportController::class, 'store'])->name('report');
-            // Route::get('cs-information', [CSReportController::class, 'index'])->name('cs.information');
-        });
-        // food management
-        // Route::group(['middleware' => []], function () { // visitor
-        // });
+    Route::post('logout', [HomeController::class, 'logout'])->name('logout');
 
-        // Route::get('insert-menu', [VendorController::class, 'index'])->name('insert-menu');
-        // Route::post('store', [VendorController::class, 'store'])->name('store-menu');
-        // Route::get('get-menus', [VendorController::class, 'getMenus'])->name('get-menus');
-        // Route::get('food-menu', MenuController::class)->name('food-menu');
-        // Route::get('confirmed-order', [ConfirmedOrder::class, 'index'])->name('confirmed-order');
+    Route::controller(QuestionController::class)->group(function () {
+        Route::get('question', 'getQuestion')->name('question');
+    });
 
-        // Route::view('beverage-menu', 'layout/navigation-sidebar/food-management.beverage-menu')->name('beverage-menu');
-        // Route::view('menu-from-vendor', 'layout/navigation-sidebar/food-management.menu-from-vendor')->name('menu-from-vendor');
-        // Route::view('form-feedback', 'layout/navigation-sidebar/food-management.form-feedback')->name('form-feedback');
-        // Route::view('blast-email', 'layout/navigation-sidebar/food-management.blast-email')->name('blast-email');
-        // Route::get('food-order', [FoodOrder::class, 'index'])->name('food-order');
-        // Route::post('food-order/{id}', [FoodOrder::class, 'orderFood'])->name('order-food');
-        // Route::view('customer-feedback', 'layout/navigation-sidebar/food-management.customer-feedback')->name('customer-feedback');
-        // Route::view('order-information', 'layout/navigation-sidebar/food-management.order-information')->name('order-information');
-        // Route::view('order-history', 'layout/navigation-sidebar/food-management.order-history')->name('order-history');
-        // Route::post('send-feedback', [FeedBack::class, 'store'])->name('feedback');
+    Route::controller(FeedbackController::class)->group(function () {
+        Route::get('feedback-visit/{visit}', 'createFeedback')->name('create-feedback');
+        Route::post('feedback', 'postFeedback')->name('post-feedback');
+        Route::get('feedback-to-answer', 'getVisitorFeedback')->name('visitor-feedback-to-answer');
+        Route::post('feedback-update', 'updateFeedback')->name('feedback-update');
+    });
+});
 
-        // webcam
-        // Route::controller(WebcamController::class)->group(function () {
-        //     Route::get('webcam', 'index')->name('webcame');
-        //     Route::post('webcam', 'takePicture')->name('take-picture');
-        // });
+Route::group([
+    'middleware' => ['guest:karyawan_gaa', 'guest:visitor'],
+    'prefix' => 'auth',
+    'as' => 'auth.'
+], function () {
+    Route::view('login', 'auth/auth-login')->name('login');
+    Route::view('register', 'auth/register')->name('register');
+});
 
-        Route::post('logout', [HomeController::class, 'logout'])->name('logout');
-    }
-);
-
-Route::group(
-    [
-        'middleware' => ['guest:karyawan_gaa', 'guest:visitor',],
-        'prefix' => 'auth',
-        'as' => 'auth.'
-    ],
-    function () {
-        Route::view('login', 'auth/auth-login')->name('login');
-    }
-);
+// Additional Route
+Route::match(['get', 'post'], '/employee-account', EmployeeAccount::class);

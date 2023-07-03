@@ -1,148 +1,134 @@
 @extends('layout.apps')
 @section('title', 'Visitor Feedback')
 @section('content')
-    <style>
-        .rating {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: start;
-        }
+    <div class="row">
+        <div class="card" style="width: 95%; height: 30%;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h4 class="card-title">Visitor Feedback</h4>
+                    </div>
+                    <div class="basic-form my-3">
+                        <form action="{{ route('home.feedback-update') }}" method="post" id="submit-feedback">
+                            @csrf
+                            <div class="list-question" id="list-question"></div>
+                            @foreach ($feedbacks as $feedback)
+                                <input type="hidden" name="id_visit" value="{{ $feedback->id_visit }}">
+                                <input type="hidden" name="id_question" value="{{ $feedback->id_question }}">
+                                <input type="hidden" name="skala_feed" value="{{ $feedback->skala_feed }}">
+                            @endforeach
 
-
-        .rating>input {
-            display: none;
-        }
-
-        .rating>label {
-            position: relative;
-            width: 1.1em;
-            font-size: 50px;
-            color: #FFD700;
-            cursor: pointer;
-        }
-
-        .rating>label::before {
-            content: "\2605";
-            position: absolute;
-            opacity: 0;
-        }
-
-        .rating>label:hover:before,
-        .rating>label:hover~label:before {
-            opacity: 1 !important;
-        }
-
-        .rating>input:checked~label:before {
-            opacity: 1;
-        }
-
-        .rating:hover>input:checked~label:before {
-            opacity: 0.4;
-        }
-    </style>
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-md">
-                    <h4 class="card-title">Visitor Feedback</h4>
-                </div>
-                <div class="card-body">
-                    <div class="basic-form">
-                        <form>
-                            <h5>How satisfied are you with the service in our place?</h5>
-                            <div class="mb-3 mb-0 rating">
-
-                                <input type="radio" name="rating" value="5" id="5"><label
-                                    for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label
-                                    for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label
-                                    for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label
-                                    for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label
-                                    for="1">☆</label>
-                            </div>
-
-                            <h5>Are the instructions from the guide given easy to understand?</h5>
-                            <div class="mb-3 mb-0 rating">
-
-                                <input type="radio" name="rating" value="5" id="5"><label
-                                    for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label
-                                    for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label
-                                    for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label
-                                    for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label
-                                    for="1">☆</label>
-                            </div>
-
-                            <h5>How satisfied are you with our facilities?</h5>
-                            <div class="mb-3 mb-0 rating">
-
-                                <input type="radio" name="rating" value="5" id="5"><label
-                                    for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label
-                                    for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label
-                                    for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label
-                                    for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label
-                                    for="1">☆</label>
-                            </div>
-                            <button type="button" class="btn btn-google" id="btnCheckOut"
-                                style="color:white;">Checkout</button>
+                            <button type="submit" class="btn btn-google" id="btnCheckOut"
+                                style="color:white;">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
-
-            <div class="modal fade bd-example-modal-md show" tabindex="-1" style="display: block;" aria-modal="true"
-                role="dialog" id="ModalGPS">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Alert GPS</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <h5>Please turn on your GPS before filling this form to update your last location before
-                                leaving
-                            </h5>
-                            <button type="button" class="btn btn-google">Update Location</button>
-                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal"
-                                onclick="closeModal()">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
-    <script>
-        function closeModal() {
-            const modalGps = document.getElementById('ModalGPS')
-            modalGps.style.display = 'none';
-        }
-    </script>
+    </div>
 @endsection
+
+
 @push('scripts')
     <script>
-        const btnCheckOut = document.querySelector('#btnCheckOut')
-        btnCheckOut.addEventListener('click', (e) => {
-            Swal.fire({
-                title: 'Checkout Success!',
-                text: 'You may leave the area',
-                type: 'success',
-                timer: 5000,
-                confirmButtonText: 'Save',
-                timerProgressBar: true,
-                onClose: () => window.location.href = '/h/dashboard-page'
-            })
-        })
+        $(document).ready(function() {
+
+            function loadQuestions() {
+                var url = "{{ route('home.visitor-feedback-to-answer') }}";
+                $.get(url, function({
+                    data
+                }) {
+                    const {
+                        id,
+                        question
+                    } = data;
+                    const questions = JSON.parse(question.trim());
+
+                    $.each(questions, function(index, val) {
+                        var container = $('#list-question').addClass('');
+                        const {
+                            question,
+                            options
+                        } = val;
+                        var opt = ({
+                            label,
+                            value
+                        }) => `<div class="radio">
+                                <label>
+                                    <input type="radio" name="optradio_${index}" value="${value+1}" required>
+                                    ${label}
+                                </label>
+                              </div>`;
+                        var listAnswer = '';
+                        $.each(options, function(index, option) {
+                            listAnswer += opt(option);
+                        });
+                        const item = `
+                            <h5>${question}</h5>
+                            <div class="mb-3 mb-0 rating">
+                                <div class="mb-3 mb-0" data-id="${index}">
+                                ${listAnswer}
+                                </div>
+                            </div>`;
+                        container.append(item);
+                    });
+                });
+            }
+
+            // Muat pertanyaan pertama kali dengan kategori pertama
+            loadQuestions();
+
+
+            function getValueFeedback() {
+                // Menghitung total value yang sudah dipilih
+                let totalValue = 0;
+                let totalQuestions = 0;
+                $('#submit-feedback').each(function(index, element) {
+                    9
+                    let selectedValue = $(element).find('input[type=radio]:checked').val();
+                    $(element).find('input[type=radio]:checked').each(function(_, el) {
+                        totalValue += parseInt(el['value']);
+                        totalQuestions++;
+                    })
+                });
+                // Menghitung nilai rata-rata
+                const averageValue = totalValue / totalQuestions / 0.05;
+                $('input[name=skala_feed]').attr('value', averageValue)
+                console.log(averageValue)
+                return averageValue
+            }
+
+            $('#submit-feedback').on('submit', function(e) {
+                e.preventDefault();
+                getValueFeedback()
+                // e.stopPropagation();
+                var url = e.target['action'];
+                var method = e.target['method'];
+                $.ajax({
+                    url,
+                    method,
+                    data: new FormData(e.target),
+                    processData: false,
+                    contentType: false,
+                    dataType: 'json',
+                    success: function(res) {
+                        Swal.fire({
+                            title: 'Success',
+                            text: 'Successfully created Feedback',
+                            type: 'success',
+                        });
+                    },
+                    error: function(res) {
+                        console.log(res);
+                        Swal.fire({
+                            title: 'Fail',
+                            text: 'Failed created Feedback',
+                            type: 'error',
+                        });
+                    },
+                });
+            });
+        });
     </script>
 @endpush

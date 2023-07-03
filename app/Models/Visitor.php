@@ -18,18 +18,13 @@ class Visitor extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'age',
+        'password',
         'phone',
         'invitation_from',
         'visitation_purpose',
-        'waktu_kunjungan',
-        'transportasi_visitor',
-        'plat_nomor',
-        'picture',
-        'file_surat',
-        'no_darurat',
+        'visit_date',
+        'arrival_time',
         'role_id',
-        'password',
     ];
     protected $hidden = [
         'password',
@@ -39,20 +34,8 @@ class Visitor extends Authenticatable
         'role_id'
     ];
 
-    public function picture(): Attribute
+    public function visit()
     {
-        return new Attribute(
-            get: fn ($value) => $value != '' ? asset('storage/app/pictures/' . $value, 1) : '',
-            set: fn ($value) => $value != '' ? explode('/', $value)[1] : '',
-        );
-    }
-
-    public function isRegistered(): bool // check dari belongsTo aja
-    {
-        $id_visitors = Link::get(['id_visitor'])->toArray();
-        if (in_array(auth('visitor')->id(), $id_visitors)) {
-            return false;
-        }
-        return true;
+        return $this->hasMany(Visit::class, 'id_visitor');
     }
 }

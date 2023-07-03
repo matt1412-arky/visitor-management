@@ -39,13 +39,13 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
-    public function render($req, $exception)
-    {
-        if ($exception instanceof AuthorizationException) {
-            return to_route('home.registrasi');
-        }
-        return parent::render($req, $exception);
-    }
+    // public function render($req, $exception)
+    // {
+    //     if ($exception instanceof AuthorizationException) {
+    //         return to_route('home.registrasi');
+    //     }
+    //     return parent::render($req, $exception);
+    // }
 
     /**
      * Register the exception handling callbacks for the application.

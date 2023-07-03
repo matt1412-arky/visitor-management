@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('item_name');
             $table->string('item_image');
             $table->string('status');
-            $table->string('takenby');
             $table->foreign('id_visitor')
                 ->references('id')
                 ->on('visitors')
@@ -28,7 +27,7 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->foreign('id_karyawan')
-                ->references('NIK')
+                ->references('id')
                 ->on('karyawan_GA')
                 ->nullable()
                 ->cascadeOnUpdate()

@@ -1,86 +1,130 @@
-<div class="col-lg-12">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Data Visitors</h4>
-        </div>
-        <div class="card mt-3">
-            <div class="dataTables_length  justify-content-between" id="example4_length">
-                <label class="me-3">Search :
-                    <input type="text" class="form-control" placeholder="search" />
-                </label>
-                <label class="me-3">Show
-                    <select class="form-control">
-                        <option value="delete">Delete</option>
-                        <option value="sentEmail">Sent email</option>
-                        <option value="test"> others method</option>
-                    </select>
-                </label>
-                <label class="me-3">Sort by
-                    <select class="form-control" wire:model='sortBy'>
-                        <option value="id">id</option>
-                        <option value="name">name</option>
-                        <option value="email">email</option>
-                    </select>
-                </label>
-                <label class="me-3">order by
-                    <select class="form-control" wire:model='orderBy'>
-                        <option value="1">ascending</option>
-                        <option value="0">descending</option>
-                    </select>
-                </label>
-                <button type="button" wire:click.lazy='doSelected()' class="btn btn-primary">do somethign</button>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-responsive-md">
-                    <thead>
-                        <tr>
-                            <th style="width:20px;">
-                                <div class="form-check custom-checkbox checkbox-success check-lg me-1">
-                                    <input type="checkbox" class="form-check-input"
-                                        wire:click.defer='selectAllVisitors()' id="checkAll" required="">
-                                    <label class="form-check-label" for="checkAll"></label>
-                                </div>
-                            </th>
-                            <th><strong>NO.</strong></th>
-                            <th><strong>NAME</strong></th>
-                            <th><strong>Email</strong></th>
-                            <th><strong>Phone</strong></th>
-                            <th><strong>Picture</strong></th>
-                            <th><strong></strong></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($visitors as $visitor)
-                            <tr class="{{ $this->isCheckId($visitor->id) }}">
-                                <td>
-                                    <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                        <input type="checkbox" value={{ $visitor->id }} class="form-check-input"
-                                            wire:model='checkedVisitors' id="customCheckBox2" required="">
-                                        <label class="form-check-label" for="customCheckBox2"></label>
-                                    </div>
-                                </td>
-                                <td><strong>{{ $loop->iteration }}</strong></td>
-                                <td>{{ $visitor->name }}</td>
-                                <td>{{ $visitor->email }} </td>
-                                <td>{{ __($visitor->phone) }}</td>
-                                <td>{{ $visitor->picture }}</td>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                                class="fas fa-pencil-alt"></i></a>
-                                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
-                                                class="fa fa-trash"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @empty
-                        @endforelse
-                    </tbody>
-                </table>
-                {{ $visitors->links() }}
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+        <a class="info-box mb-3 text-dark"></a>
+        <div class="card">
+            <div class="card-body d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <i class="fa fa-users fs-1 text-primary"></i>
+                    <h4 class="my-2">Visitors {{ $totalVisitors }}</h4>
+                </div>
             </div>
         </div>
     </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <a class="info-box mb-3 text-dark"></a>
+        <div class="card">
+            <div class="card-body d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <i class="fa fa-eye fs-1 text-primary"></i>
+                    <h4 class="my-2">Visits {{ $totalVisits }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <a class="info-box mb-3 text-dark"></a>
+        <div class="card">
+            <div class="card-body d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <i class="fa fa-user fs-1 text-primary"></i>
+                    <h4 class="my-2">Employee {{ $totalKaryawan }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <a class="info-box mb-3 text-dark"></a>
+        <div class="card">
+            <div class="card-body d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <i class="fa fa-comments fs-1 text-primary"></i>
+                    <h4 class="my-2">Feedback {{ $totalFeedback }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 offset-md-3">
+        <a class="info-box mb-3 text-dark"></a>
+        <div class="card">
+            <div class="card-body d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <i class="fa fa-search fs-1 text-primary"></i>
+                    <h4 class="my-2">Lost Item {{ $totalLostItem }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">List Visitor</h4>
+                <div class="table-responsive">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <label for="showEntries">Show:</label>
+                            <select name="showEntries" id="showEntries" class="form-select"
+                                wire:model.debounce="paginator">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="my-2">
+                            <label for="search">Search:</label>
+                            <input type="search" id="search" class="form-control" wire:model="search"
+                                placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>NAME</th>
+                                <th>EMAIL</th>
+                                <th>PHONE</th>
+                                <th>INVITATION FROM</th>
+                                <th>VISITATION PURPOSE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{-- Konten tabel --}}
+                            @foreach ($visitors as $visitor)
+                                <tr>
+                                    <td>{{ $visitor->id }}</td>
+                                    <td>{{ $visitor->name }}</td>
+                                    <td>{{ $visitor->email }}</td>
+                                    <td>{{ $visitor->phone }}</td>
+                                    <td>{{ $visitor->invitation_from }}</td>
+                                    <td>{{ $visitor->visitation_purpose }}</td>
+                                </tr>
+                            @endforeach
+                            @if ($visitors->isEmpty())
+                                <tr>
+                                    <td colspan="6" class="text-center">No matching records found.</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                    <div class="d-flex flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
+                        <p class="small text-muted">
+                            @if ($visitors->isEmpty())
+                                Showing 0 to 0 of 0 results
+                            @else
+                                Showing {{ $visitors->firstItem() }} to {{ $visitors->lastItem() }} of
+                                {{ $visitors->total() }} results
+                            @endif
+                        </p>
+                        <div class="mt-3">
+                            {{ $visitors->links() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>

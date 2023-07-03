@@ -56,10 +56,6 @@ return [
             'driver' => 'session',
             'provider' => 'visitors',
         ],
-        'vendor' => [
-            'driver' => 'session',
-            'provider' => 'vendors',
-        ],
     ],
 
     /*
@@ -87,16 +83,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\KaryawanGA::class,
         ],
-
         'visitors' => [
             'driver' => 'eloquent',
             'model' => App\Models\Visitor::class,
         ],
-        'vendors' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Vendor::class,
-        ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -122,8 +112,8 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
+            'expire' => 120,
+            'throttle' => 120,
         ],
     ],
 

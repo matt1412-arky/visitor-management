@@ -13,19 +13,18 @@ class KaryawanGA extends Authenticatable
 {
     use HasFactory, HasApiTokens, Notifiable;
     protected $table = 'karyawan_ga';
-    protected $primaryKey = 'NIK';
+    protected $primaryKey = 'id';
 
     protected $guard = 'karyawan_gaa';
 
     protected $with = ['role'];
 
     protected $fillable = [
-        'NIK',
         'name',
         'email',
+        'password',
         'devisi',
         'jabatan',
-        'password',
         'role_id'
     ];
 
@@ -42,15 +41,5 @@ class KaryawanGA extends Authenticatable
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'role_id');
-    }
-
-    public function order_menu()
-    {
-        $this->hasOne(PaketMenu::class);
-    }
-
-    public function feedbackMenu(): BelongsTo
-    {
-        return $this->belongsTo(FeedbackMenu::class, 'NIK_Karyawan');
     }
 }
