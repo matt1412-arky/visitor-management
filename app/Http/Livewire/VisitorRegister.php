@@ -30,7 +30,7 @@ class VisitorRegister extends Component
             'name' => 'required',
             'email' => 'required|email|unique:visitors,email',
             'password' => 'required|string',
-            'phone' => 'required|unique:visitors,phone',
+            'phone' => 'required',
             'invitation_from' => 'required|string',
             'visitation_purpose' => 'required|string',
             'visit_date' => 'required|date',
