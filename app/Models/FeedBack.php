@@ -14,4 +14,14 @@ class FeedBack extends Model
         'id_visit',
         'skala_feed'
     ];
+
+    public function visit()
+    {
+        return $this->belongsTo(Visit::class, 'id_visit');
+    }
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class, 'id_question');
+    }
 }

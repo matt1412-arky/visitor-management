@@ -38,4 +38,9 @@ class Visitor extends Authenticatable
     {
         return $this->hasMany(Visit::class, 'id_visitor');
     }
+
+    public function appointment()
+    {
+        return $this->hasMany(Appointment::class, 'id_visitor');
+    }
 }

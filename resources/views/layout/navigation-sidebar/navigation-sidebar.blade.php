@@ -60,6 +60,13 @@
                         <span class="nav-text">Visitor Feedback</span>
                     </a>
                 </li>
+
+                <li class="{{ Request::route()->getName() == 'home.visiting-appointments' ? 'active' : '' }}">
+                    <a href="{{ route('home.visiting-appointments') }}">
+                        <i class="far fa-calendar-alt"></i>
+                        <span class="nav-text">Visiting Appointments</span>
+                    </a>
+                </li>
             @endif
 
             @if (in_array(Auth::user()->role_id, [1, 2]))

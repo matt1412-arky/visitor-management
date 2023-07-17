@@ -4,31 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Appointment;
 
 class Visit extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_karyawan',
-        'id_visitor',
+        'id_appointment',
         'checkin',
         'checkout',
     ];
+
     protected $with = [
-        'karyawan',
-        'visitor'
+        'appointment'
     ];
 
-    // Definisikan relasi dengan model KaryawanGa
-    public function karyawan()
+    // Definisikan relasi dengan model Appointment
+    public function appointment()
     {
-        return $this->belongsTo(KaryawanGa::class, 'id_karyawan');
-    }
-
-    // Definisikan relasi dengan model Visitor
-    public function visitor()
-    {
-        return $this->belongsTo(Visitor::class, 'id_visitor');
+        return $this->belongsTo(Appointment::class, 'id_appointment');
     }
 }

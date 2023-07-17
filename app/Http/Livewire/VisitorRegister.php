@@ -30,11 +30,11 @@ class VisitorRegister extends Component
             'name' => 'required',
             'email' => 'required|email|unique:visitors,email',
             'password' => 'required|string',
-            'phone' => 'required',
-            'invitation_from' => 'required|string',
-            'visitation_purpose' => 'required|string',
-            'visit_date' => 'required|date',
-            'arrival_time' => 'required',
+            // 'phone' => 'required',
+            // 'invitation_from' => 'required|string',
+            // 'visitation_purpose' => 'required|string',
+            // 'visit_date' => 'required|date',
+            // 'arrival_time' => 'required',
         ]);
 
         $visitor['role_id'] = 4;

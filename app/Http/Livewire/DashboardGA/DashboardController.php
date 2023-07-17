@@ -8,6 +8,7 @@ use App\Models\Visit;
 use App\Models\KaryawanGA;
 use App\Models\LostItem;
 use App\Models\FeedBack;
+use App\Models\Appointment;
 use Livewire\WithPagination;
 
 class DashboardController extends Component
@@ -21,7 +22,7 @@ class DashboardController extends Component
 
     public function render()
     {
-        $visitors = Visitor::query()
+        $appointments = Appointment::query()
             ->where('name', 'like', '%' . $this->search . '%')
             ->orderBy('id', 'desc')
             ->paginate($this->paginator);
@@ -31,14 +32,16 @@ class DashboardController extends Component
         $totalKaryawan = KaryawanGA::count();
         $totalFeedback = FeedBack::count();
         $totalLostItem = LostItem::count();
+        $totalAppointment = Appointment::count();
 
         return view('livewire.dashboard-g-a.dashboard-controller', [
-            'visitors' => $visitors,
+            'appointments' => $appointments,
             'totalVisitors' => $totalVisitors,
             'totalVisits' => $totalVisits,
             'totalKaryawan' => $totalKaryawan,
             'totalFeedback' => $totalFeedback,
             'totalLostItem' => $totalLostItem,
+            'totalAppointment' => $totalAppointment
         ]);
     }
 }

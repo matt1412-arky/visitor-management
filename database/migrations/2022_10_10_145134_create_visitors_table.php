@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone', 15)->nullable();
-            $table->string('invitation_from')->nullable();
-            $table->string('visitation_purpose')->nullable();
-            $table->date('visit_date')->nullable();
-            $table->time('arrival_time')->nullable();
+            // $table->string('phone', 15)->nullable();
+            // $table->string('invitation_from')->nullable();
+            // $table->string('visitation_purpose')->nullable();
+            // $table->date('visit_date')->nullable();
+            // $table->time('arrival_time')->nullable();
             $table->foreignId('role_id')->constrained('roles');
             $table->boolean('is_active')->default(true);
             $table->timestamps();

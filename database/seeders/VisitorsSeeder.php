@@ -21,7 +21,7 @@ class VisitorsSeeder extends Seeder
 
         $visitors = [];
 
-        for ($i = 1; $i <= 80; $i++) {
+        for ($i = 1; $i <= 25; $i++) {
             $name = $faker->name;
             $email = str_replace(' ', '', strtolower($name)) . '@example.com';
 
@@ -30,11 +30,11 @@ class VisitorsSeeder extends Seeder
                 'name' => $name,
                 'email' => $email,
                 'password' => bcrypt('12345678'),
-                'phone' => $this->generateRandomPhone(),
-                'invitation_from' => $this->generateRandomName(),
-                'visitation_purpose' => $this->generateRandomPurpose(),
-                'visit_date' => now()->addDays($i),
-                'arrival_time' => now()->addHours($i),
+                // 'phone' => $this->generateRandomPhone(),
+                // 'invitation_from' => $this->generateRandomName(),
+                // 'visitation_purpose' => $this->generateRandomPurpose(),
+                // 'visit_date' => now()->addDays($i),
+                // 'arrival_time' => now()->addHours($i),
                 'role_id' => 4,
                 'is_active' => true,
                 'created_at' => now(),
@@ -52,38 +52,38 @@ class VisitorsSeeder extends Seeder
      *
      * @return string
      */
-    private function generateRandomPhone()
-    {
-        $phone = '';
+    // private function generateRandomPhone()
+    // {
+    //     $phone = '';
 
-        for ($i = 0; $i < 12; $i++) {
-            $phone .= mt_rand(0, 9);
-        }
+    //     for ($i = 0; $i < 12; $i++) {
+    //         $phone .= mt_rand(0, 9);
+    //     }
 
-        return $phone;
-    }
+    //     return $phone;
+    // }
 
     /**
      * Generate a random name.
      *
      * @return string
      */
-    private function generateRandomName()
-    {
-        $faker = Faker::create();
-        return $faker->name;
-    }
+    // private function generateRandomName()
+    // {
+    //     $faker = Faker::create();
+    //     return $faker->name;
+    // }
 
     /**
      * Generate a random purpose value.
      *
      * @return string
      */
-    private function generateRandomPurpose()
-    {
-        $purposes = ['Meeting', 'Company Visit'];
-        $index = array_rand($purposes);
+    // private function generateRandomPurpose()
+    // {
+    //     $purposes = ['Meeting', 'Company Visit'];
+    //     $index = array_rand($purposes);
 
-        return $purposes[$index];
-    }
+    //     return $purposes[$index];
+    // }
 }

@@ -41,13 +41,13 @@
                             <tbody>
                                 @forelse($visitors as $visitor)
                                     <tr>
-                                        <td><strong>{{ __($visitor->id) }}</strong></td>
-                                        <td>{{ __($visitor->visitor->name) }}</td>
-                                        <td>{{ __($visitor->visitor->phone) }}</td>
-                                        <td>{{ $visitor->visitor->visit_date }}</td>
-                                        <td>{{ __($visitor->visitor->arrival_time) }}</td>
-                                        <td>{{ __($visitor->karyawan->name) }}</td>
-                                        <td>{{ __($visitor->visitor->visitation_purpose) }}</td>
+                                        <td><strong>{{ __($loop->iteration) }}</strong></td>
+                                        <td>{{ __($visitor->appointment->name) }}</td>
+                                        <td>{{ __($visitor->appointment->phone) }}</td>
+                                        <td>{{ $visitor->appointment->visit_date }}</td>
+                                        <td>{{ __($visitor->appointment->arrival_time) }}</td>
+                                        <td>{{ __($visitor->appointment->invitation_from) }}</td>
+                                        <td>{{ __($visitor->appointment->visitation_purpose) }}</td>
                                         <td><span
                                                 class="badge light badge-{{ __($visitor->checkin == 'pending') ? 'info' : 'success' }}">{{ __($visitor->checkin) }}</span>
                                         </td>
@@ -97,7 +97,7 @@
                         <p class="small text-muted">Showing 0 to 0 of 0 results</p>
                     @endif
                     <div class="mt-3">
-                        {{ $visitors->links() }}
+                        {{ $visitors->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateAppointmentController;
 use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Livewire\EmployeeAccount;
 use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\LostItemController;
+use App\Http\Livewire\CreateAppointment;
 
 Route::redirect('/', '/auth/login');
 
@@ -20,6 +22,8 @@ Route::group([
 ], function () {
     Route::view('dashboard-page', 'dashboard.dashboard-page')->name('dashboard-page');
     Route::get('visitor-feedback', [FeedbackController::class, 'visitorFeedback'])->name('visitor-feedback')->middleware('CheckRole:visitor');
+    Route::get('visiting-appointments', CreateAppointment::class)->name('visiting-appointments')->middleware('CheckRole:visitor');
+    Route::post('create-appointment', [CreateAppointmentController::class, 'create'])->name('create-appointment')->middleware('CheckRole:visitor');
     Route::view('dashboard-visitor', 'dashboard.dashboard-visitor')->name('dashboard-visitor');
 
     // Karyawan GA
@@ -63,4 +67,4 @@ Route::group([
 });
 
 // Additional Route
-Route::match(['get', 'post'], '/employee-account', EmployeeAccount::class);
+// Route::match(['get', 'post'], '/employee-account', EmployeeAccount::class);

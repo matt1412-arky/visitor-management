@@ -111,7 +111,7 @@
                         <p class="small text-muted">Showing 0 to 0 of 0 results</p>
                     @endif
                     <div class="mt-3">
-                        {{ $visitors->links() }}
+                        {{ $visitors->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
             </div>

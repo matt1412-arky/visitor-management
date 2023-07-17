@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\{
-    Visitor,
+    Appointment,
     Visit
 };
 
@@ -14,8 +14,9 @@ class VisitorData extends Component
     public $paginator = 10;
     protected $paginationTheme = 'bootstrap';
 
-    public function checkin(Visit $visit)
+    public function checkin($visitId)
     {
+        $visit = Visit::findOrFail($visitId);
         $isPending = $visit->checkin === 'pending';
 
         $isPending ? $visit->update([
@@ -29,8 +30,10 @@ class VisitorData extends Component
             'Data has been successfully updated.'
         );
     }
-    public function checkout(Visit $visit)
+
+    public function checkout($visitId)
     {
+        $visit = Visit::findOrFail($visitId);
         $isPending = $visit->checkout === 'pending';
 
         $isPending ? $visit->update([
@@ -44,22 +47,22 @@ class VisitorData extends Component
             'Data has been successfully updated.'
         );
     }
+
     public function render()
     {
-        $visitors = Visit::whereHas('visitor', function ($query) {
-            $query->where('name', 'like', '%' . $this->search . '%')
-                ->orWhere('email', 'like', '%' . $this->search . '%')
-                ->orWhere('phone', 'like', '%' . $this->search . '%');
-        })->paginate($this->paginator);
+        $visitors = Visit::with(['appointment', 'appointment.visitor'])
+            ->whereHas('appointment', function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->paginate($this->paginator);
 
         return view('livewire.visitor-data', compact('visitors'));
     }
 
-    public function showToastr(
-        string $type,
-        string $message,
-    ) {
-        return $this->emit('showToastr', [
+
+    public function showToastr($type, $message)
+    {
+        $this->dispatchBrowserEvent('showToastr', [
             'type' => $type,
             'message' => $message,
         ]);

@@ -13,8 +13,8 @@
                             @csrf
                             <div class="list-question" id="list-question"></div>
                             @foreach ($feedbacks as $feedback)
-                                <input type="hidden" name="id_visit" value="{{ $feedback->id_visit }}">
-                                <input type="hidden" name="id_question" value="{{ $feedback->id_question }}">
+                                <input type="hidden" name="id_visit" value="{{ $feedback->visit->id }}">
+                                <input type="hidden" name="id_question" value="{{ $feedback->question->id }}">
                                 <input type="hidden" name="skala_feed" value="{{ $feedback->skala_feed }}">
                             @endforeach
 
@@ -25,7 +25,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
 
