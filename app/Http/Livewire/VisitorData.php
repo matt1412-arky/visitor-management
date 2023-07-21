@@ -50,10 +50,9 @@ class VisitorData extends Component
 
     public function render()
     {
-        $visitors = Visit::with(['appointment', 'appointment.visitor'])
-            ->whereHas('appointment', function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-            })
+        $visitors = Visit::query()
+            ->where('name', 'like', '%' . $this->search . '%')
+            ->orderBy('id', 'asc')
             ->paginate($this->paginator);
 
         return view('livewire.visitor-data', compact('visitors'));

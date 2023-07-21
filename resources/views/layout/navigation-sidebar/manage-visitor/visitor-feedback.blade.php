@@ -9,6 +9,7 @@
                         <h4 class="card-title">Visitor Feedback</h4>
                     </div>
                     <div class="basic-form my-3">
+                        {{-- @if ($feedbacks->isEmpty() || $feedbacks->where('skala_feed', 0)->isEmpty()) --}}
                         <form action="{{ route('home.feedback-update') }}" method="post" id="submit-feedback">
                             @csrf
                             <div class="list-question" id="list-question"></div>
@@ -21,6 +22,9 @@
                             <button type="submit" class="btn btn-google" id="btnCheckOut"
                                 style="color:white;">Submit</button>
                         </form>
+                        {{-- @else
+                        <p>Anda sudah memberikan feedback sebelumnya. Terima kasih atas partisipasinya.</p>
+                        @endif --}}
                     </div>
                 </div>
             </div>
@@ -77,7 +81,6 @@
 
             // Muat pertanyaan pertama kali dengan kategori pertama
             loadQuestions();
-
 
             function getValueFeedback() {
                 // Menghitung total value yang sudah dipilih

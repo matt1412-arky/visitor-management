@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_appointment')->constrained('appointment');
+            $table->foreignId('id_visitor')->constrained('visitors');
+            $table->foreignId('id_karyawan')->constrained('karyawan_ga');
+            $table->string('name')->nullable();
+            $table->string('phone', 15)->nullable();
+            $table->string('invitation_from')->nullable();
+            $table->string('visitation_purpose')->nullable();
+            $table->date('visit_date')->nullable();
+            $table->time('arrival_time')->nullable();
             $table->enum('checkin', ['checkin', 'pending'])->default('pending');
             $table->enum('checkout', ['checkout', 'pending'])->default('pending');
             $table->timestamps();

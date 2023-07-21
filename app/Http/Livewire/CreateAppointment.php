@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Appointment;
+use App\Models\Visit;
 use App\Models\KaryawanGA;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -31,9 +31,9 @@ class CreateAppointment extends Component
 
     public function createAppointment()
     {
-        $validatedData = $this->validate();
+        $this->validate();
 
-        $appointment = Appointment::create([
+        Visit::create([
             'name' => Auth::user()->name,
             'phone' => $this->phone,
             'invitation_from' => $this->invitation_from,
@@ -41,6 +41,8 @@ class CreateAppointment extends Component
             'visit_date' => $this->visit_date,
             'arrival_time' => $this->arrival_time,
             'id_visitor' => Auth::id(),
+            'checkin' => 'pending', // Set default value to "pending"
+            'checkout' => 'pending', // Set default value to "pending"
         ]);
 
         session()->flash('success', 'Appointment created successfully.');

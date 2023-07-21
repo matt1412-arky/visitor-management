@@ -30,8 +30,7 @@
                             <div class="row">
                                 <div class="mb-3 col-md-6 col-lg-12">
                                     <input type="hidden" value="{{ $visit->id }}" name="id_visit">
-                                    <input type="hidden" value="{{ $visit->appointment['visitation_purpose'] }}"
-                                        name="category_name">
+                                    <input type="hidden" value="{{ $visit->visitation_purpose }}" name="category_name">
                                     <label class="form-label fs-4"><b class="text-red">*</b>Question Category</label>
                                     <select class="form-control" name="id_question">
                                         <option value="">--choose--</option>

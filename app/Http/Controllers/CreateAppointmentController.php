@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Appointment;
+use App\Models\Visit;
 use App\Models\KaryawanGA;
 
 class CreateAppointmentController extends Controller
@@ -18,7 +18,16 @@ class CreateAppointmentController extends Controller
             'arrival_time' => 'required',
         ]);
 
-        $appointment = Appointment::create([
+        // Fetch the KaryawanGA model based on the 'invitation_from' input field (name)
+        $karyawan = KaryawanGA::where('name', $request->input('invitation_from'))->first();
+
+        if (!$karyawan) {
+            // Handle the case when the 'invitation_from' value does not match any KaryawanGA record
+            return back()->with('error', 'Invalid Karyawan');
+        }
+
+        // Create a new Visit record and assign 'id_karyawan' based on the fetched KaryawanGA model
+        $visit = Visit::create([
             'name' => auth()->user()->name,
             'phone' => $request->input('phone'),
             'invitation_from' => $request->input('invitation_from'),
@@ -26,10 +35,11 @@ class CreateAppointmentController extends Controller
             'visit_date' => $request->input('visit_date'),
             'arrival_time' => $request->input('arrival_time'),
             'id_visitor' => auth()->user()->id,
+            'id_karyawan' => $karyawan->id, // Assign 'id_karyawan' based on the fetched KaryawanGA model
+            'checkin' => 'pending',
+            'checkout' => 'pending',
         ]);
 
-        $karyawan = KaryawanGA::where('name', '<>', 'admin')->get();
-
-        return redirect()->route('home.visiting-appointments', compact('karyawan'))->with('success', 'Appointment created successfully');
+        return redirect()->route('home.visiting-appointments')->with('success', 'Appointment created successfully');
     }
 }

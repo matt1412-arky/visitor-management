@@ -1,5 +1,5 @@
 @extends('layout.apps')
-@section('title', 'Dashboard Admin')
+@section('title', 'Visitation Data')
 @section('content')
     <livewire:visitor-data />
 @endsection
