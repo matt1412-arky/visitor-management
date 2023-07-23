@@ -66,7 +66,14 @@
                         <i class="far fa-calendar-alt"></i>
                         <span class="nav-text">Visiting Appointments</span>
                     </a>
-                </li>                
+                </li>
+
+                <li class="{{ Request::route()->getName() == 'home.view-lost-item' ? 'active' : '' }}">
+                    <a href="{{ route('home.view-lost-item') }}">
+                        <i class="far fa-eye"></i>
+                        <span class="nav-text">View Lost Item</span>
+                    </a>
+                </li>
             @endif
 
             @if (in_array(Auth::user()->role_id, [1, 2]))
