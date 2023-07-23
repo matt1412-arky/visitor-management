@@ -12,8 +12,7 @@
                             {{ __(auth()->user()->name) }}
                         </span>
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                            <img src="{{ asset('support/images/avatar/logo-b7.jpeg') }}" width="56"
-                                alt="logo-bintang toejoe" />
+                            <img src="{{ asset('support/images/avatar/logo.jpeg') }}" width="56" alt="logo" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <form action="{{ route('home.logout') }}" method="POST">

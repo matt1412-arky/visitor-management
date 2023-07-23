@@ -19,6 +19,7 @@ class LostItemController extends Controller
             ->when($search, function ($query) use ($search) {
                 $query->where('item_name', 'like', "%$search%");
             })
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('lost-items.index', compact('lostItems', 'visitors', 'employees'));
@@ -54,7 +55,7 @@ class LostItemController extends Controller
         return redirect()->route('home.lost-item.index');
     }
 
-    public function updateLostItemStatus(Request $request, $id)
+    public function updateLostItemStatus($id)
     {
         $lostItem = LostItem::findOrFail($id);
 

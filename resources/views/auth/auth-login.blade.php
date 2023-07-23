@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=o">
-    <link href='/support/images/avatar/favicon.png' rel="support/shortcut icon" type="image/png" />
+    <link href='/support/images/avatar/logo.jpeg' rel="support/shortcut icon" type="image/jpeg" />
     <title>Login</title>
     <link rel="stylesheet" href="{{ asset('support/css/style.css') }}">
     <livewire:styles>
@@ -25,8 +25,8 @@
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <div class="text-center mb-3">
                                         <a href="#" class="">
-                                            <img src="{{ asset('support/images/avatar/login-b7.jpg') }}" width="300"
-                                                height="" alt="logo bintang toejoe">
+                                            <img src="{{ asset('support/images/avatar/logo.jpeg') }}" width="200"
+                                                height="" alt="logo">
                                         </a>
                                     </div>
                                     <livewire:auth.login-controller />

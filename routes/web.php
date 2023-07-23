@@ -8,7 +8,9 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Livewire\EmployeeAccount;
 use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\LostItemController;
+use App\Http\Controllers\ViewLostItemController;
 use App\Http\Livewire\CreateAppointment;
+use App\Http\Livewire\ViewLostItem;
 
 Route::redirect('/', '/auth/login');
 
@@ -24,6 +26,8 @@ Route::group([
     Route::get('visitor-feedback', [FeedbackController::class, 'visitorFeedback'])->name('visitor-feedback')->middleware('CheckRole:visitor');
     Route::get('visiting-appointments', CreateAppointment::class)->name('visiting-appointments')->middleware('CheckRole:visitor');
     Route::post('create-appointment', [CreateAppointmentController::class, 'create'])->name('create-appointment')->middleware('CheckRole:visitor');
+    // Route::get('view-lost-item', [ViewLostItemController::class, 'render'])->name('view-lost-item')->middleware('CheckRole:visitor');
+    Route::get('view-lost-item', ViewLostItem::class)->name('view-lost-item')->middleware('CheckRole:visitor');
     Route::view('dashboard-visitor', 'dashboard.dashboard-visitor')->name('dashboard-visitor');
 
     // Karyawan GA

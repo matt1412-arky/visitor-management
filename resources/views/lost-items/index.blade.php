@@ -68,7 +68,9 @@
                                     <select name="id_karyawan" class="form-control">
                                         <option value="">Choose Employee</option>
                                         @foreach ($employees as $employee)
-                                            <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                                            @if ($employee->name !== 'admin')
+                                                <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                     @error('id_karyawan')

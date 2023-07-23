@@ -46,6 +46,7 @@ class CreateAppointment extends Component
         ]);
 
         session()->flash('success', 'Appointment created successfully.');
+        session()->flash('fail', 'Failed to create appointment. Please check the form fields.');
 
         return redirect()->route('home.visiting-appointments');
     }

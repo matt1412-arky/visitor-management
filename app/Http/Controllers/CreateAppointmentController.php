@@ -41,5 +41,6 @@ class CreateAppointmentController extends Controller
         ]);
 
         return redirect()->route('home.visiting-appointments')->with('success', 'Appointment created successfully');
+        return redirect()->route('home.visiting-appointments')->with('fail', 'Failed to create appointment. Please check the form fields.');
     }
 }

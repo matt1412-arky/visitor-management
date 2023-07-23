@@ -7,6 +7,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    @if (session('fail'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('fail') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="row">
         <div class="col-xl-9 col-lg-12">
             <div class="card">
