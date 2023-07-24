@@ -19,11 +19,12 @@ class Visitor extends Authenticatable
         'name',
         'email',
         'password',
-        'phone',
-        'invitation_from',
-        'visitation_purpose',
-        'visit_date',
-        'arrival_time',
+        // 'phone',
+        // 'invitation_from',
+        // 'visitation_purpose',
+        // 'visit_date',
+        // 'arrival_time',
+        'is_active',
         'role_id',
     ];
     protected $hidden = [

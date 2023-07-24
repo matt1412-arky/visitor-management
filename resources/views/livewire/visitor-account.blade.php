@@ -37,27 +37,6 @@
                                     style="width: 78px;">Email
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Gender: activate to sort column ascending"
-                                    style="width: 56px;">Phone</th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Name: activate to sort column ascending"
-                                    style="width: 75px;">Invitation
-                                    From</th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Education: activate to sort column ascending"
-                                    style="width: 78px;">
-                                    Visitation Purpose
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Gender: activate to sort column ascending"
-                                    style="width: 56px;">Visit Date
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                    colspan="1" aria-label="Gender: activate to sort column ascending"
-                                    style="width: 56px;">Arrival
-                                    Time
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1"
                                     colspan="1" aria-label="Action: activate to sort column ascending"
                                     style="width: 49px;">Action</th>
                             </tr>
@@ -68,11 +47,6 @@
                                     <td>{{ $visitor->id }}</td>
                                     <td>{{ $visitor->name }}</td>
                                     <td>{{ $visitor->email }}</td>
-                                    <td>{{ $visitor->phone }}</td>
-                                    <td>{{ $visitor->invitation_from }}</td>
-                                    <td>{{ $visitor->visitation_purpose }}</td>
-                                    <td>{{ $visitor->visit_date }}</td>
-                                    <td>{{ $visitor->arrival_time }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <button wire:click="openModalDialog({{ $visitor->id }})"

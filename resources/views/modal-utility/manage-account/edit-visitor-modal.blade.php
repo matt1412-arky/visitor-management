@@ -21,43 +21,6 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="edit-phone">Phone:</label>
-                        <input type="text" id="edit-phone" wire:model.defer="phone" class="form-control">
-                        @error('phone')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-invitation">Invitation From:</label>
-                        <input type="text" id="edit-invitation" wire:model.defer="invitation_from"
-                            class="form-control">
-                        @error('invitation_from')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-purpose">Visitation Purpose:</label>
-                        <input type="text" id="edit-purpose" wire:model.defer="visitation_purpose"
-                            class="form-control">
-                        @error('visitation_purpose')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-date">Visit Date:</label>
-                        <input type="date" id="edit-date" wire:model.defer="visit_date" class="form-control">
-                        @error('visit_date')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="edit-arrival">Arrival Time:</label>
-                        <input type="time" id="edit-arrival" wire:model.defer="arrival_time" class="form-control">
-                        @error('arrival_time')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
