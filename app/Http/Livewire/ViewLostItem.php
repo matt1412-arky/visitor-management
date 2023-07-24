@@ -15,12 +15,6 @@ class ViewLostItem extends Component
 
     public function render()
     {
-        // $lostItems = LostItem::with('visitor', 'karyawan')
-        //     ->when($this->search, function ($query) {
-        //         $query->where('item_name', 'like', '%' . $this->search . '%');
-        //     })
-        //     ->orderBy('created_at', 'desc')
-        //     ->get();
         $visitors = Visitor::all();
         $employees = KaryawanGA::all();
 

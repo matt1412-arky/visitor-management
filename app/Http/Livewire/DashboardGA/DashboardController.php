@@ -32,7 +32,6 @@ class DashboardController extends Component
         $totalKaryawan = KaryawanGA::count();
         $totalFeedback = FeedBack::count();
         $totalLostItem = LostItem::count();
-        // $totalAppointment = Appointment::count();
 
         return view('livewire.dashboard-g-a.dashboard-controller', [
             'visits' => $visits,
@@ -41,7 +40,6 @@ class DashboardController extends Component
             'totalKaryawan' => $totalKaryawan,
             'totalFeedback' => $totalFeedback,
             'totalLostItem' => $totalLostItem,
-            // 'totalAppointment' => $totalAppointment
         ]);
     }
 }
