@@ -81,7 +81,7 @@ class EmployeeAccount extends Component
     public function editEmployee()
     {
         $this->validate([
-            'karyawan_ga.name' => ['required', 'string', 'max:100', 'min:3', 'regex:/^[\pL\s\-]+$/u'],
+            'karyawan_ga.name' => ['required', 'string', 'max:100', 'min:3'],
             'karyawan_ga.email' => ['required', 'email'],
             'karyawan_ga.devisi' => ['required', 'string'],
             'karyawan_ga.jabatan' => ['required', 'string'],
