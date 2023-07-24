@@ -61,7 +61,6 @@ class VisitorAccount extends Component
         if ($this->search) {
             $visitors = Visitor::query()
                 ->where('name', 'LIKE', "%{$this->search}%")
-                ->orWhere('phone', 'LIKE', "%{$this->search}%")
                 ->orWhere('email', 'LIKE', "%{$this->search}%")
                 ->paginate($this->paginator);
         } else {
