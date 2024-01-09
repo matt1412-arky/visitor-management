@@ -11,7 +11,8 @@
     <title>Catos Digital Bangsa | @yield('title') @stack('page-title')</title>
     @include('layout.template.style-css')
     <livewire:styles />
-
+    @include('layout.template.style-js')
+    <livewire:scripts />
 </head>
 
 <body>
@@ -63,7 +64,6 @@
         </div>
         <!--Main wrapper end-->
         <livewire:scripts />
-        @include('layout.template.style-js')
         <script>
             $.ajaxSetup({
                 headers: {
