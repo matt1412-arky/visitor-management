@@ -12,3 +12,4 @@
 <script src='/support/js/custom.min.js'></script>
 <script src='/support/js/dlabnav-init.js'></script>
 {{--  <script src="{{ asset('support/js/styleSwitcher.js') }}"></script>  --}}
+{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}

@@ -3,12 +3,12 @@
 namespace App\Http\Livewire\DashboardGA;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 use App\Models\Visitor;
 use App\Models\Visit;
 use App\Models\KaryawanGA;
 use App\Models\LostItem;
 use App\Models\FeedBack;
-// use App\Models\Appointment;
 use Livewire\WithPagination;
 
 class DashboardController extends Component
@@ -22,11 +22,13 @@ class DashboardController extends Component
 
     public function render()
     {
+        // Paginate visits
         $visits = Visit::query()
             ->where('name', 'like', '%' . $this->search . '%')
             ->orderBy('id', 'desc')
             ->paginate($this->paginator);
 
+        // Count totals
         $totalVisitors = Visitor::count();
         $totalVisits = Visit::count();
         $totalKaryawan = KaryawanGA::count();

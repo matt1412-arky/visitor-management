@@ -23,8 +23,8 @@ class LoginController extends Component
             'email' => 'required|email',
             'password' => 'required',
         ], [
-            'email.required' => 'Email is required',
-            'password.required' => 'Password is required',
+            'email.required' => '*Email is required',
+            'password.required' => '*Password is required',
         ]);
 
         $user = [
